@@ -41,13 +41,43 @@ def sha256(source: str | Path) -> str:
     return h.hexdigest()
 
 
-def _crop(img: np.ndarray, r: Region, margin: int, min_w: int = 0, min_h: int = 0) -> np.ndarray:
-    """The region plus a margin, widened about its centre to at least min_w x min_h."""
+def _crop(img: np.ndarray, r: Region, margin: int) -> np.ndarray:
     H, W = img.shape
+    return img[max(0, r.y - margin) : min(H, r.y + r.h + margin), max(0, r.x - margin) : min(W, r.x + r.w + margin)]
+
+
+def _bounds(ref: np.ndarray, r: Region, margin: int, min_w: int, min_h: int) -> tuple[int, int, int, int]:
+    """Crop box (x0, y0, x1, y1): the region plus a margin, widened about its centre to at least
+    min_w x min_h and shifted inward at the page edge, then widened sideways while handwriting on
+    the reference crosses its left or right edge, so no figure is shown cut in two."""
+    H, W = ref.shape
     w, h = max(r.w + 2 * margin, min_w), max(r.h + 2 * margin, min_h)
-    x0 = min(max(0, r.x + r.w // 2 - w // 2), max(0, W - w))  # shifted inward at the page edge
+    x0 = min(max(0, r.x + r.w // 2 - w // 2), max(0, W - w))
     y0 = min(max(0, r.y + r.h // 2 - h // 2), max(0, H - h))
-    return img[y0 : min(H, y0 + h), x0 : min(W, x0 + w)]
+    x1, y1 = min(W, x0 + w), min(H, y0 + h)
+    step = max(8, min_w // 6)
+    reach = max(8, min_w // 8)  # about a digit's width
+
+    def near(xa: int, xb: int) -> bool:
+        """Handwriting in columns xa..xb, just outside the crop."""
+        if xb <= xa:
+            return False
+        band = ref[y0:y1, max(0, xa - 40) : min(W, xb + 40)]
+        ink = (band < 0.6 * np.percentile(band, 90)).astype(np.uint8)
+        # ruling runs the width of the band or most of its height; a digit does neither
+        for k in ((1, 60), (max(90, int(0.6 * (y1 - y0))), 1)):
+            ink &= 1 - cv2.morphologyEx(ink, cv2.MORPH_OPEN, np.ones(k, np.uint8))
+        a = xa - max(0, xa - 40)
+        return int(ink[:, a : a + (xb - xa)].sum()) > 40
+
+    for _ in range(4):
+        if x0 > 0 and near(max(0, x0 - reach), x0 + 2):
+            x0 = max(0, x0 - step)
+        elif x1 < W and near(x1 - 2, min(W, x1 + reach)):
+            x1 = min(W, x1 + step)
+        else:
+            break
+    return x0, y0, x1, y1
 
 
 def _evidence_tile(ref: np.ndarray, sub: np.ndarray, r: Region, rotation: int | None) -> np.ndarray:
@@ -57,7 +87,8 @@ def _evidence_tile(ref: np.ndarray, sub: np.ndarray, r: Region, rotation: int | 
     smaller than a whole three-digit figure and its neighbours above and below.
     """
     k = max(ref.shape) / 2600
-    a, b = _crop(ref, r, 40, int(240 * k), int(150 * k)), _crop(sub, r, 40, int(240 * k), int(150 * k))
+    x0, y0, x1, y1 = _bounds(ref, r, 40, int(240 * k), int(150 * k))
+    a, b = ref[y0:y1, x0:x1], sub[y0:y1, x0:x1]
     if rotation is not None:
         a, b = cv2.rotate(a, rotation), cv2.rotate(b, rotation)
     gap = np.full((a.shape[0], 8), 0, np.uint8)
