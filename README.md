@@ -62,7 +62,7 @@ python -m formguard discover "affidavit.pdf#pages=46-130" --candidates ref/34A -
 python -m formguard cases manifest.json --out runs/
 
 # 3. Read the flagged figures with Ollama Cloud vision models (needs OLLAMA_API_KEY)
-python -m formguard readings runs/results.json --out readings.json [--confirm]
+python -m formguard readings runs/results.json --out readings.json [--confirm] [--only figures.json]
 
 # 4. Draft the affidavit (DOCX + Markdown, evidence images annexed)
 python -m formguard affidavit runs/results.json --readings readings.json --deponent deponent.json --out affidavit
@@ -70,7 +70,11 @@ python -m formguard affidavit runs/results.json --readings readings.json --depon
 
 Figures scoring between 0.5 and 0.65 are possible changes: they get evidence images and readings,
 and count as differing only when they read differently. Readings are saved after each case; failed
-attempts (a dropped connection, malformed output) are retried on the next run.
+attempts (a dropped connection, malformed output) are retried on the next run. `--only` takes
+`{case id: [evidence names]}` and reads just those figures, e.g. the ones an examiner has already
+read as numbers, so a model can serve as an independent second reader without spending calls on
+stamps and signatures. A model's answer is accepted as the JSON asked for, or as one
+"panel: numbers" line per panel, since some models ignore the requested format.
 
 Ollama Cloud models are used cheapest first. Readings start on `gemma4:31b` (the smallest vision
 model) and drafting on `gpt-oss:20b`. A larger model is tried only when the smaller one's output
