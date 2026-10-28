@@ -87,6 +87,8 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
         r = readings.get(key, {}) if key else {}
         if r.get("same_as"):  # a second region of a figure already listed (one number split in two)
             continue
+        if not c.get("clear", True) and not (r.get("original") and r.get("questioned") and r["original"] != r["questioned"]):
+            continue  # a possible change counts only when the figure reads differently
         changes.append(
             {
                 "evidence": c.get("evidence"),
@@ -98,6 +100,7 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
                 "questioned_reads": r.get("questioned") or None,
                 "read_by": r.get("by"),
                 "field": r.get("field"),
+                "clear": c.get("clear", True),
             }
         )
     page = (rep.get("pages") or [{}])[0]
@@ -245,8 +248,9 @@ METHOD = [
     "stroke, with the same place on the other image, using a correlation measure that is unaffected by brightness and "
     "contrast. The measure runs from \u22121 to 1, and an unchanged mark scores close to 1. I measured every figure containing a doubtful mark "
     "again in windows the size of a single digit, so that a changed digit is measured on its own even where it touches the "
-    "next one. A different figure, an added mark or a removed mark scores below 0.5, which is the threshold I applied. For "
-    "each figure that differs I prepared an image showing the original and the annexed page side by side.",
+    "next one. A figure scoring below 0.5 differs from the original. A figure scoring between 0.5 and 0.65 may differ, as "
+    "when a 3 is made from an 8, and I report it as differing only where it reads differently on the two images. For each "
+    "figure that differs I prepared an image showing the original and the annexed page side by side.",
     "Photographs of printed copies often lose the grey printed lettering of a form while the handwritten entries remain "
     "dark. So as not to mistake faded print for an alteration, I identified the printed parts of each original by "
     "overlaying other Forms 34A on it, since the print is common to all of them while the handwritten entries are not. I did "

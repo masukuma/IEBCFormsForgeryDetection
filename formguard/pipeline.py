@@ -12,7 +12,7 @@ import numpy as np
 
 from . import ocr, provenance
 from .compare import PageComparison, Region, compare_pages, sideways
-from .register import features, match_pages, paper_mask, refine, warp
+from .register import features, homography, match_pages, paper_mask, refine, warp
 from .render import load_pages, parse_source, pdf_metadata
 from .template import build_template, load_pool
 
@@ -24,6 +24,7 @@ class Config:
     long_side: int = 2600  # working resolution (px on the page's long side); ~220 dpi on A3
     min_inliers: int = 150  # keypoint agreement required to accept a page match
     flag_below: float = 0.5  # similarity below which a change counts as an alteration
+    possible_below: float = 0.65  # ... and below which it is a possible change, settled by reading the figure
     min_quality: float = 0.85  # median glyph similarity below which a page is too degraded to judge
     max_evidence: int = 50  # cells per page that get an evidence crop and an OCR reading
     ocr: bool = True  # read flagged numbers if tesseract is installed
@@ -73,12 +74,21 @@ def _page_verdict(pc: PageComparison, cfg: Config) -> str:
         return INCONCLUSIVE
     if any(r.on_figure for r in pc.flagged(cfg.flag_below, table_only=True)):
         return ALTERED
-    if pc.flagged(cfg.flag_below, table_only=False):
-        return REVIEW  # marks added in blank areas, or changes outside the table
+    if pc.flagged(cfg.possible_below, table_only=False):
+        return REVIEW  # possible changes to be read, marks on blank paper, or changes outside the table
     return CLEAN
 
 
 _TEMPLATES: dict[tuple, tuple[np.ndarray | None, int]] = {}
+_POOLS: dict[tuple, list[np.ndarray]] = {}
+
+
+def _pool(original: Path, cfg: Config) -> list[np.ndarray]:
+    key = (cfg.template, cfg.long_side, str(original))
+    if key not in _POOLS:
+        _POOLS.clear()
+        _POOLS[key] = load_pool(list(cfg.template[:12]), {parse_source(original)[0].resolve()}, cfg.long_side)
+    return _POOLS[key]
 
 
 def _template(original: Path, page: int, ref: np.ndarray, cfg: Config) -> tuple[np.ndarray | None, int]:
@@ -87,9 +97,22 @@ def _template(original: Path, page: int, ref: np.ndarray, cfg: Config) -> tuple[
     if key not in _TEMPLATES:
         if len(_TEMPLATES) > 4:
             _TEMPLATES.clear()
-        exclude = {parse_source(original)[0].resolve()}
-        _TEMPLATES[key] = build_template(ref, load_pool(list(cfg.template[:12]), exclude, cfg.long_side))
+        _TEMPLATES[key] = build_template(ref, _pool(original, cfg))
     return _TEMPLATES[key]
+
+
+def _upside_down(ref: np.ndarray, original: Path, cfg: Config) -> bool:
+    """Whether an original is stored upside down: other forms of its type register onto it turned
+    by about 180 degrees. Its evidence images would otherwise be shown upside down."""
+    rf = features(ref)
+    angles = []
+    for img in _pool(original, cfg)[:4]:
+        n, H = homography(features(img), rf)
+        if H is not None and n >= 100:
+            angles.append(abs(np.degrees(np.arctan2(H[1, 0], H[0, 0]))))
+        if len(angles) == 2:
+            break
+    return bool(angles) and float(np.median(angles)) > 135
 
 
 def compare_documents(original: Path, submission: Path, out_dir: Path | None = None, cfg: Config = Config()) -> dict:
@@ -114,6 +137,12 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
     use_ocr = cfg.ocr and ocr.available()
 
     ref_pages = load_pages(original, cfg.long_side)
+    turned = set()
+    if cfg.template:
+        for p in ref_pages:
+            if _upside_down(p.image, original, cfg):
+                p.image = cv2.rotate(p.image, cv2.ROTATE_180)
+                turned.add(p.index)
     sub_pages = load_pages(submission, cfg.long_side)
     matches = match_pages([features(p.image) for p in ref_pages], [features(p.image) for p in sub_pages], cfg.min_inliers)
 
@@ -135,9 +164,12 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         tpl, tpl_forms = _template(original, ref_pages[m.ref_index].index, ref, cfg) if cfg.template else (None, 0)
         pc = compare_pages(ref, warped, valid, template=tpl)
         verdict = _page_verdict(pc, cfg)
-        flagged = pc.flagged(cfg.flag_below, table_only=False)
+        # Clear changes, and possible ones (a "3" scores fairly high against the "8" it was made
+        # from) that a reading of both figures settles.
+        flagged = pc.flagged(cfg.possible_below, table_only=False)
         entry.update(
             original_page=ref_pages[m.ref_index].index + 1,
+            original_turned_180=ref_pages[m.ref_index].index in turned,
             verdict=verdict,
             quality=pc.quality,
             glyphs_compared=pc.glyphs,
@@ -155,6 +187,7 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         page_rotation: tuple | None = None if sideways(ref) else (None,)
         for k, r in enumerate(flagged):
             change = r.to_dict()
+            change["clear"] = r.similarity < cfg.flag_below
             rotation = None
             if use_ocr and k < cfg.max_evidence:
                 rots = page_rotation or ocr.ROTATIONS[1:]
@@ -205,7 +238,8 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         verdict = INCONCLUSIVE  # empty document
     report.update(
         verdict=verdict,
-        altered_numbers=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"]),
+        altered_numbers=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"] and c["clear"]),
+        possible_numbers=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"] and not c["clear"]),
         values_changed=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"] and c.get("value_changed")),
         swaps=swaps,
         pages=pages,

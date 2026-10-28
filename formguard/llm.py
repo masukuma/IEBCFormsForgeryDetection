@@ -24,6 +24,7 @@ Configuration (environment):
 from __future__ import annotations
 
 import base64
+import http.client
 import json
 import os
 import re
@@ -84,7 +85,7 @@ def _ladder(models: list[str], task: str, call, valid) -> tuple[object | None, s
     for model in models:
         try:
             result = call(model)
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, KeyError) as e:
+        except (OSError, http.client.HTTPException, ValueError, KeyError) as e:  # network, HTTP, bad JSON
             failures.append(f"{model}: {type(e).__name__}")
             continue
         ok = valid(result)
@@ -117,6 +118,12 @@ READ_PROMPT = (
 )
 
 
+def _unfence(text: str) -> str:
+    """Some models wrap JSON in a ```json fence even when a format is requested."""
+    m = re.match(r"^\s*```(?:json)?\s*(.*?)\s*```\s*$", text, re.DOTALL)
+    return m.group(1) if m else text
+
+
 def _valid_reading(r) -> bool:
     if not isinstance(r, dict) or not r.get("legible"):
         return False
@@ -129,7 +136,7 @@ def read_figures(tile_png: bytes, confirm: bool = False) -> dict | None:
     img = base64.b64encode(tile_png).decode()
 
     def call(model):
-        return json.loads(chat(model, [{"role": "user", "content": READ_PROMPT, "images": [img]}], fmt=READ_SCHEMA, task="read"))
+        return json.loads(_unfence(chat(model, [{"role": "user", "content": READ_PROMPT, "images": [img]}], fmt=READ_SCHEMA, task="read")))
 
     result, model, failures = _ladder(VISION_LADDER, "read", call, _valid_reading)
     if result is None:
