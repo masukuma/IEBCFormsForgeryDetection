@@ -7,8 +7,8 @@
       "failures": []
     },
     "p72_change05": {
-      "original": "088,007",
-      "questioned": "088,002",
+      "original": "088,007,000",
+      "questioned": "088,002,000",
       "by": "gemma4:31b",
       "failures": []
     }
@@ -49,20 +49,20 @@
       "failures": []
     },
     "p75_change02": {
-      "original": "3,45",
+      "original": "345",
       "questioned": "317",
       "by": "gemma4:31b",
       "failures": []
     },
     "p75_change03": {
-      "original": "4,0,0,0,0,1",
-      "questioned": "4,2,0,0,0,1",
+      "original": "284,060,000,001",
+      "questioned": "284,032,000,001",
       "by": "gemma4:31b",
       "failures": []
     },
     "p75_change04": {
-      "original": "45",
-      "questioned": "7",
+      "original": "345",
+      "questioned": "317",
       "by": "gemma4:31b",
       "failures": []
     }
@@ -95,8 +95,8 @@
       "failures": []
     },
     "p77_change02": {
-      "original": "249,299,020,000,000",
-      "questioned": "249,299,007,000,000",
+      "original": "209,299,020,000,000",
+      "questioned": "209,299,007,000,000",
       "by": "gemma4:31b",
       "failures": []
     },
@@ -136,17 +136,17 @@
     },
     "p79_change02": {
       "original": "103",
-      "questioned": "02",
+      "questioned": "102",
       "by": "gemma4:31b",
       "failures": []
     },
     "p79_change03": {
-      "original": "000,10310",
-      "questioned": "000,10210",
+      "original": "000,000,1031034",
+      "questioned": "000,000,1021034",
       "by": "kimi-k3",
       "failures": [
         "gemma4:31b: failed validation",
-        "kimi-k2.6: RemoteDisconnected"
+        "kimi-k2.6: failed validation"
       ]
     }
   },
@@ -170,7 +170,7 @@
   "C10": {
     "p81_change01": {
       "original": "048,001,000,000",
-      "questioned": "048,001,000,000",
+      "questioned": "048,000,000,000",
       "by": "gemma4:31b",
       "failures": []
     },
@@ -207,8 +207,8 @@
       "failures": []
     },
     "p82_change06": {
-      "original": "10",
-      "questioned": "8",
+      "original": "108",
+      "questioned": "85",
       "by": "gemma4:31b",
       "failures": []
     }
@@ -255,8 +255,8 @@
   },
   "C14": {
     "p85_change01": {
-      "original": "002,006,000",
-      "questioned": "002,001,000",
+      "original": "082,006,000,000",
+      "questioned": "082,001,000,000",
       "by": "gemma4:31b",
       "failures": []
     },
@@ -275,14 +275,14 @@
       "failures": []
     },
     "p86_change04": {
-      "original": "000,043",
-      "questioned": "000,040",
+      "original": "000,000,043",
+      "questioned": "000,000,040",
       "by": "gemma4:31b",
       "failures": []
     },
     "p86_change05": {
-      "original": "39,004,000,000",
-      "questioned": "39,001,000,000",
+      "original": "039,004,000,000",
+      "questioned": "039,001,000,000",
       "by": "gemma4:31b",
       "failures": []
     }
@@ -295,12 +295,10 @@
       "failures": []
     },
     "p87_change02": {
-      "original": "45",
-      "questioned": "3",
-      "by": "kimi-k2.6",
-      "failures": [
-        "gemma4:31b: failed validation"
-      ]
+      "original": "145",
+      "questioned": "133",
+      "by": "gemma4:31b",
+      "failures": []
     },
     "p87_change03": {
       "original": "145",
@@ -309,10 +307,12 @@
       "failures": []
     },
     "p87_change05": {
-      "original": "127,018,000,000",
-      "questioned": "127,006,000,000",
-      "by": "gemma4:31b",
-      "failures": []
+      "original": "127,018,600,000",
+      "questioned": "127,006,600,000",
+      "by": "kimi-k2.6",
+      "failures": [
+        "gemma4:31b: failed validation"
+      ]
     }
   },
   "C17": {
@@ -331,10 +331,8 @@
     "p88_change03": {
       "original": "367",
       "questioned": "286",
-      "by": "kimi-k2.6",
-      "failures": [
-        "gemma4:31b: failed validation"
-      ]
+      "by": "gemma4:31b",
+      "failures": []
     },
     "p88_change06": {
       "original": "367",
@@ -345,8 +343,8 @@
   },
   "C18": {
     "p89_change01": {
-      "original": "000,092",
-      "questioned": "000,090",
+      "original": "000,000,092",
+      "questioned": "000,000,090",
       "by": "gemma4:31b",
       "failures": []
     },
@@ -371,16 +369,16 @@
       "failures": []
     },
     "p90_change02": {
-      "original": "000,118",
-      "questioned": "000,108",
+      "original": "000,000,118",
+      "questioned": "000,000,108",
       "by": "gemma4:31b",
       "failures": []
     }
   },
   "C20": {
     "p91_change01": {
-      "original": "000,034",
-      "questioned": "000,029",
+      "original": "000,000,034",
+      "questioned": "000,000,029",
       "by": "gemma4:31b",
       "failures": []
     },
@@ -411,8 +409,8 @@
       "failures": []
     },
     "p92_change04": {
-      "original": "014,00",
-      "questioned": "003,00",
+      "original": "098,014,000",
+      "questioned": "098,003,000",
       "by": "gemma4:31b",
       "failures": []
     }
@@ -487,8 +485,8 @@
       "failures": []
     },
     "p112_change02": {
-      "original": "35",
-      "questioned": "25",
+      "original": "359",
+      "questioned": "259",
       "by": "gemma4:31b",
       "failures": []
     },
@@ -547,8 +545,8 @@
       "failures": []
     },
     "p115_change03": {
-      "original": "140,002",
-      "questioned": "040,002",
+      "original": "225,140,003",
+      "questioned": "225,040,003",
       "by": "gemma4:31b",
       "failures": []
     },
@@ -573,8 +571,8 @@
       "failures": []
     },
     "p116_change03": {
-      "original": "000,360",
-      "questioned": "000,277",
+      "original": "000,000,360",
+      "questioned": "000,000,277",
       "by": "gemma4:31b",
       "failures": []
     }
@@ -587,8 +585,8 @@
       "failures": []
     },
     "p117_change02": {
-      "original": "181,141,003",
-      "questioned": "181,047,003",
+      "original": "181,141,003,001",
+      "questioned": "181,047,003,001",
       "by": "gemma4:31b",
       "failures": []
     },
@@ -599,8 +597,8 @@
       "failures": []
     },
     "p117_change04": {
-      "original": "181,141",
-      "questioned": "181,047",
+      "original": "181,141,003",
+      "questioned": "181,047,003",
       "by": "gemma4:31b",
       "failures": []
     }
@@ -665,8 +663,8 @@
       "failures": []
     },
     "p120_change04": {
-      "original": "35",
-      "questioned": "27",
+      "original": "354",
+      "questioned": "274",
       "by": "gemma4:31b",
       "failures": []
     }
@@ -715,11 +713,8 @@
     "p123_change01": {
       "original": "363",
       "questioned": "293",
-      "by": "kimi-k3",
-      "failures": [
-        "gemma4:31b: failed validation",
-        "kimi-k2.6: failed validation"
-      ]
+      "by": "gemma4:31b",
+      "failures": []
     },
     "p123_change02": {
       "original": "000,000,363",
@@ -728,8 +723,8 @@
       "failures": []
     },
     "p123_change03": {
-      "original": "231,120,001,003",
-      "questioned": "231,050,001,003",
+      "original": "239,120,001,003",
+      "questioned": "239,050,001,003",
       "by": "gemma4:31b",
       "failures": []
     }
@@ -758,30 +753,28 @@
     "p131_change08": {
       "original": "256",
       "questioned": "176",
-      "by": "kimi-k2.6",
-      "failures": [
-        "gemma4:31b: failed validation"
-      ]
+      "by": "gemma4:31b",
+      "failures": []
     }
   },
   "_usage": {
     "gemma4:31b": {
       "calls": 112,
-      "prompt_tokens": 45316,
-      "output_tokens": 5318,
-      "accepted": 106
-    },
-    "kimi-k3": {
-      "calls": 3,
-      "prompt_tokens": 1178,
-      "output_tokens": 18666,
-      "accepted": 3
+      "prompt_tokens": 44723,
+      "output_tokens": 5456,
+      "accepted": 109
     },
     "kimi-k2.6": {
-      "calls": 5,
-      "prompt_tokens": 1174,
-      "output_tokens": 26740,
-      "accepted": 3
+      "calls": 3,
+      "prompt_tokens": 1129,
+      "output_tokens": 12334,
+      "accepted": 1
+    },
+    "kimi-k3": {
+      "calls": 2,
+      "prompt_tokens": 998,
+      "output_tokens": 10300,
+      "accepted": 2
     }
   }
 }
