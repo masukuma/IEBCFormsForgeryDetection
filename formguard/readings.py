@@ -7,10 +7,11 @@ from pathlib import Path
 from . import llm
 
 
-def read_all(results_path: Path, confirm: bool = False, existing: dict | None = None) -> dict:
+def read_all(results_path: Path, confirm: bool = False, existing: dict | None = None, save_to: Path | None = None) -> dict:
     """{case id: {"p75_change03": {"original": "060", "questioned": "032", "by": "gemma4:31b", ...}}}.
 
     Entries already in ``existing`` (e.g. typed in by the examiner) are kept and not re-read.
+    With ``save_to``, progress is written after each case, so an interrupted run resumes.
     """
     results = json.loads(Path(results_path).read_text())
     run_dir = Path(results_path).parent
@@ -28,5 +29,7 @@ def read_all(results_path: Path, confirm: bool = False, existing: dict | None = 
                         continue
                     r = llm.read_figures((ev / c["evidence"]).read_bytes(), confirm=confirm)
                     out.setdefault(case["id"], {})[key] = r
+        if save_to is not None:
+            Path(save_to).write_text(json.dumps(out, indent=2))
     out["_usage"] = llm.usage_summary()
     return out

@@ -111,7 +111,7 @@ def cmd_readings(a: argparse.Namespace) -> int:
         print("OLLAMA_API_KEY is not set", file=sys.stderr)
         return 2
     existing = json.loads(Path(a.out).read_text()) if Path(a.out).exists() else None
-    out = read_all(Path(a.results), confirm=a.confirm, existing=existing)
+    out = read_all(Path(a.results), confirm=a.confirm, existing=existing, save_to=Path(a.out))
     Path(a.out).write_text(json.dumps(out, indent=2))
     print(json.dumps(out["_usage"], indent=2), file=sys.stderr)
     return 0
