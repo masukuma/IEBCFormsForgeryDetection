@@ -754,6 +754,7 @@
       },
       "verdict": "review",
       "altered_numbers": 0,
+      "possible_numbers": 0,
       "values_changed": 0,
       "swaps": [],
       "pages": [
@@ -761,6 +762,7 @@
           "submission_page": 59,
           "inliers": 1695,
           "original_page": 1,
+          "original_turned_180": false,
           "verdict": "review",
           "quality": 0.97,
           "glyphs_compared": 710,
@@ -836,29 +838,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
               "evidence": "p59_change01.png"
-            },
-            {
-              "x": 971,
-              "y": 75,
-              "w": 22,
-              "h": 41,
-              "similarity": -0.455,
-              "ink_ref": 0,
-              "ink_sub": 954,
-              "kind": "obscured",
-              "in_table": false,
-              "glyphs": 2,
-              "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p59_change02.png"
             },
             {
               "x": 837,
@@ -872,11 +857,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change03.png"
+              "evidence": "p59_change02.png"
             },
             {
               "x": 534,
@@ -890,6 +876,26 @@
               "in_table": false,
               "glyphs": 2,
               "on_figure": false,
+              "clear": true,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p59_change03.png"
+            },
+            {
+              "x": 971,
+              "y": 75,
+              "w": 22,
+              "h": 41,
+              "similarity": -0.282,
+              "ink_ref": 0,
+              "ink_sub": 954,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 2,
+              "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -908,6 +914,7 @@
               "in_table": false,
               "glyphs": 2,
               "on_figure": false,
+              "clear": true,
               "read_original": "1",
               "read_submission": "1",
               "ocr_confidence": 16.5,
@@ -926,6 +933,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -944,6 +952,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -962,6 +971,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "7",
               "ocr_confidence": 41.9,
@@ -980,6 +990,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -998,6 +1009,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1016,6 +1028,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1034,6 +1047,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1052,6 +1066,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1070,6 +1085,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1088,6 +1104,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1106,6 +1123,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1124,29 +1142,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
               "evidence": "p59_change17.png"
-            },
-            {
-              "x": 1704,
-              "y": 291,
-              "w": 13,
-              "h": 6,
-              "similarity": -0.159,
-              "ink_ref": 0,
-              "ink_sub": 42,
-              "kind": "obscured",
-              "in_table": false,
-              "glyphs": 1,
-              "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p59_change18.png"
             },
             {
               "x": 953,
@@ -1160,11 +1161,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change19.png"
+              "evidence": "p59_change18.png"
             },
             {
               "x": 998,
@@ -1178,11 +1180,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change20.png"
+              "evidence": "p59_change19.png"
             },
             {
               "x": 353,
@@ -1196,11 +1199,12 @@
               "in_table": false,
               "glyphs": 2,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change21.png"
+              "evidence": "p59_change20.png"
             },
             {
               "x": 840,
@@ -1214,11 +1218,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change22.png"
+              "evidence": "p59_change21.png"
             },
             {
               "x": 870,
@@ -1232,11 +1237,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change23.png"
+              "evidence": "p59_change22.png"
             },
             {
               "x": 1748,
@@ -1250,11 +1256,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change24.png"
+              "evidence": "p59_change23.png"
             },
             {
               "x": 1070,
@@ -1268,6 +1275,26 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p59_change24.png"
+            },
+            {
+              "x": 1704,
+              "y": 291,
+              "w": 13,
+              "h": 6,
+              "similarity": -0.062,
+              "ink_ref": 0,
+              "ink_sub": 42,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1286,6 +1313,7 @@
               "in_table": false,
               "glyphs": 3,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1304,6 +1332,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1322,6 +1351,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1340,6 +1370,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1358,6 +1389,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1376,6 +1408,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1394,6 +1427,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1412,6 +1446,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1430,6 +1465,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1448,6 +1484,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1466,6 +1503,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1484,6 +1522,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1502,6 +1541,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "7",
               "read_submission": "7",
               "ocr_confidence": 37.4,
@@ -1520,6 +1560,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1538,6 +1579,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1556,29 +1598,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
               "evidence": "p59_change41.png"
-            },
-            {
-              "x": 1670,
-              "y": 148,
-              "w": 14,
-              "h": 4,
-              "similarity": 0.0,
-              "ink_ref": 0,
-              "ink_sub": 203,
-              "kind": "obscured",
-              "in_table": false,
-              "glyphs": 1,
-              "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p59_change42.png"
             },
             {
               "x": 988,
@@ -1592,11 +1617,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change43.png"
+              "evidence": "p59_change42.png"
             },
             {
               "x": 725,
@@ -1610,11 +1636,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change44.png"
+              "evidence": "p59_change43.png"
             },
             {
               "x": 1718,
@@ -1628,11 +1655,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "1",
               "read_submission": "",
               "ocr_confidence": 56.4,
               "value_changed": null,
-              "evidence": "p59_change45.png"
+              "evidence": "p59_change44.png"
             },
             {
               "x": 1622,
@@ -1646,11 +1674,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change46.png"
+              "evidence": "p59_change45.png"
             },
             {
               "x": 1598,
@@ -1664,11 +1693,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change47.png"
+              "evidence": "p59_change46.png"
             },
             {
               "x": 1775,
@@ -1682,11 +1712,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change48.png"
+              "evidence": "p59_change47.png"
             },
             {
               "x": 330,
@@ -1700,11 +1731,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change49.png"
+              "evidence": "p59_change48.png"
             },
             {
               "x": 1339,
@@ -1718,11 +1750,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p59_change50.png"
+              "evidence": "p59_change49.png"
             },
             {
               "x": 1576,
@@ -1735,7 +1768,13 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true,
+              "read_original": "",
+              "read_submission": "7",
+              "ocr_confidence": 6.1,
+              "value_changed": null,
+              "evidence": "p59_change50.png"
             },
             {
               "x": 400,
@@ -1748,7 +1787,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 364,
@@ -1761,7 +1801,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 4,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 339,
@@ -1774,7 +1815,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1762,
@@ -1787,7 +1829,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 42,
@@ -1800,7 +1843,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 54,
@@ -1813,7 +1857,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 54,
@@ -1826,7 +1871,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1617,
@@ -1839,20 +1885,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
-            },
-            {
-              "x": 356,
-              "y": 95,
-              "w": 5,
-              "h": 12,
-              "similarity": 0.079,
-              "ink_ref": 0,
-              "ink_sub": 219,
-              "kind": "obscured",
-              "in_table": false,
-              "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1032,
@@ -1865,7 +1899,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 357,
@@ -1878,7 +1913,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 34,
@@ -1891,7 +1927,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1715,
@@ -1904,14 +1941,43 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
+            },
+            {
+              "x": 70,
+              "y": 859,
+              "w": 11,
+              "h": 20,
+              "similarity": 0.514,
+              "ink_ref": 0,
+              "ink_sub": 100,
+              "kind": "addition",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1778,
+              "y": 2449,
+              "w": 9,
+              "h": 17,
+              "similarity": 0.538,
+              "ink_ref": 8,
+              "ink_sub": 152,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
             }
           ],
           "overview": "p59_overview.jpg"
         }
       ],
       "notes": [],
-      "seconds": 85.9,
+      "seconds": 124.3,
       "exhibit": {
         "label": "PDF page 59 (annexure page 58)",
         "caption": "IEBC PORTAL",
@@ -2623,6 +2689,7 @@
       },
       "verdict": "altered",
       "altered_numbers": 3,
+      "possible_numbers": 0,
       "values_changed": 0,
       "swaps": [],
       "pages": [
@@ -2630,6 +2697,7 @@
           "submission_page": 84,
           "inliers": 937,
           "original_page": 1,
+          "original_turned_180": false,
           "verdict": "altered",
           "quality": 0.9546,
           "glyphs_compared": 744,
@@ -2662,6 +2730,7 @@
               "in_table": true,
               "glyphs": 4,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2680,6 +2749,7 @@
               "in_table": true,
               "glyphs": 6,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2698,6 +2768,7 @@
               "in_table": true,
               "glyphs": 6,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2716,6 +2787,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2734,6 +2806,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2752,6 +2825,7 @@
               "in_table": false,
               "glyphs": 2,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2770,6 +2844,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2788,6 +2863,7 @@
               "in_table": false,
               "glyphs": 2,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2806,6 +2882,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "7",
               "ocr_confidence": 41.9,
@@ -2824,6 +2901,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2842,6 +2920,7 @@
               "in_table": false,
               "glyphs": 2,
               "on_figure": true,
+              "clear": true,
               "read_original": "7",
               "read_submission": "7",
               "ocr_confidence": 41.9,
@@ -2860,6 +2939,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -2878,6 +2958,7 @@
               "in_table": false,
               "glyphs": 2,
               "on_figure": true,
+              "clear": true,
               "read_original": "7",
               "read_submission": "7",
               "ocr_confidence": 44.3,
@@ -2889,7 +2970,7 @@
         }
       ],
       "notes": [],
-      "seconds": 36.4,
+      "seconds": 31.6,
       "exhibit": {
         "label": "PDF page 84 (annexure page 83)",
         "caption": "AGENT COPY",

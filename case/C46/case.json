@@ -734,6 +734,7 @@
       },
       "verdict": "clean",
       "altered_numbers": 0,
+      "possible_numbers": 0,
       "values_changed": 0,
       "swaps": [],
       "pages": [
@@ -741,6 +742,7 @@
           "submission_page": 128,
           "inliers": 1264,
           "original_page": 1,
+          "original_turned_180": false,
           "verdict": "clean",
           "quality": 0.9628,
           "glyphs_compared": 835,
@@ -800,7 +802,7 @@
         }
       ],
       "notes": [],
-      "seconds": 60.8,
+      "seconds": 70.7,
       "exhibit": {
         "label": "PDF page 128 (annexure page 127)",
         "caption": "",

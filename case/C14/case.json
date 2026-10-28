@@ -753,6 +753,7 @@
       },
       "verdict": "review",
       "altered_numbers": 0,
+      "possible_numbers": 0,
       "values_changed": 0,
       "swaps": [],
       "pages": [
@@ -760,6 +761,7 @@
           "submission_page": 60,
           "inliers": 869,
           "original_page": 1,
+          "original_turned_180": false,
           "verdict": "review",
           "quality": 0.9523,
           "glyphs_compared": 889,
@@ -781,24 +783,6 @@
           "large_marks": [],
           "changes": [
             {
-              "x": 1625,
-              "y": 187,
-              "w": 4,
-              "h": 14,
-              "similarity": -0.242,
-              "ink_ref": 0,
-              "ink_sub": 204,
-              "kind": "obscured",
-              "in_table": false,
-              "glyphs": 1,
-              "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p60_change01.png"
-            },
-            {
               "x": 1605,
               "y": 230,
               "w": 4,
@@ -810,29 +794,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "7",
               "ocr_confidence": 41.9,
               "value_changed": null,
-              "evidence": "p60_change02.png"
-            },
-            {
-              "x": 1654,
-              "y": 233,
-              "w": 15,
-              "h": 5,
-              "similarity": 0.0,
-              "ink_ref": 0,
-              "ink_sub": 175,
-              "kind": "obscured",
-              "in_table": false,
-              "glyphs": 1,
-              "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p60_change03.png"
+              "evidence": "p60_change01.png"
             },
             {
               "x": 1567,
@@ -846,11 +813,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p60_change04.png"
+              "evidence": "p60_change02.png"
             },
             {
               "x": 1514,
@@ -864,11 +832,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p60_change05.png"
+              "evidence": "p60_change03.png"
             },
             {
               "x": 1630,
@@ -882,11 +851,12 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p60_change06.png"
+              "evidence": "p60_change04.png"
             },
             {
               "x": 693,
@@ -900,18 +870,19 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p60_change07.png"
+              "evidence": "p60_change05.png"
             }
           ],
           "overview": "p60_overview.jpg"
         }
       ],
       "notes": [],
-      "seconds": 56.8,
+      "seconds": 92.1,
       "exhibit": {
         "label": "PDF page 60 (annexure page 59)",
         "caption": "IEBC PORTAL",
@@ -1623,6 +1594,7 @@
       },
       "verdict": "altered",
       "altered_numbers": 4,
+      "possible_numbers": 0,
       "values_changed": 0,
       "swaps": [],
       "pages": [
@@ -1630,6 +1602,7 @@
           "submission_page": 85,
           "inliers": 660,
           "original_page": 1,
+          "original_turned_180": false,
           "verdict": "altered",
           "quality": 0.9362,
           "glyphs_compared": 863,
@@ -1662,6 +1635,7 @@
               "in_table": true,
               "glyphs": 2,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1680,6 +1654,7 @@
               "in_table": true,
               "glyphs": 6,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1698,6 +1673,7 @@
               "in_table": true,
               "glyphs": 6,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1716,6 +1692,7 @@
               "in_table": true,
               "glyphs": 5,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1734,6 +1711,7 @@
               "in_table": false,
               "glyphs": 34,
               "on_figure": true,
+              "clear": true,
               "read_original": "25",
               "read_submission": "",
               "ocr_confidence": 30.1,
@@ -1752,6 +1730,7 @@
               "in_table": false,
               "glyphs": 3,
               "on_figure": false,
+              "clear": true,
               "read_original": "7",
               "read_submission": "",
               "ocr_confidence": 20.1,
@@ -1770,6 +1749,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1788,6 +1768,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1806,6 +1787,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "7",
               "ocr_confidence": 44.8,
@@ -1824,18 +1806,38 @@
               "in_table": false,
               "glyphs": 3,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
               "evidence": "p85_change10.png"
+            },
+            {
+              "x": 1320,
+              "y": 176,
+              "w": 21,
+              "h": 7,
+              "similarity": 0.53,
+              "ink_ref": 7,
+              "ink_sub": 56,
+              "kind": "addition",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p85_change11.png"
             }
           ],
           "overview": "p85_overview.jpg"
         }
       ],
       "notes": [],
-      "seconds": 26.9,
+      "seconds": 33.7,
       "exhibit": {
         "label": "PDF page 85 (annexure page 84)",
         "caption": "AGENT COPY",

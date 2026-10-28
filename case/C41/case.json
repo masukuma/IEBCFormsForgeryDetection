@@ -745,6 +745,7 @@
       },
       "verdict": "inconclusive",
       "altered_numbers": 24,
+      "possible_numbers": 57,
       "values_changed": 0,
       "swaps": [],
       "pages": [
@@ -752,6 +753,7 @@
           "submission_page": 124,
           "inliers": 181,
           "original_page": 1,
+          "original_turned_180": false,
           "verdict": "inconclusive",
           "quality": 0.828,
           "glyphs_compared": 1050,
@@ -806,6 +808,7 @@
               "in_table": true,
               "glyphs": 13,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -824,6 +827,7 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -842,6 +846,7 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -860,29 +865,12 @@
               "in_table": true,
               "glyphs": 8,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
               "evidence": "p124_change04.png"
-            },
-            {
-              "x": 1310,
-              "y": 1335,
-              "w": 248,
-              "h": 137,
-              "similarity": 0.233,
-              "ink_ref": 2347,
-              "ink_sub": 2672,
-              "kind": "substitution",
-              "in_table": true,
-              "glyphs": 11,
-              "on_figure": true,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change05.png"
             },
             {
               "x": 118,
@@ -896,11 +884,12 @@
               "in_table": true,
               "glyphs": 2,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change06.png"
+              "evidence": "p124_change05.png"
             },
             {
               "x": 144,
@@ -914,6 +903,26 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": true,
+              "clear": true,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change06.png"
+            },
+            {
+              "x": 1310,
+              "y": 1335,
+              "w": 248,
+              "h": 137,
+              "similarity": 0.294,
+              "ink_ref": 2347,
+              "ink_sub": 2672,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 11,
+              "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -932,6 +941,7 @@
               "in_table": true,
               "glyphs": 3,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -950,6 +960,7 @@
               "in_table": true,
               "glyphs": 36,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -968,6 +979,7 @@
               "in_table": true,
               "glyphs": 4,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -986,6 +998,7 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1004,29 +1017,12 @@
               "in_table": true,
               "glyphs": 13,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "01",
               "ocr_confidence": 5.5,
               "value_changed": null,
               "evidence": "p124_change12.png"
-            },
-            {
-              "x": 615,
-              "y": 1779,
-              "w": 250,
-              "h": 207,
-              "similarity": 0.369,
-              "ink_ref": 6336,
-              "ink_sub": 5837,
-              "kind": "substitution",
-              "in_table": true,
-              "glyphs": 30,
-              "on_figure": true,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change13.png"
             },
             {
               "x": 143,
@@ -1040,11 +1036,12 @@
               "in_table": true,
               "glyphs": 2,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change14.png"
+              "evidence": "p124_change13.png"
             },
             {
               "x": 1649,
@@ -1058,11 +1055,12 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change15.png"
+              "evidence": "p124_change14.png"
             },
             {
               "x": 1403,
@@ -1076,29 +1074,12 @@
               "in_table": true,
               "glyphs": 2,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change16.png"
-            },
-            {
-              "x": 1493,
-              "y": 2289,
-              "w": 12,
-              "h": 6,
-              "similarity": 0.391,
-              "ink_ref": 0,
-              "ink_sub": 27,
-              "kind": "addition",
-              "in_table": true,
-              "glyphs": 1,
-              "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change17.png"
+              "evidence": "p124_change15.png"
             },
             {
               "x": 191,
@@ -1112,11 +1093,12 @@
               "in_table": true,
               "glyphs": 9,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change18.png"
+              "evidence": "p124_change16.png"
             },
             {
               "x": 421,
@@ -1130,11 +1112,12 @@
               "in_table": true,
               "glyphs": 6,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change19.png"
+              "evidence": "p124_change17.png"
             },
             {
               "x": 194,
@@ -1148,11 +1131,12 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change20.png"
+              "evidence": "p124_change18.png"
             },
             {
               "x": 118,
@@ -1166,11 +1150,12 @@
               "in_table": true,
               "glyphs": 2,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change21.png"
+              "evidence": "p124_change19.png"
             },
             {
               "x": 113,
@@ -1184,11 +1169,12 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change22.png"
+              "evidence": "p124_change20.png"
             },
             {
               "x": 252,
@@ -1202,11 +1188,12 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change23.png"
+              "evidence": "p124_change21.png"
             },
             {
               "x": 969,
@@ -1220,29 +1207,12 @@
               "in_table": true,
               "glyphs": 13,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change24.png"
-            },
-            {
-              "x": 1112,
-              "y": 1399,
-              "w": 16,
-              "h": 5,
-              "similarity": 0.455,
-              "ink_ref": 0,
-              "ink_sub": 37,
-              "kind": "addition",
-              "in_table": true,
-              "glyphs": 1,
-              "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change25.png"
+              "evidence": "p124_change22.png"
             },
             {
               "x": 169,
@@ -1256,11 +1226,31 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change26.png"
+              "evidence": "p124_change23.png"
+            },
+            {
+              "x": 1616,
+              "y": 2146,
+              "w": 151,
+              "h": 52,
+              "similarity": 0.471,
+              "ink_ref": 1239,
+              "ink_sub": 1496,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 3,
+              "on_figure": true,
+              "clear": true,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change24.png"
             },
             {
               "x": 815,
@@ -1274,11 +1264,12 @@
               "in_table": true,
               "glyphs": 3,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change27.png"
+              "evidence": "p124_change25.png"
             },
             {
               "x": 1422,
@@ -1292,11 +1283,12 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change28.png"
+              "evidence": "p124_change26.png"
             },
             {
               "x": 1706,
@@ -1310,11 +1302,31 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change29.png"
+              "evidence": "p124_change27.png"
+            },
+            {
+              "x": 615,
+              "y": 1779,
+              "w": 250,
+              "h": 207,
+              "similarity": 0.485,
+              "ink_ref": 6336,
+              "ink_sub": 5837,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 30,
+              "on_figure": true,
+              "clear": true,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change28.png"
             },
             {
               "x": 649,
@@ -1328,11 +1340,12 @@
               "in_table": true,
               "glyphs": 4,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change30.png"
+              "evidence": "p124_change29.png"
             },
             {
               "x": 1492,
@@ -1346,11 +1359,12 @@
               "in_table": true,
               "glyphs": 7,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change31.png"
+              "evidence": "p124_change30.png"
             },
             {
               "x": 395,
@@ -1364,11 +1378,12 @@
               "in_table": true,
               "glyphs": 7,
               "on_figure": true,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change32.png"
+              "evidence": "p124_change31.png"
             },
             {
               "x": 1326,
@@ -1382,11 +1397,12 @@
               "in_table": true,
               "glyphs": 1,
               "on_figure": false,
+              "clear": true,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
               "value_changed": null,
-              "evidence": "p124_change33.png"
+              "evidence": "p124_change32.png"
             },
             {
               "x": 1326,
@@ -1400,6 +1416,26 @@
               "in_table": true,
               "glyphs": 18,
               "on_figure": false,
+              "clear": true,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change33.png"
+            },
+            {
+              "x": 1493,
+              "y": 2289,
+              "w": 12,
+              "h": 6,
+              "similarity": 0.5,
+              "ink_ref": 0,
+              "ink_sub": 27,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false,
               "read_original": "",
               "read_submission": "",
               "ocr_confidence": 0.0,
@@ -1407,22 +1443,1260 @@
               "evidence": "p124_change34.png"
             },
             {
+              "x": 537,
+              "y": 1216,
+              "w": 21,
+              "h": 13,
+              "similarity": 0.505,
+              "ink_ref": 33,
+              "ink_sub": 50,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change35.png"
+            },
+            {
+              "x": 1144,
+              "y": 1566,
+              "w": 12,
+              "h": 14,
+              "similarity": 0.505,
+              "ink_ref": 35,
+              "ink_sub": 28,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "7",
+              "ocr_confidence": 43.8,
+              "value_changed": null,
+              "evidence": "p124_change36.png"
+            },
+            {
+              "x": 147,
+              "y": 676,
+              "w": 17,
+              "h": 24,
+              "similarity": 0.508,
+              "ink_ref": 44,
+              "ink_sub": 177,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": false,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change37.png"
+            },
+            {
+              "x": 1384,
+              "y": 1396,
+              "w": 15,
+              "h": 17,
+              "similarity": 0.508,
+              "ink_ref": 53,
+              "ink_sub": 87,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "4",
+              "ocr_confidence": 93.9,
+              "value_changed": null,
+              "evidence": "p124_change38.png"
+            },
+            {
+              "x": 115,
+              "y": 703,
+              "w": 19,
+              "h": 22,
+              "similarity": 0.512,
+              "ink_ref": 25,
+              "ink_sub": 144,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change39.png"
+            },
+            {
+              "x": 178,
+              "y": 1516,
+              "w": 10,
+              "h": 12,
+              "similarity": 0.512,
+              "ink_ref": 47,
+              "ink_sub": 0,
+              "kind": "erasure",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change40.png"
+            },
+            {
+              "x": 1400,
+              "y": 2060,
+              "w": 7,
+              "h": 13,
+              "similarity": 0.513,
+              "ink_ref": 0,
+              "ink_sub": 42,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false,
+              "read_original": "1",
+              "read_submission": "4",
+              "ocr_confidence": 50.5,
+              "value_changed": true,
+              "evidence": "p124_change41.png"
+            },
+            {
+              "x": 134,
+              "y": 1105,
+              "w": 53,
+              "h": 23,
+              "similarity": 0.517,
+              "ink_ref": 328,
+              "ink_sub": 127,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 3,
+              "on_figure": true,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change42.png"
+            },
+            {
+              "x": 119,
+              "y": 875,
+              "w": 14,
+              "h": 7,
+              "similarity": 0.52,
+              "ink_ref": 0,
+              "ink_sub": 39,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change43.png"
+            },
+            {
+              "x": 136,
+              "y": 1172,
+              "w": 99,
+              "h": 31,
+              "similarity": 0.521,
+              "ink_ref": 857,
+              "ink_sub": 662,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 5,
+              "on_figure": true,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change44.png"
+            },
+            {
+              "x": 408,
+              "y": 1794,
+              "w": 160,
+              "h": 76,
+              "similarity": 0.524,
+              "ink_ref": 1860,
+              "ink_sub": 1520,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 8,
+              "on_figure": true,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change45.png"
+            },
+            {
+              "x": 196,
+              "y": 1111,
+              "w": 85,
+              "h": 18,
+              "similarity": 0.527,
+              "ink_ref": 475,
+              "ink_sub": 310,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 4,
+              "on_figure": true,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change46.png"
+            },
+            {
+              "x": 1698,
+              "y": 1990,
+              "w": 12,
+              "h": 7,
+              "similarity": 0.527,
+              "ink_ref": 5,
+              "ink_sub": 27,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change47.png"
+            },
+            {
+              "x": 680,
+              "y": 972,
+              "w": 13,
+              "h": 8,
+              "similarity": 0.53,
+              "ink_ref": 0,
+              "ink_sub": 33,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change48.png"
+            },
+            {
+              "x": 1400,
+              "y": 2019,
+              "w": 6,
+              "h": 16,
+              "similarity": 0.54,
+              "ink_ref": 0,
+              "ink_sub": 61,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change49.png"
+            },
+            {
+              "x": 1112,
+              "y": 1399,
+              "w": 16,
+              "h": 5,
+              "similarity": 0.541,
+              "ink_ref": 0,
+              "ink_sub": 37,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p124_change50.png"
+            },
+            {
+              "x": 1711,
+              "y": 1090,
+              "w": 18,
+              "h": 29,
+              "similarity": 0.542,
+              "ink_ref": 45,
+              "ink_sub": 88,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 237,
+              "y": 1749,
+              "w": 28,
+              "h": 19,
+              "similarity": 0.542,
+              "ink_ref": 136,
+              "ink_sub": 104,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 258,
+              "y": 1376,
+              "w": 13,
+              "h": 7,
+              "similarity": 0.543,
+              "ink_ref": 29,
+              "ink_sub": 15,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 502,
+              "y": 1258,
+              "w": 33,
+              "h": 15,
+              "similarity": 0.545,
+              "ink_ref": 126,
+              "ink_sub": 171,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 228,
+              "y": 1291,
+              "w": 14,
+              "h": 19,
+              "similarity": 0.545,
+              "ink_ref": 67,
+              "ink_sub": 35,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1632,
+              "y": 1106,
+              "w": 70,
+              "h": 43,
+              "similarity": 0.548,
+              "ink_ref": 1048,
+              "ink_sub": 1028,
+              "kind": "obscured",
+              "in_table": true,
+              "glyphs": 4,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1418,
+              "y": 1218,
+              "w": 31,
+              "h": 16,
+              "similarity": 0.548,
+              "ink_ref": 85,
+              "ink_sub": 159,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1731,
+              "y": 1701,
+              "w": 16,
+              "h": 15,
+              "similarity": 0.551,
+              "ink_ref": 1,
+              "ink_sub": 112,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 132,
+              "y": 2170,
+              "w": 25,
+              "h": 20,
+              "similarity": 0.555,
+              "ink_ref": 73,
+              "ink_sub": 144,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 146,
+              "y": 1883,
+              "w": 9,
+              "h": 20,
+              "similarity": 0.557,
+              "ink_ref": 21,
+              "ink_sub": 60,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 549,
+              "y": 771,
+              "w": 80,
+              "h": 18,
+              "similarity": 0.56,
+              "ink_ref": 712,
+              "ink_sub": 282,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 3,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 478,
+              "y": 742,
+              "w": 15,
+              "h": 7,
+              "similarity": 0.561,
+              "ink_ref": 106,
+              "ink_sub": 25,
+              "kind": "erasure",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1405,
+              "y": 857,
+              "w": 12,
+              "h": 4,
+              "similarity": 0.561,
+              "ink_ref": 25,
+              "ink_sub": 17,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 631,
+              "y": 1494,
+              "w": 138,
+              "h": 31,
+              "similarity": 0.565,
+              "ink_ref": 635,
+              "ink_sub": 528,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 7,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1224,
+              "y": 813,
+              "w": 13,
+              "h": 8,
+              "similarity": 0.568,
+              "ink_ref": 1,
+              "ink_sub": 44,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 306,
+              "y": 1109,
+              "w": 7,
+              "h": 13,
+              "similarity": 0.568,
+              "ink_ref": 40,
+              "ink_sub": 0,
+              "kind": "erasure",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1098,
+              "y": 1734,
+              "w": 40,
+              "h": 16,
+              "similarity": 0.569,
+              "ink_ref": 64,
+              "ink_sub": 127,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 407,
+              "y": 1513,
+              "w": 26,
+              "h": 13,
+              "similarity": 0.57,
+              "ink_ref": 37,
+              "ink_sub": 75,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 231,
+              "y": 720,
+              "w": 55,
+              "h": 9,
+              "similarity": 0.571,
+              "ink_ref": 424,
+              "ink_sub": 311,
+              "kind": "obscured",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 124,
+              "y": 1474,
+              "w": 19,
+              "h": 21,
+              "similarity": 0.574,
+              "ink_ref": 111,
+              "ink_sub": 96,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1714,
+              "y": 843,
+              "w": 12,
+              "h": 20,
+              "similarity": 0.575,
+              "ink_ref": 82,
+              "ink_sub": 180,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 278,
+              "y": 1336,
+              "w": 15,
+              "h": 16,
+              "similarity": 0.575,
+              "ink_ref": 33,
+              "ink_sub": 33,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1713,
+              "y": 1241,
+              "w": 17,
+              "h": 7,
+              "similarity": 0.576,
+              "ink_ref": 26,
+              "ink_sub": 23,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 342,
+              "y": 1515,
+              "w": 16,
+              "h": 14,
+              "similarity": 0.576,
+              "ink_ref": 15,
+              "ink_sub": 96,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 356,
+              "y": 1627,
+              "w": 28,
+              "h": 9,
+              "similarity": 0.579,
+              "ink_ref": 137,
+              "ink_sub": 226,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1563,
+              "y": 2074,
+              "w": 13,
+              "h": 8,
+              "similarity": 0.58,
+              "ink_ref": 0,
+              "ink_sub": 54,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1574,
+              "y": 779,
+              "w": 18,
+              "h": 4,
+              "similarity": 0.581,
+              "ink_ref": 31,
+              "ink_sub": 0,
+              "kind": "erasure",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1396,
+              "y": 981,
+              "w": 19,
+              "h": 9,
+              "similarity": 0.583,
+              "ink_ref": 16,
+              "ink_sub": 53,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1573,
+              "y": 1755,
+              "w": 191,
+              "h": 207,
+              "similarity": 0.583,
+              "ink_ref": 9467,
+              "ink_sub": 10249,
+              "kind": "obscured",
+              "in_table": true,
+              "glyphs": 20,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1223,
+              "y": 1220,
+              "w": 147,
+              "h": 25,
+              "similarity": 0.589,
+              "ink_ref": 573,
+              "ink_sub": 740,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 7,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 386,
+              "y": 1256,
+              "w": 50,
+              "h": 15,
+              "similarity": 0.591,
+              "ink_ref": 151,
+              "ink_sub": 97,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 353,
+              "y": 1751,
+              "w": 9,
+              "h": 14,
+              "similarity": 0.591,
+              "ink_ref": 37,
+              "ink_sub": 11,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1214,
+              "y": 1467,
+              "w": 109,
+              "h": 65,
+              "similarity": 0.594,
+              "ink_ref": 1707,
+              "ink_sub": 1683,
+              "kind": "obscured",
+              "in_table": true,
+              "glyphs": 6,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 725,
+              "y": 1268,
+              "w": 18,
+              "h": 6,
+              "similarity": 0.602,
+              "ink_ref": 47,
+              "ink_sub": 23,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 412,
+              "y": 1117,
+              "w": 12,
+              "h": 11,
+              "similarity": 0.604,
+              "ink_ref": 50,
+              "ink_sub": 14,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 567,
+              "y": 1213,
+              "w": 10,
+              "h": 13,
+              "similarity": 0.605,
+              "ink_ref": 8,
+              "ink_sub": 69,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 387,
+              "y": 1222,
+              "w": 49,
+              "h": 11,
+              "similarity": 0.605,
+              "ink_ref": 143,
+              "ink_sub": 275,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 285,
+              "y": 1296,
+              "w": 10,
+              "h": 14,
+              "similarity": 0.611,
+              "ink_ref": 9,
+              "ink_sub": 61,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 118,
+              "y": 1436,
+              "w": 160,
+              "h": 23,
+              "similarity": 0.614,
+              "ink_ref": 1270,
+              "ink_sub": 1220,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 6,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 181,
+              "y": 631,
+              "w": 202,
+              "h": 27,
+              "similarity": 0.617,
+              "ink_ref": 1826,
+              "ink_sub": 1337,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 4,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 187,
+              "y": 1254,
+              "w": 28,
+              "h": 16,
+              "similarity": 0.617,
+              "ink_ref": 173,
+              "ink_sub": 90,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1314,
+              "y": 2542,
+              "w": 18,
+              "h": 20,
+              "similarity": 0.617,
+              "ink_ref": 27,
+              "ink_sub": 207,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1403,
+              "y": 523,
+              "w": 57,
+              "h": 21,
+              "similarity": 0.619,
+              "ink_ref": 325,
+              "ink_sub": 193,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1276,
+              "y": 815,
+              "w": 13,
+              "h": 7,
+              "similarity": 0.619,
+              "ink_ref": 0,
+              "ink_sub": 38,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 339,
+              "y": 1116,
+              "w": 12,
+              "h": 12,
+              "similarity": 0.619,
+              "ink_ref": 51,
+              "ink_sub": 50,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 466,
+              "y": 1519,
+              "w": 13,
+              "h": 8,
+              "similarity": 0.619,
+              "ink_ref": 4,
+              "ink_sub": 50,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1471,
+              "y": 1725,
+              "w": 94,
+              "h": 26,
+              "similarity": 0.623,
+              "ink_ref": 600,
+              "ink_sub": 431,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 4,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1619,
+              "y": 1697,
+              "w": 12,
+              "h": 19,
+              "similarity": 0.627,
+              "ink_ref": 27,
+              "ink_sub": 73,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 391,
+              "y": 766,
+              "w": 119,
+              "h": 11,
+              "similarity": 0.628,
+              "ink_ref": 935,
+              "ink_sub": 474,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 5,
+              "on_figure": true,
+              "clear": false
+            },
+            {
               "x": 800,
               "y": 1477,
               "w": 141,
               "h": 50,
-              "similarity": 0.499,
+              "similarity": 0.63,
               "ink_ref": 1231,
               "ink_sub": 998,
               "kind": "substitution",
               "in_table": true,
               "glyphs": 7,
               "on_figure": true,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change35.png"
+              "clear": false
+            },
+            {
+              "x": 520,
+              "y": 727,
+              "w": 12,
+              "h": 5,
+              "similarity": 0.631,
+              "ink_ref": 70,
+              "ink_sub": 22,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1579,
+              "y": 1480,
+              "w": 24,
+              "h": 5,
+              "similarity": 0.632,
+              "ink_ref": 171,
+              "ink_sub": 89,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 448,
+              "y": 1920,
+              "w": 26,
+              "h": 27,
+              "similarity": 0.632,
+              "ink_ref": 199,
+              "ink_sub": 172,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 313,
+              "y": 1221,
+              "w": 13,
+              "h": 11,
+              "similarity": 0.634,
+              "ink_ref": 34,
+              "ink_sub": 62,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 475,
+              "y": 1873,
+              "w": 118,
+              "h": 35,
+              "similarity": 0.634,
+              "ink_ref": 594,
+              "ink_sub": 694,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 6,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 282,
+              "y": 1922,
+              "w": 20,
+              "h": 31,
+              "similarity": 0.634,
+              "ink_ref": 100,
+              "ink_sub": 49,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 466,
+              "y": 1216,
+              "w": 4,
+              "h": 14,
+              "similarity": 0.635,
+              "ink_ref": 29,
+              "ink_sub": 0,
+              "kind": "erasure",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 134,
+              "y": 1250,
+              "w": 10,
+              "h": 12,
+              "similarity": 0.637,
+              "ink_ref": 32,
+              "ink_sub": 28,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 269,
+              "y": 1515,
+              "w": 13,
+              "h": 11,
+              "similarity": 0.637,
+              "ink_ref": 13,
+              "ink_sub": 68,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 362,
+              "y": 1112,
+              "w": 29,
+              "h": 18,
+              "similarity": 0.638,
+              "ink_ref": 108,
+              "ink_sub": 71,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1689,
+              "y": 620,
+              "w": 24,
+              "h": 7,
+              "similarity": 0.639,
+              "ink_ref": 53,
+              "ink_sub": 30,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 322,
+              "y": 1373,
+              "w": 7,
+              "h": 14,
+              "similarity": 0.639,
+              "ink_ref": 10,
+              "ink_sub": 41,
+              "kind": "addition",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 256,
+              "y": 1296,
+              "w": 16,
+              "h": 9,
+              "similarity": 0.64,
+              "ink_ref": 42,
+              "ink_sub": 43,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1449,
+              "y": 1609,
+              "w": 53,
+              "h": 21,
+              "similarity": 0.643,
+              "ink_ref": 323,
+              "ink_sub": 469,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 314,
+              "y": 1334,
+              "w": 15,
+              "h": 9,
+              "similarity": 0.644,
+              "ink_ref": 22,
+              "ink_sub": 49,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1027,
+              "y": 1506,
+              "w": 21,
+              "h": 19,
+              "similarity": 0.647,
+              "ink_ref": 53,
+              "ink_sub": 148,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1077,
+              "y": 1509,
+              "w": 14,
+              "h": 17,
+              "similarity": 0.647,
+              "ink_ref": 75,
+              "ink_sub": 76,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 319,
+              "y": 1172,
+              "w": 45,
+              "h": 26,
+              "similarity": 0.649,
+              "ink_ref": 469,
+              "ink_sub": 244,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 4,
+              "on_figure": true,
+              "clear": false
             },
             {
               "x": 1774,
@@ -1436,11 +2710,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change36.png"
+              "clear": true
             },
             {
               "x": 768,
@@ -1454,11 +2724,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change37.png"
+              "clear": true
             },
             {
               "x": 163,
@@ -1472,11 +2738,7 @@
               "in_table": false,
               "glyphs": 3,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change38.png"
+              "clear": true
             },
             {
               "x": 229,
@@ -1490,29 +2752,21 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change39.png"
+              "clear": true
             },
             {
               "x": 100,
               "y": 96,
               "w": 141,
               "h": 85,
-              "similarity": -0.185,
+              "similarity": -0.172,
               "ink_ref": 1231,
               "ink_sub": 1076,
               "kind": "substitution",
               "in_table": false,
               "glyphs": 4,
               "on_figure": true,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change40.png"
+              "clear": true
             },
             {
               "x": 47,
@@ -1526,11 +2780,7 @@
               "in_table": false,
               "glyphs": 4,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change41.png"
+              "clear": true
             },
             {
               "x": 1066,
@@ -1544,11 +2794,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change42.png"
+              "clear": true
             },
             {
               "x": 1607,
@@ -1562,11 +2808,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change43.png"
+              "clear": true
             },
             {
               "x": 522,
@@ -1580,29 +2822,21 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change44.png"
+              "clear": true
             },
             {
               "x": 1224,
               "y": 79,
               "w": 168,
               "h": 153,
-              "similarity": -0.113,
+              "similarity": -0.103,
               "ink_ref": 5594,
               "ink_sub": 6215,
               "kind": "obscured",
               "in_table": false,
               "glyphs": 13,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change45.png"
+              "clear": true
             },
             {
               "x": 1771,
@@ -1616,11 +2850,7 @@
               "in_table": false,
               "glyphs": 2,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change46.png"
+              "clear": true
             },
             {
               "x": 734,
@@ -1634,11 +2864,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change47.png"
+              "clear": true
             },
             {
               "x": 301,
@@ -1652,11 +2878,7 @@
               "in_table": false,
               "glyphs": 3,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change48.png"
+              "clear": true
             },
             {
               "x": 1139,
@@ -1670,11 +2892,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change49.png"
+              "clear": true
             },
             {
               "x": 734,
@@ -1688,11 +2906,7 @@
               "in_table": false,
               "glyphs": 1,
               "on_figure": false,
-              "read_original": "",
-              "read_submission": "",
-              "ocr_confidence": 0.0,
-              "value_changed": null,
-              "evidence": "p124_change50.png"
+              "clear": true
             },
             {
               "x": 1601,
@@ -1705,7 +2919,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 690,
@@ -1718,7 +2933,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 810,
@@ -1731,7 +2947,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 754,
@@ -1744,7 +2961,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1060,
@@ -1757,7 +2975,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 5,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 280,
@@ -1770,7 +2989,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 2,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1393,
@@ -1783,7 +3003,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1200,
@@ -1796,7 +3017,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 761,
@@ -1809,7 +3031,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1401,
@@ -1822,7 +3045,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1629,
@@ -1835,7 +3059,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1010,
@@ -1848,7 +3073,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1407,
@@ -1861,7 +3087,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 18,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 940,
@@ -1874,7 +3101,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 381,
@@ -1887,7 +3115,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 841,
@@ -1900,7 +3129,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 2,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 426,
@@ -1913,7 +3143,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 922,
@@ -1926,7 +3157,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 680,
@@ -1939,7 +3171,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 656,
@@ -1952,7 +3185,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1165,
@@ -1965,7 +3199,8 @@
               "kind": "obscured",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 232,
@@ -1978,7 +3213,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 741,
@@ -1991,7 +3227,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 101,
@@ -2004,7 +3241,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1197,
@@ -2017,7 +3255,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 810,
@@ -2030,7 +3269,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 118,
@@ -2043,7 +3283,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 8,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 562,
@@ -2056,7 +3297,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1391,
@@ -2069,7 +3311,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 826,
@@ -2082,7 +3325,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 118,
@@ -2095,20 +3339,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 4,
-              "on_figure": true
-            },
-            {
-              "x": 118,
-              "y": 481,
-              "w": 87,
-              "h": 30,
-              "similarity": 0.317,
-              "ink_ref": 497,
-              "ink_sub": 504,
-              "kind": "substitution",
-              "in_table": false,
-              "glyphs": 4,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 492,
@@ -2121,7 +3353,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 528,
@@ -2134,7 +3367,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 2,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 1123,
@@ -2147,7 +3381,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1590,
@@ -2160,7 +3395,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 1535,
@@ -2173,7 +3409,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 2,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 422,
@@ -2186,7 +3423,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1115,
@@ -2199,7 +3437,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 2,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 919,
@@ -2212,7 +3451,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 1424,
@@ -2225,7 +3465,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 1405,
@@ -2238,7 +3479,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 2,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 1436,
@@ -2251,7 +3493,8 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
             },
             {
               "x": 965,
@@ -2264,7 +3507,22 @@
               "kind": "addition",
               "in_table": false,
               "glyphs": 1,
-              "on_figure": false
+              "on_figure": false,
+              "clear": true
+            },
+            {
+              "x": 118,
+              "y": 481,
+              "w": 87,
+              "h": 30,
+              "similarity": 0.475,
+              "ink_ref": 497,
+              "ink_sub": 504,
+              "kind": "substitution",
+              "in_table": false,
+              "glyphs": 4,
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 248,
@@ -2277,7 +3535,8 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 2,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
             },
             {
               "x": 427,
@@ -2290,14 +3549,253 @@
               "kind": "substitution",
               "in_table": false,
               "glyphs": 3,
-              "on_figure": true
+              "on_figure": true,
+              "clear": true
+            },
+            {
+              "x": 1507,
+              "y": 444,
+              "w": 37,
+              "h": 21,
+              "similarity": 0.501,
+              "ink_ref": 322,
+              "ink_sub": 201,
+              "kind": "substitution",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1100,
+              "y": 222,
+              "w": 10,
+              "h": 12,
+              "similarity": 0.502,
+              "ink_ref": 0,
+              "ink_sub": 55,
+              "kind": "addition",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1648,
+              "y": 104,
+              "w": 24,
+              "h": 13,
+              "similarity": 0.523,
+              "ink_ref": 92,
+              "ink_sub": 342,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1502,
+              "y": 481,
+              "w": 10,
+              "h": 20,
+              "similarity": 0.529,
+              "ink_ref": 65,
+              "ink_sub": 2,
+              "kind": "erasure",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 462,
+              "y": 414,
+              "w": 13,
+              "h": 13,
+              "similarity": 0.534,
+              "ink_ref": 86,
+              "ink_sub": 0,
+              "kind": "erasure",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1394,
+              "y": 234,
+              "w": 14,
+              "h": 8,
+              "similarity": 0.541,
+              "ink_ref": 7,
+              "ink_sub": 60,
+              "kind": "addition",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1622,
+              "y": 67,
+              "w": 22,
+              "h": 26,
+              "similarity": 0.57,
+              "ink_ref": 170,
+              "ink_sub": 201,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 2,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 1436,
+              "y": 409,
+              "w": 26,
+              "h": 17,
+              "similarity": 0.578,
+              "ink_ref": 160,
+              "ink_sub": 32,
+              "kind": "erasure",
+              "in_table": false,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 787,
+              "y": 395,
+              "w": 18,
+              "h": 8,
+              "similarity": 0.58,
+              "ink_ref": 73,
+              "ink_sub": 87,
+              "kind": "substitution",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 724,
+              "y": 377,
+              "w": 13,
+              "h": 7,
+              "similarity": 0.608,
+              "ink_ref": 96,
+              "ink_sub": 113,
+              "kind": "substitution",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1293,
+              "y": 73,
+              "w": 38,
+              "h": 11,
+              "similarity": 0.611,
+              "ink_ref": 294,
+              "ink_sub": 576,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 2,
+              "on_figure": false,
+              "clear": false
+            },
+            {
+              "x": 385,
+              "y": 382,
+              "w": 12,
+              "h": 9,
+              "similarity": 0.621,
+              "ink_ref": 83,
+              "ink_sub": 33,
+              "kind": "substitution",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 230,
+              "y": 362,
+              "w": 17,
+              "h": 8,
+              "similarity": 0.625,
+              "ink_ref": 84,
+              "ink_sub": 128,
+              "kind": "substitution",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 487,
+              "y": 411,
+              "w": 27,
+              "h": 22,
+              "similarity": 0.629,
+              "ink_ref": 188,
+              "ink_sub": 0,
+              "kind": "erasure",
+              "in_table": false,
+              "glyphs": 2,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 425,
+              "y": 364,
+              "w": 25,
+              "h": 13,
+              "similarity": 0.636,
+              "ink_ref": 143,
+              "ink_sub": 43,
+              "kind": "substitution",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 1500,
+              "y": 524,
+              "w": 27,
+              "h": 18,
+              "similarity": 0.641,
+              "ink_ref": 186,
+              "ink_sub": 57,
+              "kind": "substitution",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
+            },
+            {
+              "x": 304,
+              "y": 380,
+              "w": 15,
+              "h": 10,
+              "similarity": 0.647,
+              "ink_ref": 98,
+              "ink_sub": 104,
+              "kind": "substitution",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": true,
+              "clear": false
             }
           ],
           "overview": "p124_overview.jpg"
         }
       ],
       "notes": [],
-      "seconds": 77.2,
+      "seconds": 110.9,
       "exhibit": {
         "label": "PDF page 124 (annexure page 123)",
         "caption": "AGENT COPY",
