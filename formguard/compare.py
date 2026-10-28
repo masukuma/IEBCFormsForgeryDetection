@@ -192,7 +192,22 @@ def _hough_rules(ink: np.ndarray) -> np.ndarray | None:
     segs = segs.reshape(-1, 4)  # (N, 1, 4) in OpenCV 4, (N, 4) in OpenCV 5
     dx, dy = segs[:, 2] - segs[:, 0], segs[:, 3] - segs[:, 1]
     keep = np.abs(dy) <= 0.18 * np.abs(dx)  # within ~10 degrees of horizontal
+    keep &= np.array([_thin(ink, sg) for sg in segs], bool)
     return segs[keep] if keep.any() else None
+
+
+def _thin(ink: np.ndarray, seg: np.ndarray, gap: int = 12) -> bool:
+    """A rule is a thin, solid line with paper on both sides. A line of bold text is broken and
+    has ink above and below it; the edge of a dark band or of the sheet has ink on one side."""
+    h, w = ink.shape
+    x1, y1, x2, y2 = (int(v) for v in seg)
+    t = np.linspace(0.0, 1.0, max(2, max(abs(x2 - x1), abs(y2 - y1)) // 3))
+    xs = np.clip(np.round(x1 + (x2 - x1) * t).astype(int), 0, w - 1)
+    ys = np.round(y1 + (y2 - y1) * t).astype(int)
+    on = cv2.dilate(ink, np.ones((5, 5), np.uint8))[np.clip(ys, 0, h - 1), xs].mean()
+    above = ink[np.clip(ys - gap, 0, h - 1), xs].mean()
+    below = ink[np.clip(ys + gap, 0, h - 1), xs].mean()
+    return on >= 0.6 and above < 0.35 and below < 0.35
 
 
 def long_rules(ink: np.ndarray) -> np.ndarray:
@@ -365,7 +380,8 @@ def compare_pages(
             sim = max(sim, _faint(strokes, cv2.GaussianBlur(fb[y0 + dy : y1 + dy, x0 + dx : x1 + dx], (0, 0), 1.5)))
         return sim, ka, kb
     st = cv2.GaussianBlur(np.minimum(template, PAPER), (0, 0), 1.0) if template is not None else None
-    roi = table_roi((fa < 0.5).astype(np.uint8))
+    ref_ink = (fa < ink_threshold(fa)).astype(np.uint8)
+    roi = table_roi(ref_ink & inside if inside is not None else ref_ink)  # not the edge of the sheet
     m = SHIFT + 3
 
     n, labels, stats, _ = cv2.connectedComponentsWithStats(cv2.dilate(glyph, np.ones((3, 3), np.uint8)))

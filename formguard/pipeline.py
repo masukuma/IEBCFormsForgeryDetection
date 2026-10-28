@@ -125,7 +125,11 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
             pages.append(entry)
             continue
         ref = ref_pages[m.ref_index].image
-        warped, valid = warp(sub_pages[m.sub_index].image, m.H, ref.shape)
+        sub = sub_pages[m.sub_index].image
+        warped, valid = warp(sub, m.H, ref.shape)
+        # Where the copy's image lies at all: the provenance test needs the background beyond
+        # the sheet, which the comparison of entries leaves out.
+        covered = cv2.warpPerspective(np.full(sub.shape, 255, np.uint8), m.H, (ref.shape[1], ref.shape[0]), flags=cv2.INTER_NEAREST) > 0
         valid &= paper_mask(ref)  # originals photographed by the KIEMS kit show the desk too
         warped, residual = refine(ref, warped)
         tpl, tpl_forms = _template(original, ref_pages[m.ref_index].index, ref, cfg) if cfg.template else (None, 0)
@@ -141,7 +145,7 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
             template_forms=tpl_forms,
             residual_warp_px=round(residual, 1),
             blur_sigma=pc.blur_sigma,
-            provenance=provenance.assess(ref, warped, valid, pc.similarities),
+            provenance=provenance.assess(ref, warped, covered, pc.similarities),
             large_marks=pc.large_marks,
             changes=[],
         )

@@ -77,8 +77,10 @@ def assess(ref: np.ndarray, sub: np.ndarray, valid: np.ndarray | None, mark_simi
         "marks_reproduced": round(reproduced, 4),
     }
     bg = out["background"]
-    if reproduced >= 0.9 and bg.get("measurable") and bg["zncc"] >= 0.5:
-        out["finding"] = "same_capture"  # derived from the reference image itself
+    if reproduced >= 0.75 and bg.get("measurable") and bg["zncc"] >= 0.5:
+        # Derived from the reference image itself. The shared background decides it; fewer marks
+        # are reproduced when figures were changed or the copy is a poor photograph.
+        out["finding"] = "same_capture"
     elif reproduced >= 0.9:
         out["finding"] = "same_sheet"  # same marks; capture background not shown to be shared
     elif reproduced < 0.5:
