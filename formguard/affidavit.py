@@ -166,47 +166,41 @@ def _count(n: int, noun: str) -> str:
 
 def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
     cap = f", captioned \"{f['caption']}\"," if f["caption"] else ""
-    where = f"the annexed page at {f['label']}{cap}"
+    text = f"THAT the page at {f['label']}{cap} shows this form."
     if not f["matched"]:
-        return f"THAT {where} could not be matched to this original with enough confidence, and I make no finding on it."
-    text = (
-        f"THAT {where} matches this original at {f['match_inliers']:,} corresponding image features and reproduces "
+        return text[:-1] + " but could not be matched to the original with enough confidence. I make no finding on it."
+    text += (
+        f" It matches the original at {f['match_inliers']:,} image features and reproduces "
         f"{f['marks_reproduced_pct']:.0f}% of its {f['marks_compared']:,} marks in place."
     )
     if f["background_measurable"]:
-        text += (
-            f" The background beyond the edge of the sheet in the original correlates with the same area of the page "
-            f"at {f['background_correlation']:.2f}."
-        )
+        text += f" The background beyond the edge of the sheet correlates with that of the original at {f['background_correlation']:.2f}."
     if f.get("marks_added_elsewhere"):
-        text += " Marks added to the copy, such as its caption, page number and stamps, change none of its entries and I have disregarded them."
+        text += " Marks added to the copy, such as its caption, page number and stamps, change none of its entries."
     q = f.get("glyph_similarity_median")
     if q is not None and q < 0.85:
         text += (
-            f" The page is degraded: the median similarity of its marks is {q:.2f}, below the 0.85 I require for a complete "
-            f"comparison. The differences I report are those clear enough to measure, and others may not be visible."
+            f" The page is degraded. The median similarity of its marks is {q:.2f}, below the 0.85 I require for a "
+            f"complete comparison, so some differences may not be visible."
         )
     diffs = f["differences_in_results"]
     same = [d for d in diffs if d["original_reads"] and d["original_reads"] == d["questioned_reads"]]
     changed = [d for d in diffs if d not in same]
     if not changed:
-        text += " Its entries do not differ from those of the original."
+        text += " Its entries agree with those of the original."
     else:
-        items = [
-            f"{d.get('field') or 'a figure'}, which reads {d['original_reads']} on the original and {d['questioned_reads']} on the page"
-            for d in changed
-            if d["original_reads"] and d["questioned_reads"]
-        ]
         shown = f", shown in annexure {mark}" if mark else ""
-        text += f" It differs from the original in {_count(len(changed), 'figure')}{shown}"
-        text += (": " + "; ".join(items) + "." if len(items) == len(changed) else ".")
+        text += f" It differs from the original in {_count(len(changed), 'figure')}{shown}."
+        for d in changed:
+            if d["original_reads"] and d["questioned_reads"]:
+                what = f"The figure for {d['field']}" if d.get("field") else "A figure"
+                text += f" {what} reads {d['original_reads']} on the original and {d['questioned_reads']} on the page."
         sims = _and([f"{d['similarity']:.2f}".replace("-", "\u2212") for d in changed])
-        text += f" The measured {'similarity of this figure is' if len(changed) == 1 else 'similarities of these figures are'} {sims}, against the threshold of 0.5."
+        text += f" {'Its measured similarity is' if len(changed) == 1 else 'Their measured similarities are'} {sims}, against the threshold of 0.5."
     if same:
-        vals = ", ".join(d["original_reads"] for d in same)
         text += (
-            f" In {_count(len(same), 'further place')} the measured similarity fell below the threshold but the figure reads "
-            f"the same on both ({vals}); I attribute {'this' if len(same) == 1 else 'these'} to the quality of the copy."
+            f" In {_count(len(same), 'further place')} the similarity fell below the threshold, but the entry reads the "
+            f"same on both. I attribute {'this' if len(same) == 1 else 'these'} to the quality of the copy or to marks on it."
         )
     return text
 
