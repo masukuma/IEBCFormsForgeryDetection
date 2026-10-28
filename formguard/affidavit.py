@@ -169,6 +169,27 @@ def _count(n: int, noun: str) -> str:
     return f"{word} {noun}" + ("" if n == 1 else "s")
 
 
+def _num(x: float) -> str:
+    """0.48, \u22120.13; never \u22120.00."""
+    s = f"{x:.2f}"
+    return "0.00" if s == "-0.00" else s.replace("-", "\u2212")
+
+
+def _claim(claim: dict) -> str | None:
+    """What the questioned affidavit says about a station, or how it presents the station's pages."""
+    if claim.get("sentence"):
+        return "THAT " + claim["sentence"]
+    if claim.get("text"):
+        return f"THAT the affidavit of {claim.get('by', '[DEPONENT]')} states at {claim.get('where', '[REFERENCE]')} that {claim['text']}"
+    return None
+
+
+def _field_order(d: dict) -> tuple:
+    """Candidates' votes before totals, so each station's figures are listed the same way."""
+    field = d.get("field") or ""
+    return (not field.startswith("the votes of"), field)
+
+
 def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
     cap = f", captioned \"{f['caption']}\"," if f["caption"] else ""
     text = f"THAT the page at {f['label']}{cap} shows this form."
@@ -179,36 +200,36 @@ def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
         f"{f['marks_reproduced_pct']:.0f}% of its {f['marks_compared']:,} marks in place."
     )
     if f["background_measurable"]:
-        text += f" The background beyond the edge of the sheet correlates with that of the original at {f['background_correlation']:.2f}."
-    if f.get("marks_added_elsewhere"):
-        text += " Marks added to the copy, such as its caption, page number and stamps, change none of its entries."
+        text += f" The background beyond the edge of the sheet correlates with that of the original at {_num(f['background_correlation'])}."
     q = f.get("glyph_similarity_median")
     if q is not None and q < 0.85:
         text += (
-            f" The page is degraded. The median similarity of its marks is {q:.2f}, below the 0.85 I require for a "
+            f" The page is degraded. The median similarity of its marks is {_num(q)}, below the 0.85 I require for a "
             f"complete comparison, so some differences may not be visible."
         )
     diffs = f["differences_in_results"]
     same = [d for d in diffs if d["original_reads"] and d["original_reads"] == d["questioned_reads"]]
-    changed = [d for d in diffs if d not in same]
+    changed = sorted((d for d in diffs if d not in same), key=_field_order)
     if not changed:
         text += " Its entries agree with those of the original."
     else:
         shown = f", shown in annexure {mark}" if mark else ""
         text += f" It differs from the original in {_count(len(changed), 'figure')}{shown}."
         for d in changed:
+            sim = _num(d["similarity"])
             if d["original_reads"] and d["questioned_reads"]:
                 what = f"The figure for {d['field']}" if d.get("field") else "A figure"
-                text += f" {what} reads {d['original_reads']} on the original and {d['questioned_reads']} on the page."
-                if d.get("model_agrees") is False:
-                    text += f" The second reading of this figure differs ({d['model_reading']})."
-        sims = _and([f"{d['similarity']:.2f}".replace("-", "\u2212") for d in changed])
-        text += f" {'Its measured similarity is' if len(changed) == 1 else 'Their measured similarities are'} {sims}, against the threshold of 0.5."
+                text += f" {what} reads {d['original_reads']} on the original and {d['questioned_reads']} on the page, with a similarity of {sim}."
+            else:
+                text += f" A further figure differs, with a similarity of {sim}."
+            if not d.get("clear", True):
+                text += " That similarity is in the range where I rely on the reading."
+            if d.get("model_agrees") is False:
+                text += f" The second reader read it as {d['model_reading']}."
     if same:
-        text += (
-            f" In {_count(len(same), 'further place')} the similarity fell below the threshold, but the entry reads the "
-            f"same on both. I attribute {'this' if len(same) == 1 else 'these'} to the quality of the copy or to marks on it."
-        )
+        n = _count(len(same), "mark")
+        n = f"a further {n}" if changed else n
+        text += f" {n[0].upper()}{n[1:]} scored below 0.65 but {'reads' if len(same) == 1 else 'read'} the same on both images."
     return text
 
 
@@ -289,6 +310,7 @@ LIMITS = [
 
 def _plain_title(title: str) -> str:
     """'X polling station 1 of 1 (Tiaty Constituency, Baringo County)' -> 'X polling station 1 of 1, Tiaty Constituency, Baringo County'."""
+    title = re.sub(r"'([A-Z])(?=[a-z])", lambda m: "'" + m.group(1).lower(), title)  # Kong'Or -> Kong'or
     return re.sub(r"\s*\((.*)\)\s*$", r", \1", title)
 
 
@@ -356,9 +378,9 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
     d.heading("FINDINGS FOR EACH POLLING STATION")
     for c in cases:
         d.heading(_plain_title(c["title"]), level=2)
-        claim = c.get("claim") or {}
-        if claim.get("text"):
-            d.para(f"THAT {claim.get('by', 'the deponent')} states at {claim.get('where', '[REFERENCE]')} that {claim['text']}")
+        claim = _claim(c.get("claim") or {})
+        if claim:
+            d.para(claim)
         d.para(_that(_sig_sentence(c)))
         for rep in c["exhibit_results"]:
             f = exhibit_facts(c, rep, readings.get(c["id"], {}))
