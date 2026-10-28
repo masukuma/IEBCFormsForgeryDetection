@@ -43,6 +43,34 @@ Verdicts: `identical`, `clean`, `altered` (figures in the table changed), `revie
 the table only), `inconclusive` (page could not be matched, or too degraded to judge),
 `no_original`, `error`.
 
+## Case work: annexures to affidavits
+
+For forms annexed to an affidavit (photographs of printouts, in any order, with captions), the
+harness finds each page's original itself, compares every page, tests whether a page was made from
+the same capture as the original, and drafts an affidavit from the measurements:
+
+```bash
+# 1. Which original does each annexed page show? (feature retrieval among all candidates)
+python -m formguard discover "affidavit.pdf#pages=46-130" --candidates ref/34A --out manifest.json
+#    then fill in each case's title, claim and the page captions
+
+# 2. Compare every exhibit with its original; validate the originals' digital signatures
+python -m formguard cases manifest.json --out runs/
+
+# 3. Read the flagged figures with Ollama Cloud vision models (needs OLLAMA_API_KEY)
+python -m formguard readings runs/results.json --out readings.json [--confirm]
+
+# 4. Draft the affidavit (DOCX + Markdown, evidence images annexed)
+python -m formguard affidavit runs/results.json --readings readings.json --deponent deponent.json --out affidavit
+```
+
+Ollama Cloud models are used cheapest first. Readings start on `gemma4:31b` (the smallest vision
+model) and drafting on `gpt-oss:20b`. A larger model is tried only when the smaller one's output
+fails validation: an illegible or malformed reading, or a draft containing any number not in the
+measured facts. `--confirm` adds an independent second reading from the next model up. The ladders
+are set with `FORMGUARD_VISION_MODELS` and `FORMGUARD_TEXT_MODELS`. Models never decide what
+differs; they only read figures off evidence images and word paragraphs around measured facts.
+
 Tuning: `--flag-below` (glyph similarity threshold, default 0.5), `--long-side` (working resolution,
 default 2600 px), `--no-ocr`.
 

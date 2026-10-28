@@ -19,7 +19,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from .register import Features, features, homography
+from .register import RATIO, Features, features
 from .render import load_pages, parse_source
 
 LONG_SIDE = 1800
@@ -70,7 +70,8 @@ class ReferenceIndex:
         scale = LONG_SIDE / max(image.shape)
         img = cv2.resize(image, None, fx=scale, fy=scale, interpolation=cv2.INTER_AREA) if scale < 1 else image
         q = features(img)
-        scores = sorted(((homography(f, q)[0], i) for i, f in enumerate(self.feats)), reverse=True)
+        flann = _page_index(q)
+        scores = sorted(((_inliers(f, q, flann), i) for i, f in enumerate(self.feats)), reverse=True)
         (best, bi), (second, si) = scores[0], scores[1] if len(scores) > 1 else (0, None)
         accepted = best >= min_inliers and best >= margin * max(second, 1)
         return Retrieval(
@@ -80,6 +81,31 @@ class ReferenceIndex:
             int(second),
             accepted,
         )
+
+
+def _page_index(q: Features):
+    """Approximate nearest-neighbour index over one questioned page's descriptors, built once
+    and reused for every candidate (a brute-force matcher re-scans the page for each one)."""
+    if q.desc is None or len(q.desc) < 2:
+        return None
+    flann = cv2.FlannBasedMatcher({"algorithm": 1, "trees": 4}, {"checks": 48})
+    flann.add([q.desc.astype(np.float32)])
+    flann.train()
+    return flann
+
+
+def _inliers(cand: Features, q: Features, flann) -> int:
+    """RANSAC inliers between a candidate and the indexed questioned page (ratio-tested matches)."""
+    if flann is None or cand.desc is None or len(cand.desc) < 2:
+        return 0
+    pairs = flann.knnMatch(cand.desc.astype(np.float32), k=2)
+    good = [m for m, n in (p for p in pairs if len(p) == 2) if m.distance < RATIO * n.distance]
+    if len(good) < 12:
+        return 0
+    src = q.pts[[m.trainIdx for m in good]]
+    dst = cand.pts[[m.queryIdx for m in good]]
+    H, mask = cv2.findHomography(src, dst, cv2.RANSAC, 3.0)
+    return int(mask.sum()) if H is not None else 0
 
 
 def query_source(index: ReferenceIndex, source: str | Path) -> list[tuple[int, Retrieval]]:
