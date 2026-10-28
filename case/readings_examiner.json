@@ -65,8 +65,7 @@
   "p75_change03": {
    "original": "060",
    "questioned": "032",
-   "field": "the votes of William Ruto",
-   "remark": "The image cuts off the first digit of this figure, and the second reader read only the digits in view."
+   "field": "the votes of William Ruto"
   },
   "p75_change04": {
    "original": "345",
@@ -155,8 +154,7 @@
   "p79_change02": {
    "original": "103",
    "questioned": "102",
-   "field": "the total number of valid votes cast",
-   "remark": "The image cuts off the first digit of this figure on the page."
+   "field": "the total number of valid votes cast"
   },
   "p79_change03": {
    "original": "103",

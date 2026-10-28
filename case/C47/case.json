@@ -5,9 +5,7 @@
   "reference": "ref/34A_extra/1_34_A_021106052404501_Y3KK10BBSGA009L_20220809_194914.PDF",
   "claim": {
     "by": "Arnold Ochieng Oginga",
-    "where": "paragraph 20 of his affidavit (annexure AOO4)",
-    "text": "the Form 34A for Maragi Primary School polling station 1 of 4 received from the Petitioner's polling station agent and the one posted in the 1st Respondent's public portal do not state any results; Form 34C has results which cannot be verified from Form 34A.",
-    "figures": {}
+    "sentence": "the affidavit of Arnold Ochieng Oginga states at paragraph 20, and in annexure AOO4, that neither the Form 34A for this station received from the Petitioner's agent nor the one posted on the portal states any results. It adds that the results in Form 34C cannot be verified from Form 34A."
   },
   "exhibits": [
     {
@@ -1652,7 +1650,7 @@
         }
       ],
       "notes": [],
-      "seconds": 74.1,
+      "seconds": 68.3,
       "exhibit": {
         "label": "PDF page 129 (annexure page 128)",
         "caption": "AGENT COPY",

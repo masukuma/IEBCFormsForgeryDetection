@@ -5,9 +5,7 @@
   "reference": "ref/34A_extra/1_34_A_001003000900302_Y3KK12CQ9IA02G2_20220809_203331.PDF",
   "claim": {
     "by": "Arnold Ochieng Oginga",
-    "where": "paragraph 21 of his affidavit (annexure AOO5)",
-    "text": "the Form 34A for Kadondo Grounds - Mishomoroni polling station 2 of 9 has not been uploaded in the portal, though the same has been captured in Form 34C.",
-    "figures": {}
+    "sentence": "the affidavit of Arnold Ochieng Oginga states at paragraph 21, and in annexure AOO5, that the Form 34A for this station has not been uploaded in the portal, though it has been captured in Form 34C. The affidavit names the station \"Kadondo Grounds - Mishomoroni Polling Station 2 of 9\"."
   },
   "exhibits": [
     {
@@ -2028,7 +2026,7 @@
         }
       ],
       "notes": [],
-      "seconds": 120.5,
+      "seconds": 87.3,
       "exhibit": {
         "label": "PDF page 46 (annexure page 45)",
         "caption": "",

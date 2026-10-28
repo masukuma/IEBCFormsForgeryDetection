@@ -4,8 +4,7 @@
   "station_code": "047274136600101",
   "reference": "ref/34A/1_34_A_047274136600101_Y3KK12CQHIA00CN_20220809_205715.PDF",
   "claim": {
-    "by": "Arnold Ochieng Oginga",
-    "where": "paragraph 17 and the table at pages 8 to 13 of his affidavit"
+    "sentence": "the affidavit of Arnold Ochieng Oginga annexes a page captioned \"IEBC PORTAL\" for this polling station, but neither paragraph 17 nor the table names it."
   },
   "exhibits": [
     {
@@ -954,7 +953,7 @@
         }
       ],
       "notes": [],
-      "seconds": 103.4,
+      "seconds": 84.7,
       "exhibit": {
         "label": "PDF page 97 (annexure page 96)",
         "caption": "IEBC PORTAL",

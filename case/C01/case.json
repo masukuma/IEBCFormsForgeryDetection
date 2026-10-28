@@ -5,8 +5,6 @@
   "reference": "ref/34A/1_34_A_030157078100101_F230450M00200401_20220810_044040.PDF",
   "claim": {
     "by": "Arnold Ochieng Oginga",
-    "where": "paragraph 17 and the table at pages 8 to 13 of his affidavit",
-    "text": "the Form 34A issued to the agent shows Raila Odinga 88 and William Ruto 2, while the form on the 1st Respondent's portal shows Raila Odinga 88 and William Ruto 7, a variance of +5 for William Ruto.",
     "figures": {
       "agent": {
         "Raila": 88,
@@ -17,7 +15,8 @@
         "Ruto": 7
       },
       "variance_stated": "+5"
-    }
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 88 and William Ruto 2, and the portal form shows Raila Odinga 88 and William Ruto 7. The affidavit gives the increase for William Ruto as 5 votes."
   },
   "exhibits": [
     {
@@ -1722,7 +1721,7 @@
         }
       ],
       "notes": [],
-      "seconds": 116.5,
+      "seconds": 108.5,
       "exhibit": {
         "label": "PDF page 47 (annexure page 46)",
         "caption": "IEBC PORTAL",
@@ -2706,7 +2705,7 @@
         }
       ],
       "notes": [],
-      "seconds": 31.7,
+      "seconds": 33.9,
       "exhibit": {
         "label": "PDF page 72 (annexure page 71)",
         "caption": "AGENT COPY",

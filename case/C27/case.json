@@ -5,8 +5,8 @@
   "reference": "ref/34A/1_34_A_047274136600102_Y3KK10BNIGA00BV_20220809_211434.PDF",
   "claim": {
     "by": "Arnold Ochieng Oginga",
-    "where": "paragraph 17 of his affidavit",
-    "text": "the 9th Respondent's votes at this station increased by 100 votes (no figures are given in his table)."
+    "where": "paragraph 17",
+    "text": "the votes of the 9th Respondent at this station increased by 100. The table gives no figures for this station."
   },
   "exhibits": [
     {
@@ -789,7 +789,7 @@
         }
       ],
       "notes": [],
-      "seconds": 88.0,
+      "seconds": 69.8,
       "exhibit": {
         "label": "PDF page 98 (annexure page 97)",
         "caption": "IEBC PORTAL",
@@ -1892,7 +1892,7 @@
         }
       ],
       "notes": [],
-      "seconds": 63.8,
+      "seconds": 43.6,
       "exhibit": {
         "label": "PDF page 112 (annexure page 111)",
         "caption": "AGENT COPY",

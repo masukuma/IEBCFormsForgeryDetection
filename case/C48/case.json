@@ -4,10 +4,7 @@
   "station_code": "022111055100301",
   "reference": "ref/34A_extra/1_34_A_022111055100301_Y3KK12CQDIA0045_20220809_200625.PDF",
   "claim": {
-    "by": "Arnold Ochieng Oginga",
-    "where": "annexures (no paragraph names this station)",
-    "text": "Two pages are annexed for this polling station, captioned 'IEBC PORTAL' and 'IEBC (INITIAL) PORTAL'; the affidavit's text does not name the station. Paragraph 7 alleges that Forms 34A on the portal were replaced with forms showing different results from those initially posted.",
-    "figures": {}
+    "sentence": "the affidavit of Arnold Ochieng Oginga annexes two pages for this polling station, captioned \"IEBC PORTAL\" and \"IEBC (INITIAL) PORTAL\", but does not name the station in its text."
   },
   "exhibits": [
     {
@@ -1034,7 +1031,7 @@
         }
       ],
       "notes": [],
-      "seconds": 58.2,
+      "seconds": 57.0,
       "exhibit": {
         "label": "PDF page 130 (annexure page 129)",
         "caption": "IEBC PORTAL",
@@ -2493,7 +2490,7 @@
         }
       ],
       "notes": [],
-      "seconds": 30.1,
+      "seconds": 30.6,
       "exhibit": {
         "label": "PDF page 131 (annexure page 130)",
         "caption": "IEBC (INITIAL) PORTAL",
