@@ -128,3 +128,20 @@ def test_model_ladder_escalates_only_on_invalid_output(monkeypatch):
     calls.clear()
     monkeypatch.setattr(llm, "chat", lambda model, *a, **k: calls.append(model) or json.dumps({"original": "284", "questioned": "284", "legible": True}))
     assert llm.read_figures(b"png")["by"] == llm.VISION_LADDER[0] and calls == llm.VISION_LADDER[:1]  # cheapest answer accepted
+
+
+def test_model_ladder_tolerates_fences_and_dropped_connections(monkeypatch):
+    import http.client
+
+    monkeypatch.setenv("OLLAMA_API_KEY", "test")
+    fenced = "```json\n" + json.dumps({"original": "060", "questioned": "032", "legible": True}) + "\n```"
+    monkeypatch.setattr(llm, "chat", lambda *a, **k: fenced)
+    assert llm.read_figures(b"png")["by"] == llm.VISION_LADDER[0]  # a fenced answer is still an answer
+
+    def flaky(model, *a, **k):
+        if model == llm.VISION_LADDER[0]:
+            raise http.client.RemoteDisconnected("closed")
+        return fenced
+
+    monkeypatch.setattr(llm, "chat", flaky)
+    assert llm.read_figures(b"png")["by"] == llm.VISION_LADDER[1]  # a dropped connection moves up a rung
