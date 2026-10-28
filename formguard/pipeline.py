@@ -41,14 +41,23 @@ def sha256(source: str | Path) -> str:
     return h.hexdigest()
 
 
-def _crop(img: np.ndarray, r: Region, margin: int) -> np.ndarray:
+def _crop(img: np.ndarray, r: Region, margin: int, min_w: int = 0, min_h: int = 0) -> np.ndarray:
+    """The region plus a margin, widened about its centre to at least min_w x min_h."""
     H, W = img.shape
-    return img[max(0, r.y - margin) : min(H, r.y + r.h + margin), max(0, r.x - margin) : min(W, r.x + r.w + margin)]
+    w, h = max(r.w + 2 * margin, min_w), max(r.h + 2 * margin, min_h)
+    x0 = min(max(0, r.x + r.w // 2 - w // 2), max(0, W - w))  # shifted inward at the page edge
+    y0 = min(max(0, r.y + r.h // 2 - h // 2), max(0, H - h))
+    return img[y0 : min(H, y0 + h), x0 : min(W, x0 + w)]
 
 
 def _evidence_tile(ref: np.ndarray, sub: np.ndarray, r: Region, rotation: int | None) -> np.ndarray:
-    """Original | submission, side by side, upright if OCR found the reading direction."""
-    a, b = _crop(ref, r, 40), _crop(sub, r, 40)
+    """Original | submission, side by side, upright if OCR found the reading direction.
+
+    A region can be one stroke of a number (a faded or erased digit), so the crop is never
+    smaller than a whole three-digit figure and its neighbours above and below.
+    """
+    k = max(ref.shape) / 2600
+    a, b = _crop(ref, r, 40, int(240 * k), int(150 * k)), _crop(sub, r, 40, int(240 * k), int(150 * k))
     if rotation is not None:
         a, b = cv2.rotate(a, rotation), cv2.rotate(b, rotation)
     gap = np.full((a.shape[0], 8), 0, np.uint8)
