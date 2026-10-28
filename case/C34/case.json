@@ -1,0 +1,2353 @@
+{
+  "id": "C34",
+  "title": "Kabete Vetlab Primary School polling station 9 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+  "station_code": "047274136600109",
+  "reference": "ref/34A/1_34_A_047274136600109_Y3KK12CQIIA01I0_20220809_202514.PDF",
+  "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "where": "paragraph 17 and the table at pages 8 to 13 of his affidavit",
+    "text": "the Form 34A issued to the agent shows Raila Odinga 233 and William Ruto 44, while the form on the 1st Respondent's portal shows Raila Odinga 233 and William Ruto 120, a variance of +76 for William Ruto.",
+    "figures": {
+      "agent": {
+        "Raila": 233,
+        "Ruto": 44
+      },
+      "portal": {
+        "Raila": 233,
+        "Ruto": 120
+      },
+      "variance_stated": "+76"
+    }
+  },
+  "exhibits": [
+    {
+      "label": "PDF page 105 (annexure page 104)",
+      "caption": "IEBC PORTAL",
+      "source": "docs/ochieng_affidavit.pdf#page=105",
+      "retrieval": {
+        "inliers": 1458,
+        "runner_up_inliers": 313
+      }
+    },
+    {
+      "label": "PDF page 118 (annexure page 117)",
+      "caption": "AGENT COPY",
+      "source": "docs/ochieng_affidavit.pdf#page=118",
+      "retrieval": {
+        "inliers": 1109,
+        "runner_up_inliers": 271
+      }
+    }
+  ],
+  "reference_integrity": {
+    "file": "1_34_A_047274136600109_Y3KK12CQIIA01I0_20220809_202514.PDF",
+    "bytes": 351678,
+    "sha256": "dcdff7fc16f306abf0e1786c8cdf4917b59dab113762a113124a1e7695ec0d87",
+    "signatures": [
+      {
+        "present": true,
+        "checked": true,
+        "field": "Signature1",
+        "intact": true,
+        "valid": true,
+        "coverage": "ENTIRE_FILE",
+        "modification_level": "NONE",
+        "trusted": false,
+        "digest_algorithm": "sha1",
+        "signer": "Common Name: 0000000000000000, Organizational Unit: Global Services, Organization: Smartmatic International, Locality: Kenya, State/Province: Kenya, Country: KE",
+        "issuer": "Common Name: CA_APPS, Organizational Unit: Global Services, Organization: Smartmatic International, Locality: Kenya, State/Province: Kenya, Country: KE",
+        "signing_time": "2022-08-09T17:25:14+00:00"
+      }
+    ]
+  },
+  "exhibit_results": [
+    {
+      "submission": "docs/ochieng_affidavit.pdf#pages=105",
+      "original": "ref/34A/1_34_A_047274136600109_Y3KK12CQIIA01I0_20220809_202514.PDF",
+      "submission_sha256": "a6886ef9542d2b576f14965e656a8a50ff3f3bc2b7dae33545bf67da93d04057",
+      "original_sha256": "dcdff7fc16f306abf0e1786c8cdf4917b59dab113762a113124a1e7695ec0d87",
+      "submission_meta": {
+        "type": "pdf",
+        "pages": 132,
+        "metadata": {
+          "format": "PDF 1.4",
+          "creationDate": "D:20220821172046+03'00'",
+          "modDate": "D:20220823103119+03'00'"
+        },
+        "rasters": [
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          }
+        ]
+      },
+      "original_meta": {
+        "type": "pdf",
+        "pages": 1,
+        "metadata": {
+          "format": "PDF 1.4"
+        },
+        "rasters": [
+          {
+            "images": 1,
+            "largest": "1654x2340",
+            "native_long_side": 2340
+          }
+        ]
+      },
+      "verdict": "review",
+      "altered_numbers": 0,
+      "values_changed": 0,
+      "swaps": [],
+      "pages": [
+        {
+          "submission_page": 105,
+          "inliers": 1439,
+          "original_page": 1,
+          "verdict": "review",
+          "quality": 0.9669,
+          "glyphs_compared": 861,
+          "printed_glyphs": 272,
+          "template_forms": 6,
+          "residual_warp_px": 2.0,
+          "blur_sigma": 0.7,
+          "provenance": {
+            "background": {
+              "measurable": true,
+              "zncc": 0.303,
+              "tiles": 152,
+              "tiles_above_0_5": 0.257
+            },
+            "marks_compared": 589,
+            "marks_reproduced": 0.9168,
+            "finding": "same_sheet"
+          },
+          "large_marks": [
+            {
+              "x": 958,
+              "y": 1249,
+              "w": 372,
+              "h": 147,
+              "similarity": 0.987
+            },
+            {
+              "x": 1331,
+              "y": 1248,
+              "w": 289,
+              "h": 126,
+              "similarity": 0.938
+            },
+            {
+              "x": 1181,
+              "y": 1501,
+              "w": 218,
+              "h": 122,
+              "similarity": 0.976
+            }
+          ],
+          "changes": [
+            {
+              "x": 1678,
+              "y": 176,
+              "w": 12,
+              "h": 14,
+              "similarity": -0.465,
+              "ink_ref": 49,
+              "ink_sub": 235,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change01.png"
+            },
+            {
+              "x": 1478,
+              "y": 163,
+              "w": 21,
+              "h": 49,
+              "similarity": -0.34,
+              "ink_ref": 738,
+              "ink_sub": 756,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 2,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change02.png"
+            },
+            {
+              "x": 659,
+              "y": 131,
+              "w": 22,
+              "h": 26,
+              "similarity": -0.231,
+              "ink_ref": 1,
+              "ink_sub": 595,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change03.png"
+            },
+            {
+              "x": 739,
+              "y": 139,
+              "w": 17,
+              "h": 9,
+              "similarity": -0.227,
+              "ink_ref": 0,
+              "ink_sub": 344,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change04.png"
+            },
+            {
+              "x": 1111,
+              "y": 138,
+              "w": 7,
+              "h": 27,
+              "similarity": -0.227,
+              "ink_ref": 0,
+              "ink_sub": 367,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "7",
+              "read_submission": "7",
+              "ocr_confidence": 41.9,
+              "value_changed": false,
+              "evidence": "p105_change05.png"
+            },
+            {
+              "x": 775,
+              "y": 124,
+              "w": 34,
+              "h": 30,
+              "similarity": -0.224,
+              "ink_ref": 0,
+              "ink_sub": 724,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 2,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change06.png"
+            },
+            {
+              "x": 1628,
+              "y": 172,
+              "w": 11,
+              "h": 22,
+              "similarity": -0.217,
+              "ink_ref": 20,
+              "ink_sub": 356,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change07.png"
+            },
+            {
+              "x": 859,
+              "y": 103,
+              "w": 67,
+              "h": 55,
+              "similarity": -0.212,
+              "ink_ref": 0,
+              "ink_sub": 1583,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "4",
+              "ocr_confidence": 69.1,
+              "value_changed": null,
+              "evidence": "p105_change08.png"
+            },
+            {
+              "x": 1060,
+              "y": 112,
+              "w": 32,
+              "h": 51,
+              "similarity": -0.184,
+              "ink_ref": 0,
+              "ink_sub": 1142,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "2",
+              "ocr_confidence": 50.2,
+              "value_changed": null,
+              "evidence": "p105_change09.png"
+            },
+            {
+              "x": 1146,
+              "y": 155,
+              "w": 31,
+              "h": 10,
+              "similarity": -0.155,
+              "ink_ref": 0,
+              "ink_sub": 532,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change10.png"
+            },
+            {
+              "x": 1255,
+              "y": 165,
+              "w": 43,
+              "h": 36,
+              "similarity": -0.152,
+              "ink_ref": 326,
+              "ink_sub": 931,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 5,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change11.png"
+            },
+            {
+              "x": 572,
+              "y": 84,
+              "w": 54,
+              "h": 33,
+              "similarity": -0.143,
+              "ink_ref": 0,
+              "ink_sub": 1235,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change12.png"
+            },
+            {
+              "x": 1165,
+              "y": 137,
+              "w": 12,
+              "h": 14,
+              "similarity": -0.119,
+              "ink_ref": 0,
+              "ink_sub": 333,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change13.png"
+            },
+            {
+              "x": 1180,
+              "y": 120,
+              "w": 27,
+              "h": 31,
+              "similarity": -0.102,
+              "ink_ref": 0,
+              "ink_sub": 861,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 3,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change14.png"
+            },
+            {
+              "x": 1135,
+              "y": 116,
+              "w": 12,
+              "h": 18,
+              "similarity": -0.089,
+              "ink_ref": 0,
+              "ink_sub": 303,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change15.png"
+            },
+            {
+              "x": 1234,
+              "y": 124,
+              "w": 11,
+              "h": 17,
+              "similarity": -0.081,
+              "ink_ref": 0,
+              "ink_sub": 386,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change16.png"
+            },
+            {
+              "x": 699,
+              "y": 131,
+              "w": 12,
+              "h": 7,
+              "similarity": -0.043,
+              "ink_ref": 0,
+              "ink_sub": 204,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change17.png"
+            },
+            {
+              "x": 1332,
+              "y": 140,
+              "w": 13,
+              "h": 25,
+              "similarity": -0.03,
+              "ink_ref": 0,
+              "ink_sub": 444,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change18.png"
+            },
+            {
+              "x": 644,
+              "y": 57,
+              "w": 8,
+              "h": 19,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 254,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change19.png"
+            },
+            {
+              "x": 612,
+              "y": 64,
+              "w": 17,
+              "h": 12,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 379,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change20.png"
+            },
+            {
+              "x": 1366,
+              "y": 131,
+              "w": 16,
+              "h": 25,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 555,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "1",
+              "ocr_confidence": 57.9,
+              "value_changed": null,
+              "evidence": "p105_change21.png"
+            },
+            {
+              "x": 1030,
+              "y": 160,
+              "w": 14,
+              "h": 19,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 313,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change22.png"
+            },
+            {
+              "x": 1131,
+              "y": 176,
+              "w": 25,
+              "h": 9,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 323,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change23.png"
+            },
+            {
+              "x": 668,
+              "y": 180,
+              "w": 8,
+              "h": 12,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 224,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change24.png"
+            },
+            {
+              "x": 706,
+              "y": 180,
+              "w": 54,
+              "h": 36,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 1219,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change25.png"
+            },
+            {
+              "x": 1208,
+              "y": 181,
+              "w": 5,
+              "h": 24,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 216,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "7",
+              "ocr_confidence": 41.9,
+              "value_changed": null,
+              "evidence": "p105_change26.png"
+            },
+            {
+              "x": 892,
+              "y": 183,
+              "w": 38,
+              "h": 16,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 520,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change27.png"
+            },
+            {
+              "x": 659,
+              "y": 201,
+              "w": 17,
+              "h": 7,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 314,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change28.png"
+            },
+            {
+              "x": 863,
+              "y": 213,
+              "w": 30,
+              "h": 6,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 288,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change29.png"
+            },
+            {
+              "x": 1579,
+              "y": 213,
+              "w": 10,
+              "h": 12,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 299,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "1",
+              "read_submission": "",
+              "ocr_confidence": 15.6,
+              "value_changed": null,
+              "evidence": "p105_change30.png"
+            },
+            {
+              "x": 788,
+              "y": 218,
+              "w": 34,
+              "h": 9,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 366,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change31.png"
+            },
+            {
+              "x": 693,
+              "y": 226,
+              "w": 25,
+              "h": 11,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 370,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change32.png"
+            },
+            {
+              "x": 579,
+              "y": 237,
+              "w": 40,
+              "h": 20,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 633,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change33.png"
+            },
+            {
+              "x": 1557,
+              "y": 245,
+              "w": 21,
+              "h": 4,
+              "similarity": 0.0,
+              "ink_ref": 0,
+              "ink_sub": 201,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change34.png"
+            },
+            {
+              "x": 1550,
+              "y": 213,
+              "w": 11,
+              "h": 12,
+              "similarity": 0.001,
+              "ink_ref": 19,
+              "ink_sub": 271,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change35.png"
+            },
+            {
+              "x": 1214,
+              "y": 126,
+              "w": 19,
+              "h": 15,
+              "similarity": 0.085,
+              "ink_ref": 0,
+              "ink_sub": 455,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change36.png"
+            },
+            {
+              "x": 817,
+              "y": 124,
+              "w": 11,
+              "h": 24,
+              "similarity": 0.108,
+              "ink_ref": 0,
+              "ink_sub": 365,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change37.png"
+            },
+            {
+              "x": 1416,
+              "y": 239,
+              "w": 107,
+              "h": 69,
+              "similarity": 0.177,
+              "ink_ref": 3716,
+              "ink_sub": 3838,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 5,
+              "on_figure": false,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p105_change38.png"
+            }
+          ],
+          "overview": "p105_overview.jpg"
+        }
+      ],
+      "notes": [],
+      "seconds": 81.6,
+      "exhibit": {
+        "label": "PDF page 105 (annexure page 104)",
+        "caption": "IEBC PORTAL",
+        "source": "docs/ochieng_affidavit.pdf#page=105",
+        "retrieval": {
+          "inliers": 1458,
+          "runner_up_inliers": 313
+        }
+      },
+      "evidence_dir": "C34/pdf-page-105-annexure-page-104",
+      "exhibit_integrity": {
+        "file": "ochieng_affidavit.pdf",
+        "bytes": 51053652,
+        "sha256": "a6886ef9542d2b576f14965e656a8a50ff3f3bc2b7dae33545bf67da93d04057",
+        "pages": [
+          105
+        ]
+      }
+    },
+    {
+      "submission": "docs/ochieng_affidavit.pdf#pages=118",
+      "original": "ref/34A/1_34_A_047274136600109_Y3KK12CQIIA01I0_20220809_202514.PDF",
+      "submission_sha256": "a6886ef9542d2b576f14965e656a8a50ff3f3bc2b7dae33545bf67da93d04057",
+      "original_sha256": "dcdff7fc16f306abf0e1786c8cdf4917b59dab113762a113124a1e7695ec0d87",
+      "submission_meta": {
+        "type": "pdf",
+        "pages": 132,
+        "metadata": {
+          "format": "PDF 1.4",
+          "creationDate": "D:20220821172046+03'00'",
+          "modDate": "D:20220823103119+03'00'"
+        },
+        "rasters": [
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          },
+          {
+            "images": 1,
+            "largest": "3507x2480",
+            "native_long_side": 3507
+          }
+        ]
+      },
+      "original_meta": {
+        "type": "pdf",
+        "pages": 1,
+        "metadata": {
+          "format": "PDF 1.4"
+        },
+        "rasters": [
+          {
+            "images": 1,
+            "largest": "1654x2340",
+            "native_long_side": 2340
+          }
+        ]
+      },
+      "verdict": "altered",
+      "altered_numbers": 3,
+      "values_changed": 0,
+      "swaps": [],
+      "pages": [
+        {
+          "submission_page": 118,
+          "inliers": 945,
+          "original_page": 1,
+          "verdict": "altered",
+          "quality": 0.9395,
+          "glyphs_compared": 788,
+          "printed_glyphs": 266,
+          "template_forms": 6,
+          "residual_warp_px": 3.0,
+          "blur_sigma": 1.0,
+          "provenance": {
+            "background": {
+              "measurable": true,
+              "zncc": 0.21,
+              "tiles": 152,
+              "tiles_above_0_5": 0.211
+            },
+            "marks_compared": 522,
+            "marks_reproduced": 0.9425,
+            "finding": "same_sheet"
+          },
+          "large_marks": [
+            {
+              "x": 958,
+              "y": 1245,
+              "w": 662,
+              "h": 151,
+              "similarity": 0.963
+            },
+            {
+              "x": 1196,
+              "y": 1511,
+              "w": 203,
+              "h": 102,
+              "similarity": 0.971
+            },
+            {
+              "x": 1039,
+              "y": 1800,
+              "w": 644,
+              "h": 328,
+              "similarity": 0.919
+            }
+          ],
+          "changes": [
+            {
+              "x": 1586,
+              "y": 1130,
+              "w": 83,
+              "h": 35,
+              "similarity": -0.117,
+              "ink_ref": 866,
+              "ink_sub": 602,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 4,
+              "on_figure": true,
+              "read_original": "355",
+              "read_submission": "",
+              "ocr_confidence": 93.8,
+              "value_changed": null,
+              "evidence": "p118_change01.png"
+            },
+            {
+              "x": 870,
+              "y": 1326,
+              "w": 67,
+              "h": 63,
+              "similarity": -0.055,
+              "ink_ref": 701,
+              "ink_sub": 774,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 4,
+              "on_figure": true,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p118_change02.png"
+            },
+            {
+              "x": 1608,
+              "y": 701,
+              "w": 74,
+              "h": 156,
+              "similarity": -0.022,
+              "ink_ref": 3080,
+              "ink_sub": 2922,
+              "kind": "substitution",
+              "in_table": true,
+              "glyphs": 18,
+              "on_figure": true,
+              "read_original": "",
+              "read_submission": "",
+              "ocr_confidence": 0.0,
+              "value_changed": null,
+              "evidence": "p118_change03.png"
+            },
+            {
+              "x": 1669,
+              "y": 159,
+              "w": 17,
+              "h": 38,
+              "similarity": 0.026,
+              "ink_ref": 53,
+              "ink_sub": 625,
+              "kind": "obscured",
+              "in_table": false,
+              "glyphs": 1,
+              "on_figure": false,
+              "read_original": "7",
+              "read_submission": "7",
+              "ocr_confidence": 20.1,
+              "value_changed": false,
+              "evidence": "p118_change04.png"
+            }
+          ],
+          "overview": "p118_overview.jpg"
+        }
+      ],
+      "notes": [],
+      "seconds": 21.3,
+      "exhibit": {
+        "label": "PDF page 118 (annexure page 117)",
+        "caption": "AGENT COPY",
+        "source": "docs/ochieng_affidavit.pdf#page=118",
+        "retrieval": {
+          "inliers": 1109,
+          "runner_up_inliers": 271
+        }
+      },
+      "evidence_dir": "C34/pdf-page-118-annexure-page-117",
+      "exhibit_integrity": {
+        "file": "ochieng_affidavit.pdf",
+        "bytes": 51053652,
+        "sha256": "a6886ef9542d2b576f14965e656a8a50ff3f3bc2b7dae33545bf67da93d04057",
+        "pages": [
+          118
+        ]
+      }
+    }
+  ]
+}
