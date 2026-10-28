@@ -1,0 +1,787 @@
+{
+  "C01": {
+    "p72_change03": {
+      "original": "000,097",
+      "questioned": "000,090",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p72_change05": {
+      "original": "088,007",
+      "questioned": "088,002",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C02": {
+    "p73_change01": {
+      "original": "274,000,000,000,197",
+      "questioned": "274,000,000,000,196",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p73_change02": {
+      "original": "195,002,000,000",
+      "questioned": "195,001,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C03": {
+    "p74_change01": {
+      "original": "085,063,000,000",
+      "questioned": "085,033,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p74_change02": {
+      "original": "000,148",
+      "questioned": "000,115",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C04": {
+    "p75_change01": {
+      "original": "470,000,000,000,345",
+      "questioned": "470,000,000,000,317",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p75_change02": {
+      "original": "3,45",
+      "questioned": "317",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p75_change03": {
+      "original": "4,0,0,0,0,1",
+      "questioned": "4,2,0,0,0,1",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p75_change04": {
+      "original": "45",
+      "questioned": "7",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C05": {
+    "p76_change01": {
+      "original": "190",
+      "questioned": "189",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p76_change02": {
+      "original": "257,000,000,000,190",
+      "questioned": "257,000,000,000,189",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p76_change03": {
+      "original": "187,002,000,001",
+      "questioned": "187,001,000,001",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C06": {
+    "p77_change01": {
+      "original": "321",
+      "questioned": "308",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p77_change02": {
+      "original": "249,299,020,000,000",
+      "questioned": "249,299,007,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p77_change03": {
+      "original": "000,000,321",
+      "questioned": "000,000,308",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C07": {
+    "p78_change01": {
+      "original": "210",
+      "questioned": "207",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p78_change02": {
+      "original": "259,000,000,000,210",
+      "questioned": "259,000,000,000,207",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p78_change03": {
+      "original": "205,005,000,000",
+      "questioned": "205,002,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C08": {
+    "p79_change01": {
+      "original": "101,002,000,000",
+      "questioned": "101,001,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p79_change02": {
+      "original": "103",
+      "questioned": "02",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p79_change03": {
+      "original": "000,10310",
+      "questioned": "000,10210",
+      "by": "kimi-k3",
+      "failures": [
+        "gemma4:31b: failed validation",
+        "kimi-k2.6: RemoteDisconnected"
+      ]
+    }
+  },
+  "C09": {
+    "p80_change01": {
+      "original": "155,026,000,001",
+      "questioned": "155,006,000,001",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p80_change02": {
+      "original": "242,000,000,000,182",
+      "questioned": "242,000,000,000,162",
+      "by": "kimi-k3",
+      "failures": [
+        "gemma4:31b: failed validation",
+        "kimi-k2.6: failed validation"
+      ]
+    }
+  },
+  "C10": {
+    "p81_change01": {
+      "original": "048,001,000,000",
+      "questioned": "048,001,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p81_change02": {
+      "original": "049",
+      "questioned": "048",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p81_change03": {
+      "original": "066,000,000,000,049",
+      "questioned": "066,000,000,000,048",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C11": {
+    "p82_change01": {
+      "original": "000,000,108",
+      "questioned": "000,000,85",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p82_change02": {
+      "original": "108",
+      "questioned": "85",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p82_change03": {
+      "original": "076,032,000,000",
+      "questioned": "076,009,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p82_change06": {
+      "original": "10",
+      "questioned": "8",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C12": {
+    "p83_change01": {
+      "original": "155,001,000",
+      "questioned": "155,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p83_change02": {
+      "original": "235,000,000,000,156",
+      "questioned": "235,000,000,000,155",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p83_change03": {
+      "original": "156",
+      "questioned": "155",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C13": {
+    "p84_change01": {
+      "original": "271",
+      "questioned": "266",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p84_change02": {
+      "original": "000,000,271",
+      "questioned": "000,000,266",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p84_change03": {
+      "original": "0263,007,000,001",
+      "questioned": "0263,002,000,001",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C14": {
+    "p85_change01": {
+      "original": "002,006,000",
+      "questioned": "002,001,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p85_change02": {
+      "original": "088",
+      "questioned": "083",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C15": {
+    "p86_change02": {
+      "original": "043",
+      "questioned": "040",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p86_change04": {
+      "original": "000,043",
+      "questioned": "000,040",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p86_change05": {
+      "original": "39,004,000,000",
+      "questioned": "39,001,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C16": {
+    "p87_change01": {
+      "original": "000,000,000,145",
+      "questioned": "000,000,000,133",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p87_change02": {
+      "original": "45",
+      "questioned": "3",
+      "by": "kimi-k2.6",
+      "failures": [
+        "gemma4:31b: failed validation"
+      ]
+    },
+    "p87_change03": {
+      "original": "145",
+      "questioned": "133",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p87_change05": {
+      "original": "127,018,000,000",
+      "questioned": "127,006,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C17": {
+    "p88_change01": {
+      "original": "176,180,005",
+      "questioned": "176,099,005",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p88_change02": {
+      "original": "000,000,000,368",
+      "questioned": "000,000,000,286",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p88_change03": {
+      "original": "367",
+      "questioned": "286",
+      "by": "kimi-k2.6",
+      "failures": [
+        "gemma4:31b: failed validation"
+      ]
+    },
+    "p88_change06": {
+      "original": "367",
+      "questioned": "286",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C18": {
+    "p89_change01": {
+      "original": "000,092",
+      "questioned": "000,090",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p89_change02": {
+      "original": "089,003,000,000",
+      "questioned": "089,001,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p89_change03": {
+      "original": "092",
+      "questioned": "090",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C19": {
+    "p90_change01": {
+      "original": "106,012,000",
+      "questioned": "106,002,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p90_change02": {
+      "original": "000,118",
+      "questioned": "000,108",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C20": {
+    "p91_change01": {
+      "original": "000,034",
+      "questioned": "000,029",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p91_change02": {
+      "original": "034",
+      "questioned": "029",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p91_change03": {
+      "original": "026,008,000,000",
+      "questioned": "026,003,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C21": {
+    "p92_change01": {
+      "original": "112",
+      "questioned": "101",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p92_change02": {
+      "original": "118,000,000,000,112",
+      "questioned": "118,000,000,000,101",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p92_change04": {
+      "original": "014,00",
+      "questioned": "003,00",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C22": {
+    "p93_change01": {
+      "original": "040",
+      "questioned": "028",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p93_change03": {
+      "original": "026,014,000,000",
+      "questioned": "026,002,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p93_change04": {
+      "original": "049,000,000,000,040",
+      "questioned": "049,000,000,000,028",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C23": {
+    "p94_change01": {
+      "original": "068,000,000,000,064",
+      "questioned": "068,000,000,000,061",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p94_change02": {
+      "original": "061,003,000,000",
+      "questioned": "061,000,000,000",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C24": {
+    "p95_change01": {
+      "original": "068,066,001,001",
+      "questioned": "068,034,001,001",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p95_change02": {
+      "original": "000,000,136",
+      "questioned": "000,000,104",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C25": {
+    "p96_change01": {
+      "original": "451",
+      "questioned": "402",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p96_change02": {
+      "original": "381,069,000,001",
+      "questioned": "381,020,000,001",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C27": {
+    "p112_change01": {
+      "original": "359",
+      "questioned": "259",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p112_change02": {
+      "original": "35",
+      "questioned": "25",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p112_change03": {
+      "original": "233,123,002,001",
+      "questioned": "233,023,002,001",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C28": {
+    "p113_change13": {
+      "original": "355",
+      "questioned": "272",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p113_change15": {
+      "original": "235,118,000,002",
+      "questioned": "235,035,000,002",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p113_change33": {
+      "original": "658,000,000,000,355",
+      "questioned": "658,000,000,000,272",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C30": {
+    "p114_change01": {
+      "original": "246,116,001,001",
+      "questioned": "246,044,001,001",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p114_change02": {
+      "original": "658,022,000,000,385",
+      "questioned": "658,022,000,000,313",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C31": {
+    "p115_change01": {
+      "original": "657,012,000,001,368",
+      "questioned": "657,012,000,001,358",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p115_change02": {
+      "original": "225,140,003",
+      "questioned": "225,040,003",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p115_change03": {
+      "original": "140,002",
+      "questioned": "040,002",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p115_change04": {
+      "original": "368",
+      "questioned": "358",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C32": {
+    "p116_change01": {
+      "original": "239,116,001",
+      "questioned": "239,033,001",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p116_change02": {
+      "original": "360",
+      "questioned": "277",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p116_change03": {
+      "original": "000,360",
+      "questioned": "000,277",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C33": {
+    "p117_change01": {
+      "original": "657,003,000,000,326",
+      "questioned": "657,003,000,000,232",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p117_change02": {
+      "original": "181,141,003",
+      "questioned": "181,047,003",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p117_change03": {
+      "original": "326",
+      "questioned": "232",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p117_change04": {
+      "original": "181,141",
+      "questioned": "181,047",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C34": {
+    "p118_change01": {
+      "original": "355",
+      "questioned": "279",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p118_change02": {
+      "original": "000,000,355",
+      "questioned": "000,000,279",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p118_change03": {
+      "original": "233,120,001,001",
+      "questioned": "233,044,001,001",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C35": {
+    "p119_change01": {
+      "original": "370",
+      "questioned": "284",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p119_change02": {
+      "original": "657,006,000,000,370",
+      "questioned": "657,006,000,000,284",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p119_change03": {
+      "original": "236,133,000,001",
+      "questioned": "236,052,000,001",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C36": {
+    "p120_change01": {
+      "original": "354",
+      "questioned": "274",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p120_change02": {
+      "original": "205,144,003,002",
+      "questioned": "205,064,003,002",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p120_change03": {
+      "original": "000,000,354",
+      "questioned": "000,000,274",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p120_change04": {
+      "original": "35",
+      "questioned": "27",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C38": {
+    "p121_change01": {
+      "original": "357",
+      "questioned": "287",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p121_change02": {
+      "original": "233,121,001,002",
+      "questioned": "233,051,001,002",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p121_change03": {
+      "original": "004,001,000,357",
+      "questioned": "004,001,000,287",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C39": {
+    "p122_change01": {
+      "original": "699,006,000,000,360",
+      "questioned": "699,006,000,000,284",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p122_change02": {
+      "original": "360",
+      "questioned": "284",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p122_change03": {
+      "original": "244,114,000,002",
+      "questioned": "244,038,000,002",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C40": {
+    "p123_change01": {
+      "original": "363",
+      "questioned": "293",
+      "by": "kimi-k3",
+      "failures": [
+        "gemma4:31b: failed validation",
+        "kimi-k2.6: failed validation"
+      ]
+    },
+    "p123_change02": {
+      "original": "000,000,363",
+      "questioned": "000,000,293",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p123_change03": {
+      "original": "231,120,001,003",
+      "questioned": "231,050,001,003",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C41": {
+    "p124_change01": {
+      "original": "262,112,000,003",
+      "questioned": "262,052,000,003",
+      "by": "gemma4:31b",
+      "failures": []
+    }
+  },
+  "C48": {
+    "p131_change02": {
+      "original": "359,000,000,000,256",
+      "questioned": "359,000,000,000,176",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p131_change07": {
+      "original": "060,195,000,001",
+      "questioned": "060,115,000,001",
+      "by": "gemma4:31b",
+      "failures": []
+    },
+    "p131_change08": {
+      "original": "256",
+      "questioned": "176",
+      "by": "kimi-k2.6",
+      "failures": [
+        "gemma4:31b: failed validation"
+      ]
+    }
+  },
+  "_usage": {
+    "gemma4:31b": {
+      "calls": 112,
+      "prompt_tokens": 45316,
+      "output_tokens": 5318,
+      "accepted": 106
+    },
+    "kimi-k3": {
+      "calls": 3,
+      "prompt_tokens": 1178,
+      "output_tokens": 18666,
+      "accepted": 3
+    },
+    "kimi-k2.6": {
+      "calls": 5,
+      "prompt_tokens": 1174,
+      "output_tokens": 26740,
+      "accepted": 3
+    }
+  }
+}
