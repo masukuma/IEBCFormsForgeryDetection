@@ -153,10 +153,29 @@ def read_figures(tile_png: bytes, confirm: bool = False) -> dict | None:
 
 DRAFT_SYSTEM = (
     "You draft paragraphs for an expert's affidavit in a Kenyan election petition. Write in the "
-    "first person, formal, plain and neutral. Use ONLY the facts provided in the JSON. Do not add "
+    "first person, in the plain register of a sworn affidavit: short declarative sentences, past "
+    "tense for what was done, no rhetoric. Use ONLY the facts provided in the JSON. Do not add "
     "facts, numbers, dates, names, opinions about anyone's motives or conclusions that the facts do "
-    "not state. No headings or bullet points. Begin with the word THAT. Return only the paragraph."
+    "not state. No headings, lists, emphasis or dashes. No intensifiers or stock transitions such as "
+    "'clearly', 'notably', 'crucially', 'furthermore' or 'moreover'. Do not announce what the "
+    "paragraph will say or sum it up. Begin with the word THAT. Return only the paragraph."
 )
+
+# Marks of machine-written prose that have no place in a sworn affidavit; a draft containing any
+# of them is rejected and the next model, or the plain template, is used instead.
+STYLE = re.compile(
+    r"\u2014|\*\*|^#|^\s*[-*\u2022] |!|\b(?:crucial(?:ly)?|notably|importantly|it is (?:important|worth|essential)"
+    r"|it should be noted|comprehensive|robust|furthermore|moreover|additionally|in conclusion|in summary"
+    r"|delve|underscore[sd]?|highlight(?:s|ed|ing)?|pivotal|meticulous(?:ly)?|seamless(?:ly)?|leverag\w*|landscape"
+    r"|testament|showcas\w*|vital|clearly|undeniabl\w*|unequivocal\w*|irrefutabl\w*|conclusively|beyond (?:any )?doubt"
+    r"|striking(?:ly)?|glaring|blatant(?:ly)?|egregious)\b",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def plain(text: str) -> bool:
+    """True when a draft has none of the STYLE marks."""
+    return not STYLE.search(text)
 
 
 def _numbers(text: str) -> set[str]:
@@ -178,7 +197,13 @@ def draft(instruction: str, facts: dict, fallback: str) -> tuple[str, str]:
         return re.sub(r"^\W*\*?\*?THAT\*?\*?", "THAT", text)  # tolerate markdown bold on the opening word
 
     def valid(text) -> bool:
-        return bool(text) and text.startswith("THAT") and 40 <= len(text) <= 4 * len(fallback) + 400 and not (_numbers(text) - allowed)
+        return (
+            bool(text)
+            and text.startswith("THAT")
+            and 40 <= len(text) <= 2 * len(fallback) + 200
+            and not (_numbers(text) - allowed)
+            and plain(text)
+        )
 
     text, model, _ = _ladder(TEXT_LADDER, "draft", call, valid)
     return (text, model) if text else (fallback, "template")

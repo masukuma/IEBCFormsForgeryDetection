@@ -77,8 +77,12 @@ def test_affidavit_is_written_from_results(workspace, monkeypatch):
     text = md.read_text()
     assert docx.exists() and docx.stat().st_size > 10_000
     assert "TEST DEPONENT" in text and "THAT" in text
-    assert "1 figure(s) differ" in text and "agrees with original" in text
+    assert "one figure differs" in text and "agrees with the original" in text
     assert "drafted with" not in text  # no model used without a key
+    from formguard.llm import plain
+
+    paragraphs = [line for line in text.splitlines() if "THAT" in line]
+    assert paragraphs and all(plain(p) for p in paragraphs)  # the templates obey the same style rules as model drafts
 
 
 def test_llm_draft_rejects_invented_numbers(monkeypatch):
@@ -89,6 +93,20 @@ def test_llm_draft_rejects_invented_numbers(monkeypatch):
     assert llm.draft("x", facts, fallback)[1] != "template"
     monkeypatch.setattr(llm, "chat", lambda *a, **k: "THAT 28 votes were moved, out of 345 cast.")
     assert llm.draft("x", facts, fallback) == (fallback, "template")
+
+
+def test_llm_draft_rejects_rhetoric(monkeypatch):
+    monkeypatch.setenv("OLLAMA_API_KEY", "test")
+    facts = {"votes_original": 60, "votes_questioned": 32}
+    fallback = "THAT the original reads 60 and the exhibit reads 32."
+    for text in (
+        "THAT the exhibit clearly shows 32 votes instead of 60.",
+        "THAT the exhibit — a printout — shows 32 votes, not 60.",
+        "THAT, notably, the exhibit shows 32 votes and the original 60.",
+        "THAT the exhibit shows **32** votes and the original 60.",
+    ):
+        monkeypatch.setattr(llm, "chat", lambda *a, _t=text, **k: _t)
+        assert llm.draft("x", facts, fallback) == (fallback, "template"), text
 
 
 def test_model_ladder_escalates_only_on_invalid_output(monkeypatch):

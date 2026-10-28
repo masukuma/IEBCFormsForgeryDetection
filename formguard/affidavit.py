@@ -120,78 +120,112 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
 # ---------------------------------------------------------------------------------------------
 # wording
 
+def _that(sentence: str) -> str:
+    """'The file ...' -> 'THAT the file ...'; 'I ...' keeps its capital."""
+    return "THAT " + (sentence if sentence.startswith("I ") else sentence[0].lower() + sentence[1:])
+
+
+def _local(iso: str) -> str:
+    """ISO time in UTC -> '9th August 2022 at 22:54:53 East Africa Time'."""
+    from datetime import datetime, timedelta
+
+    t = datetime.fromisoformat(iso) + timedelta(hours=3)
+    suffix = "th" if 11 <= t.day <= 13 else {1: "st", 2: "nd", 3: "rd"}.get(t.day % 10, "th")
+    return f"{t.day}{suffix} {t:%B %Y} at {t:%H:%M:%S} East Africa Time"
+
+
 def _sig_sentence(case: dict) -> str:
-    """The reference file and its signature, briefly; who signs and what validation shows is
-    explained once in the method."""
+    """The reference file and its signature; who signs and what validation shows is explained in the method."""
     sigs = case["reference_integrity"].get("signatures") or []
     f = case["reference_integrity"]
-    base = f"The reference original is the file {f['file']} ({f['bytes']:,} bytes, SHA-256 {f['sha256']})."
+    base = f"The original of this form is the file {f['file']}, of {f['bytes']:,} bytes, with the SHA-256 hash value {f['sha256']}."
     if not sigs:
-        return base + " It carries no embedded digital signature."
+        return base + " It carries no digital signature."
     s = sigs[0]
     if not s.get("checked"):
-        return base + f" It carries an embedded digital signature, which I was unable to validate ({s.get('error') or s.get('reason')})."
-    when = f" at {s['signing_time']}" if s.get("signing_time") else ""
+        return base + f" It carries a digital signature, which I was unable to validate ({s.get('error') or s.get('reason')})."
+    when = f" Its digital signature was applied on {_local(s['signing_time'])}." if s.get("signing_time") else ""
     if s.get("intact") and s.get("valid") and s.get("coverage") == "ENTIRE_FILE":
-        return base + f" Its digital signature, applied{when}, validates as intact and covers the entire file: the file has not changed since it was signed."
-    return base + f" Its digital signature, applied{when}, does NOT validate as an unchanged file (intact: {s.get('intact')}, valid: {s.get('valid')}, coverage: {s.get('coverage')})."
+        return base + when + " The signature validates as intact and covers the whole file, so the file has not changed since it was signed."
+    return base + when + " The signature does not validate as covering an unchanged file."
 
 
-def _exhibit_sentence(case: dict, f: dict) -> str:
-    cap = f" (captioned \"{f['caption']}\")" if f["caption"] else ""
+WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
+
+
+def _and(items: list[str]) -> str:
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def _count(n: int, noun: str) -> str:
+    word = WORDS[n] if n < len(WORDS) else f"{n:,}"
+    return f"{word} {noun}" + ("" if n == 1 else "s")
+
+
+def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
+    cap = f", captioned \"{f['caption']}\"," if f["caption"] else ""
+    where = f"the annexed page at {f['label']}{cap}"
     if not f["matched"]:
-        return f"{f['label']}{cap} could not be matched to the reference original with sufficient confidence; I make no finding on it."
-    head = (
-        f"{f['label']}{cap} was registered onto the reference original using {f['match_inliers']:,} matching image features. "
-        f"Of the {f['marks_compared']:,} handwritten and printed marks compared, {f['marks_reproduced_pct']}% are reproduced at the same "
-        f"positions with the same shapes"
+        return f"THAT {where} could not be matched to this original with enough confidence, and I make no finding on it."
+    text = (
+        f"THAT {where} matches this original at {f['match_inliers']:,} corresponding image features and reproduces "
+        f"{f['marks_reproduced_pct']:.0f}% of its {f['marks_compared']:,} marks in place."
     )
     if f["background_measurable"]:
-        head += f", and the background outside the form sheet in the reference capture correlates with this exhibit at {f['background_correlation']:.2f}"
-    head += "."
-    n = len(f["differences_in_results"])
-    added = f.get("marks_added_elsewhere", 0)
-    if added:
-        head += (
-            f" Apart from {added} mark(s) added to the copy on blank paper or over the printed form (such as captions, page "
-            f"numbers and exhibit stamps), which change no entry and are shown in the overview image"
+        text += (
+            f" The background beyond the edge of the sheet in the original correlates with the same area of the page "
+            f"at {f['background_correlation']:.2f}."
         )
-        head += "," if n == 0 else "."
-    if f["verdict"] in ("clean", "identical", "review") and n == 0:
-        tail = " there is" if added else " There is"
-        return head + tail + " no difference between this exhibit and the reference original anywhere in the results section of the form."
-    diffs = []
-    for d in f["differences_in_results"]:
-        if d["original_reads"] or d["questioned_reads"]:
-            what = f"\"{d['original_reads'] or '?'}\" in the original against \"{d['questioned_reads'] or '?'}\" in the exhibit"
-        else:
-            what = "a figure that differs (see the evidence image)"
-        where = f" ({d['field']})" if d.get("field") else ""
-        diffs.append(f"{what}{where} [{d['evidence']}]")
-    return head + f" The exhibit differs from the reference original at {n} place(s) in the results section: " + "; ".join(diffs) + "."
+    if f.get("marks_added_elsewhere"):
+        text += " Marks added to the copy, such as its caption, page number and stamps, change none of its entries and I have disregarded them."
+    q = f.get("glyph_similarity_median")
+    if q is not None and q < 0.85:
+        text += (
+            f" The page is degraded: the median similarity of its marks is {q:.2f}, below the 0.85 I require for a complete "
+            f"comparison. The differences I report are those clear enough to measure, and others may not be visible."
+        )
+    diffs = f["differences_in_results"]
+    same = [d for d in diffs if d["original_reads"] and d["original_reads"] == d["questioned_reads"]]
+    changed = [d for d in diffs if d not in same]
+    if not changed:
+        text += " Its entries do not differ from those of the original."
+    else:
+        items = [
+            f"{d.get('field') or 'a figure'}, which reads {d['original_reads']} on the original and {d['questioned_reads']} on the page"
+            for d in changed
+            if d["original_reads"] and d["questioned_reads"]
+        ]
+        shown = f", shown in annexure {mark}" if mark else ""
+        text += f" It differs from the original in {_count(len(changed), 'figure')}{shown}"
+        text += (": " + "; ".join(items) + "." if len(items) == len(changed) else ".")
+        sims = _and([f"{d['similarity']:.2f}".replace("-", "\u2212") for d in changed])
+        text += f" The measured {'similarity of this figure is' if len(changed) == 1 else 'similarities of these figures are'} {sims}, against the threshold of 0.5."
+    if same:
+        vals = ", ".join(d["original_reads"] for d in same)
+        text += (
+            f" In {_count(len(same), 'further place')} the measured similarity fell below the threshold but the figure reads "
+            f"the same on both ({vals}); I attribute {'this' if len(same) == 1 else 'these'} to the quality of the copy."
+        )
+    return text
 
 
 def _opinion(case: dict, f: dict) -> str | None:
-    if not f["matched"]:
+    changed = [d for d in f["differences_in_results"] if not (d["original_reads"] and d["original_reads"] == d["questioned_reads"])]
+    if not f["matched"] or not changed:
         return None
-    n = len(f["differences_in_results"])
-    if f["provenance_finding"] == "same_capture" and n:
-        return (
-            f"In my opinion {f['label']} was produced from the same photographic capture as the reference original uploaded to the "
-            f"public portal, and not from a separate carbon copy or a separate photograph of the form: it reproduces the reference's "
-            f"handwriting, signatures and stamp impressions in place and also carries the reference capture's own background. The "
-            f"{n} difference(s) listed above are confined to the figures, and therefore represent alterations made to an image of the "
-            f"reference original."
-        )
     if f["provenance_finding"] == "same_capture":
-        return f"In my opinion {f['label']} is a reproduction of the reference original and agrees with it."
-    if f["provenance_finding"] == "same_sheet" and n:
         return (
-            f"In my opinion {f['label']} depicts the same physical form as the reference original (its handwriting, signatures and "
-            f"stamp impressions are reproduced in place), but with the {n} figure(s) listed above altered."
+            "THAT in my opinion this page was made from the same photograph as the portal original and not from a separate "
+            "photograph of the form or from a carbon copy. It reproduces the original's handwriting, signatures and stamps in "
+            "place, together with the background of that photograph beyond the edge of the sheet. The figures listed in the "
+            "preceding paragraph were therefore changed on a copy of the portal image."
         )
     if f["provenance_finding"] == "same_sheet":
-        return f"In my opinion {f['label']} depicts the same physical form as the reference original and agrees with it."
+        return (
+            "THAT in my opinion this page shows the same handwritten sheet as the portal original. Its handwriting, signatures "
+            "and stamps coincide with those of the original in shape and position, and only the figures listed in the "
+            "preceding paragraph differ."
+        )
     return None
 
 
@@ -199,58 +233,78 @@ def _opinion(case: dict, f: dict) -> str | None:
 # document
 
 METHOD = [
-    "Retrieval. Each questioned page was matched against every candidate original for the constituencies concerned "
-    "using scale- and rotation-invariant image features (SIFT) and a robust geometric fit (RANSAC). All Forms 34A share a "
-    "printed template, so every candidate matches to some extent; the true original is singled out by the hand-written "
-    "entries, signatures and stamps, which add many further consistent matches. A match was accepted only where it was "
-    "both strong and at least twice as strong as the next candidate.",
-    "Registration. The questioned page was then mapped onto the reference original by a projective transformation, which "
-    "removes differences of scale, rotation, cropping and camera angle, followed by a smooth correction for paper curl "
-    "measured on blocks several times the size of a figure. The correction follows gentle distortion of the sheet but "
-    "cannot move an individual figure, so it cannot hide an alteration. Only the paper of each image was compared; the desk "
-    "or background visible around a photographed sheet was excluded.",
-    "Glyph comparison. Both images were normalised for paper tone and contrast and brought to the same sharpness, area by "
-    "area, because a photograph is not equally sharp across the sheet. Every mark (digit, letter, stroke) on either page was "
-    "then compared with the same location on the other using zero-mean normalised cross-correlation, which is insensitive "
-    "to brightness and contrast. An unchanged mark scores close to 1. Each figure containing a doubtful mark was then "
-    "re-measured in windows the size of one digit, so that a single changed digit is measured on its own even where its "
-    "strokes touch a neighbouring digit; a different figure, an added mark or a removed mark scores below 0.5, which is "
-    "the threshold used. Differing figures are reported with side-by-side evidence images.",
-    "Printed form and copies of copies. On photographs of printouts the grey printed labels of the form often fade while "
-    "the handwritten entries stay dark. The printed form was therefore identified by overlaying other Forms 34A of the same "
-    "kind on each reference original: what they all share is print. Faded print, marks that are present but fainter, and "
-    "marks added to the copy for the court bundle (captions, page numbers, exhibit stamps) were not counted as differences "
-    "in the entries; added marks are listed separately.",
-    "Capture provenance. A form exists as one physical sheet, and every photograph or scan of it is a separate capture with "
-    "its own framing, lighting and background. Two captures of the same sheet share its handwriting and stamps but not "
-    "those capture-specific details; an image made from a capture (printed, re-photographed or edited) inherits them. I "
-    "therefore measured (i) the share of the reference's marks reproduced in place in the questioned page and (ii) the "
-    "correlation between the background visible outside the form sheet in the reference capture and the same area of the "
-    "questioned page.",
-    "Integrity of the reference. The SHA-256 hash of each reference file was recorded, and where the file carries an "
-    "embedded digital signature it was validated to establish whether the file has changed since it was signed. The "
-    "Forms 34A on the portal are signed when transmitted from the KIEMS kit, with a certificate issued by \"CA_APPS\" "
-    "(Smartmatic International) and a SHA-1 digest.",
-    "Readings. The figures shown in each evidence image were read from that image; the reader of each figure is recorded. "
-    "The detection of differences does not depend on these readings.",
+    "I examined each annexed page in the steps set out in this and the following six paragraphs. Each step can be repeated "
+    "with the same files and the software I used, which I produce as annexure {software}. I first identified the original of "
+    "each annexed page. I compared the page with every candidate original using image features that are unaffected by "
+    "changes of scale, rotation and camera angle. All Forms 34A share one printed layout, so every candidate matches a page "
+    "to some degree. The original of a page is distinguished by its handwriting, signatures and stamps, which add several "
+    "hundred further matching points. I accepted a match only where it was strong and at least twice as strong as the next "
+    "best candidate.",
+    "I then aligned each annexed page with its original by a geometric transformation that removes differences of size, "
+    "angle, cropping and perspective, followed by a smooth correction for the curl of the paper. The correction is measured "
+    "over areas several times the size of a figure and cannot move a single figure, so it cannot conceal an alteration. I "
+    "compared only the paper of each image and excluded the desk or other background visible around a photographed sheet.",
+    "I then corrected the two images for differences of paper tone, contrast and sharpness, area by area, since a "
+    "photograph is not equally sharp across the sheet. I compared every mark on the form, that is each digit, letter and "
+    "stroke, with the same place on the other image, using a correlation measure that is unaffected by brightness and "
+    "contrast. The measure runs from \u22121 to 1, and an unchanged mark scores close to 1. I measured every figure containing a doubtful mark "
+    "again in windows the size of a single digit, so that a changed digit is measured on its own even where it touches the "
+    "next one. A different figure, an added mark or a removed mark scores below 0.5, which is the threshold I applied. For "
+    "each figure that differs I prepared an image showing the original and the annexed page side by side.",
+    "Photographs of printed copies often lose the grey printed lettering of a form while the handwritten entries remain "
+    "dark. So as not to mistake faded print for an alteration, I identified the printed parts of each original by "
+    "overlaying other Forms 34A on it, since the print is common to all of them while the handwritten entries are not. I did "
+    "not count faded print, marks that are present but fainter, or marks added to a copy for the court bundle, such as "
+    "captions, page numbers and stamps, as differences in the entries.",
+    "A Form 34A is a single sheet of paper, and every photograph or scan of it is a separate capture with its own framing, "
+    "lighting and background. Two separate captures of the same sheet share its handwriting and stamps but not those "
+    "features of the capture. An image made from a capture, whether by printing, re-photographing or editing it, carries "
+    "them over. For each annexed page I therefore measured the proportion of the original's marks that it reproduces in "
+    "place, and the correlation between the background visible beyond the edge of the sheet in the original and the same "
+    "area of the annexed page.",
+    "I recorded the SHA-256 hash value of each original and validated its digital signature, which shows whether the file "
+    "has changed since it was signed. The Forms 34A on the portal are signed when transmitted from the KIEMS kit, with a "
+    "certificate issued by \"CA_APPS\" of Smartmatic International and the SHA-1 digest.",
+    "The figures I quote in my findings were read from the side-by-side images, and I state who read each of them. The "
+    "finding that a figure differs does not depend on how it is read.",
 ]
 
 LIMITS = [
-    "The comparison establishes where a questioned page differs from the reference original and whether it was made from the "
-    "same capture. Which version is authentic follows from the custody of the reference (a digitally signed upload to the "
-    "public portal, and the physical originals), not from the image comparison alone.",
-    "The SHA-1 digest used by the KIEMS signatures is deprecated; collision attacks on SHA-1 are known. The signature check "
-    "is therefore supporting, not conclusive, evidence of the reference files' integrity.",
-    "Photographs of printouts lose detail. Where a questioned page is too degraded to compare reliably, or cannot be matched "
-    "to its original, I have said so and made no finding on it.",
-    "The thresholds used (match acceptance, similarity 0.5) were calibrated on genuine and altered copies of IEBC forms; "
-    "the software, its tests and the full numerical results are produced as part of my annexures.",
+    "The comparison shows where an annexed page differs from its original and whether it was made from the same capture. "
+    "Which version is authentic follows from the custody of the original, being a digitally signed upload to the portal and "
+    "the physical form, and not from the comparison alone.",
+    "The SHA-1 digest used in the KIEMS signatures is no longer considered secure against deliberate collisions. I therefore "
+    "treat the signature check as supporting evidence of the integrity of the originals and not as proof on its own.",
+    "Photographs of printed copies lose detail. Where an annexed page was too degraded to compare completely, or could not be "
+    "matched to its original, I have said so.",
+    "I set the thresholds I applied, for accepting a match and for similarity, by testing the method on genuine and altered "
+    "copies of IEBC forms. The software, its tests and the full numerical results form part of annexure {software}.",
 ]
+
+
+def _plain_title(title: str) -> str:
+    """'X polling station 1 of 1 (Tiaty Constituency, Baringo County)' -> 'X polling station 1 of 1, Tiaty Constituency, Baringo County'."""
+    return re.sub(r"\s*\((.*)\)\s*$", r", \1", title)
+
+
+def annexure_marks(results: dict, prefix: str) -> dict[str, str]:
+    """One annexure per polling station whose pages differ from the original; the software is annexure 1."""
+    marks, k = {}, 1
+    for c in results["cases"]:
+        if "error" in c:
+            continue
+        if any(_changes(rep) for rep in c["exhibit_results"]):
+            k += 1
+            marks[c["id"]] = f"{prefix}-{k}"
+    return marks
 
 
 def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: bool = True) -> Doc:
     matter = results.get("matter", {})
     readings = readings or {}
+    prefix = deponent.get("initials", "[XX]")
+    software = f"{prefix}-1"
+    marks = annexure_marks(results, prefix)
     d = Doc()
     for line in matter.get("heading", ["REPUBLIC OF KENYA", "IN THE SUPREME COURT OF KENYA AT NAIROBI"]):
         d.center(line, bold=True)
@@ -265,16 +319,21 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
         "do hereby make oath and state as follows:"
     )
 
-    d.para(f"THAT I am {deponent.get('profession', '[PROFESSION AND QUALIFICATIONS: forensic document / digital image examiner; years of practice; relevant training and prior testimony]')}, and I am competent to swear this affidavit.")
-    d.para(f"THAT I was instructed by {deponent.get('instructed_by', '[INSTRUCTING PARTY]')} to examine the Forms 34A annexed to {matter.get('questioned_affidavit', '[QUESTIONED AFFIDAVIT]')} and to determine whether they agree with the Forms 34A uploaded to the 1st Respondent's public portal. I understand my duty is to the Court and my opinions are my own.")
+    d.para(f"THAT I am {deponent.get('profession', '[PROFESSION AND QUALIFICATIONS]')}, and I am competent to swear this affidavit.")
+    d.para(
+        f"THAT I was instructed by {deponent.get('instructed_by', '[INSTRUCTING PARTY]')} to examine the Forms 34A annexed to "
+        f"{matter.get('questioned_affidavit', '[QUESTIONED AFFIDAVIT]')}, and to state whether they agree with the Forms 34A that "
+        "the 1st Respondent published on its public portal."
+    )
+    d.para("THAT my duty is to this Honourable Court. Where a statement below is my opinion rather than a measurement, I say so.")
 
     d.heading("MATERIALS EXAMINED")
-    d.para(f"THAT I examined the following materials, whose SHA-256 hashes I recorded so that they can be identified exactly: {matter.get('materials_summary', '[LIST OF MATERIALS AND THEIR SOURCE]')}.")
-    d.para(f"THAT the reference originals are copies of Forms 34A as published on the 1st Respondent's public portal {matter.get('reference_source', '[SOURCE AND DATE OF ACQUISITION, e.g. obtained from https://forms.iebc.or.ke on ...]')}.")
+    d.para(f"THAT I examined {matter.get('materials_summary', '[THE QUESTIONED AFFIDAVIT, WITH ITS SHA-256 HASH VALUE]')}.")
+    d.para(f"THAT as reference originals I used the Forms 34A published on the 1st Respondent's public portal, {matter.get('reference_source', '[SOURCE AND DATE OF ACQUISITION]')}.")
 
     d.heading("METHOD")
     for m in METHOD:
-        d.para("THAT " + m[0].lower() + m[1:])
+        d.para(_that(m.format(software=software)))
 
     cases = [c for c in results["cases"] if "error" not in c]
     d.heading("SUMMARY OF FINDINGS")
@@ -282,67 +341,74 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
     for c in cases:
         for rep in c["exhibit_results"]:
             f = exhibit_facts(c, rep, readings.get(c["id"], {}))
-            n = len(f["differences_in_results"])
-            rows.append([c["id"], c["title"], f"{f['label']}" + (f" ({f['caption']})" if f["caption"] else ""),
-                         "no match" if not f["matched"] else ("agrees with original" if n == 0 else f"{n} figure(s) differ"),
-                         (f["provenance_finding"] or "").replace("_", " ")])
-    d.para(f"THAT I examined {len(cases)} polling station(s). My findings are summarised in the table below and set out station by station in the paragraphs that follow.")
-    d.table(["Case", "Polling station", "Exhibit", "Result", "Provenance"], rows)
+            changed = [x for x in f["differences_in_results"] if not (x["original_reads"] and x["original_reads"] == x["questioned_reads"])]
+            result = "not matched" if not f["matched"] else ("agrees with the original" if not changed else _count(len(changed), "figure") + " differ" + ("s" if len(changed) == 1 else ""))
+            made = {"same_capture": "from the portal photograph", "same_sheet": "from an image of the same sheet"}.get(f["provenance_finding"] or "", "") if changed else ""
+            rows.append([_plain_title(c["title"]).split(",")[0], f["label"], f["caption"] or "none", result, made])
+    d.para(f"THAT I examined the annexed pages for {len(cases)} polling stations. I summarise my findings in the following table and set them out station by station in the paragraphs after it.")
+    d.table(["Polling station", "Annexed page", "Caption", "Result", "How the page was made"], rows)
 
-    d.heading("FINDINGS BY POLLING STATION")
+    d.heading("FINDINGS FOR EACH POLLING STATION")
     for c in cases:
-        d.heading(f"{c['id']}: {c['title']}", level=2)
+        d.heading(_plain_title(c["title"]), level=2)
         claim = c.get("claim") or {}
         if claim.get("text"):
             d.para(f"THAT {claim.get('by', 'the deponent')} states at {claim.get('where', '[REFERENCE]')} that {claim['text']}")
-        d.para("THAT " + _sig_sentence(c)[0].lower() + _sig_sentence(c)[1:])
+        d.para(_that(_sig_sentence(c)))
         for rep in c["exhibit_results"]:
             f = exhibit_facts(c, rep, readings.get(c["id"], {}))
-            fallback = "THAT " + _exhibit_sentence(c, f)
-            text, src = (llm.draft("Restate these comparison results as one affidavit paragraph beginning with 'THAT'.", f, fallback) if use_llm else (fallback, "template"))
+            fallback = _exhibit_sentence(c, f, marks.get(c["id"]))
+            if use_llm:
+                facts = {**f, "annexure": marks.get(c["id"])}
+                text, src = llm.draft(
+                    "Restate these comparison results as one affidavit paragraph beginning with 'THAT'. Keep every figure, "
+                    "reading, measurement and annexure mark exactly as given.",
+                    facts,
+                    fallback,
+                )
+            else:
+                text, src = fallback, "template"
             d.para(text, src)
             op = _opinion(c, f)
             if op:
-                d.para("THAT " + op[0].lower() + op[1:])
+                d.para(op)
 
-    d.heading("CONCLUSIONS")
-    altered = sorted({c["id"] for c in cases for rep in c["exhibit_results"] if exhibit_facts(c, rep, {})["differences_in_results"]})
-    d.para(f"THAT of the {len(cases)} polling station(s) examined, the annexed forms for {len(altered)} differ from the reference originals in their figures, as set out above ({', '.join(altered) or 'none'}).")
-    d.heading("LIMITATIONS")
+    d.heading("CONCLUSIONS AND LIMITATIONS")
+    altered = [c for c in cases if c["id"] in marks]
+    d.para(
+        f"THAT of the {len(cases)} polling stations examined, the annexed pages for {len(altered)} differ from the portal "
+        "originals in their figures, as set out above."
+    )
     for l in LIMITS:
-        d.para("THAT " + l[0].lower() + l[1:])
-    d.para("THAT what is deponed to herein is true to the best of my knowledge, information and belief, save for matters of opinion, which are my honest opinions.")
+        d.para(_that(l.format(software=software)))
+    d.para("THAT what is deponed to in this affidavit is true to the best of my knowledge, save for matters of opinion, which are my honest opinions.")
     d.text("SWORN at [PLACE] by the said [DEPONENT NAME] this [DAY] day of [MONTH] [YEAR]")
     d.text("BEFORE ME\n\n\nCOMMISSIONER FOR OATHS")
-    d.text("DRAWN & FILED BY: [ADVOCATES]")
+    d.text("DRAWN AND FILED BY: [ADVOCATES]")
 
     d.page_break()
-    d.heading("ANNEXURES: EVIDENCE IMAGES")
-    d.text("Each evidence image shows the reference original on the left and the questioned exhibit on the right, at the same location after registration.")
+    d.heading("ANNEXURES")
+    d.text(
+        "Each image shows the portal original on the left and the annexed page on the right, at the same place on the form "
+        "after alignment."
+    )
     return d
 
 
 # ---------------------------------------------------------------------------------------------
 # rendering
 
-def add_evidence(d: Doc, results: dict, run_dir: Path, prefix: str = "EX"):
-    k = 0
+def add_evidence(d: Doc, results: dict, run_dir: Path, prefix: str = "[XX]"):
+    marks = annexure_marks(results, prefix)
     for c in results["cases"]:
-        if "error" in c:
+        if c.get("id") not in marks:
             continue
+        d.heading(f"Annexure {marks[c['id']]}: {_plain_title(c['title'])}", level=2)
         for rep in c["exhibit_results"]:
             ev = run_dir / rep["evidence_dir"]
-            changes = _changes(rep)
-            if not changes:
-                continue
-            k += 1
-            d.heading(f"{prefix}-{k}: {c['id']} {c['title']}, {rep['exhibit']['label']}", level=2)
-            for p in rep["pages"]:
-                if p.get("overview"):
-                    d.image(ev / p["overview"], f"{prefix}-{k}: page overview (reference left, exhibit right; red boxes mark differences)")
-            for ch in changes:
+            for ch in _changes(rep):
                 if ch.get("evidence"):
-                    d.image(ev / ch["evidence"], f"{prefix}-{k} [{ch['evidence']}]", width_in=3.2)
+                    d.image(ev / ch["evidence"], f"{rep['exhibit']['label']}: original (left) and annexed page (right)", width_in=4.5)
 
 
 def to_markdown(d: Doc) -> str:
@@ -442,7 +508,7 @@ def write(results_path: Path, deponent: dict, out_stem: Path, readings_path: Pat
     results = json.loads(Path(results_path).read_text())
     readings = json.loads(Path(readings_path).read_text()) if readings_path else {}
     d = build(results, deponent, readings, use_llm=use_llm)
-    add_evidence(d, results, Path(results_path).parent)
+    add_evidence(d, results, Path(results_path).parent, deponent.get("initials", "[XX]"))
     md, docx = out_stem.with_suffix(".md"), out_stem.with_suffix(".docx")
     md.write_text(to_markdown(d))
     to_docx(d, docx)
