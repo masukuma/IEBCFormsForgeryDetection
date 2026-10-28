@@ -68,6 +68,10 @@ python -m formguard readings runs/results.json --out readings.json [--confirm]
 python -m formguard affidavit runs/results.json --readings readings.json --deponent deponent.json --out affidavit
 ```
 
+Figures scoring between 0.5 and 0.65 are possible changes: they get evidence images and readings,
+and count as differing only when they read differently. Readings are saved after each case; failed
+attempts (a dropped connection, malformed output) are retried on the next run.
+
 Ollama Cloud models are used cheapest first. Readings start on `gemma4:31b` (the smallest vision
 model) and drafting on `gpt-oss:20b`. A larger model is tried only when the smaller one's output
 fails validation: an illegible or malformed reading, or a draft containing any number not in the
