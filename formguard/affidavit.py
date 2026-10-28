@@ -228,7 +228,7 @@ def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
                 text += f" The second reader read it as {d['model_reading']}."
     if same:
         n = _count(len(same), "mark")
-        n = f"a further {n}" if changed else n
+        n = ("a further mark" if len(same) == 1 else f"a further {n}") if changed else n
         text += f" {n[0].upper()}{n[1:]} scored below 0.65 but {'reads' if len(same) == 1 else 'read'} the same on both images."
     return text
 
