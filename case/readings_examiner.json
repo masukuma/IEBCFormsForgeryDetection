@@ -159,7 +159,8 @@
   "p79_change03": {
    "original": "103",
    "questioned": "102",
-   "field": "the total number of valid votes cast in the polling station counts"
+   "field": "the total number of valid votes cast in the polling station counts",
+   "remark": "On both images this figure is followed by a further entry that has been written over, which I do not read as part of it."
   },
   "p79_change04": {
    "original": "same",

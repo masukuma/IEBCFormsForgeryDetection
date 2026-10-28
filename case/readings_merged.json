@@ -24,8 +24,8 @@
    "questioned": "002",
    "field": "the votes of William Ruto",
    "model": {
-    "original": "088,007",
-    "questioned": "088,002",
+    "original": "088,007,000",
+    "questioned": "088,002,000",
     "by": "gemma4:31b",
     "original_figure": "007",
     "questioned_figure": "002"
@@ -118,10 +118,10 @@
    "questioned": "317",
    "field": "the total number of valid votes cast",
    "model": {
-    "original": "3,45",
+    "original": "345",
     "questioned": "317",
     "by": "gemma4:31b",
-    "original_figure": "45",
+    "original_figure": "345",
     "questioned_figure": "317"
    },
    "model_agrees": true
@@ -130,15 +130,14 @@
    "original": "060",
    "questioned": "032",
    "field": "the votes of William Ruto",
-   "remark": "The image cuts off the first digit of this figure, and the second reader read only the digits in view.",
    "model": {
-    "original": "4,0,0,0,0,1",
-    "questioned": "4,2,0,0,0,1",
+    "original": "284,060,000,001",
+    "questioned": "284,032,000,001",
     "by": "gemma4:31b",
-    "original_figure": "0",
-    "questioned_figure": "2"
+    "original_figure": "060",
+    "questioned_figure": "032"
    },
-   "model_agrees": false
+   "model_agrees": true
   },
   "p75_change04": {
    "original": "345",
@@ -146,13 +145,13 @@
    "field": "the total number of valid votes cast",
    "same_as": "p75_change02",
    "model": {
-    "original": "45",
-    "questioned": "7",
+    "original": "345",
+    "questioned": "317",
     "by": "gemma4:31b",
-    "original_figure": "45",
-    "questioned_figure": "7"
+    "original_figure": "345",
+    "questioned_figure": "317"
    },
-   "model_agrees": false
+   "model_agrees": true
   }
  },
  "C05": {
@@ -235,8 +234,8 @@
    "questioned": "007",
    "field": "the votes of William Ruto",
    "model": {
-    "original": "249,299,020,000,000",
-    "questioned": "249,299,007,000,000",
+    "original": "209,299,020,000,000",
+    "questioned": "209,299,007,000,000",
     "by": "gemma4:31b",
     "original_figure": "020",
     "questioned_figure": "007"
@@ -316,26 +315,26 @@
    "original": "103",
    "questioned": "102",
    "field": "the total number of valid votes cast",
-   "remark": "The image cuts off the first digit of this figure on the page.",
    "model": {
     "original": "103",
-    "questioned": "02",
+    "questioned": "102",
     "by": "gemma4:31b",
     "original_figure": "103",
-    "questioned_figure": "02"
+    "questioned_figure": "102"
    },
-   "model_agrees": false
+   "model_agrees": true
   },
   "p79_change03": {
    "original": "103",
    "questioned": "102",
    "field": "the total number of valid votes cast in the polling station counts",
+   "remark": "On both images this figure is followed by a further entry that has been written over, which I do not read as part of it.",
    "model": {
-    "original": "000,10310",
-    "questioned": "000,10210",
+    "original": "000,000,1031034",
+    "questioned": "000,000,1021034",
     "by": "kimi-k3",
-    "original_figure": "10310",
-    "questioned_figure": "10210"
+    "original_figure": "1031034",
+    "questioned_figure": "1021034"
    },
    "model_agrees": false
   },
@@ -465,7 +464,7 @@
    "field": "the votes of William Ruto",
    "model": {
     "original": "048,001,000,000",
-    "questioned": "048,001,000,000",
+    "questioned": "048,000,000,000",
     "by": "gemma4:31b",
     "original_figure": "001",
     "questioned_figure": "000"
@@ -545,13 +544,13 @@
    "field": "the total number of valid votes cast",
    "same_as": "p82_change02",
    "model": {
-    "original": "10",
-    "questioned": "8",
+    "original": "108",
+    "questioned": "85",
     "by": "gemma4:31b",
-    "original_figure": "10",
-    "questioned_figure": "8"
+    "original_figure": "108",
+    "questioned_figure": "85"
    },
-   "model_agrees": false
+   "model_agrees": true
   }
  },
  "C12": {
@@ -642,8 +641,8 @@
    "questioned": "001",
    "field": "the votes of William Ruto",
    "model": {
-    "original": "002,006,000",
-    "questioned": "002,001,000",
+    "original": "082,006,000,000",
+    "questioned": "082,001,000,000",
     "by": "gemma4:31b",
     "original_figure": "006",
     "questioned_figure": "001"
@@ -703,8 +702,8 @@
    "questioned": "040",
    "field": "the total number of valid votes cast in the polling station counts",
    "model": {
-    "original": "000,043",
-    "questioned": "000,040",
+    "original": "000,000,043",
+    "questioned": "000,000,040",
     "by": "gemma4:31b",
     "original_figure": "043",
     "questioned_figure": "040"
@@ -716,8 +715,8 @@
    "questioned": "001",
    "field": "the votes of William Ruto",
    "model": {
-    "original": "39,004,000,000",
-    "questioned": "39,001,000,000",
+    "original": "039,004,000,000",
+    "questioned": "039,001,000,000",
     "by": "gemma4:31b",
     "original_figure": "004",
     "questioned_figure": "001"
@@ -745,13 +744,13 @@
    "field": "the total number of valid votes cast",
    "same_as": "p87_change03",
    "model": {
-    "original": "45",
-    "questioned": "3",
-    "by": "kimi-k2.6",
-    "original_figure": "45",
-    "questioned_figure": "3"
+    "original": "145",
+    "questioned": "133",
+    "by": "gemma4:31b",
+    "original_figure": "145",
+    "questioned_figure": "133"
    },
-   "model_agrees": false
+   "model_agrees": true
   },
   "p87_change03": {
    "original": "145",
@@ -771,9 +770,9 @@
    "questioned": "006",
    "field": "the votes of William Ruto",
    "model": {
-    "original": "127,018,000,000",
-    "questioned": "127,006,000,000",
-    "by": "gemma4:31b",
+    "original": "127,018,600,000",
+    "questioned": "127,006,600,000",
+    "by": "kimi-k2.6",
     "original_figure": "018",
     "questioned_figure": "006"
    },
@@ -816,7 +815,7 @@
    "model": {
     "original": "367",
     "questioned": "286",
-    "by": "kimi-k2.6",
+    "by": "gemma4:31b",
     "original_figure": "367",
     "questioned_figure": "286"
    },
@@ -843,8 +842,8 @@
    "questioned": "090",
    "field": "the total number of valid votes cast in the polling station counts",
    "model": {
-    "original": "000,092",
-    "questioned": "000,090",
+    "original": "000,000,092",
+    "questioned": "000,000,090",
     "by": "gemma4:31b",
     "original_figure": "092",
     "questioned_figure": "090"
@@ -897,8 +896,8 @@
    "questioned": "108",
    "field": "the total number of valid votes cast in the polling station counts",
    "model": {
-    "original": "000,118",
-    "questioned": "000,108",
+    "original": "000,000,118",
+    "questioned": "000,000,108",
     "by": "gemma4:31b",
     "original_figure": "118",
     "questioned_figure": "108"
@@ -912,8 +911,8 @@
    "questioned": "029",
    "field": "the total number of valid votes cast in the polling station counts",
    "model": {
-    "original": "000,034",
-    "questioned": "000,029",
+    "original": "000,000,034",
+    "questioned": "000,000,029",
     "by": "gemma4:31b",
     "original_figure": "034",
     "questioned_figure": "029"
@@ -984,8 +983,8 @@
    "questioned": "003",
    "field": "the votes of William Ruto",
    "model": {
-    "original": "014,00",
-    "questioned": "003,00",
+    "original": "098,014,000",
+    "questioned": "098,003,000",
     "by": "gemma4:31b",
     "original_figure": "014",
     "questioned_figure": "003"
@@ -1158,13 +1157,13 @@
    "field": "the total number of valid votes cast",
    "same_as": "p112_change01",
    "model": {
-    "original": "35",
-    "questioned": "25",
+    "original": "359",
+    "questioned": "259",
     "by": "gemma4:31b",
-    "original_figure": "35",
-    "questioned_figure": "25"
+    "original_figure": "359",
+    "questioned_figure": "259"
    },
-   "model_agrees": false
+   "model_agrees": true
   },
   "p112_change03": {
    "original": "123",
@@ -1377,8 +1376,8 @@
    "field": "the votes of William Ruto",
    "same_as": "p115_change02",
    "model": {
-    "original": "140,002",
-    "questioned": "040,002",
+    "original": "225,140,003",
+    "questioned": "225,040,003",
     "by": "gemma4:31b",
     "original_figure": "140",
     "questioned_figure": "040"
@@ -1431,8 +1430,8 @@
    "questioned": "277",
    "field": "the total number of valid votes cast in the polling station counts",
    "model": {
-    "original": "000,360",
-    "questioned": "000,277",
+    "original": "000,000,360",
+    "questioned": "000,000,277",
     "by": "gemma4:31b",
     "original_figure": "360",
     "questioned_figure": "277"
@@ -1459,8 +1458,8 @@
    "questioned": "047",
    "field": "the votes of William Ruto",
    "model": {
-    "original": "181,141,003",
-    "questioned": "181,047,003",
+    "original": "181,141,003,001",
+    "questioned": "181,047,003,001",
     "by": "gemma4:31b",
     "original_figure": "141",
     "questioned_figure": "047"
@@ -1486,8 +1485,8 @@
    "field": "the votes of William Ruto",
    "same_as": "p117_change02",
    "model": {
-    "original": "181,141",
-    "questioned": "181,047",
+    "original": "181,141,003",
+    "questioned": "181,047,003",
     "by": "gemma4:31b",
     "original_figure": "141",
     "questioned_figure": "047"
@@ -1638,13 +1637,13 @@
    "field": "the total number of valid votes cast",
    "same_as": "p120_change01",
    "model": {
-    "original": "35",
-    "questioned": "27",
+    "original": "354",
+    "questioned": "274",
     "by": "gemma4:31b",
-    "original_figure": "35",
-    "questioned_figure": "27"
+    "original_figure": "354",
+    "questioned_figure": "274"
    },
-   "model_agrees": false
+   "model_agrees": true
   }
  },
  "C38": {
@@ -1757,7 +1756,7 @@
    "model": {
     "original": "363",
     "questioned": "293",
-    "by": "kimi-k3",
+    "by": "gemma4:31b",
     "original_figure": "363",
     "questioned_figure": "293"
    },
@@ -1781,8 +1780,8 @@
    "questioned": "050",
    "field": "the votes of William Ruto",
    "model": {
-    "original": "231,120,001,003",
-    "questioned": "231,050,001,003",
+    "original": "239,120,001,003",
+    "questioned": "239,050,001,003",
     "by": "gemma4:31b",
     "original_figure": "120",
     "questioned_figure": "050"
@@ -2090,7 +2089,7 @@
    "model": {
     "original": "256",
     "questioned": "176",
-    "by": "kimi-k2.6",
+    "by": "gemma4:31b",
     "original_figure": "256",
     "questioned_figure": "176"
    },
