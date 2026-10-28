@@ -35,9 +35,13 @@ Dropbox ──sync (content-hash, incremental)──▶ local mirror
    ├─ render every page at a common working size              (render.py)
    ├─ match pages: SIFT + RANSAC homography, each submitted
    │  page against every original page                        (register.py)
-   ├─ register: homography warp + heavily smoothed optical flow
-   ├─ compare glyphs: normalise, match sharpness, drop ruling,
-   │  ZNCC per glyph                                          (compare.py)
+   ├─ register: homography warp + smooth block-matching correction,
+   │  paper masks for both pages
+   ├─ printed form (optional): median of other forms of the
+   │  same type, to tell print from entries                    (template.py)
+   ├─ compare glyphs: normalise, match sharpness per tile, drop
+   │  ruling, ZNCC per glyph; re-score suspect numbers in
+   │  digit-sized windows                                      (compare.py)
    ├─ interpret: merge glyphs into per-cell regions, OCR the
    │  flagged cells only, detect swapped values               (pipeline.py, ocr.py)
    └─ report: JSON per document + HTML summary with
@@ -53,9 +57,18 @@ every page twice), 90° rotations (Lagdera, Teso South) and pages with no origin
 reads as "no matching page", never as a false alteration.
 
 The homography removes scale, rotation, crop and perspective. What is left (paper curl, lens
-distortion, up to ~25 px on phone photos) is absorbed by dense optical flow (DIS) **smoothed with
-a σ = 25 px Gaussian**. The smoothing matters: it lets the flow follow gentle paper deformation but
-not a single edited digit, which is a sharp, local change.
+distortion) is corrected by **block matching**: 192 px blocks of the page are located in the
+registered copy by correlating edge maps, unreliable blocks are dropped, outliers removed by a
+median over neighbouring blocks, and the field is smoothed over about half a block spacing and
+extended to the page edges. The correction is kept only if it improves the pages' overall edge
+agreement. It follows the curl of a sheet, typically 1.5–5 px, but cannot move one figure: a block
+is several times the size of a digit. (Dense optical flow was tried first and drifted by hundreds of
+pixels on photographs of printouts.) Each glyph is then re-aligned by up to ±6 px using an 80 px
+window of its surroundings, again too large for an edited figure to pull the alignment towards itself.
+
+Only the **paper** is compared. On photographs, and on the KIEMS kit's own images of the forms,
+the desk or scanner background shows around the sheet; areas much darker than the paper
+(< 50 % of its brightness) that reach the image edge are masked on both pages.
 
 ### 2.2 Glyph comparison (the core)
 Pixel differences fail on these forms, and so do thresholded ink differences: strict enough to
@@ -64,8 +77,10 @@ blur means a different number in the same cell slips through. So pages are compa
 
 1. **Flatten.** Divide by a local background estimate (morphological closing). Paper tone,
    shading and scanner contrast go away; 1.0 = paper, 0.0 = ink.
-2. **Match sharpness.** Blur whichever page is sharper until it best matches the other (σ chosen
-   on the table area), so a 150 dpi copy is not "missing" detail that a 300 dpi original has.
+2. **Match sharpness.** Blur whichever page is sharper until it best matches the other, so a
+   150 dpi copy is not "missing" detail that a 300 dpi original has. The level is chosen per
+   192 px tile (median over neighbouring tiles), because a phone photograph is not equally sharp
+   across the sheet.
 3. **Remove ruling, find glyphs.** Threshold ink on *both* pages, remove table lines
    (morphological opening with long line kernels), and take connected components of the union.
    A digit present on only one side is still a glyph.
@@ -75,21 +90,49 @@ blur means a different number in the same cell slips through. So pages are compa
    background behind two *different* numbers makes them look alike (a swapped `317`/`683` scored
    0.54; it scores well below 0.5 with clipping).
 5. **Group** glyphs into numbers, cut along the table ruling so a group never spans two cells.
-   Any number containing a low-scoring glyph becomes a region covering the whole number, classified
-   as *substitution*, *addition* or *erasure* by the ink on each side. A figure that was re-typed with
-   the same value (Mbalambala: `189` moved from right-aligned to centred) is still caught, because its
-   glyphs moved. OCR then marks it as "value unchanged".
-6. **Locate the results table** from line intersections. Changes inside it are alterations;
+   A number containing a low-scoring glyph is **re-scored in digit-sized windows** (about a digit's
+   height, slid a quarter-window at a time across the number). How a number's strokes split into
+   glyphs varies between copies: in `063 → 033` the `0` and `6` touch and form one glyph, which
+   scores 0.64 against `03`, while a window over the middle digit scores below 0. The lowest
+   window gives the region's similarity. Regions are classified as *substitution*, *addition* or
+   *erasure* by the ink on each side, and as *on an entry* of the original or not. A figure that was
+   re-typed with the same value (Mbalambala: `189` moved from right-aligned to centred) is still
+   caught, because its glyphs moved. OCR then marks it as "value unchanged".
+6. **Locate the results table** from its long horizontal rules, found at any slant with a Hough
+   transform (line intersections as a fallback). Changes to entries inside it are alterations;
    changes elsewhere (headers, stamps, signatures) are reported for review.
+
+### 2.2.1 Photographs of printouts
+Annexures to affidavits are photographs of printed copies, often printed again into the court
+bundle. Three things on such copies look like changes but are not, and are handled explicitly:
+
+* **Faded print.** The grey printed labels of the form fade into the paper while pen entries stay
+  dark. With a pool of other forms of the same type (`--template`, or `"template"` in a manifest),
+  the **printed form** is the pixel-wise median of those forms registered onto the original: what
+  most of them share is print, their entries differ and drop out. A reference glyph that matches the
+  printed form (ZNCC ≥ 0.6; handwritten entries score below 0.4 against it) and has gained no ink
+  is scored but never reported.
+* **Faint but present.** Where a mark seems to be missing from the copy, the copy's unclipped
+  darkness is correlated with the original's stroke shape. Print or writing that is merely lighter
+  follows the strokes; erased or blank paper, and the security background, do not.
+* **Marks added to the bundle.** Exhibit stamps, page numbers and captions are added ink. Large
+  added marks, and bold type far thicker than a pen line, cover what is under them: those areas
+  are reported as *obscured*, not altered. Added marks on blank paper are reported as *additions
+  on blank paper*, separately from changes to entries.
+
+Long straight strokes (cross-out lines through unused table space, broken rules) are treated like
+ruling. Calibration on six photographed pages of three polling stations (each original against
+a portal printout and an agent copy): every changed figure scored between −0.11 and 0.44, and every
+area of a clean copy 0.54 or more, against a threshold of 0.5.
 
 ### 2.3 Verdicts
 
 | Verdict | Meaning |
 |---|---|
 | `identical` | byte-identical to the original |
-| `clean` | every page matched and no glyph fell below the similarity threshold (0.5) |
-| `altered` | at least one figure in the results table differs from the original |
-| `review` | differences only outside the table (header, stamp, signature area) |
+| `clean` | every page matched and nothing fell below the similarity threshold (0.5) |
+| `altered` | at least one entry in the results table differs from the original |
+| `review` | differences only outside the table (header, stamp, signature area), marks added on blank paper, or areas obscured by added marks |
 | `inconclusive` | a page could not be matched to the original, or the copy is too degraded to judge (median glyph similarity < 0.85) |
 | `no_original` | no original available to compare against (see §4) |
 

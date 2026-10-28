@@ -3,9 +3,9 @@
 Two stages:
 1. SIFT keypoints + RANSAC homography on downscaled copies. This handles scale, rotation
    (including 90/180 degree page rotations), cropping and phone-camera perspective.
-2. Dense optical flow, heavily smoothed, to absorb residual paper curl and lens distortion.
-   The smoothing keeps the correction low-frequency so it cannot "explain away" an edited
-   digit, which is a local, high-frequency change.
+2. Block matching on edge maps, filtered and smoothed, to absorb residual paper curl and lens
+   distortion. Blocks are several times the size of a digit and the field is smooth, so the
+   correction cannot "explain away" an edited digit, which is a local change.
 """
 from __future__ import annotations
 

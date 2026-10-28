@@ -13,8 +13,10 @@ made tolerant enough, stops seeing a "3" turned into an "8". So we compare *glyp
 3. Each glyph box is scored by zero-mean normalised cross-correlation (ZNCC) between the two
    pages, maximised over a +/-2 px shift. ZNCC ignores brightness and contrast; an unchanged
    glyph scores ~0.95-1.0 even across very different copies, a changed digit scores < 0.5.
-4. Low-scoring glyphs are merged into regions (one per edited number) and reported with the
-   kind of change and whether they fall inside the results table.
+4. Glyphs are grouped into numbers; a number with a low-scoring glyph is re-scored in
+   digit-sized windows, so the result does not depend on how its strokes were split into glyphs.
+   Low-scoring numbers become regions, reported with the kind of change, whether they fall
+   inside the results table and whether they sit on an entry of the original.
 """
 from __future__ import annotations
 

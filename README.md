@@ -7,10 +7,13 @@ results table were changed, which cells, what they read before and after, and si
 How it works and why: [docs/DESIGN.md](docs/DESIGN.md). In short:
 
 1. **Match pages** with SIFT + RANSAC, so reordered, rotated, duplicated, cropped or re-photographed pages still line up.
-2. **Register** with a homography plus heavily smoothed optical flow (paper curl, lens distortion).
-3. **Compare glyph by glyph**: flatten both pages, equalise sharpness, remove table ruling, and score
-   every digit/mark with contrast-invariant correlation. Unchanged glyphs score about 1.0 across very
-   different copies; edited figures score below 0.5.
+2. **Register** with a homography plus a smooth block-matching correction (paper curl, lens
+   distortion), comparing only the paper of both pages.
+3. **Compare glyph by glyph**: flatten both pages, equalise sharpness tile by tile, remove table
+   ruling, and score every digit/mark with contrast-invariant correlation; numbers with a suspect
+   glyph are re-scored in digit-sized windows. Unchanged glyphs score about 1.0 across very
+   different copies; edited figures score below 0.5. Given other forms of the same type
+   (`--template`), faded print on photographed copies is told apart from the entries.
 4. **Explain**: merge flagged glyphs into table cells, OCR only those cells (`26 → 226`), and pair up values swapped between cells.
 
 ## Install
@@ -52,7 +55,8 @@ the same capture as the original, and drafts an affidavit from the measurements:
 ```bash
 # 1. Which original does each annexed page show? (feature retrieval among all candidates)
 python -m formguard discover "affidavit.pdf#pages=46-130" --candidates ref/34A --out manifest.json
-#    then fill in each case's title, claim and the page captions
+#    then fill in each case's title, claim and the page captions; the draft also lists a
+#    "template": a dozen candidates that are not originals of any case, used to recognise print
 
 # 2. Compare every exhibit with its original; validate the originals' digital signatures
 python -m formguard cases manifest.json --out runs/
@@ -71,8 +75,9 @@ measured facts. `--confirm` adds an independent second reading from the next mod
 are set with `FORMGUARD_VISION_MODELS` and `FORMGUARD_TEXT_MODELS`. Models never decide what
 differs; they only read figures off evidence images and word paragraphs around measured facts.
 
-Tuning: `--flag-below` (glyph similarity threshold, default 0.5), `--long-side` (working resolution,
-default 2600 px), `--no-ocr`.
+Tuning: `--flag-below` (similarity threshold, default 0.5), `--long-side` (working resolution,
+default 2600 px), `--no-ocr`, `--template DIR` (other forms of the originals' type; recommended for
+photographed copies, where printed labels fade).
 
 ## Tests
 

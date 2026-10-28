@@ -61,8 +61,15 @@ class Doc:
 # ---------------------------------------------------------------------------------------------
 # facts
 
-def _changes(rep: dict) -> list[dict]:
-    return [c | {"page": p["submission_page"]} for p in rep.get("pages", []) for c in p.get("changes", []) if c.get("in_table")]
+def _changes(rep: dict, on_entries: bool = True) -> list[dict]:
+    """Differences in the results section: on the original's entries, or (on_entries=False) marks
+    added to the copy on blank paper or over its print, such as captions, page numbers, stamps."""
+    return [
+        c | {"page": p["submission_page"]}
+        for p in rep.get("pages", [])
+        for c in p.get("changes", [])
+        if c.get("in_table") and c.get("on_figure", True) == on_entries
+    ]
 
 
 def _prov(rep: dict) -> dict:
@@ -103,6 +110,7 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
         "background_correlation": bg.get("zncc"),
         "provenance_finding": prov.get("finding"),
         "differences_in_results": changes,
+        "marks_added_elsewhere": len(_changes(rep, on_entries=False)),
         "sha256": rep.get("exhibit_integrity", {}).get("sha256"),
     }
 
@@ -142,8 +150,16 @@ def _exhibit_sentence(case: dict, f: dict) -> str:
         head += f", and the background outside the form sheet in the reference capture correlates with this exhibit at {f['background_correlation']:.2f}"
     head += "."
     n = len(f["differences_in_results"])
+    added = f.get("marks_added_elsewhere", 0)
+    if added:
+        head += (
+            f" Apart from {added} mark(s) added to the copy on blank paper or over the printed form (such as captions, page "
+            f"numbers and exhibit stamps), which change no entry and are shown in the overview image"
+        )
+        head += "," if n == 0 else "."
     if f["verdict"] in ("clean", "identical", "review") and n == 0:
-        return head + " There is no difference between this exhibit and the reference original anywhere in the results section of the form."
+        tail = " there is" if added else " There is"
+        return head + tail + " no difference between this exhibit and the reference original anywhere in the results section of the form."
     diffs = []
     for d in f["differences_in_results"]:
         if d["original_reads"] or d["questioned_reads"]:
@@ -189,14 +205,22 @@ METHOD = [
     "entries, signatures and stamps, which add many further consistent matches. A match was accepted only where it was "
     "both strong and at least twice as strong as the next candidate.",
     "Registration. The questioned page was then mapped onto the reference original by a projective transformation, which "
-    "removes differences of scale, rotation, cropping and camera angle, followed by a heavily smoothed correction for paper "
-    "curl. The smoothing allows gentle, page-wide distortion to be corrected but cannot move an individual figure, so it "
-    "cannot hide an alteration.",
-    "Glyph comparison. Both images were normalised for paper tone and contrast and brought to the same sharpness. Every "
-    "mark (digit, letter, stroke) on either page was then compared with the same location on the other using zero-mean "
-    "normalised cross-correlation, which is insensitive to brightness and contrast. An unchanged mark scores close to 1; a "
-    "different figure, an added mark or a removed mark scores below 0.5, which is the threshold used. Differing marks were "
-    "grouped into figures and reported with side-by-side evidence images.",
+    "removes differences of scale, rotation, cropping and camera angle, followed by a smooth correction for paper curl "
+    "measured on blocks several times the size of a figure. The correction follows gentle distortion of the sheet but "
+    "cannot move an individual figure, so it cannot hide an alteration. Only the paper of each image was compared; the desk "
+    "or background visible around a photographed sheet was excluded.",
+    "Glyph comparison. Both images were normalised for paper tone and contrast and brought to the same sharpness, area by "
+    "area, because a photograph is not equally sharp across the sheet. Every mark (digit, letter, stroke) on either page was "
+    "then compared with the same location on the other using zero-mean normalised cross-correlation, which is insensitive "
+    "to brightness and contrast. An unchanged mark scores close to 1. Each figure containing a doubtful mark was then "
+    "re-measured in windows the size of one digit, so that a single changed digit is measured on its own even where its "
+    "strokes touch a neighbouring digit; a different figure, an added mark or a removed mark scores below 0.5, which is "
+    "the threshold used. Differing figures are reported with side-by-side evidence images.",
+    "Printed form and copies of copies. On photographs of printouts the grey printed labels of the form often fade while "
+    "the handwritten entries stay dark. The printed form was therefore identified by overlaying other Forms 34A of the same "
+    "kind on each reference original: what they all share is print. Faded print, marks that are present but fainter, and "
+    "marks added to the copy for the court bundle (captions, page numbers, exhibit stamps) were not counted as differences "
+    "in the entries; added marks are listed separately.",
     "Capture provenance. A form exists as one physical sheet, and every photograph or scan of it is a separate capture with "
     "its own framing, lighting and background. Two captures of the same sheet share its handwriting and stamps but not "
     "those capture-specific details; an image made from a capture (printed, re-photographed or edited) inherits them. I "

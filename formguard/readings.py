@@ -20,7 +20,8 @@ def read_all(results_path: Path, confirm: bool = False, existing: dict | None = 
             ev = run_dir / rep["evidence_dir"]
             for page in rep.get("pages", []):
                 for c in page.get("changes", []):
-                    if not c.get("in_table") or not c.get("evidence"):
+                    # Figures only: marks on blank paper and areas under added marks are not read.
+                    if not c.get("in_table") or not c.get("on_figure", True) or not c.get("evidence"):
                         continue
                     key = c["evidence"].rsplit(".", 1)[0]
                     if key in out.get(case["id"], {}):
