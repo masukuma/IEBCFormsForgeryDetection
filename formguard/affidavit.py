@@ -90,9 +90,11 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
                 "evidence": c.get("evidence"),
                 "kind": ALTERED_KINDS.get(c["kind"], c["kind"]),
                 "similarity": c["similarity"],
-                "original_reads": r.get("original") or c.get("read_original") or None,
-                "questioned_reads": r.get("questioned") or c.get("read_submission") or None,
-                "read_by": r.get("by") or ("OCR (tesseract)" if c.get("read_original") or c.get("read_submission") else None),
+                # Readings recorded for the evidence image (examiner or model); OCR of photographed
+                # handwriting is too unreliable to quote and stays in the technical report.
+                "original_reads": r.get("original") or None,
+                "questioned_reads": r.get("questioned") or None,
+                "read_by": r.get("by"),
                 "field": r.get("field"),
             }
         )
@@ -119,6 +121,8 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
 # wording
 
 def _sig_sentence(case: dict) -> str:
+    """The reference file and its signature, briefly; who signs and what validation shows is
+    explained once in the method."""
     sigs = case["reference_integrity"].get("signatures") or []
     f = case["reference_integrity"]
     base = f"The reference original is the file {f['file']} ({f['bytes']:,} bytes, SHA-256 {f['sha256']})."
@@ -127,14 +131,10 @@ def _sig_sentence(case: dict) -> str:
     s = sigs[0]
     if not s.get("checked"):
         return base + f" It carries an embedded digital signature, which I was unable to validate ({s.get('error') or s.get('reason')})."
-    state = "intact and cryptographically valid" if s.get("intact") and s.get("valid") else "NOT intact"
-    cover = "covering the entire file" if s.get("coverage") == "ENTIRE_FILE" else f"with coverage {s.get('coverage')}"
-    return (
-        base + f" It carries an embedded digital signature by \"{s.get('signer')}\" (issuer \"{s.get('issuer')}\"), "
-        f"signing time {s.get('signing_time')}, digest algorithm {s.get('digest_algorithm')}. On validation the signature is "
-        f"{state}, {cover}, which means the file has not been modified since it was signed. "
-        + ("The signer's certificate chain could not be traced to a trusted root with the materials available to me." if not s.get("trusted") else "")
-    ).strip()
+    when = f" at {s['signing_time']}" if s.get("signing_time") else ""
+    if s.get("intact") and s.get("valid") and s.get("coverage") == "ENTIRE_FILE":
+        return base + f" Its digital signature, applied{when}, validates as intact and covers the entire file: the file has not changed since it was signed."
+    return base + f" Its digital signature, applied{when}, does NOT validate as an unchanged file (intact: {s.get('intact')}, valid: {s.get('valid')}, coverage: {s.get('coverage')})."
 
 
 def _exhibit_sentence(case: dict, f: dict) -> str:
@@ -228,7 +228,9 @@ METHOD = [
     "correlation between the background visible outside the form sheet in the reference capture and the same area of the "
     "questioned page.",
     "Integrity of the reference. The SHA-256 hash of each reference file was recorded, and where the file carries an "
-    "embedded digital signature it was validated to establish whether the file has changed since it was signed.",
+    "embedded digital signature it was validated to establish whether the file has changed since it was signed. The "
+    "Forms 34A on the portal are signed when transmitted from the KIEMS kit, with a certificate issued by \"CA_APPS\" "
+    "(Smartmatic International) and a SHA-1 digest.",
     "Readings. The figures shown in each evidence image were read from that image; the reader of each figure is recorded. "
     "The detection of differences does not depend on these readings.",
 ]
@@ -301,7 +303,7 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
             d.para(text, src)
             op = _opinion(c, f)
             if op:
-                d.para("THAT " + op)
+                d.para("THAT " + op[0].lower() + op[1:])
 
     d.heading("CONCLUSIONS")
     altered = sorted({c["id"] for c in cases for rep in c["exhibit_results"] if exhibit_facts(c, rep, {})["differences_in_results"]})

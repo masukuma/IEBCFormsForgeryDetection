@@ -39,7 +39,9 @@ def _tesseract(img: np.ndarray) -> tuple[str, float]:
     return "".join(words), (float(np.mean(confs)) if confs else 0.0)
 
 
-ROTATIONS = (None, cv2.ROTATE_90_CLOCKWISE, cv2.ROTATE_90_COUNTERCLOCKWISE)
+ROTATIONS = (None, cv2.ROTATE_90_CLOCKWISE, cv2.ROTATE_90_COUNTERCLOCKWISE)  # upright first
+UPRIGHT_OK = 60.0  # an upright reading this confident is kept
+TURN_MARGIN = 20.0  # a sideways reading must beat a weak upright one by this much
 
 
 def read_number(crop: np.ndarray, rotations=ROTATIONS) -> tuple[str, float, int | None]:
@@ -60,8 +62,15 @@ def read_number(crop: np.ndarray, rotations=ROTATIONS) -> tuple[str, float, int 
     big[cv2.dilate(lines, np.ones((5, 5), np.uint8)) > 0] = 255
     big = cv2.copyMakeBorder(big, 20, 20, 20, 20, cv2.BORDER_CONSTANT, value=255)
     best = ("", 0.0, None)
+    upright = 0.0
     for rot in rotations:
         text, conf = _tesseract(big if rot is None else cv2.rotate(big, rot))
+        if rot is None:
+            upright = conf if text else 0.0
+        # Noise on a photographed copy can read "better" sideways: turning is accepted only when
+        # the upright reading is weak and a sideways one is far more confident.
+        elif not (upright < UPRIGHT_OK and conf >= upright + TURN_MARGIN):
+            continue
         if text and conf > best[1]:
             best = (text, conf, rot)
     return best
