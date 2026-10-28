@@ -4,6 +4,7 @@ A manifest is JSON:
 
     {
       "matter": {"court": "...", "cause": "...", "parties": [...]},
+      "template": ["ref/34A/<another form>.PDF", ...],
       "cases": [
         {
           "id": "AO-04",
@@ -19,7 +20,8 @@ A manifest is JSON:
       ]
     }
 
-Paths are relative to the manifest. ``discover`` writes a draft manifest by retrieving the
+Paths are relative to the manifest. ``template`` lists other forms of the originals' type
+(optional); they let the comparison tell the printed form from the entries written on it. ``discover`` writes a draft manifest by retrieving the
 original of every questioned page from a pool of candidates; an examiner then fills in the
 claim and checks the captions.
 """
@@ -29,6 +31,7 @@ import json
 import multiprocessing
 import re
 from concurrent.futures import ProcessPoolExecutor
+from dataclasses import replace
 from pathlib import Path
 
 from .integrity import file_facts, pdf_signatures
@@ -59,8 +62,9 @@ def run_case(case: dict, base: Path, out_dir: Path, cfg: Config) -> dict:
         rep["exhibit_integrity"] = file_facts(src)
         result["exhibit_results"].append(rep)
     case_dir.mkdir(parents=True, exist_ok=True)
-    (case_dir / "case.json").write_text(json.dumps(result, indent=2, default=str))
-    return result
+    text = json.dumps(result, indent=2, default=str)
+    (case_dir / "case.json").write_text(text)
+    return json.loads(text)  # plain JSON types only: results cross process boundaries
 
 
 def _run(args):
@@ -75,6 +79,8 @@ def run_manifest(manifest_path: Path, out_dir: Path, cfg: Config = Config(), wor
     manifest_path = Path(manifest_path)
     manifest = json.loads(manifest_path.read_text())
     base = manifest_path.parent
+    if manifest.get("template") and not cfg.template:
+        cfg = replace(cfg, template=tuple(_resolve(base, t) for t in manifest["template"]))
     out_dir.mkdir(parents=True, exist_ok=True)
     jobs = [(c, base, out_dir, cfg) for c in manifest["cases"]]
     if workers > 1:
@@ -122,4 +128,8 @@ def discover(questioned: str, candidates: list[Path], cache_dir: Path, workers: 
     cases = sorted(groups.values(), key=lambda c: int(re.search(r"page=(\d+)", c["exhibits"][0]["source"]).group(1)))
     for i, c in enumerate(cases, 1):
         c["id"] = f"C{i:02d}"
-    return {"cases": cases, "unmatched_pages": unmatched}
+    # Forms of the same type that are not among the originals: they show the printed form.
+    used = {Path(k) for k in groups}
+    spare = [c for c in candidates if c not in used]
+    template = [rel(c) for c in spare[:: max(1, len(spare) // 12)][:12]]
+    return {"template": template, "cases": cases, "unmatched_pages": unmatched}

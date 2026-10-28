@@ -12,8 +12,9 @@ import numpy as np
 
 from . import ocr, provenance
 from .compare import PageComparison, Region, compare_pages
-from .register import features, match_pages, refine, warp
+from .register import features, match_pages, paper_mask, refine, warp
 from .render import load_pages, parse_source, pdf_metadata
+from .template import build_template, load_pool
 
 CLEAN, ALTERED, REVIEW, INCONCLUSIVE, IDENTICAL = "clean", "altered", "review", "inconclusive", "identical"
 
@@ -22,10 +23,11 @@ CLEAN, ALTERED, REVIEW, INCONCLUSIVE, IDENTICAL = "clean", "altered", "review", 
 class Config:
     long_side: int = 2600  # working resolution (px on the page's long side); ~220 dpi on A3
     min_inliers: int = 150  # keypoint agreement required to accept a page match
-    flag_below: float = 0.5  # glyph similarity below which a change counts as an alteration
+    flag_below: float = 0.5  # similarity below which a change counts as an alteration
     min_quality: float = 0.85  # median glyph similarity below which a page is too degraded to judge
     max_evidence: int = 50  # cells per page that get an evidence crop and an OCR reading
     ocr: bool = True  # read flagged numbers if tesseract is installed
+    template: tuple[str, ...] = ()  # other forms of the original's type, to recognise its print
 
 
 def sha256(source: str | Path) -> str:
@@ -69,11 +71,25 @@ def _overview(ref: np.ndarray, sub: np.ndarray, flagged: list[Region], other: li
 def _page_verdict(pc: PageComparison, cfg: Config) -> str:
     if pc.quality < cfg.min_quality:
         return INCONCLUSIVE
-    if pc.flagged(cfg.flag_below, table_only=True):
+    if any(r.on_figure for r in pc.flagged(cfg.flag_below, table_only=True)):
         return ALTERED
     if pc.flagged(cfg.flag_below, table_only=False):
-        return REVIEW
+        return REVIEW  # marks added in blank areas, or changes outside the table
     return CLEAN
+
+
+_TEMPLATES: dict[tuple, tuple[np.ndarray | None, int]] = {}
+
+
+def _template(original: Path, page: int, ref: np.ndarray, cfg: Config) -> tuple[np.ndarray | None, int]:
+    """Printed form of one original page, built once and reused for every exhibit of a case."""
+    key = (str(original), page, cfg.long_side, cfg.template)
+    if key not in _TEMPLATES:
+        if len(_TEMPLATES) > 4:
+            _TEMPLATES.clear()
+        exclude = {parse_source(original)[0].resolve()}
+        _TEMPLATES[key] = build_template(ref, load_pool(list(cfg.template[:12]), exclude, cfg.long_side))
+    return _TEMPLATES[key]
 
 
 def compare_documents(original: Path, submission: Path, out_dir: Path | None = None, cfg: Config = Config()) -> dict:
@@ -110,8 +126,10 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
             continue
         ref = ref_pages[m.ref_index].image
         warped, valid = warp(sub_pages[m.sub_index].image, m.H, ref.shape)
+        valid &= paper_mask(ref)  # originals photographed by the KIEMS kit show the desk too
         warped, residual = refine(ref, warped)
-        pc = compare_pages(ref, warped, valid)
+        tpl, tpl_forms = _template(original, ref_pages[m.ref_index].index, ref, cfg) if cfg.template else (None, 0)
+        pc = compare_pages(ref, warped, valid, template=tpl)
         verdict = _page_verdict(pc, cfg)
         flagged = pc.flagged(cfg.flag_below, table_only=False)
         entry.update(
@@ -119,6 +137,8 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
             verdict=verdict,
             quality=pc.quality,
             glyphs_compared=pc.glyphs,
+            printed_glyphs=pc.printed,
+            template_forms=tpl_forms,
             residual_warp_px=round(residual, 1),
             blur_sigma=pc.blur_sigma,
             provenance=provenance.assess(ref, warped, valid, pc.similarities),
@@ -151,8 +171,8 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
             entry["changes"].append(change)
         if out_dir is not None and flagged:
             name = f"{tag}_overview.jpg"
-            in_tab = [r for r in flagged if r.in_table]
-            cv2.imwrite(str(out_dir / name), _overview(ref, warped, in_tab, [r for r in flagged if not r.in_table]), [cv2.IMWRITE_JPEG_QUALITY, 80])
+            in_tab = [r for r in flagged if r.in_table and r.on_figure]
+            cv2.imwrite(str(out_dir / name), _overview(ref, warped, in_tab, [r for r in flagged if r not in in_tab]), [cv2.IMWRITE_JPEG_QUALITY, 80])
             entry["overview"] = name
         pages.append(entry)
 
@@ -179,8 +199,8 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         verdict = INCONCLUSIVE  # empty document
     report.update(
         verdict=verdict,
-        altered_numbers=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"]),
-        values_changed=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c.get("value_changed")),
+        altered_numbers=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"]),
+        values_changed=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"] and c.get("value_changed")),
         swaps=swaps,
         pages=pages,
         notes=notes,

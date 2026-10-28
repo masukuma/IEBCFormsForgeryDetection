@@ -28,9 +28,16 @@ INK_MAX = 0.7  # never above this: lighter marks are the printed security backgr
 PAPER = 0.75  # ... above which it is treated as blank paper when scoring glyphs
 BLUR_LEVELS = (0.0, 0.7, 1.0, 1.4, 2.0, 2.8, 4.0)
 SHIFT = 2  # residual misalignment absorbed when scoring a glyph, px
+LOCAL = 6  # largest local correction of the registration, px (see local_shift)
+CONTEXT = 40  # surroundings used to measure it, px
+BLUR_TILE = 192  # px; sharpness is matched per tile of this size (see blur_map)
 MIN_GLYPH_INK = 25  # px; smaller blobs are specks/noise
 MAX_GLYPH = 150  # px; bigger blobs are stamps, signatures, logos
 MAX_MARK = 700  # px; large marks up to this size are scored separately (not flagged)
+BOLD = 6  # px; ink this far inside a stroke (12 px wide) is bold type, not a pen line
+STROKE_LEN = 70  # px; straight strokes this long are ruling or cross-outs, not figures (see _is_stroke)
+PRINT_SIM = 0.6  # a reference glyph matching the printed form this well is print (template.py);
+# handwritten entries score below 0.4 against it, faded print on a photograph 0.6-1.0
 
 
 @dataclass
@@ -42,9 +49,10 @@ class Region:
     similarity: float  # lowest glyph ZNCC in the region (1 = identical)
     ink_ref: int  # ink pixels in the reference
     ink_sub: int  # ink pixels in the submission
-    kind: str  # substitution | addition | erasure
+    kind: str  # substitution | addition | erasure | obscured (under a large mark added to the copy)
     in_table: bool
     glyphs: int
+    on_figure: bool = True  # part of an entry on the original (not blank paper, not its print)
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -59,6 +67,7 @@ class PageComparison:
     table_roi: tuple[int, int, int, int] | None
     similarities: np.ndarray = field(default_factory=lambda: np.zeros(0))  # every scored glyph
     large_marks: list[dict] = field(default_factory=list)  # stamps, signatures: position + similarity
+    printed: int = 0  # glyphs set aside as the printed form (see template.py)
 
     def flagged(self, threshold: float, table_only: bool = True) -> list[Region]:
         return [r for r in self.regions if r.similarity < threshold and (r.in_table or not table_only)]
@@ -69,6 +78,21 @@ def normalize(img: np.ndarray) -> np.ndarray:
     bg = cv2.morphologyEx(img, cv2.MORPH_CLOSE, np.ones((31, 31), np.uint8))
     bg = cv2.GaussianBlur(bg, (0, 0), 5)
     return np.clip(img.astype(np.float32) / np.maximum(bg.astype(np.float32), 1.0), 0.0, 1.0)
+
+
+def stretch(n: np.ndarray) -> np.ndarray:
+    """Stretch a normalised page so its darkest strokes reach black and its paper stays white.
+
+    Photographs of printouts can be pale: pen strokes that only reach 0.8 of the paper's
+    brightness. Levels are measured on the central part of the page, away from desk or shadow
+    at the edges of a photograph.
+    """
+    h, w = n.shape
+    centre = n[h // 10 : h - h // 10, w // 10 : w - w // 10]
+    dark, paper = np.percentile(centre, [0.5, 50])
+    if paper - dark < 0.05:
+        return n
+    return np.clip((n - dark) / (paper - dark), 0.0, 1.0).astype(np.float32)
 
 
 def _blur(img: np.ndarray, sigma: float) -> np.ndarray:
@@ -97,6 +121,41 @@ def match_sharpness(a: np.ndarray, b: np.ndarray) -> tuple[np.ndarray, np.ndarra
     return a, b, 0.0
 
 
+def blur_map(a: np.ndarray, b: np.ndarray, valid: np.ndarray | None, tile: int = BLUR_TILE) -> np.ndarray:
+    """Signed blur (as in match_sharpness) that best matches the two pages, tile by tile.
+
+    A phone photograph is not equally sharp everywhere: focus falls off towards the edges and
+    with the curl of the sheet, so one blur level for the whole page leaves parts of it sharper
+    on one side, and their print scores low for no reason. Each tile holding enough strokes gets
+    its own level; the rest take the page's level. A median over neighbouring tiles keeps one
+    edited figure from setting its tile's level.
+    """
+    H, W = a.shape
+    rows, cols = -(-H // tile), -(-W // tile)
+    grid = np.full((rows, cols), np.nan, np.float32)
+    for i in range(rows):
+        for j in range(cols):
+            ys, xs = slice(i * tile, (i + 1) * tile), slice(j * tile, (j + 1) * tile)
+            ca, cb = a[ys, xs], b[ys, xs]
+            if (valid is not None and valid[ys, xs].mean() < 0.5) or (ca < INK).mean() < 0.01:
+                continue
+            best = (np.inf, 0.0)
+            for s in BLUR_LEVELS:
+                best = min(best, (float(np.abs(_blur(ca, s) - cb).mean()), s))
+                if s:
+                    best = min(best, (float(np.abs(ca - _blur(cb, s)).mean()), -s))
+            grid[i, j] = best[1]
+    if np.isnan(grid).all():
+        return np.zeros((rows, cols), np.float32)
+    fill = float(np.nanmedian(grid))
+    out = np.empty_like(grid)
+    for i in range(rows):
+        for j in range(cols):
+            near = grid[max(0, i - 1) : i + 2, max(0, j - 1) : j + 2]
+            out[i, j] = float(np.nanmedian(near)) if not np.isnan(near).all() else fill
+    return out
+
+
 def ink_threshold(n: np.ndarray) -> float:
     """Ink threshold adapted to how dark the strokes on this copy are.
 
@@ -111,13 +170,6 @@ def ink_threshold(n: np.ndarray) -> float:
     return float(np.clip((dark + paper) / 2, INK, INK_MAX))
 
 
-def _bridge(ink: np.ndarray, horizontal: bool) -> np.ndarray:
-    """Join a rule's pieces: close small gaps along it and thicken it across, so rules broken by
-    the microtext background or slightly slanted (photographed forms) still read as lines."""
-    along, across = ((1, 9), (3, 1)) if horizontal else ((9, 1), (1, 3))
-    return cv2.dilate(cv2.morphologyEx(ink, cv2.MORPH_CLOSE, np.ones(along, np.uint8)), np.ones(across, np.uint8))
-
-
 def ruling(ink: np.ndarray, length: int = 41) -> np.ndarray:
     """Horizontal and vertical line segments (table ruling, underlines)."""
     h = cv2.morphologyEx(ink, cv2.MORPH_OPEN, np.ones((1, length), np.uint8))
@@ -125,46 +177,62 @@ def ruling(ink: np.ndarray, length: int = 41) -> np.ndarray:
     return h | v
 
 
-def long_rules(ink: np.ndarray) -> np.ndarray:
-    """Horizontal rules at least an eighth of the page wide, even if broken or slightly slanted.
+def _hough_rules(ink: np.ndarray) -> np.ndarray | None:
+    """Long, near-horizontal rules as line segments (x1, y1, x2, y2), whatever their slant.
 
-    Too long to be confused with a handwritten number, so safe to bridge gaps for.
+    Photographed forms are rotated a few degrees and their rules are broken by the microtext
+    background; a Hough transform finds them where a straight morphological kernel cannot.
     """
     w = ink.shape[1]
-    # A short opening kernel follows a slanted rule; the length test is applied to whole segments.
-    seg = cv2.morphologyEx(_bridge(ink, True), cv2.MORPH_OPEN, np.ones((1, 41), np.uint8))
-    n, labels, stats, _ = cv2.connectedComponentsWithStats(seg)
-    keep = np.zeros(n, np.uint8)
-    keep[1:] = (stats[1:, cv2.CC_STAT_WIDTH] >= max(w // 8, 41)) & (stats[1:, cv2.CC_STAT_HEIGHT] <= max(w // 40, 12))
-    return keep[labels]
+    segs = cv2.HoughLinesP(ink * 255, 1, np.pi / 720, threshold=max(w // 12, 60), minLineLength=w // 8, maxLineGap=15)
+    if segs is None:
+        return None
+    segs = segs.reshape(-1, 4)  # (N, 1, 4) in OpenCV 4, (N, 4) in OpenCV 5
+    dx, dy = segs[:, 2] - segs[:, 0], segs[:, 3] - segs[:, 1]
+    keep = np.abs(dy) <= 0.18 * np.abs(dx)  # within ~10 degrees of horizontal
+    return segs[keep] if keep.any() else None
+
+
+def long_rules(ink: np.ndarray) -> np.ndarray:
+    """Mask of horizontal rules at least an eighth of the page wide, even if broken or slanted.
+
+    Too long to be confused with a handwritten number, so safe to use for cutting rows apart.
+    """
+    mask = np.zeros_like(ink)
+    segs = _hough_rules(ink)
+    if segs is not None:
+        for x1, y1, x2, y2 in segs:
+            cv2.line(mask, (int(x1), int(y1)), (int(x2), int(y2)), 1, 3)
+    return mask & cv2.dilate(ink, np.ones((3, 3), np.uint8))
 
 
 def table_roi(ink: np.ndarray) -> tuple[int, int, int, int] | None:
-    """Bounding box (x0, y0, x1, y1) of the ruled results table, from its line intersections."""
+    """Bounding box (x0, y0, x1, y1) of the ruled body of the form.
+
+    Primarily the extent of its long horizontal rules (found at any slant), which covers both
+    grid tables (Form 34B) and forms ruled mostly with horizontal lines (Form 34A), so captions,
+    page numbers and other annotations in the margins stay outside. Grid intersections are the
+    fallback when too few long rules are found.
+    """
     h, w = ink.shape
+    m = int(0.01 * max(h, w))
+    segs = _hough_rules(ink)
+    if segs is not None and len(segs) >= 8:
+        x0 = int(np.percentile(np.minimum(segs[:, 0], segs[:, 2]), 2))
+        x1 = int(np.percentile(np.maximum(segs[:, 0], segs[:, 2]), 98))
+        y0, y1 = np.percentile((segs[:, 1] + segs[:, 3]) / 2, [1, 99])
+        return x0 - m, int(y0) - m, x1 + m, int(y1) + m
     # Short kernels so slightly skewed scans still yield line segments.
     hl = cv2.morphologyEx(ink, cv2.MORPH_OPEN, np.ones((1, max(w // 30, 15)), np.uint8))
     vl = cv2.morphologyEx(ink, cv2.MORPH_OPEN, np.ones((max(h // 30, 15), 1), np.uint8))
     k = np.ones((5, 5), np.uint8)
-    cross = cv2.dilate(hl, k) & cv2.dilate(vl, k)
-    n, _, _, cent = cv2.connectedComponentsWithStats(cross)
-    if n < 20:
-        # Few intersections: a form ruled mostly with horizontal lines (e.g. Form 34A). Use the
-        # extent of its long rules as the form body, so annotations in the margins stay outside.
-        n, _, stats, cent = cv2.connectedComponentsWithStats(long_rules(ink))
-        rules = [i for i in range(1, n) if stats[i][2] >= w // 6]
-        if len(rules) < 8:
-            return None
-        x0 = int(np.percentile([stats[i][0] for i in rules], 2))
-        x1 = int(np.percentile([stats[i][0] + stats[i][2] for i in rules], 98))
-        y0, y1 = np.percentile([cent[i][1] for i in rules], [1, 99])
-        m = int(0.01 * max(h, w))
-        return x0 - m, int(y0) - m, x1 + m, int(y1) + m
+    n, _, _, cent = cv2.connectedComponentsWithStats(cv2.dilate(hl, k) & cv2.dilate(vl, k))
+    if n < 20:  # not a ruled form
+        return None
     pts = cent[1:]
     # Percentiles drop the few intersections of the page frame with stray lines.
     x0, x1 = np.percentile(pts[:, 0], [1, 99])
     y0, y1 = np.percentile(pts[:, 1], [1, 99])
-    m = int(0.01 * max(h, w))
     return int(x0) - m, int(y0) - m, int(x1) + m, int(y1) + m
 
 
@@ -178,23 +246,83 @@ def _similarity(a: np.ndarray, b: np.ndarray) -> float:
     return float(cv2.matchTemplate(b, tpl, cv2.TM_CCOEFF_NORMED).max())
 
 
+def _faint(strokes: np.ndarray, b: np.ndarray) -> float:
+    """How closely the darkness of submission crop ``b`` follows the reference's stroke mask.
+
+    Max ZNCC over a +/-SHIFT slide, on an unclipped crop: a mark that is still there but fainter
+    (print fading on a photograph of a printout) follows the strokes; erased or blank paper,
+    and the security background, do not.
+    """
+    tpl = strokes[SHIFT:-SHIFT, SHIFT:-SHIFT].astype(np.float32)
+    if tpl.std() < 1e-3 or b.std() < 1e-3:
+        return 0.0
+    return float(cv2.matchTemplate((1.0 - b).astype(np.float32), tpl, cv2.TM_CCOEFF_NORMED).max())
+
+
+def _is_stroke(mask: np.ndarray) -> bool:
+    """A single straight stroke longer than any digit: a rule, an underline or a cross-out line."""
+    ys, xs = np.nonzero(mask)
+    if len(xs) < 20:
+        return False
+    lo, hi = np.linalg.eigvalsh(np.cov(np.stack([xs, ys]).astype(np.float64)))
+    return np.sqrt(max(lo, 0.0)) < 2.5 and 4 * np.sqrt(hi) >= STROKE_LEN
+
+
+def _starts(a: int, b: int, size: int) -> list[int]:
+    """Starts of windows of ``size`` whose centres run from a to b, a quarter window apart.
+
+    A digit's strokes may reach beyond the glyphs that scored low, so windows are centred on,
+    not fitted inside, the number's extent.
+    """
+    n = max(1, int(np.ceil((b - a) / max(1, size // 4))) + 1)
+    return [int(round(c)) - size // 2 for c in np.linspace(a, b, n)]
+
+
+def local_shift(sa: np.ndarray, sb: np.ndarray, x0: int, y0: int, x1: int, y1: int) -> tuple[int, int]:
+    """Residual misalignment around a glyph, measured on its surroundings.
+
+    A window of CONTEXT px around the glyph (neighbouring figures, printed rules and text) is
+    located in the submission within +/-LOCAL px. The window is several times the glyph's area,
+    so an edited figure inside it cannot pull the alignment towards itself; if the surroundings
+    are blank or do not match, no shift is applied.
+    """
+    H, W = sa.shape
+    ya, yb = max(LOCAL, y0 - CONTEXT), min(H - LOCAL, y1 + CONTEXT)
+    xa, xb = max(LOCAL, x0 - CONTEXT), min(W - LOCAL, x1 + CONTEXT)
+    tpl = sa[ya:yb, xa:xb]
+    if tpl.size == 0 or tpl.std() < 0.02:
+        return 0, 0
+    r = cv2.matchTemplate(sb[ya - LOCAL : yb + LOCAL, xa - LOCAL : xb + LOCAL], tpl, cv2.TM_CCOEFF_NORMED)
+    _, peak, _, (px, py) = cv2.minMaxLoc(r)
+    return (px - LOCAL, py - LOCAL) if peak >= 0.6 else (0, 0)
+
+
 def compare_pages(
     ref: np.ndarray,
     sub: np.ndarray,
     valid: np.ndarray | None = None,
     report_below: float = 0.8,
+    template: np.ndarray | None = None,
 ) -> PageComparison:
-    """Score every glyph on the page; keep regions whose similarity is below ``report_below``."""
+    """Score every glyph on the page; keep regions whose similarity is below ``report_below``.
+
+    ``template`` is the printed form aligned on ``ref`` (template.build_template). Reference
+    glyphs that match it are print; unless the submission adds ink over them they are scored but
+    never reported: on a photograph of a printout, faded print is a property of the copy, not
+    an alteration.
+    """
     ref_s, sub_s, sigma = match_sharpness(ref, sub)
-    na, nb = normalize(ref_s), normalize(sub_s)
+    na, nb = stretch(normalize(ref_s)), stretch(normalize(sub_s))
     ink_a = (na < ink_threshold(na)).astype(np.uint8)
     ink_b = (nb < ink_threshold(nb)).astype(np.uint8)
     both = ink_a | ink_b
 
     lines = cv2.dilate(ruling(both) | long_rules(both), np.ones((3, 3), np.uint8))
     glyph = both & (1 - lines)
+    inside = None
     if valid is not None:  # ignore the margin of the warped submission
-        glyph &= cv2.erode(valid.astype(np.uint8), np.ones((15, 15), np.uint8))
+        inside = cv2.erode(valid.astype(np.uint8), np.ones((15, 15), np.uint8))
+        glyph &= inside
     glyph = cv2.morphologyEx(glyph, cv2.MORPH_OPEN, np.ones((2, 2), np.uint8))
 
     # Score stroke shape only: clip everything lighter than faint ink to paper, so the shared
@@ -202,12 +330,36 @@ def compare_pages(
     # blur then averages out halftone dots and JPEG ringing.
     sa = cv2.GaussianBlur(np.minimum(na, PAPER), (0, 0), 1.0)
     sb = cv2.GaussianBlur(np.minimum(nb, PAPER), (0, 0), 1.0)
-    roi = table_roi((normalize(ref) < 0.5).astype(np.uint8))
+    # For the scores themselves, sharpness is matched locally (blur_map), on unblurred copies.
+    fa, fb = stretch(normalize(ref)), stretch(normalize(sub))
+    ca, cb = np.minimum(fa, PAPER), np.minimum(fb, PAPER)
+    smap = blur_map(ca, cb, valid)
+    P = 16  # crop padding, enough for the widest blur
+    ca, cb = (cv2.copyMakeBorder(c, P, P, P, P, cv2.BORDER_REPLICATE) for c in (ca, cb))
+
     H, W = ref.shape
+
+    def measure(x0: int, y0: int, x1: int, y1: int, dx: int = 0, dy: int = 0) -> tuple[float, int, int]:
+        """(similarity, reference ink, submission ink) of one box; the submission side shifted."""
+        if not (0 <= y0 + dy and y1 + dy <= H and 0 <= x0 + dx and x1 + dx <= W):
+            dx = dy = 0
+        ka, kb = int(ink_a[y0:y1, x0:x1].sum()), int(ink_b[y0 + dy : y1 + dy, x0 + dx : x1 + dx].sum())
+        s = float(smap[min((y0 + y1) // 2 // BLUR_TILE, smap.shape[0] - 1), min((x0 + x1) // 2 // BLUR_TILE, smap.shape[1] - 1)])
+        A = ca[y0 : y1 + 2 * P, x0 : x1 + 2 * P]
+        B = cb[y0 + dy : y1 + dy + 2 * P, x0 + dx : x1 + dx + 2 * P]
+        A, B = (_blur(A, s), B) if s > 0 else (A, _blur(B, -s))
+        A, B = cv2.GaussianBlur(A, (0, 0), 1.0), cv2.GaussianBlur(B, (0, 0), 1.0)
+        sim = _similarity(A[P:-P, P:-P], B[P:-P, P:-P])
+        if kb < 0.25 * ka:  # gone from the submission, or only fainter?
+            strokes = cv2.dilate(ink_a[y0:y1, x0:x1], np.ones((3, 3), np.uint8))
+            sim = max(sim, _faint(strokes, cv2.GaussianBlur(fb[y0 + dy : y1 + dy, x0 + dx : x1 + dx], (0, 0), 1.5)))
+        return sim, ka, kb
+    st = cv2.GaussianBlur(np.minimum(template, PAPER), (0, 0), 1.0) if template is not None else None
+    roi = table_roi((fa < 0.5).astype(np.uint8))
     m = SHIFT + 3
 
-    n, _, stats, _ = cv2.connectedComponentsWithStats(cv2.dilate(glyph, np.ones((3, 3), np.uint8)))
-    scored = []  # (x, y, w, h, sim, ink_a, ink_b, in_table)
+    n, labels, stats, _ = cv2.connectedComponentsWithStats(cv2.dilate(glyph, np.ones((3, 3), np.uint8)))
+    scored = []  # (x, y, w, h, sim, ink_a, ink_b, in_table, printed, entry)
     large = []
     for i in range(1, n):
         x, y, w, h, _ = (int(v) for v in stats[i])
@@ -216,39 +368,79 @@ def compare_pages(
         if w > MAX_GLYPH or h > MAX_GLYPH:
             if w <= MAX_MARK and h <= MAX_MARK:
                 y0, y1, x0, x1 = max(0, y - m), min(H, y + h + m), max(0, x - m), min(W, x + w + m)
-                large.append({"x": x, "y": y, "w": w, "h": h, "similarity": round(_similarity(sa[y0:y1, x0:x1], sb[y0:y1, x0:x1]), 3)})
+                large.append({"x": x, "y": y, "w": w, "h": h, "similarity": round(measure(x0, y0, x1, y1)[0], 3)})
             continue
+        if max(w, h) >= STROKE_LEN and _is_stroke(labels[y : y + h, x : x + w] == i):
+            continue  # treated like ruling
         y0, y1, x0, x1 = max(0, y - m), min(H, y + h + m), max(0, x - m), min(W, x + w + m)
-        ka, kb = int(ink_a[y0:y1, x0:x1].sum()), int(ink_b[y0:y1, x0:x1].sum())
-        if max(ka, kb) < MIN_GLYPH_INK:
+        if max(int(ink_a[y0:y1, x0:x1].sum()), int(ink_b[y0:y1, x0:x1].sum())) < MIN_GLYPH_INK:
             continue
-        sim = _similarity(sa[y0:y1, x0:x1], sb[y0:y1, x0:x1])
+        sim, ka, kb = measure(x0, y0, x1, y1, *local_shift(sa, sb, x, y, x + w, y + h))
         in_table = roi is not None and roi[0] <= x + w / 2 <= roi[2] and roi[1] <= y + h / 2 <= roi[3]
-        scored.append((x, y, w, h, sim, ka, kb, in_table))
+        is_print = st is not None and ka >= MIN_GLYPH_INK and _similarity(sa[y0:y1, x0:x1], st[y0:y1, x0:x1]) >= PRINT_SIM
+        printed = is_print and kb <= 1.5 * ka  # print with nothing written over it
+        entry = ka >= MIN_GLYPH_INK and ka >= 0.25 * kb and not is_print  # something written on the original
+        scored.append((x, y, w, h, sim, ka, kb, in_table, printed, entry))
 
-    sims = np.array([s[4] for s in scored]) if scored else np.array([1.0])
+    n_printed = sum(1 for s in scored if s[8])
+    entries = [s for s in scored if not s[8]]
+    # Quality and the provenance statistics describe the entries; all glyphs if too few remain.
+    basis = entries if len(entries) >= 20 else scored
+    sims = np.array([s[4] for s in basis]) if basis else np.array([1.0])
     quality = float(np.median(sims))
 
     # Group glyphs that sit next to each other into numbers, never across table ruling, so each
-    # group stays within one cell. A region is a whole number with at least one low-scoring
-    # glyph; its box covers the whole number so it can be read and shown in full.
+    # group stays within one cell. A number with a low-scoring glyph is then re-scored in
+    # digit-sized windows slid across it: how its strokes were split into glyphs (by ruling, or
+    # gaps in a faint pen line) varies between copies, a digit-sized window does not. A region is
+    # a number with a low-scoring window; its box covers the whole number, to be read and shown.
     canvas = np.zeros((H, W), np.uint8)
-    for x, y, w, h, *_ in scored:
+    for x, y, w, h, *_ in entries:
         canvas[y : y + h, x : x + w] = 1
     canvas = cv2.dilate(canvas, np.ones((9, 9), np.uint8)) & (1 - lines)
     _, labels = cv2.connectedComponents(canvas)
     groups: dict[int, list] = {}
-    for s in scored:
-        groups.setdefault(int(labels[s[1] + s[3] // 2, s[0] + s[2] // 2]), []).append(s)
+    for k, s in enumerate(entries):
+        x, y, w, h = s[:4]
+        lab = labels[y : y + h, x : x + w]
+        lab = lab[lab > 0]  # the glyph's centre may sit on removed ruling
+        groups.setdefault(int(np.bincount(lab).argmax()) if lab.size else -1 - k, []).append(s)
+    heights = [s[3] for s in entries if s[9]]  # entries: digits, letters and their fragments
+    wh = int(np.clip(1.1 * np.percentile(heights, 80), 32, 90)) if heights else 48  # ~ a whole digit
+    ww = int(0.8 * wh)
+    # Large marks added to the copy (exhibit stamps, page numbers, captions) hide what is under
+    # them: that is reported as obscured, not altered.
+    added = cv2.dilate(ink_b & (1 - cv2.dilate(ink_a, np.ones((5, 5), np.uint8))), np.ones((5, 5), np.uint8))
+    k, alab, astats, _ = cv2.connectedComponentsWithStats(added)
+    big = [i for i in range(1, k) if max(astats[i, 2], astats[i, 3]) > 2.5 * wh]
+    cover = np.isin(alab, big)
+    # Bold type only the copy has (a page number printed over the form) is broken up by what it
+    # covers, so it is found by its stroke width instead: far thicker than a pen line.
+    bold = (cv2.distanceTransform(ink_b, cv2.DIST_L2, 3) >= BOLD) & (cv2.distanceTransform(ink_a, cv2.DIST_L2, 3) < BOLD / 2)
+    cover |= cv2.dilate(bold.astype(np.uint8), np.ones((4 * BOLD + 1, 4 * BOLD + 1), np.uint8)) > 0
     regions = []
     for group in groups.values():
-        members = [s for s in group if s[4] < report_below]
-        if not members:
+        if all(s[4] >= report_below for s in group):
             continue
         x, y = min(s[0] for s in group), min(s[1] for s in group)
         w, h = max(s[0] + s[2] for s in group) - x, max(s[1] + s[3] for s in group) - y
-        ka, kb = sum(s[5] for s in members), sum(s[6] for s in members)
-        if ka < 0.25 * kb:
+        shift = local_shift(sa, sb, x, y, x + w, y + h)
+        members = []  # low-scoring windows: (similarity, ink_a, ink_b)
+        for wy in _starts(y, y + h, wh):
+            for wx in _starts(x, x + w, ww):
+                box = (max(0, wx), max(0, wy), min(W, wx + ww), min(H, wy + wh))
+                if inside is not None and inside[box[1] : box[3], box[0] : box[2]].mean() < 0.99:
+                    continue  # reaches beyond the comparable part of the page
+                sim, ka, kb = measure(*box, *shift)
+                if max(ka, kb) >= MIN_GLYPH_INK and sim < report_below:
+                    members.append((sim, ka, kb))
+        if not members:
+            continue
+        worst = min(members)[0]
+        ka, kb = sum(s[1] for s in members), sum(s[2] for s in members)
+        if cover[y : y + h, x : x + w].mean() > 0.1:
+            kind = "obscured"
+        elif ka < 0.25 * kb:
             kind = "addition"
         elif kb < 0.25 * ka:
             kind = "erasure"
@@ -257,11 +449,12 @@ def compare_pages(
         regions.append(
             Region(
                 x, y, w, h,
-                similarity=round(min(s[4] for s in members), 3),
+                similarity=round(worst, 3),
                 ink_ref=ka, ink_sub=kb, kind=kind,
-                in_table=any(s[7] for s in members),
-                glyphs=len(members),
+                in_table=any(s[7] for s in group),
+                glyphs=len(group),
+                on_figure=kind != "obscured" and any(s[9] for s in group),  # an entry, not blank paper or print
             )
         )
     regions.sort(key=lambda r: (not r.in_table, r.similarity))
-    return PageComparison(regions, round(quality, 4), len(scored), sigma, roi, sims if scored else np.zeros(0), large)
+    return PageComparison(regions, round(quality, 4), len(scored), sigma, roi, sims if basis else np.zeros(0), large, n_printed)

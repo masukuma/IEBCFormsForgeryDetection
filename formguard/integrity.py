@@ -7,6 +7,7 @@ at upload. pyHanko is optional; without it the signature is reported as present 
 from __future__ import annotations
 
 import hashlib
+import logging
 from pathlib import Path
 
 from .render import parse_source
@@ -36,11 +37,14 @@ def pdf_signatures(source: str | Path) -> list[dict]:
         data = path.read_bytes()
         return [{"present": True, "checked": False, "reason": "pyhanko not installed"}] if b"/Type /Sig" in data else []
 
+    # pyHanko logs a full traceback for the KIEMS kits' SHA-1 digest (deprecated by its policy);
+    # the signature is still validated and the algorithm is reported in the result.
+    logging.getLogger("pyhanko").setLevel(logging.CRITICAL)
     out = []
     with open(path, "rb") as fh:
         reader = PdfFileReader(fh, strict=False)
         for sig in reader.embedded_signatures:
-            entry: dict = {"present": True, "checked": True, "field": sig.field_name}
+            entry: dict = {"present": True, "checked": True, "field": str(sig.field_name)}
             try:
                 st = validate_pdf_signature(sig, ValidationContext(allow_fetching=False))
                 entry.update(
@@ -49,9 +53,9 @@ def pdf_signatures(source: str | Path) -> list[dict]:
                     coverage=st.coverage.name,  # ENTIRE_FILE = nothing appended after signing
                     modification_level=st.modification_level.name if st.modification_level else None,
                     trusted=bool(st.trusted),  # chain to a trusted root (none configured here)
-                    digest_algorithm=st.md_algorithm,
-                    signer=st.signing_cert.subject.human_friendly,
-                    issuer=st.signing_cert.issuer.human_friendly,
+                    digest_algorithm=str(st.md_algorithm),
+                    signer=str(st.signing_cert.subject.human_friendly),
+                    issuer=str(st.signing_cert.issuer.human_friendly),
                     signing_time=st.signer_reported_dt.isoformat() if st.signer_reported_dt else None,
                 )
             except Exception as e:  # report, never hide, a signature that cannot be checked

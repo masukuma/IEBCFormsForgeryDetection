@@ -36,8 +36,14 @@ def _job(args: tuple[Path, Path, Path, Config]) -> dict:
     return rep
 
 
+def _forms(folder: str | None) -> tuple[str, ...]:
+    if not folder:
+        return ()
+    return tuple(str(p) for p in sorted(Path(folder).rglob("*")) if p.suffix.lower() in (".pdf", ".jpg", ".jpeg", ".png", ".tif", ".tiff"))
+
+
 def _config(a: argparse.Namespace) -> Config:
-    return Config(long_side=a.long_side, flag_below=a.flag_below, ocr=not a.no_ocr)
+    return Config(long_side=a.long_side, flag_below=a.flag_below, ocr=not a.no_ocr, template=_forms(a.template))
 
 
 def cmd_scan(a: argparse.Namespace) -> int:
@@ -130,8 +136,9 @@ def main(argv: list[str] | None = None) -> int:
 
     def common(sp):
         sp.add_argument("--long-side", type=int, default=2600, help="working resolution, px on the page's long side")
-        sp.add_argument("--flag-below", type=float, default=0.5, help="glyph similarity below which a change is an alteration")
+        sp.add_argument("--flag-below", type=float, default=Config.flag_below, help="glyph similarity below which a change is an alteration")
         sp.add_argument("--no-ocr", action="store_true", help="skip reading flagged numbers with tesseract")
+        sp.add_argument("--template", help="folder of other forms of the originals' type, to recognise their print (photographed copies)")
 
     s = sub.add_parser("scan", help="compare every submission with its original")
     s.add_argument("--originals", required=True)

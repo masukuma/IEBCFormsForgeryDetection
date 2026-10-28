@@ -16,7 +16,12 @@ from pathlib import Path
 
 from . import llm
 
-ALTERED_KINDS = {"substitution": "different figure", "addition": "mark added", "erasure": "mark removed"}
+ALTERED_KINDS = {
+    "substitution": "different figure",
+    "addition": "mark added",
+    "erasure": "mark removed",
+    "obscured": "covered by a mark added to the copy",
+}
 
 
 @dataclass
