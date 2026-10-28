@@ -11,7 +11,7 @@ import cv2
 import numpy as np
 
 from . import ocr, provenance
-from .compare import PageComparison, Region, compare_pages
+from .compare import PageComparison, Region, compare_pages, sideways
 from .register import features, match_pages, paper_mask, refine, warp
 from .render import load_pages, parse_source, pdf_metadata
 from .template import build_template, load_pool
@@ -146,12 +146,14 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
             changes=[],
         )
         tag = f"p{entry['submission_page']}"
-        page_rotation: tuple | None = None  # text orientation, fixed once read confidently
+        # Text orientation: upright unless the page's table is printed sideways; which way it
+        # turns is then fixed by the first confident reading.
+        page_rotation: tuple | None = None if sideways(ref) else (None,)
         for k, r in enumerate(flagged):
             change = r.to_dict()
             rotation = None
             if use_ocr and k < cfg.max_evidence:
-                rots = page_rotation or ocr.ROTATIONS
+                rots = page_rotation or ocr.ROTATIONS[1:]
                 before, conf_b, rotation = ocr.read_number(_crop(ref, r, 4), rots)
                 after, conf_a, rot_a = ocr.read_number(_crop(warped, r, 4), (rotation,) if before else rots)
                 rotation = rotation if before else rot_a

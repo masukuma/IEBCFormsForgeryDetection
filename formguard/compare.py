@@ -208,6 +208,14 @@ def long_rules(ink: np.ndarray) -> np.ndarray:
     return mask & cv2.dilate(ink, np.ones((3, 3), np.uint8))
 
 
+def sideways(img: np.ndarray) -> bool:
+    """Whether a page's table is printed sideways: its long rules run down the page, not across."""
+    ink = (stretch(normalize(img)) < 0.5).astype(np.uint8)
+    across, down = _hough_rules(ink), _hough_rules(np.ascontiguousarray(ink.T))
+    n_across, n_down = (0 if r is None else len(r) for r in (across, down))
+    return n_down > 1.5 * max(n_across, 1)
+
+
 def table_roi(ink: np.ndarray) -> tuple[int, int, int, int] | None:
     """Bounding box (x0, y0, x1, y1) of the ruled body of the form.
 
