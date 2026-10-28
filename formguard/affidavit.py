@@ -85,6 +85,8 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
     for c in _changes(rep):
         key = c["evidence"].rsplit(".", 1)[0] if c.get("evidence") else None
         r = readings.get(key, {}) if key else {}
+        if r.get("same_as"):  # a second region of a figure already listed (one number split in two)
+            continue
         changes.append(
             {
                 "evidence": c.get("evidence"),

@@ -15,7 +15,7 @@ A manifest is JSON:
             {"label": "Annexure p. 50", "caption": "IEBC PORTAL", "source": "docs/affidavit.pdf#page=50"},
             {"label": "Annexure p. 75", "caption": "AGENT COPY",  "source": "docs/affidavit.pdf#page=75"}
           ],
-          "readings": {"p75_change03": {"original": "060", "questioned": "032", "by": "examiner"}}
+          "readings": {"p75_change03": {"original": "060", "questioned": "032", "field": "the votes of William Ruto", "by": "examiner"}}
         }
       ]
     }
