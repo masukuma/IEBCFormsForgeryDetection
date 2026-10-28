@@ -18,17 +18,19 @@ made tolerant enough, stops seeing a "3" turned into an "8". So we compare *glyp
 """
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 
 import cv2
 import numpy as np
 
-INK = 0.55  # normalised intensity below which a pixel is ink
+INK = 0.55  # normalised intensity below which a pixel is ink, on a crisp copy (see ink_threshold)
+INK_MAX = 0.7  # never above this: lighter marks are the printed security background
 PAPER = 0.75  # ... above which it is treated as blank paper when scoring glyphs
 BLUR_LEVELS = (0.0, 0.7, 1.0, 1.4, 2.0, 2.8, 4.0)
 SHIFT = 2  # residual misalignment absorbed when scoring a glyph, px
 MIN_GLYPH_INK = 25  # px; smaller blobs are specks/noise
 MAX_GLYPH = 150  # px; bigger blobs are stamps, signatures, logos
+MAX_MARK = 700  # px; large marks up to this size are scored separately (not flagged)
 
 
 @dataclass
@@ -55,6 +57,8 @@ class PageComparison:
     glyphs: int
     blur_sigma: float  # + blurred the reference, - blurred the submission
     table_roi: tuple[int, int, int, int] | None
+    similarities: np.ndarray = field(default_factory=lambda: np.zeros(0))  # every scored glyph
+    large_marks: list[dict] = field(default_factory=list)  # stamps, signatures: position + similarity
 
     def flagged(self, threshold: float, table_only: bool = True) -> list[Region]:
         return [r for r in self.regions if r.similarity < threshold and (r.in_table or not table_only)]
@@ -93,11 +97,46 @@ def match_sharpness(a: np.ndarray, b: np.ndarray) -> tuple[np.ndarray, np.ndarra
     return a, b, 0.0
 
 
+def ink_threshold(n: np.ndarray) -> float:
+    """Ink threshold adapted to how dark the strokes on this copy are.
+
+    Copies whose strokes reach solid black (0.5th percentile <= 0.3) use the standard threshold.
+    On a blurred photograph of a printout, thin pen strokes only reach ~0.45, so the threshold
+    moves to halfway between them and the paper, so the handwriting is not lost. Capped below
+    the printed microtext.
+    """
+    dark, paper = np.percentile(n, [0.5, 50])
+    if dark <= 0.3:
+        return INK
+    return float(np.clip((dark + paper) / 2, INK, INK_MAX))
+
+
+def _bridge(ink: np.ndarray, horizontal: bool) -> np.ndarray:
+    """Join a rule's pieces: close small gaps along it and thicken it across, so rules broken by
+    the microtext background or slightly slanted (photographed forms) still read as lines."""
+    along, across = ((1, 9), (3, 1)) if horizontal else ((9, 1), (1, 3))
+    return cv2.dilate(cv2.morphologyEx(ink, cv2.MORPH_CLOSE, np.ones(along, np.uint8)), np.ones(across, np.uint8))
+
+
 def ruling(ink: np.ndarray, length: int = 41) -> np.ndarray:
     """Horizontal and vertical line segments (table ruling, underlines)."""
     h = cv2.morphologyEx(ink, cv2.MORPH_OPEN, np.ones((1, length), np.uint8))
     v = cv2.morphologyEx(ink, cv2.MORPH_OPEN, np.ones((length, 1), np.uint8))
     return h | v
+
+
+def long_rules(ink: np.ndarray) -> np.ndarray:
+    """Horizontal rules at least an eighth of the page wide, even if broken or slightly slanted.
+
+    Too long to be confused with a handwritten number, so safe to bridge gaps for.
+    """
+    w = ink.shape[1]
+    # A short opening kernel follows a slanted rule; the length test is applied to whole segments.
+    seg = cv2.morphologyEx(_bridge(ink, True), cv2.MORPH_OPEN, np.ones((1, 41), np.uint8))
+    n, labels, stats, _ = cv2.connectedComponentsWithStats(seg)
+    keep = np.zeros(n, np.uint8)
+    keep[1:] = (stats[1:, cv2.CC_STAT_WIDTH] >= max(w // 8, 41)) & (stats[1:, cv2.CC_STAT_HEIGHT] <= max(w // 40, 12))
+    return keep[labels]
 
 
 def table_roi(ink: np.ndarray) -> tuple[int, int, int, int] | None:
@@ -109,8 +148,18 @@ def table_roi(ink: np.ndarray) -> tuple[int, int, int, int] | None:
     k = np.ones((5, 5), np.uint8)
     cross = cv2.dilate(hl, k) & cv2.dilate(vl, k)
     n, _, _, cent = cv2.connectedComponentsWithStats(cross)
-    if n < 20:  # not a ruled table
-        return None
+    if n < 20:
+        # Few intersections: a form ruled mostly with horizontal lines (e.g. Form 34A). Use the
+        # extent of its long rules as the form body, so annotations in the margins stay outside.
+        n, _, stats, cent = cv2.connectedComponentsWithStats(long_rules(ink))
+        rules = [i for i in range(1, n) if stats[i][2] >= w // 6]
+        if len(rules) < 8:
+            return None
+        x0 = int(np.percentile([stats[i][0] for i in rules], 2))
+        x1 = int(np.percentile([stats[i][0] + stats[i][2] for i in rules], 98))
+        y0, y1 = np.percentile([cent[i][1] for i in rules], [1, 99])
+        m = int(0.01 * max(h, w))
+        return x0 - m, int(y0) - m, x1 + m, int(y1) + m
     pts = cent[1:]
     # Percentiles drop the few intersections of the page frame with stray lines.
     x0, x1 = np.percentile(pts[:, 0], [1, 99])
@@ -138,11 +187,11 @@ def compare_pages(
     """Score every glyph on the page; keep regions whose similarity is below ``report_below``."""
     ref_s, sub_s, sigma = match_sharpness(ref, sub)
     na, nb = normalize(ref_s), normalize(sub_s)
-    ink_a = (na < INK).astype(np.uint8)
-    ink_b = (nb < INK).astype(np.uint8)
+    ink_a = (na < ink_threshold(na)).astype(np.uint8)
+    ink_b = (nb < ink_threshold(nb)).astype(np.uint8)
     both = ink_a | ink_b
 
-    lines = cv2.dilate(ruling(both), np.ones((3, 3), np.uint8))
+    lines = cv2.dilate(ruling(both) | long_rules(both), np.ones((3, 3), np.uint8))
     glyph = both & (1 - lines)
     if valid is not None:  # ignore the margin of the warped submission
         glyph &= cv2.erode(valid.astype(np.uint8), np.ones((15, 15), np.uint8))
@@ -159,9 +208,15 @@ def compare_pages(
 
     n, _, stats, _ = cv2.connectedComponentsWithStats(cv2.dilate(glyph, np.ones((3, 3), np.uint8)))
     scored = []  # (x, y, w, h, sim, ink_a, ink_b, in_table)
+    large = []
     for i in range(1, n):
         x, y, w, h, _ = (int(v) for v in stats[i])
-        if w > MAX_GLYPH or h > MAX_GLYPH or max(w, h) < 10:
+        if max(w, h) < 12 or x <= 1 or y <= 1 or x + w >= W - 1 or y + h >= H - 1:
+            continue  # specks, and marks cut off by the frame edge (only partly comparable)
+        if w > MAX_GLYPH or h > MAX_GLYPH:
+            if w <= MAX_MARK and h <= MAX_MARK:
+                y0, y1, x0, x1 = max(0, y - m), min(H, y + h + m), max(0, x - m), min(W, x + w + m)
+                large.append({"x": x, "y": y, "w": w, "h": h, "similarity": round(_similarity(sa[y0:y1, x0:x1], sb[y0:y1, x0:x1]), 3)})
             continue
         y0, y1, x0, x1 = max(0, y - m), min(H, y + h + m), max(0, x - m), min(W, x + w + m)
         ka, kb = int(ink_a[y0:y1, x0:x1].sum()), int(ink_b[y0:y1, x0:x1].sum())
@@ -209,4 +264,4 @@ def compare_pages(
             )
         )
     regions.sort(key=lambda r: (not r.in_table, r.similarity))
-    return PageComparison(regions, round(quality, 4), len(scored), sigma, roi)
+    return PageComparison(regions, round(quality, 4), len(scored), sigma, roi, sims if scored else np.zeros(0), large)

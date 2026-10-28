@@ -5,6 +5,7 @@ size of the form. Detection never depends on OCR; it only annotates evidence ("2
 """
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 
@@ -25,6 +26,9 @@ def _tesseract(img: np.ndarray) -> tuple[str, float]:
         input=png.tobytes(),
         capture_output=True,
         timeout=30,
+        # One thread per call: callers already run in parallel, and tesseract's own OpenMP
+        # threads oversubscribe the CPU badly (tens of runnable threads per core).
+        env={**os.environ, "OMP_THREAD_LIMIT": "1"},
     )
     words, confs = [], []
     for line in proc.stdout.decode(errors="ignore").splitlines()[1:]:

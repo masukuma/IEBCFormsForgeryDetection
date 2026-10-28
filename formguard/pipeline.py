@@ -10,10 +10,10 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from . import ocr
+from . import ocr, provenance
 from .compare import PageComparison, Region, compare_pages
 from .register import features, match_pages, refine, warp
-from .render import load_pages, pdf_metadata
+from .render import load_pages, parse_source, pdf_metadata
 
 CLEAN, ALTERED, REVIEW, INCONCLUSIVE, IDENTICAL = "clean", "altered", "review", "inconclusive", "identical"
 
@@ -28,7 +28,9 @@ class Config:
     ocr: bool = True  # read flagged numbers if tesseract is installed
 
 
-def sha256(path: Path) -> str:
+def sha256(source: str | Path) -> str:
+    """SHA-256 of the file behind a source spec (a "#page=" suffix is ignored)."""
+    path, _ = parse_source(source)
     h = hashlib.sha256()
     with open(path, "rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
@@ -77,7 +79,6 @@ def _page_verdict(pc: PageComparison, cfg: Config) -> str:
 def compare_documents(original: Path, submission: Path, out_dir: Path | None = None, cfg: Config = Config()) -> dict:
     """Full comparison of one submitted document against one original. Returns a JSON-able report."""
     t0 = time.time()
-    original, submission = Path(original), Path(submission)
     report: dict = {
         "submission": str(submission),
         "original": str(original),
@@ -86,11 +87,13 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         "submission_meta": pdf_metadata(submission),
         "original_meta": pdf_metadata(original),
     }
-    if report["submission_sha256"] == report["original_sha256"]:
+    whole_files = parse_source(submission)[1] is None and parse_source(original)[1] is None
+    if whole_files and report["submission_sha256"] == report["original_sha256"]:
         report.update(verdict=IDENTICAL, pages=[], notes=["byte-identical to the original"], seconds=round(time.time() - t0, 1))
         return report
 
     if out_dir is not None:
+        out_dir = Path(out_dir)
         out_dir.mkdir(parents=True, exist_ok=True)
     use_ocr = cfg.ocr and ocr.available()
 
@@ -100,7 +103,7 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
 
     pages = []
     for m in matches:
-        entry: dict = {"submission_page": m.sub_index + 1, "inliers": m.inliers}
+        entry: dict = {"submission_page": sub_pages[m.sub_index].index + 1, "inliers": m.inliers}
         if m.ref_index is None:
             entry.update(original_page=None, verdict=INCONCLUSIVE, note="no page of the original matches this page")
             pages.append(entry)
@@ -112,15 +115,17 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         verdict = _page_verdict(pc, cfg)
         flagged = pc.flagged(cfg.flag_below, table_only=False)
         entry.update(
-            original_page=m.ref_index + 1,
+            original_page=ref_pages[m.ref_index].index + 1,
             verdict=verdict,
             quality=pc.quality,
             glyphs_compared=pc.glyphs,
             residual_warp_px=round(residual, 1),
             blur_sigma=pc.blur_sigma,
+            provenance=provenance.assess(ref, warped, valid, pc.similarities),
+            large_marks=pc.large_marks,
             changes=[],
         )
-        tag = f"p{m.sub_index + 1}"
+        tag = f"p{entry['submission_page']}"
         page_rotation: tuple | None = None  # text orientation, fixed once read confidently
         for k, r in enumerate(flagged):
             change = r.to_dict()
@@ -156,7 +161,7 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
     swaps = find_swaps(pages)
     if swaps:
         notes.append(f"{len(swaps)} pair(s) of figures swapped between cells")
-    missing = [i + 1 for i in range(len(ref_pages)) if i not in matched]
+    missing = [ref_pages[i].index + 1 for i in range(len(ref_pages)) if i not in matched]
     if missing:
         notes.append(f"original page(s) {missing} not present in the submission")
     dupes = len([m for m in matches if m.ref_index is not None]) - len(matched)

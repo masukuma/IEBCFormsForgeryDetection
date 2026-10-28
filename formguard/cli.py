@@ -3,6 +3,11 @@
     python -m formguard scan --originals DIR --submissions DIR --out DIR [--workers N]
     python -m formguard compare ORIGINAL SUBMISSION --out DIR
     python -m formguard sync --remote /Work/Kenya/2022/Forms/34B --local data/originals
+
+Case work (exhibits annexed to affidavits, checked against the originals they claim to show):
+    python -m formguard discover "affidavit.pdf#pages=46-130" --candidates ref/34A --out manifest.json
+    python -m formguard cases manifest.json --out runs/
+    python -m formguard affidavit runs/results.json --deponent deponent.json --out affidavit
 """
 from __future__ import annotations
 
@@ -71,6 +76,36 @@ def cmd_sync(a: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_discover(a: argparse.Namespace) -> int:
+    from .cases import discover
+
+    cands = sorted(p for p in Path(a.candidates).rglob("*") if p.suffix.lower() in (".pdf", ".jpg", ".jpeg", ".png"))
+    out = Path(a.out)
+    m = discover(a.questioned, cands, Path(a.cache or out.parent / ".formguard-cache"), workers=a.workers, base=out.parent.resolve())
+    out.write_text(json.dumps(m, indent=2))
+    print(f"{len(m['cases'])} case(s), {len(m['unmatched_pages'])} unmatched page(s) -> {out}", file=sys.stderr)
+    return 0
+
+
+def cmd_cases(a: argparse.Namespace) -> int:
+    from .cases import run_manifest
+
+    results = run_manifest(Path(a.manifest), Path(a.out), _config(a), workers=a.workers)
+    for r in results:
+        verdicts = [x.get("verdict") for x in r.get("exhibit_results", [])]
+        print(f"{r['id']}: {r.get('title', '')} -> {verdicts or r.get('error')}", file=sys.stderr)
+    return 0
+
+
+def cmd_affidavit(a: argparse.Namespace) -> int:
+    from .affidavit import write
+
+    deponent = json.loads(Path(a.deponent).read_text()) if a.deponent else {}
+    md, docx = write(Path(a.results), deponent, Path(a.out), Path(a.readings) if a.readings else None, use_llm=not a.no_llm)
+    print(f"{md}\n{docx}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="formguard", description="Detect alterations in submitted copies of election forms.")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -100,6 +135,29 @@ def main(argv: list[str] | None = None) -> int:
     y.add_argument("--local", required=True)
     y.add_argument("--token")
     y.set_defaults(fn=cmd_sync)
+
+    d = sub.add_parser("discover", help="find the original of each questioned page; write a draft case manifest")
+    d.add_argument("questioned", help='questioned document, optionally with pages: "file.pdf#pages=46-130"')
+    d.add_argument("--candidates", required=True, help="folder of candidate originals")
+    d.add_argument("--out", required=True, help="manifest JSON to write")
+    d.add_argument("--cache", help="feature cache folder (default: next to the manifest)")
+    d.add_argument("--workers", type=int, default=os.cpu_count() or 1)
+    d.set_defaults(fn=cmd_discover)
+
+    k = sub.add_parser("cases", help="run every case in a manifest")
+    k.add_argument("manifest")
+    k.add_argument("--out", required=True)
+    k.add_argument("--workers", type=int, default=os.cpu_count() or 1)
+    common(k)
+    k.set_defaults(fn=cmd_cases)
+
+    f = sub.add_parser("affidavit", help="draft an affidavit (DOCX + Markdown) from case results")
+    f.add_argument("results", help="results.json written by 'cases'")
+    f.add_argument("--deponent", help="JSON with name, address, profession, instructed_by")
+    f.add_argument("--readings", help="JSON of examiner/model readings of the flagged figures")
+    f.add_argument("--out", required=True, help="output path without extension")
+    f.add_argument("--no-llm", action="store_true", help="do not use Ollama Cloud even if OLLAMA_API_KEY is set")
+    f.set_defaults(fn=cmd_affidavit)
 
     a = p.parse_args(argv)
     return a.fn(a)

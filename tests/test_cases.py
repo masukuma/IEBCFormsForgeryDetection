@@ -1,0 +1,91 @@
+import json
+from pathlib import Path
+
+import cv2
+import numpy as np
+import pymupdf
+import pytest
+
+from formguard import llm
+from formguard.affidavit import write as write_affidavit
+from formguard.cases import discover, run_manifest
+from formguard.pipeline import Config
+
+from . import synth
+
+
+def _pdf(path: Path, images: list[np.ndarray]) -> Path:
+    doc = pymupdf.open()
+    for img in images:
+        ok, png = cv2.imencode(".png", img)
+        page = doc.new_page(width=img.shape[1] / 2, height=img.shape[0] / 2)
+        page.insert_image(page.rect, stream=png.tobytes())
+    doc.save(path)
+    return path
+
+
+@pytest.fixture(scope="module")
+def workspace(tmp_path_factory):
+    """Three originals, and a 'questioned affidavit' with a faithful copy and a forged copy of #2."""
+    root = tmp_path_factory.mktemp("case")
+    (root / "ref").mkdir()
+    vals = [synth.values(s) for s in (11, 12, 13)]
+    for i, v in enumerate(vals):
+        _pdf(root / "ref" / f"original_{i}.pdf", [synth.draw(v, seed=20 + i, capture=i)])
+    forged = vals[1].copy()
+    forged[4, 1] = int("1" + str(vals[1][4, 1]))  # prefix a digit, as in 26 -> 126
+    cover = np.full((synth.SIZE[0], synth.SIZE[1]), 255, np.uint8)
+    cv2.putText(cover, "AFFIDAVIT", (300, 600), cv2.FONT_HERSHEY_SIMPLEX, 3, 0, 5)
+    pages = [
+        cover,
+        synth.degrade(synth.draw(vals[1], seed=21, capture=1)),  # faithful copy of the original's image
+        synth.degrade(synth.draw(forged, seed=21, capture=1), angle=-2),  # that image, with one figure edited
+        synth.degrade(synth.draw(vals[1], seed=21, capture=99), angle=1),  # a separate photograph of the same sheet
+    ]
+    _pdf(root / "questioned.pdf", pages)
+    return root
+
+
+def test_discover_finds_the_original_of_each_page(workspace):
+    m = discover(str(workspace / "questioned.pdf#pages=1-4"), sorted((workspace / "ref").glob("*.pdf")), workspace / "cache", base=workspace)
+    assert len(m["cases"]) == 1
+    case = m["cases"][0]
+    assert case["reference"] == "ref/original_1.pdf"
+    assert [e["source"] for e in case["exhibits"]] == [f"questioned.pdf#page={n}" for n in (2, 3, 4)]
+    assert [u["page"] for u in m["unmatched_pages"]] == [1]  # the cover page matches nothing
+    (workspace / "manifest.json").write_text(json.dumps({"matter": {"cause": "TEST"}, **m}))
+
+
+def test_run_manifest_separates_faithful_and_forged_copies(workspace):
+    results = run_manifest(workspace / "manifest.json", workspace / "runs", Config(ocr=False))
+    (case,) = results
+    faithful, forged, other_photo = case["exhibit_results"]
+    assert faithful["verdict"] == "clean"
+    assert forged["verdict"] == "altered" and forged["altered_numbers"] == 1
+    # A different photograph differs outside the form (its surround) but not in the results.
+    assert other_photo["verdict"] in ("clean", "review") and other_photo["altered_numbers"] == 0
+    prov = {k: r["pages"][0]["provenance"] for k, r in (("faithful", faithful), ("forged", forged), ("other", other_photo))}
+    assert all(p["marks_reproduced"] > 0.9 for p in prov.values())
+    assert prov["faithful"]["finding"] == prov["forged"]["finding"] == "same_capture"  # made from original #2's image
+    assert prov["other"]["finding"] == "same_sheet"  # same marks, but a different capture's surround
+    assert case["reference_integrity"]["sha256"]
+
+
+def test_affidavit_is_written_from_results(workspace, monkeypatch):
+    monkeypatch.delenv("OLLAMA_API_KEY", raising=False)
+    md, docx = write_affidavit(workspace / "runs" / "results.json", {"name": "TEST DEPONENT"}, workspace / "affidavit")
+    text = md.read_text()
+    assert docx.exists() and docx.stat().st_size > 10_000
+    assert "TEST DEPONENT" in text and "THAT" in text
+    assert "1 figure(s) differ" in text and "agrees with original" in text
+    assert "drafted with" not in text  # no model used without a key
+
+
+def test_llm_draft_rejects_invented_numbers(monkeypatch):
+    monkeypatch.setenv("OLLAMA_API_KEY", "test")
+    facts = {"votes_original": 60, "votes_questioned": 32}
+    fallback = "THAT the original reads 60 and the exhibit reads 32."
+    monkeypatch.setattr(llm, "chat", lambda *a, **k: "THAT the exhibit shows 32 votes instead of 60.")
+    assert llm.draft("x", facts, fallback)[1] != "template"
+    monkeypatch.setattr(llm, "chat", lambda *a, **k: "THAT 28 votes were moved, out of 345 cast.")
+    assert llm.draft("x", facts, fallback) == (fallback, "template")
