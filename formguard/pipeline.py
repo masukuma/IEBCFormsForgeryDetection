@@ -12,7 +12,7 @@ import numpy as np
 
 from . import ocr, provenance
 from .compare import PageComparison, Region, compare_pages, sideways
-from .register import features, match_pages, paper_mask, refine, warp
+from .register import features, homography, match_pages, paper_mask, refine, warp
 from .render import load_pages, parse_source, pdf_metadata
 from .template import build_template, load_pool
 
@@ -80,6 +80,15 @@ def _page_verdict(pc: PageComparison, cfg: Config) -> str:
 
 
 _TEMPLATES: dict[tuple, tuple[np.ndarray | None, int]] = {}
+_POOLS: dict[tuple, list[np.ndarray]] = {}
+
+
+def _pool(original: Path, cfg: Config) -> list[np.ndarray]:
+    key = (cfg.template, cfg.long_side, str(original))
+    if key not in _POOLS:
+        _POOLS.clear()
+        _POOLS[key] = load_pool(list(cfg.template[:12]), {parse_source(original)[0].resolve()}, cfg.long_side)
+    return _POOLS[key]
 
 
 def _template(original: Path, page: int, ref: np.ndarray, cfg: Config) -> tuple[np.ndarray | None, int]:
@@ -88,9 +97,22 @@ def _template(original: Path, page: int, ref: np.ndarray, cfg: Config) -> tuple[
     if key not in _TEMPLATES:
         if len(_TEMPLATES) > 4:
             _TEMPLATES.clear()
-        exclude = {parse_source(original)[0].resolve()}
-        _TEMPLATES[key] = build_template(ref, load_pool(list(cfg.template[:12]), exclude, cfg.long_side))
+        _TEMPLATES[key] = build_template(ref, _pool(original, cfg))
     return _TEMPLATES[key]
+
+
+def _upside_down(ref: np.ndarray, original: Path, cfg: Config) -> bool:
+    """Whether an original is stored upside down: other forms of its type register onto it turned
+    by about 180 degrees. Its evidence images would otherwise be shown upside down."""
+    rf = features(ref)
+    angles = []
+    for img in _pool(original, cfg)[:4]:
+        n, H = homography(features(img), rf)
+        if H is not None and n >= 100:
+            angles.append(abs(np.degrees(np.arctan2(H[1, 0], H[0, 0]))))
+        if len(angles) == 2:
+            break
+    return bool(angles) and float(np.median(angles)) > 135
 
 
 def compare_documents(original: Path, submission: Path, out_dir: Path | None = None, cfg: Config = Config()) -> dict:
@@ -115,6 +137,12 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
     use_ocr = cfg.ocr and ocr.available()
 
     ref_pages = load_pages(original, cfg.long_side)
+    turned = set()
+    if cfg.template:
+        for p in ref_pages:
+            if _upside_down(p.image, original, cfg):
+                p.image = cv2.rotate(p.image, cv2.ROTATE_180)
+                turned.add(p.index)
     sub_pages = load_pages(submission, cfg.long_side)
     matches = match_pages([features(p.image) for p in ref_pages], [features(p.image) for p in sub_pages], cfg.min_inliers)
 
@@ -141,6 +169,7 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         flagged = pc.flagged(cfg.possible_below, table_only=False)
         entry.update(
             original_page=ref_pages[m.ref_index].index + 1,
+            original_turned_180=ref_pages[m.ref_index].index in turned,
             verdict=verdict,
             quality=pc.quality,
             glyphs_compared=pc.glyphs,
