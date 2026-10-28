@@ -233,6 +233,9 @@ def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
     return text
 
 
+PROVENANCE_SHORT = {"same_capture": "made from the portal photograph", "same_sheet": "shows the same sheet"}  # summary table
+
+
 def _differing(f: dict) -> list[dict]:
     """The differences of exhibit_facts that remain once read: a figure that reads the same on both is not one."""
     return [d for d in f["differences_in_results"] if not (d["original_reads"] and d["original_reads"] == d["questioned_reads"])]
@@ -376,7 +379,7 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
             f = exhibit_facts(c, rep, readings.get(c["id"], {}))
             changed = _differing(f)
             result = "not matched" if not f["matched"] else ("agrees with the original" if not changed else _count(len(changed), "figure") + " differ" + ("s" if len(changed) == 1 else ""))
-            made = {"same_capture": "from the portal photograph", "same_sheet": "from an image of the same sheet"}.get(f["provenance_finding"] or "", "") if changed else ""
+            made = PROVENANCE_SHORT.get(f["provenance_finding"] or "", "not determined") if changed else ""
             rows.append([_plain_title(c["title"]).split(",")[0], f["label"], f["caption"] or "none", result, made])
     d.para(f"THAT I examined the annexed pages for {len(cases)} polling stations. I summarise my findings in the following table and set them out station by station in the paragraphs after it.")
     d.table(["Polling station", "Annexed page", "Caption", "Result", "How the page was made"], rows)
