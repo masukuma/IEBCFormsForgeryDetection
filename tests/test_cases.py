@@ -145,3 +145,19 @@ def test_model_ladder_tolerates_fences_and_dropped_connections(monkeypatch):
 
     monkeypatch.setattr(llm, "chat", flaky)
     assert llm.read_figures(b"png")["by"] == llm.VISION_LADDER[1]  # a dropped connection moves up a rung
+
+
+def test_model_readings_in_the_shapes_models_return(monkeypatch):
+    monkeypatch.setenv("OLLAMA_API_KEY", "test")
+    for reply in (
+        json.dumps({"original": "000,097", "submission": "000,090", "legible": True}),  # the right panel's label as key
+        "original: 000, 097, legible: true\nsubmission: 000, 090, legible: true",  # format ignored, one line a panel
+    ):
+        monkeypatch.setattr(llm, "chat", lambda *a, r=reply, **k: r)
+        r = llm.read_figures(b"png")
+        assert (r["original"], r["questioned"], r["by"]) == ("000,097", "000,090", llm.VISION_LADDER[0])
+    calls = []
+    monkeypatch.setattr(llm, "chat", lambda model, *a, **k: calls.append(model) or "original: 097, legible: true\nsubmission: 090, legible: false")
+    assert llm.read_figures(b"png")["legible"] is False and calls == llm.VISION_LADDER  # a panel the model cannot read
+    monkeypatch.setattr(llm, "chat", lambda *a, **k: "The left panel shows 097 and the right 090.")
+    assert llm.read_figures(b"png")["legible"] is False  # prose is not a reading
