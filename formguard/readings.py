@@ -7,11 +7,15 @@ from pathlib import Path
 from . import llm
 
 
-def read_all(results_path: Path, confirm: bool = False, existing: dict | None = None, save_to: Path | None = None) -> dict:
+def read_all(
+    results_path: Path, confirm: bool = False, existing: dict | None = None, save_to: Path | None = None, only: dict | None = None
+) -> dict:
     """{case id: {"p75_change03": {"original": "060", "questioned": "032", "by": "gemma4:31b", ...}}}.
 
     Entries already in ``existing`` (e.g. typed in by the examiner) are kept and not re-read.
     With ``save_to``, progress is written after each case, so an interrupted run resumes.
+    ``only`` ({case id: [evidence names]}) limits the reading to those figures, e.g. the ones an
+    examiner read as numbers, for a second reader.
     """
     results = json.loads(Path(results_path).read_text())
     run_dir = Path(results_path).parent
@@ -25,6 +29,8 @@ def read_all(results_path: Path, confirm: bool = False, existing: dict | None = 
                     if not c.get("in_table") or not c.get("on_figure", True) or not c.get("evidence"):
                         continue
                     key = c["evidence"].rsplit(".", 1)[0]
+                    if only is not None and key not in only.get(case["id"], ()):
+                        continue
                     if out.get(case["id"], {}).get(key, {}).get("original") is not None:
                         continue  # already read; failed attempts are tried again
                     r = llm.read_figures((ev / c["evidence"]).read_bytes(), confirm=confirm)
