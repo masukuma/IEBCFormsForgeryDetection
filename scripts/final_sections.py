@@ -213,6 +213,6 @@ s9 = ["## ANNEXURES", "",
 (out / "s7.md").write_text("\n".join(s7) + "\n")
 (out / "s8.md").write_text("\n".join(s8) + "\n")
 (out / "s9_intro.md").write_text("\n".join(s9) + "\n")
-json.dump({"kagera_mark": kagera_mark, "next": n, "by_caption": {f"{k[0]}|{k[1]}": v for k, v in by_caption.items()}, "prov": prov,
+json.dump({"kagera_mark": kagera_mark, "commit": commit, "next": n, "by_caption": {f"{k[0]}|{k[1]}": v for k, v in by_caption.items()}, "prov": prov,
            "table_agree": table_agree}, open(out / "final_facts.json", "w"), indent=1)
 print("paragraphs to", n - 1, "| kagera", kagera_mark, "| agent", agent_differ, "of", agent_total, "| table agree", table_agree, "| prov", dict(prov))

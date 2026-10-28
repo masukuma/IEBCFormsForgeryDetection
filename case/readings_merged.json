@@ -1,0 +1,2165 @@
+{
+ "C01": {
+  "p47_change07": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p72_change03": {
+   "original": "097",
+   "questioned": "090",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "uncertain": "copy faint; reads 090 or 091",
+   "model": {
+    "original": "000,097",
+    "questioned": "000,090",
+    "by": "gemma4:31b",
+    "original_figure": "097",
+    "questioned_figure": "090"
+   },
+   "model_agrees": true
+  },
+  "p72_change05": {
+   "original": "007",
+   "questioned": "002",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "088,007",
+    "questioned": "088,002",
+    "by": "gemma4:31b",
+    "original_figure": "007",
+    "questioned_figure": "002"
+   },
+   "model_agrees": true
+  }
+ },
+ "C02": {
+  "p73_change01": {
+   "original": "197",
+   "questioned": "196",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "274,000,000,000,197",
+    "questioned": "274,000,000,000,196",
+    "by": "gemma4:31b",
+    "original_figure": "197",
+    "questioned_figure": "196"
+   },
+   "model_agrees": true
+  },
+  "p73_change02": {
+   "original": "002",
+   "questioned": "001",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "195,002,000,000",
+    "questioned": "195,001,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "002",
+    "questioned_figure": "001"
+   },
+   "model_agrees": true
+  },
+  "p73_change03": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C03": {
+  "p74_change01": {
+   "original": "063",
+   "questioned": "033",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "085,063,000,000",
+    "questioned": "085,033,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "063",
+    "questioned_figure": "033"
+   },
+   "model_agrees": true
+  },
+  "p74_change02": {
+   "original": "148",
+   "questioned": "115",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,148",
+    "questioned": "000,115",
+    "by": "gemma4:31b",
+    "original_figure": "148",
+    "questioned_figure": "115"
+   },
+   "model_agrees": true
+  },
+  "p74_change03": {
+   "original": "stamp",
+   "questioned": "stamp",
+   "note": "presiding officer stamp and comment, same on both"
+  }
+ },
+ "C04": {
+  "p75_change01": {
+   "original": "345",
+   "questioned": "317",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "470,000,000,000,345",
+    "questioned": "470,000,000,000,317",
+    "by": "gemma4:31b",
+    "original_figure": "345",
+    "questioned_figure": "317"
+   },
+   "model_agrees": true
+  },
+  "p75_change02": {
+   "original": "345",
+   "questioned": "317",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "3,45",
+    "questioned": "317",
+    "by": "gemma4:31b",
+    "original_figure": "45",
+    "questioned_figure": "317"
+   },
+   "model_agrees": true
+  },
+  "p75_change03": {
+   "original": "060",
+   "questioned": "032",
+   "field": "the votes of William Ruto",
+   "remark": "The image cuts off the first digit of this figure, and the second reader read only the digits in view.",
+   "model": {
+    "original": "4,0,0,0,0,1",
+    "questioned": "4,2,0,0,0,1",
+    "by": "gemma4:31b",
+    "original_figure": "0",
+    "questioned_figure": "2"
+   },
+   "model_agrees": false
+  },
+  "p75_change04": {
+   "original": "345",
+   "questioned": "317",
+   "field": "the total number of valid votes cast",
+   "same_as": "p75_change02",
+   "model": {
+    "original": "45",
+    "questioned": "7",
+    "by": "gemma4:31b",
+    "original_figure": "45",
+    "questioned_figure": "7"
+   },
+   "model_agrees": false
+  }
+ },
+ "C05": {
+  "p51_change09": {
+   "original": "blank",
+   "questioned": "blank",
+   "note": "a line struck through blank rows, same on both"
+  },
+  "p51_change11": {
+   "original": "stamp and dates",
+   "questioned": "stamp and dates",
+   "note": "same on both"
+  },
+  "p76_change01": {
+   "original": "190",
+   "questioned": "189",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "190",
+    "questioned": "189",
+    "by": "gemma4:31b",
+    "original_figure": "190",
+    "questioned_figure": "189"
+   },
+   "model_agrees": true
+  },
+  "p76_change02": {
+   "original": "190",
+   "questioned": "189",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "257,000,000,000,190",
+    "questioned": "257,000,000,000,189",
+    "by": "gemma4:31b",
+    "original_figure": "190",
+    "questioned_figure": "189"
+   },
+   "model_agrees": true
+  },
+  "p76_change03": {
+   "original": "002",
+   "questioned": "001",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "187,002,000,001",
+    "questioned": "187,001,000,001",
+    "by": "gemma4:31b",
+    "original_figure": "002",
+    "questioned_figure": "001"
+   },
+   "model_agrees": true
+  },
+  "p76_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C06": {
+  "p52_change02": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p77_change01": {
+   "original": "321",
+   "questioned": "308",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "321",
+    "questioned": "308",
+    "by": "gemma4:31b",
+    "original_figure": "321",
+    "questioned_figure": "308"
+   },
+   "model_agrees": true
+  },
+  "p77_change02": {
+   "original": "020",
+   "questioned": "007",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "249,299,020,000,000",
+    "questioned": "249,299,007,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "020",
+    "questioned_figure": "007"
+   },
+   "model_agrees": true
+  },
+  "p77_change03": {
+   "original": "321",
+   "questioned": "308",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,000,321",
+    "questioned": "000,000,308",
+    "by": "gemma4:31b",
+    "original_figure": "321",
+    "questioned_figure": "308"
+   },
+   "model_agrees": true
+  }
+ },
+ "C07": {
+  "p78_change01": {
+   "original": "210",
+   "questioned": "207",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "210",
+    "questioned": "207",
+    "by": "gemma4:31b",
+    "original_figure": "210",
+    "questioned_figure": "207"
+   },
+   "model_agrees": true
+  },
+  "p78_change02": {
+   "original": "210",
+   "questioned": "207",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "259,000,000,000,210",
+    "questioned": "259,000,000,000,207",
+    "by": "gemma4:31b",
+    "original_figure": "210",
+    "questioned_figure": "207"
+   },
+   "model_agrees": true
+  },
+  "p78_change03": {
+   "original": "005",
+   "questioned": "002",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "205,005,000,000",
+    "questioned": "205,002,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "005",
+    "questioned_figure": "002"
+   },
+   "model_agrees": true
+  }
+ },
+ "C08": {
+  "p79_change01": {
+   "original": "002",
+   "questioned": "001",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "101,002,000,000",
+    "questioned": "101,001,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "002",
+    "questioned_figure": "001"
+   },
+   "model_agrees": true
+  },
+  "p79_change02": {
+   "original": "103",
+   "questioned": "102",
+   "field": "the total number of valid votes cast",
+   "remark": "The image cuts off the first digit of this figure on the page.",
+   "model": {
+    "original": "103",
+    "questioned": "02",
+    "by": "gemma4:31b",
+    "original_figure": "103",
+    "questioned_figure": "02"
+   },
+   "model_agrees": false
+  },
+  "p79_change03": {
+   "original": "103",
+   "questioned": "102",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,10310",
+    "questioned": "000,10210",
+    "by": "kimi-k3",
+    "original_figure": "10310",
+    "questioned_figure": "10210"
+   },
+   "model_agrees": false
+  },
+  "p79_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change05": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change06": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change07": {
+   "original": "agent names",
+   "questioned": "agent names",
+   "note": "names of agents, same on both; copy blurred"
+  },
+  "p79_change08": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change09": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change10": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change11": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change12": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change13": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change14": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change15": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change16": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change17": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change18": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change19": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change20": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change21": {
+   "original": "telephone numbers",
+   "questioned": "telephone numbers",
+   "note": "same on both; copy blurred"
+  }
+ },
+ "C09": {
+  "p80_change01": {
+   "original": "026",
+   "questioned": "006",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "155,026,000,001",
+    "questioned": "155,006,000,001",
+    "by": "gemma4:31b",
+    "original_figure": "026",
+    "questioned_figure": "006"
+   },
+   "model_agrees": true
+  },
+  "p80_change02": {
+   "original": "182",
+   "questioned": "162",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "242,000,000,000,182",
+    "questioned": "242,000,000,000,162",
+    "by": "kimi-k3",
+    "original_figure": "182",
+    "questioned_figure": "162"
+   },
+   "model_agrees": true
+  }
+ },
+ "C10": {
+  "p81_change01": {
+   "original": "001",
+   "questioned": "000",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "048,001,000,000",
+    "questioned": "048,001,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "001",
+    "questioned_figure": "000"
+   },
+   "model_agrees": true
+  },
+  "p81_change02": {
+   "original": "049",
+   "questioned": "048",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "049",
+    "questioned": "048",
+    "by": "gemma4:31b",
+    "original_figure": "049",
+    "questioned_figure": "048"
+   },
+   "model_agrees": true
+  },
+  "p81_change03": {
+   "original": "049",
+   "questioned": "048",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "066,000,000,000,049",
+    "questioned": "066,000,000,000,048",
+    "by": "gemma4:31b",
+    "original_figure": "049",
+    "questioned_figure": "048"
+   },
+   "model_agrees": true
+  }
+ },
+ "C11": {
+  "p82_change01": {
+   "original": "108",
+   "questioned": "85",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,000,108",
+    "questioned": "000,000,85",
+    "by": "gemma4:31b",
+    "original_figure": "108",
+    "questioned_figure": "85"
+   },
+   "model_agrees": true
+  },
+  "p82_change02": {
+   "original": "108",
+   "questioned": "85",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "108",
+    "questioned": "85",
+    "by": "gemma4:31b",
+    "original_figure": "108",
+    "questioned_figure": "85"
+   },
+   "model_agrees": true
+  },
+  "p82_change03": {
+   "original": "032",
+   "questioned": "009",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "076,032,000,000",
+    "questioned": "076,009,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "032",
+    "questioned_figure": "009"
+   },
+   "model_agrees": true
+  },
+  "p82_change06": {
+   "original": "108",
+   "questioned": "85",
+   "field": "the total number of valid votes cast",
+   "same_as": "p82_change02",
+   "model": {
+    "original": "10",
+    "questioned": "8",
+    "by": "gemma4:31b",
+    "original_figure": "10",
+    "questioned_figure": "8"
+   },
+   "model_agrees": false
+  }
+ },
+ "C12": {
+  "p83_change01": {
+   "original": "001",
+   "questioned": "000",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "155,001,000",
+    "questioned": "155,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "001",
+    "questioned_figure": "000"
+   },
+   "model_agrees": true
+  },
+  "p83_change02": {
+   "original": "156",
+   "questioned": "155",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "235,000,000,000,156",
+    "questioned": "235,000,000,000,155",
+    "by": "gemma4:31b",
+    "original_figure": "156",
+    "questioned_figure": "155"
+   },
+   "model_agrees": true
+  },
+  "p83_change03": {
+   "original": "156",
+   "questioned": "155",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "156",
+    "questioned": "155",
+    "by": "gemma4:31b",
+    "original_figure": "156",
+    "questioned_figure": "155"
+   },
+   "model_agrees": true
+  }
+ },
+ "C13": {
+  "p84_change01": {
+   "original": "271",
+   "questioned": "266",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "271",
+    "questioned": "266",
+    "by": "gemma4:31b",
+    "original_figure": "271",
+    "questioned_figure": "266"
+   },
+   "model_agrees": true
+  },
+  "p84_change02": {
+   "original": "271",
+   "questioned": "266",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,000,271",
+    "questioned": "000,000,266",
+    "by": "gemma4:31b",
+    "original_figure": "271",
+    "questioned_figure": "266"
+   },
+   "model_agrees": true
+  },
+  "p84_change03": {
+   "original": "007",
+   "questioned": "002",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "0263,007,000,001",
+    "questioned": "0263,002,000,001",
+    "by": "gemma4:31b",
+    "original_figure": "007",
+    "questioned_figure": "002"
+   },
+   "model_agrees": true
+  }
+ },
+ "C14": {
+  "p85_change01": {
+   "original": "006",
+   "questioned": "001",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "002,006,000",
+    "questioned": "002,001,000",
+    "by": "gemma4:31b",
+    "original_figure": "006",
+    "questioned_figure": "001"
+   },
+   "model_agrees": true
+  },
+  "p85_change02": {
+   "original": "088",
+   "questioned": "083",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "088",
+    "questioned": "083",
+    "by": "gemma4:31b",
+    "original_figure": "088",
+    "questioned_figure": "083"
+   },
+   "model_agrees": true
+  },
+  "p85_change03": {
+   "original": "comment",
+   "questioned": "comment",
+   "note": "handwritten comment, same on both"
+  },
+  "p85_change04": {
+   "original": "comment",
+   "questioned": "comment",
+   "note": "handwritten comment, same on both"
+  }
+ },
+ "C15": {
+  "p86_change01": {
+   "original": "blank",
+   "questioned": "blank",
+   "note": "a streak on the copy across blank ruled lines; no entry"
+  },
+  "p86_change02": {
+   "original": "043",
+   "questioned": "040",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "043",
+    "questioned": "040",
+    "by": "gemma4:31b",
+    "original_figure": "043",
+    "questioned_figure": "040"
+   },
+   "model_agrees": true
+  },
+  "p86_change03": {
+   "original": "comment",
+   "questioned": "comment",
+   "note": "handwritten comment, same on both, streak on the copy"
+  },
+  "p86_change04": {
+   "original": "043",
+   "questioned": "040",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,043",
+    "questioned": "000,040",
+    "by": "gemma4:31b",
+    "original_figure": "043",
+    "questioned_figure": "040"
+   },
+   "model_agrees": true
+  },
+  "p86_change05": {
+   "original": "004",
+   "questioned": "001",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "39,004,000,000",
+    "questioned": "39,001,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "004",
+    "questioned_figure": "001"
+   },
+   "model_agrees": true
+  }
+ },
+ "C16": {
+  "p87_change01": {
+   "original": "145",
+   "questioned": "133",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,000,000,145",
+    "questioned": "000,000,000,133",
+    "by": "gemma4:31b",
+    "original_figure": "145",
+    "questioned_figure": "133"
+   },
+   "model_agrees": true
+  },
+  "p87_change02": {
+   "original": "145",
+   "questioned": "133",
+   "field": "the total number of valid votes cast",
+   "same_as": "p87_change03",
+   "model": {
+    "original": "45",
+    "questioned": "3",
+    "by": "kimi-k2.6",
+    "original_figure": "45",
+    "questioned_figure": "3"
+   },
+   "model_agrees": false
+  },
+  "p87_change03": {
+   "original": "145",
+   "questioned": "133",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "145",
+    "questioned": "133",
+    "by": "gemma4:31b",
+    "original_figure": "145",
+    "questioned_figure": "133"
+   },
+   "model_agrees": true
+  },
+  "p87_change05": {
+   "original": "018",
+   "questioned": "006",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "127,018,000,000",
+    "questioned": "127,006,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "018",
+    "questioned_figure": "006"
+   },
+   "model_agrees": true
+  }
+ },
+ "C17": {
+  "p88_change01": {
+   "original": "180",
+   "questioned": "099",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "176,180,005",
+    "questioned": "176,099,005",
+    "by": "gemma4:31b",
+    "original_figure": "180",
+    "questioned_figure": "099"
+   },
+   "model_agrees": true
+  },
+  "p88_change02": {
+   "original": "368",
+   "questioned": "286",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "uncertain": "the original figure is written over; it reads 367 or 368",
+   "remark": "On the original this figure has been written over, and it is one more than the total of 367 entered below the votes for each candidate.",
+   "model": {
+    "original": "000,000,000,368",
+    "questioned": "000,000,000,286",
+    "by": "gemma4:31b",
+    "original_figure": "368",
+    "questioned_figure": "286"
+   },
+   "model_agrees": true
+  },
+  "p88_change03": {
+   "original": "367",
+   "questioned": "286",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "367",
+    "questioned": "286",
+    "by": "kimi-k2.6",
+    "original_figure": "367",
+    "questioned_figure": "286"
+   },
+   "model_agrees": true
+  },
+  "p88_change06": {
+   "original": "367",
+   "questioned": "286",
+   "field": "the total number of valid votes cast",
+   "same_as": "p88_change03",
+   "model": {
+    "original": "367",
+    "questioned": "286",
+    "by": "gemma4:31b",
+    "original_figure": "367",
+    "questioned_figure": "286"
+   },
+   "model_agrees": true
+  }
+ },
+ "C18": {
+  "p89_change01": {
+   "original": "092",
+   "questioned": "090",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,092",
+    "questioned": "000,090",
+    "by": "gemma4:31b",
+    "original_figure": "092",
+    "questioned_figure": "090"
+   },
+   "model_agrees": true
+  },
+  "p89_change02": {
+   "original": "003",
+   "questioned": "001",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "089,003,000,000",
+    "questioned": "089,001,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "003",
+    "questioned_figure": "001"
+   },
+   "model_agrees": true
+  },
+  "p89_change03": {
+   "original": "092",
+   "questioned": "090",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "092",
+    "questioned": "090",
+    "by": "gemma4:31b",
+    "original_figure": "092",
+    "questioned_figure": "090"
+   },
+   "model_agrees": true
+  }
+ },
+ "C19": {
+  "p90_change01": {
+   "original": "012",
+   "questioned": "002",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "106,012,000",
+    "questioned": "106,002,000",
+    "by": "gemma4:31b",
+    "original_figure": "012",
+    "questioned_figure": "002"
+   },
+   "model_agrees": true
+  },
+  "p90_change02": {
+   "original": "118",
+   "questioned": "108",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,118",
+    "questioned": "000,108",
+    "by": "gemma4:31b",
+    "original_figure": "118",
+    "questioned_figure": "108"
+   },
+   "model_agrees": true
+  }
+ },
+ "C20": {
+  "p91_change01": {
+   "original": "034",
+   "questioned": "029",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,034",
+    "questioned": "000,029",
+    "by": "gemma4:31b",
+    "original_figure": "034",
+    "questioned_figure": "029"
+   },
+   "model_agrees": true
+  },
+  "p91_change02": {
+   "original": "034",
+   "questioned": "029",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "034",
+    "questioned": "029",
+    "by": "gemma4:31b",
+    "original_figure": "034",
+    "questioned_figure": "029"
+   },
+   "model_agrees": true
+  },
+  "p91_change03": {
+   "original": "008",
+   "questioned": "003",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "026,008,000,000",
+    "questioned": "026,003,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "008",
+    "questioned_figure": "003"
+   },
+   "model_agrees": true
+  }
+ },
+ "C21": {
+  "p92_change01": {
+   "original": "112",
+   "questioned": "101",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "112",
+    "questioned": "101",
+    "by": "gemma4:31b",
+    "original_figure": "112",
+    "questioned_figure": "101"
+   },
+   "model_agrees": true
+  },
+  "p92_change02": {
+   "original": "112",
+   "questioned": "101",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "118,000,000,000,112",
+    "questioned": "118,000,000,000,101",
+    "by": "gemma4:31b",
+    "original_figure": "112",
+    "questioned_figure": "101"
+   },
+   "model_agrees": true
+  },
+  "p92_change03": {
+   "original": "stamp",
+   "questioned": "stamp",
+   "note": "presiding officer stamp, same on both"
+  },
+  "p92_change04": {
+   "original": "014",
+   "questioned": "003",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "014,00",
+    "questioned": "003,00",
+    "by": "gemma4:31b",
+    "original_figure": "014",
+    "questioned_figure": "003"
+   },
+   "model_agrees": true
+  }
+ },
+ "C22": {
+  "p68_change08": {
+   "original": "header",
+   "questioned": "header",
+   "note": "printed header band, same on both"
+  },
+  "p68_change09": {
+   "original": "telephone numbers",
+   "questioned": "telephone numbers",
+   "note": "same on both; a dot on the copy"
+  },
+  "p68_change10": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p93_change01": {
+   "original": "040",
+   "questioned": "028",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "040",
+    "questioned": "028",
+    "by": "gemma4:31b",
+    "original_figure": "040",
+    "questioned_figure": "028"
+   },
+   "model_agrees": true
+  },
+  "p93_change03": {
+   "original": "014",
+   "questioned": "002",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "026,014,000,000",
+    "questioned": "026,002,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "014",
+    "questioned_figure": "002"
+   },
+   "model_agrees": true
+  },
+  "p93_change04": {
+   "original": "040",
+   "questioned": "028",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "049,000,000,000,040",
+    "questioned": "049,000,000,000,028",
+    "by": "gemma4:31b",
+    "original_figure": "040",
+    "questioned_figure": "028"
+   },
+   "model_agrees": true
+  }
+ },
+ "C23": {
+  "p69_change01": {
+   "original": "KANU",
+   "questioned": "KANU",
+   "note": "a small pen mark beside the entry on the copy"
+  },
+  "p94_change01": {
+   "original": "064",
+   "questioned": "061",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "068,000,000,000,064",
+    "questioned": "068,000,000,000,061",
+    "by": "gemma4:31b",
+    "original_figure": "064",
+    "questioned_figure": "061"
+   },
+   "model_agrees": true
+  },
+  "p94_change02": {
+   "original": "003",
+   "questioned": "000",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "061,003,000,000",
+    "questioned": "061,000,000,000",
+    "by": "gemma4:31b",
+    "original_figure": "003",
+    "questioned_figure": "000"
+   },
+   "model_agrees": true
+  }
+ },
+ "C24": {
+  "p95_change01": {
+   "original": "066",
+   "questioned": "034",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "068,066,001,001",
+    "questioned": "068,034,001,001",
+    "by": "gemma4:31b",
+    "original_figure": "066",
+    "questioned_figure": "034"
+   },
+   "model_agrees": true
+  },
+  "p95_change02": {
+   "original": "136",
+   "questioned": "104",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,000,136",
+    "questioned": "000,000,104",
+    "by": "gemma4:31b",
+    "original_figure": "136",
+    "questioned_figure": "104"
+   },
+   "model_agrees": true
+  }
+ },
+ "C25": {
+  "p96_change01": {
+   "original": "451",
+   "questioned": "402",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "451",
+    "questioned": "402",
+    "by": "gemma4:31b",
+    "original_figure": "451",
+    "questioned_figure": "402"
+   },
+   "model_agrees": true
+  },
+  "p96_change02": {
+   "original": "069",
+   "questioned": "020",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "381,069,000,001",
+    "questioned": "381,020,000,001",
+    "by": "gemma4:31b",
+    "original_figure": "069",
+    "questioned_figure": "020"
+   },
+   "model_agrees": true
+  }
+ },
+ "C27": {
+  "p112_change01": {
+   "original": "359",
+   "questioned": "259",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "359",
+    "questioned": "259",
+    "by": "gemma4:31b",
+    "original_figure": "359",
+    "questioned_figure": "259"
+   },
+   "model_agrees": true
+  },
+  "p112_change02": {
+   "original": "359",
+   "questioned": "259",
+   "field": "the total number of valid votes cast",
+   "same_as": "p112_change01",
+   "model": {
+    "original": "35",
+    "questioned": "25",
+    "by": "gemma4:31b",
+    "original_figure": "35",
+    "questioned_figure": "25"
+   },
+   "model_agrees": false
+  },
+  "p112_change03": {
+   "original": "123",
+   "questioned": "023",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "233,123,002,001",
+    "questioned": "233,023,002,001",
+    "by": "gemma4:31b",
+    "original_figure": "123",
+    "questioned_figure": "023"
+   },
+   "model_agrees": true
+  },
+  "p112_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change05": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change06": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change07": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change08": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change09": {
+   "original": "agent names",
+   "questioned": "agent names",
+   "note": "names of agents, same on both"
+  },
+  "p112_change10": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change11": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change12": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change13": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change14": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change15": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change16": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C28": {
+  "p113_change13": {
+   "original": "355",
+   "questioned": "272",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "355",
+    "questioned": "272",
+    "by": "gemma4:31b",
+    "original_figure": "355",
+    "questioned_figure": "272"
+   },
+   "model_agrees": true
+  },
+  "p113_change15": {
+   "original": "118",
+   "questioned": "035",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "235,118,000,002",
+    "questioned": "235,035,000,002",
+    "by": "gemma4:31b",
+    "original_figure": "118",
+    "questioned_figure": "035"
+   },
+   "model_agrees": true
+  },
+  "p113_change33": {
+   "original": "355",
+   "questioned": "272",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "658,000,000,000,355",
+    "questioned": "658,000,000,000,272",
+    "by": "gemma4:31b",
+    "original_figure": "355",
+    "questioned_figure": "272"
+   },
+   "model_agrees": true
+  },
+  "p113_change35": {
+   "original": "QR code",
+   "questioned": "QR code",
+   "note": "QR code, partly covered by a dark mark on the copy"
+  },
+  "p113_change36": {
+   "original": "QR code",
+   "questioned": "QR code",
+   "note": "QR code, partly covered on the copy"
+  },
+  "p113_change37": {
+   "original": "edge",
+   "questioned": "edge",
+   "note": "edge of the sheet"
+  },
+  "p113_change38": {
+   "original": "stamp",
+   "questioned": "stamp",
+   "note": "presiding officer stamp, same on both"
+  }
+ },
+ "C30": {
+  "p114_change01": {
+   "original": "116",
+   "questioned": "044",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "246,116,001,001",
+    "questioned": "246,044,001,001",
+    "by": "gemma4:31b",
+    "original_figure": "116",
+    "questioned_figure": "044"
+   },
+   "model_agrees": true
+  },
+  "p114_change02": {
+   "original": "385",
+   "questioned": "313",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "658,022,000,000,385",
+    "questioned": "658,022,000,000,313",
+    "by": "gemma4:31b",
+    "original_figure": "385",
+    "questioned_figure": "313"
+   },
+   "model_agrees": true
+  },
+  "p114_change03": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p114_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C31": {
+  "p115_change01": {
+   "original": "368",
+   "questioned": "358",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "657,012,000,001,368",
+    "questioned": "657,012,000,001,358",
+    "by": "gemma4:31b",
+    "original_figure": "368",
+    "questioned_figure": "358"
+   },
+   "model_agrees": true
+  },
+  "p115_change02": {
+   "original": "140",
+   "questioned": "040",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "225,140,003",
+    "questioned": "225,040,003",
+    "by": "gemma4:31b",
+    "original_figure": "140",
+    "questioned_figure": "040"
+   },
+   "model_agrees": true
+  },
+  "p115_change03": {
+   "original": "140",
+   "questioned": "040",
+   "field": "the votes of William Ruto",
+   "same_as": "p115_change02",
+   "model": {
+    "original": "140,002",
+    "questioned": "040,002",
+    "by": "gemma4:31b",
+    "original_figure": "140",
+    "questioned_figure": "040"
+   },
+   "model_agrees": true
+  },
+  "p115_change04": {
+   "original": "368",
+   "questioned": "358",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "368",
+    "questioned": "358",
+    "by": "gemma4:31b",
+    "original_figure": "368",
+    "questioned_figure": "358"
+   },
+   "model_agrees": true
+  }
+ },
+ "C32": {
+  "p116_change01": {
+   "original": "116",
+   "questioned": "033",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "239,116,001",
+    "questioned": "239,033,001",
+    "by": "gemma4:31b",
+    "original_figure": "116",
+    "questioned_figure": "033"
+   },
+   "model_agrees": true
+  },
+  "p116_change02": {
+   "original": "360",
+   "questioned": "277",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "360",
+    "questioned": "277",
+    "by": "gemma4:31b",
+    "original_figure": "360",
+    "questioned_figure": "277"
+   },
+   "model_agrees": true
+  },
+  "p116_change03": {
+   "original": "360",
+   "questioned": "277",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,360",
+    "questioned": "000,277",
+    "by": "gemma4:31b",
+    "original_figure": "360",
+    "questioned_figure": "277"
+   },
+   "model_agrees": true
+  }
+ },
+ "C33": {
+  "p117_change01": {
+   "original": "326",
+   "questioned": "232",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "657,003,000,000,326",
+    "questioned": "657,003,000,000,232",
+    "by": "gemma4:31b",
+    "original_figure": "326",
+    "questioned_figure": "232"
+   },
+   "model_agrees": true
+  },
+  "p117_change02": {
+   "original": "141",
+   "questioned": "047",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "181,141,003",
+    "questioned": "181,047,003",
+    "by": "gemma4:31b",
+    "original_figure": "141",
+    "questioned_figure": "047"
+   },
+   "model_agrees": true
+  },
+  "p117_change03": {
+   "original": "326",
+   "questioned": "232",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "326",
+    "questioned": "232",
+    "by": "gemma4:31b",
+    "original_figure": "326",
+    "questioned_figure": "232"
+   },
+   "model_agrees": true
+  },
+  "p117_change04": {
+   "original": "141",
+   "questioned": "047",
+   "field": "the votes of William Ruto",
+   "same_as": "p117_change02",
+   "model": {
+    "original": "181,141",
+    "questioned": "181,047",
+    "by": "gemma4:31b",
+    "original_figure": "141",
+    "questioned_figure": "047"
+   },
+   "model_agrees": true
+  }
+ },
+ "C34": {
+  "p118_change01": {
+   "original": "355",
+   "questioned": "279",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "355",
+    "questioned": "279",
+    "by": "gemma4:31b",
+    "original_figure": "355",
+    "questioned_figure": "279"
+   },
+   "model_agrees": true
+  },
+  "p118_change02": {
+   "original": "355",
+   "questioned": "279",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,000,355",
+    "questioned": "000,000,279",
+    "by": "gemma4:31b",
+    "original_figure": "355",
+    "questioned_figure": "279"
+   },
+   "model_agrees": true
+  },
+  "p118_change03": {
+   "original": "120",
+   "questioned": "044",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "233,120,001,001",
+    "questioned": "233,044,001,001",
+    "by": "gemma4:31b",
+    "original_figure": "120",
+    "questioned_figure": "044"
+   },
+   "model_agrees": true
+  },
+  "p118_change05": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C35": {
+  "p119_change01": {
+   "original": "370",
+   "questioned": "289",
+   "field": "the total number of valid votes cast",
+   "uncertain": "the last digit on the copy reads 9 or 4",
+   "remark": "Its last digit on the page is open at the top and can be read as 4, but the votes for each candidate on the page add up to 289.",
+   "model": {
+    "original": "370",
+    "questioned": "284",
+    "by": "gemma4:31b",
+    "original_figure": "370",
+    "questioned_figure": "284"
+   },
+   "model_agrees": false
+  },
+  "p119_change02": {
+   "original": "370",
+   "questioned": "289",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "uncertain": "the last digit on the copy reads 9 or 4",
+   "remark": "Its last digit on the page is formed in the same way.",
+   "model": {
+    "original": "657,006,000,000,370",
+    "questioned": "657,006,000,000,284",
+    "by": "gemma4:31b",
+    "original_figure": "370",
+    "questioned_figure": "284"
+   },
+   "model_agrees": false
+  },
+  "p119_change03": {
+   "original": "133",
+   "questioned": "052",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "236,133,000,001",
+    "questioned": "236,052,000,001",
+    "by": "gemma4:31b",
+    "original_figure": "133",
+    "questioned_figure": "052"
+   },
+   "model_agrees": true
+  },
+  "p119_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C36": {
+  "p120_change01": {
+   "original": "354",
+   "questioned": "274",
+   "field": "the total number of valid votes cast",
+   "note": "the middle digit on the original is written over",
+   "model": {
+    "original": "354",
+    "questioned": "274",
+    "by": "gemma4:31b",
+    "original_figure": "354",
+    "questioned_figure": "274"
+   },
+   "model_agrees": true
+  },
+  "p120_change02": {
+   "original": "144",
+   "questioned": "064",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "205,144,003,002",
+    "questioned": "205,064,003,002",
+    "by": "gemma4:31b",
+    "original_figure": "144",
+    "questioned_figure": "064"
+   },
+   "model_agrees": true
+  },
+  "p120_change03": {
+   "original": "354",
+   "questioned": "274",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,000,354",
+    "questioned": "000,000,274",
+    "by": "gemma4:31b",
+    "original_figure": "354",
+    "questioned_figure": "274"
+   },
+   "model_agrees": true
+  },
+  "p120_change04": {
+   "original": "354",
+   "questioned": "274",
+   "field": "the total number of valid votes cast",
+   "same_as": "p120_change01",
+   "model": {
+    "original": "35",
+    "questioned": "27",
+    "by": "gemma4:31b",
+    "original_figure": "35",
+    "questioned_figure": "27"
+   },
+   "model_agrees": false
+  }
+ },
+ "C38": {
+  "p121_change01": {
+   "original": "357",
+   "questioned": "287",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "357",
+    "questioned": "287",
+    "by": "gemma4:31b",
+    "original_figure": "357",
+    "questioned_figure": "287"
+   },
+   "model_agrees": true
+  },
+  "p121_change02": {
+   "original": "121",
+   "questioned": "051",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "233,121,001,002",
+    "questioned": "233,051,001,002",
+    "by": "gemma4:31b",
+    "original_figure": "121",
+    "questioned_figure": "051"
+   },
+   "model_agrees": true
+  },
+  "p121_change03": {
+   "original": "357",
+   "questioned": "287",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "004,001,000,357",
+    "questioned": "004,001,000,287",
+    "by": "gemma4:31b",
+    "original_figure": "357",
+    "questioned_figure": "287"
+   },
+   "model_agrees": true
+  },
+  "p121_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p121_change05": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C39": {
+  "p110_change01": {
+   "original": "stamp and dates",
+   "questioned": "stamp and dates",
+   "note": "same on both"
+  },
+  "p122_change01": {
+   "original": "360",
+   "questioned": "284",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "699,006,000,000,360",
+    "questioned": "699,006,000,000,284",
+    "by": "gemma4:31b",
+    "original_figure": "360",
+    "questioned_figure": "284"
+   },
+   "model_agrees": true
+  },
+  "p122_change02": {
+   "original": "360",
+   "questioned": "284",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "360",
+    "questioned": "284",
+    "by": "gemma4:31b",
+    "original_figure": "360",
+    "questioned_figure": "284"
+   },
+   "model_agrees": true
+  },
+  "p122_change03": {
+   "original": "114",
+   "questioned": "038",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "244,114,000,002",
+    "questioned": "244,038,000,002",
+    "by": "gemma4:31b",
+    "original_figure": "114",
+    "questioned_figure": "038"
+   },
+   "model_agrees": true
+  }
+ },
+ "C40": {
+  "p111_change02": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p123_change01": {
+   "original": "363",
+   "questioned": "293",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "363",
+    "questioned": "293",
+    "by": "kimi-k3",
+    "original_figure": "363",
+    "questioned_figure": "293"
+   },
+   "model_agrees": true
+  },
+  "p123_change02": {
+   "original": "363",
+   "questioned": "293",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "000,000,363",
+    "questioned": "000,000,293",
+    "by": "gemma4:31b",
+    "original_figure": "363",
+    "questioned_figure": "293"
+   },
+   "model_agrees": true
+  },
+  "p123_change03": {
+   "original": "120",
+   "questioned": "050",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "231,120,001,003",
+    "questioned": "231,050,001,003",
+    "by": "gemma4:31b",
+    "original_figure": "120",
+    "questioned_figure": "050"
+   },
+   "model_agrees": true
+  }
+ },
+ "C41": {
+  "p124_change01": {
+   "original": "112",
+   "questioned": "052",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "262,112,000,003",
+    "questioned": "262,052,000,003",
+    "by": "gemma4:31b",
+    "original_figure": "112",
+    "questioned_figure": "052"
+   },
+   "model_agrees": true
+  },
+  "p124_change04": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change05": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change06": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change07": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change08": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change09": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change10": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change12": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change13": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change14": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change16": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change17": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change18": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change19": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change21": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change22": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change24": {
+   "original": "blank",
+   "questioned": "blank",
+   "note": "a line struck through blank rows, same on both"
+  },
+  "p124_change25": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change27": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change28": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change29": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change30": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change31": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change35": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change36": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change38": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change40": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change42": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change44": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change45": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change46": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C42": {
+  "p46_change01": {
+   "original": "ward, constituency and county names",
+   "questioned": "ward, constituency and county names",
+   "note": "same on both"
+  },
+  "p46_change11": {
+   "original": "printed label",
+   "questioned": "printed label",
+   "note": "same on both"
+  },
+  "p46_change14": {
+   "original": "station and ward names",
+   "questioned": "station and ward names",
+   "note": "same on both"
+  },
+  "p46_change18": {
+   "original": "station and ward names",
+   "questioned": "station and ward names",
+   "note": "same on both"
+  },
+  "p46_change25": {
+   "original": "printed labels",
+   "questioned": "printed labels",
+   "note": "same on both"
+  },
+  "p46_change28": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p46_change38": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C43": {
+  "p125_change39": {
+   "original": "header",
+   "questioned": "header",
+   "note": "printed header band, same on both"
+  },
+  "p125_change41": {
+   "original": "header",
+   "questioned": "header",
+   "note": "printed header band, same on both"
+  },
+  "p125_change43": {
+   "original": "header",
+   "questioned": "header",
+   "note": "printed header band, same on both"
+  },
+  "p125_change44": {
+   "original": "printed labels",
+   "questioned": "printed labels",
+   "note": "printed labels faded on the copy"
+  },
+  "p125_change46": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p125_change47": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C44": {
+  "p126_change01": {
+   "original": "blank",
+   "questioned": "blank",
+   "note": "a dot on the copy over blank ruled lines; no entry"
+  }
+ },
+ "C48": {
+  "p130_change01": {
+   "original": "(01)",
+   "questioned": "(01)",
+   "note": "a dot on the copy inside the entry"
+  },
+  "p130_change02": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p130_change03": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p130_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change02": {
+   "original": "256",
+   "questioned": "176",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "model": {
+    "original": "359,000,000,000,256",
+    "questioned": "359,000,000,000,176",
+    "by": "gemma4:31b",
+    "original_figure": "256",
+    "questioned_figure": "176"
+   },
+   "model_agrees": true
+  },
+  "p131_change07": {
+   "original": "195",
+   "questioned": "115",
+   "field": "the votes of William Ruto",
+   "model": {
+    "original": "060,195,000,001",
+    "questioned": "060,115,000,001",
+    "by": "gemma4:31b",
+    "original_figure": "195",
+    "questioned_figure": "115"
+   },
+   "model_agrees": true
+  },
+  "p131_change08": {
+   "original": "256",
+   "questioned": "176",
+   "field": "the total number of valid votes cast",
+   "model": {
+    "original": "256",
+    "questioned": "176",
+    "by": "kimi-k2.6",
+    "original_figure": "256",
+    "questioned_figure": "176"
+   },
+   "model_agrees": true
+  },
+  "p131_change09": {
+   "original": "declaration text",
+   "questioned": "declaration text",
+   "note": "same on both"
+  },
+  "p131_change10": {
+   "original": "declaration text",
+   "questioned": "declaration text",
+   "note": "same on both"
+  },
+  "p131_change16": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change18": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change19": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change20": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change22": {
+   "original": "agent names",
+   "questioned": "agent names",
+   "note": "same on both"
+  },
+  "p131_change23": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change24": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change25": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change28": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change29": {
+   "original": "stamp and dates",
+   "questioned": "stamp and dates",
+   "note": "same on both"
+  },
+  "p131_change30": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ }
+}
