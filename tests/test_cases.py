@@ -161,3 +161,19 @@ def test_model_readings_in_the_shapes_models_return(monkeypatch):
     assert llm.read_figures(b"png")["legible"] is False and calls == llm.VISION_LADDER  # a panel the model cannot read
     monkeypatch.setattr(llm, "chat", lambda *a, **k: "The left panel shows 097 and the right 090.")
     assert llm.read_figures(b"png")["legible"] is False  # prose is not a reading
+
+
+def test_remarks_and_a_differing_second_reading_are_stated():
+    from formguard.affidavit import _exhibit_sentence
+    from formguard.llm import plain
+
+    d = {"evidence": "a.png", "similarity": -0.29, "original_reads": "370", "questioned_reads": "289", "clear": True,
+         "field": "the total number of valid votes cast", "model_agrees": False, "model_reading": "370 on the original and 284 on the page",
+         "remark": "Its last digit on the page can be read as 4."}
+    f = {"label": "PDF page 119", "caption": "AGENT COPY", "matched": True, "match_inliers": 889, "marks_reproduced_pct": 94.0,
+         "marks_compared": 439, "background_measurable": False, "background_correlation": None, "glyph_similarity_median": 0.95,
+         "differences_in_results": [d]}
+    text = _exhibit_sentence({}, f, "[XX]-34")
+    assert ("reads 370 on the original and 289 on the page, with a similarity of −0.29. Its last digit on the page can be read as 4. "
+            "The second reader read it as 370 on the original and 284 on the page.") in text
+    assert plain(text)

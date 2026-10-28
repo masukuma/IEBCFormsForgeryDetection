@@ -102,7 +102,14 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
                 "field": r.get("field"),
                 "clear": c.get("clear", True),
                 "model_agrees": r.get("model_agrees"),
-                "model_reading": (f"{r['model']['original']} on the original and {r['model']['questioned']} on the page" if r.get("model") else None),
+                # The second reader's figure on each side; a reader that lists every number in the
+                # image is quoted for the one in question (merge step: original_figure).
+                "model_reading": (
+                    f"{r['model'].get('original_figure') or r['model']['original']} on the original and "
+                    f"{r['model'].get('questioned_figure') or r['model']['questioned']} on the page"
+                    if r.get("model") else None
+                ),
+                "remark": r.get("remark"),  # the examiner's remark on the figure, stated as written
             }
         )
     page = (rep.get("pages") or [{}])[0]
@@ -224,6 +231,8 @@ def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
                 text += f" A further figure differs, with a similarity of {sim}."
             if not d.get("clear", True):
                 text += " That similarity is in the range where I rely on the reading."
+            if d.get("remark"):
+                text += f" {d['remark']}"
             if d.get("model_agrees") is False:
                 text += f" The second reader read it as {d['model_reading']}."
     if same:
