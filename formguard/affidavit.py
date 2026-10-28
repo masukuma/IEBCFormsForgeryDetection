@@ -209,7 +209,7 @@ def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
         )
     diffs = f["differences_in_results"]
     same = [d for d in diffs if d["original_reads"] and d["original_reads"] == d["questioned_reads"]]
-    changed = sorted((d for d in diffs if d not in same), key=_field_order)
+    changed = sorted(_differing(f), key=_field_order)
     if not changed:
         text += " Its entries agree with those of the original."
     else:
@@ -233,8 +233,13 @@ def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
     return text
 
 
+def _differing(f: dict) -> list[dict]:
+    """The differences of exhibit_facts that remain once read: a figure that reads the same on both is not one."""
+    return [d for d in f["differences_in_results"] if not (d["original_reads"] and d["original_reads"] == d["questioned_reads"])]
+
+
 def _opinion(case: dict, f: dict) -> str | None:
-    changed = [d for d in f["differences_in_results"] if not (d["original_reads"] and d["original_reads"] == d["questioned_reads"])]
+    changed = _differing(f)
     if not f["matched"] or not changed:
         return None
     if f["provenance_finding"] == "same_capture":
@@ -314,13 +319,14 @@ def _plain_title(title: str) -> str:
     return re.sub(r"\s*\((.*)\)\s*$", r", \1", title)
 
 
-def annexure_marks(results: dict, prefix: str) -> dict[str, str]:
-    """One annexure per polling station whose pages differ from the original; the software is annexure 1."""
+def annexure_marks(results: dict, prefix: str, readings: dict | None = None) -> dict[str, str]:
+    """One annexure per polling station with a figure that differs from the original; the software is annexure 1."""
+    readings = readings or {}
     marks, k = {}, 1
     for c in results["cases"]:
         if "error" in c:
             continue
-        if any(_changes(rep) for rep in c["exhibit_results"]):
+        if any(_differing(exhibit_facts(c, rep, readings.get(c["id"], {}))) for rep in c["exhibit_results"]):
             k += 1
             marks[c["id"]] = f"{prefix}-{k}"
     return marks
@@ -331,7 +337,7 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
     readings = readings or {}
     prefix = deponent.get("initials", "[XX]")
     software = f"{prefix}-1"
-    marks = annexure_marks(results, prefix)
+    marks = annexure_marks(results, prefix, readings)
     d = Doc()
     for line in matter.get("heading", ["REPUBLIC OF KENYA", "IN THE SUPREME COURT OF KENYA AT NAIROBI"]):
         d.center(line, bold=True)
@@ -368,7 +374,7 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
     for c in cases:
         for rep in c["exhibit_results"]:
             f = exhibit_facts(c, rep, readings.get(c["id"], {}))
-            changed = [x for x in f["differences_in_results"] if not (x["original_reads"] and x["original_reads"] == x["questioned_reads"])]
+            changed = _differing(f)
             result = "not matched" if not f["matched"] else ("agrees with the original" if not changed else _count(len(changed), "figure") + " differ" + ("s" if len(changed) == 1 else ""))
             made = {"same_capture": "from the portal photograph", "same_sheet": "from an image of the same sheet"}.get(f["provenance_finding"] or "", "") if changed else ""
             rows.append([_plain_title(c["title"]).split(",")[0], f["label"], f["caption"] or "none", result, made])
@@ -425,15 +431,16 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
 # ---------------------------------------------------------------------------------------------
 # rendering
 
-def add_evidence(d: Doc, results: dict, run_dir: Path, prefix: str = "[XX]"):
-    marks = annexure_marks(results, prefix)
+def add_evidence(d: Doc, results: dict, run_dir: Path, prefix: str = "[XX]", readings: dict | None = None):
+    readings = readings or {}
+    marks = annexure_marks(results, prefix, readings)
     for c in results["cases"]:
         if c.get("id") not in marks:
             continue
         d.heading(f"Annexure {marks[c['id']]}: {_plain_title(c['title'])}", level=2)
         for rep in c["exhibit_results"]:
             ev = run_dir / rep["evidence_dir"]
-            for ch in _changes(rep):
+            for ch in sorted(_differing(exhibit_facts(c, rep, readings.get(c["id"], {}))), key=_field_order):
                 if ch.get("evidence"):
                     d.image(ev / ch["evidence"], f"{rep['exhibit']['label']}: original (left) and annexed page (right)", width_in=4.5)
 
@@ -535,7 +542,7 @@ def write(results_path: Path, deponent: dict, out_stem: Path, readings_path: Pat
     results = json.loads(Path(results_path).read_text())
     readings = json.loads(Path(readings_path).read_text()) if readings_path else {}
     d = build(results, deponent, readings, use_llm=use_llm)
-    add_evidence(d, results, Path(results_path).parent, deponent.get("initials", "[XX]"))
+    add_evidence(d, results, Path(results_path).parent, deponent.get("initials", "[XX]"), readings)
     md, docx = out_stem.with_suffix(".md"), out_stem.with_suffix(".docx")
     md.write_text(to_markdown(d))
     to_docx(d, docx)
