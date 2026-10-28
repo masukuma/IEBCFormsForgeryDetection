@@ -101,6 +101,8 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
                 "read_by": r.get("by"),
                 "field": r.get("field"),
                 "clear": c.get("clear", True),
+                "model_agrees": r.get("model_agrees"),
+                "model_reading": (f"{r['model']['original']} on the original and {r['model']['questioned']} on the page" if r.get("model") else None),
             }
         )
     page = (rep.get("pages") or [{}])[0]
@@ -198,6 +200,8 @@ def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
             if d["original_reads"] and d["questioned_reads"]:
                 what = f"The figure for {d['field']}" if d.get("field") else "A figure"
                 text += f" {what} reads {d['original_reads']} on the original and {d['questioned_reads']} on the page."
+                if d.get("model_agrees") is False:
+                    text += f" The second reading of this figure differs ({d['model_reading']})."
         sims = _and([f"{d['similarity']:.2f}".replace("-", "\u2212") for d in changed])
         text += f" {'Its measured similarity is' if len(changed) == 1 else 'Their measured similarities are'} {sims}, against the threshold of 0.5."
     if same:
@@ -265,8 +269,9 @@ METHOD = [
     "I recorded the SHA-256 hash value of each original and validated its digital signature, which shows whether the file "
     "has changed since it was signed. The Forms 34A on the portal are signed when transmitted from the KIEMS kit, with a "
     "certificate issued by \"CA_APPS\" of Smartmatic International and the SHA-1 digest.",
-    "The figures I quote in my findings were read from the side-by-side images, and I state who read each of them. The "
-    "finding that a figure differs does not depend on how it is read.",
+    "The figures I quote in my findings were read from the side-by-side images twice: by me, and independently by a vision "
+    "language model run through Ollama Cloud. Where the two readings differ, I say so. The finding that a figure differs "
+    "does not depend on how it is read.",
 ]
 
 LIMITS = [
