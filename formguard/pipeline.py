@@ -24,6 +24,7 @@ class Config:
     long_side: int = 2600  # working resolution (px on the page's long side); ~220 dpi on A3
     min_inliers: int = 150  # keypoint agreement required to accept a page match
     flag_below: float = 0.5  # similarity below which a change counts as an alteration
+    possible_below: float = 0.65  # ... and below which it is a possible change, settled by reading the figure
     min_quality: float = 0.85  # median glyph similarity below which a page is too degraded to judge
     max_evidence: int = 50  # cells per page that get an evidence crop and an OCR reading
     ocr: bool = True  # read flagged numbers if tesseract is installed
@@ -73,8 +74,8 @@ def _page_verdict(pc: PageComparison, cfg: Config) -> str:
         return INCONCLUSIVE
     if any(r.on_figure for r in pc.flagged(cfg.flag_below, table_only=True)):
         return ALTERED
-    if pc.flagged(cfg.flag_below, table_only=False):
-        return REVIEW  # marks added in blank areas, or changes outside the table
+    if pc.flagged(cfg.possible_below, table_only=False):
+        return REVIEW  # possible changes to be read, marks on blank paper, or changes outside the table
     return CLEAN
 
 
@@ -135,7 +136,9 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         tpl, tpl_forms = _template(original, ref_pages[m.ref_index].index, ref, cfg) if cfg.template else (None, 0)
         pc = compare_pages(ref, warped, valid, template=tpl)
         verdict = _page_verdict(pc, cfg)
-        flagged = pc.flagged(cfg.flag_below, table_only=False)
+        # Clear changes, and possible ones (a "3" scores fairly high against the "8" it was made
+        # from) that a reading of both figures settles.
+        flagged = pc.flagged(cfg.possible_below, table_only=False)
         entry.update(
             original_page=ref_pages[m.ref_index].index + 1,
             verdict=verdict,
@@ -155,6 +158,7 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         page_rotation: tuple | None = None if sideways(ref) else (None,)
         for k, r in enumerate(flagged):
             change = r.to_dict()
+            change["clear"] = r.similarity < cfg.flag_below
             rotation = None
             if use_ocr and k < cfg.max_evidence:
                 rots = page_rotation or ocr.ROTATIONS[1:]
@@ -205,7 +209,8 @@ def compare_documents(original: Path, submission: Path, out_dir: Path | None = N
         verdict = INCONCLUSIVE  # empty document
     report.update(
         verdict=verdict,
-        altered_numbers=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"]),
+        altered_numbers=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"] and c["clear"]),
+        possible_numbers=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"] and not c["clear"]),
         values_changed=sum(1 for p in pages for c in p.get("changes", []) if c["in_table"] and c["on_figure"] and c.get("value_changed")),
         swaps=swaps,
         pages=pages,
