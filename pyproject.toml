@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "formguard"
+version = "0.1.0"
+description = "Detect alterations in submitted copies of scanned election forms by comparing them with the originals"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python-headless>=4.8",
+    "pymupdf>=1.24",
+]
+
+[project.optional-dependencies]
+dropbox = ["dropbox>=12"]
+test = ["pytest>=8"]
+
+[project.scripts]
+formguard = "formguard.cli:main"
+
+[tool.setuptools]
+packages = ["formguard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
