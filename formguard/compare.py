@@ -439,7 +439,7 @@ def compare_pages(
         if not members:
             continue
         worst = min(members)[0]
-        ka, kb = sum(s[1] for s in members), sum(s[2] for s in members)
+        ka, kb = sum(s[5] for s in group), sum(s[6] for s in group)  # the whole number: 002 -> 001 is a substitution
         if cover[y : y + h, x : x + w].mean() > 0.1:
             kind = "obscured"
         elif ka < 0.25 * kb:

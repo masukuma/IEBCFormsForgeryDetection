@@ -80,27 +80,29 @@ def paper_mask(img: np.ndarray, margin: float = 0.01) -> np.ndarray:
 
     Outside the sheet (desk, shadow, the curled edge of a printout) nothing on the form can be
     compared. Print, handwriting and table ruling are thin, so an opening removes them from the
-    dark mask before background is looked for; a flat scan is all paper. The mask is shrunk by
-    ``margin`` of the long side.
+    dark mask before background is looked for; a flat scan is all paper. The mask keeps ``margin``
+    of the long side from the image edge and twice that from the background.
     """
     s = 600 / max(img.shape)
     small = cv2.GaussianBlur(cv2.resize(img, None, fx=s, fy=s, interpolation=cv2.INTER_AREA), (0, 0), 2)
     # Much darker than the paper: lighting across a photographed sheet varies too much for a
     # threshold between paper and background to stay off the dimly lit side of the paper.
     dark = np.where(small < DARK * np.percentile(small, 90), 255, 0).astype(np.uint8)
-    dark = cv2.morphologyEx(dark, cv2.MORPH_OPEN, np.ones((15, 15), np.uint8))
+    dark = cv2.morphologyEx(dark, cv2.MORPH_OPEN, np.ones((15, 15), np.uint8))  # what survives is solid, not ink
     n, labels, stats, _ = cv2.connectedComponentsWithStats(dark)
     h, w = small.shape
-    sheet = np.full(small.shape, 255, np.uint8)
+    background = np.zeros(small.shape, np.uint8)
     for i in range(1, n):
         x, y, bw, bh, area = stats[i]
-        if area >= 0.01 * small.size and (x == 0 or y == 0 or x + bw == w or y + bh == h):
-            sheet[labels == i] = 0
-    if (sheet > 0).mean() < 0.3:  # not a sheet on a background after all
-        sheet[:] = 255
-    sheet[0, :] = sheet[-1, :] = sheet[:, 0] = sheet[:, -1] = 0  # so the margin is taken at the image edge too
+        if area >= 0.001 * small.size and (x == 0 or y == 0 or x + bw == w or y + bh == h):
+            background[labels == i] = 255
+    if (background == 0).mean() < 0.3:  # not a sheet on a background after all
+        background[:] = 0
     e = max(1, int(margin * max(small.shape)))
-    sheet = cv2.erode(sheet, np.ones((2 * e + 1, 2 * e + 1), np.uint8))
+    # Twice the margin from the background: flattening leaves a halo along a dark edge.
+    sheet = 255 - cv2.dilate(background, np.ones((4 * e + 1, 4 * e + 1), np.uint8))
+    sheet[:e, :] = sheet[-e:, :] = 0
+    sheet[:, :e] = sheet[:, -e:] = 0
     return cv2.resize(sheet, (img.shape[1], img.shape[0]), interpolation=cv2.INTER_NEAREST) > 0
 
 
