@@ -458,6 +458,8 @@ def compare_pages(
                 box = (max(0, wx), max(0, wy), min(W, wx + ww), min(H, wy + wh))
                 if inside is not None and inside[box[1] : box[3], box[0] : box[2]].mean() < 0.99:
                     continue  # reaches beyond the comparable part of the page
+                if int(glyph[box[1] + SHIFT : box[3] - SHIFT, box[0] + SHIFT : box[2] - SHIFT].sum()) < MIN_GLYPH_INK:
+                    continue  # only ruling, or ink at the edge that a neighbouring window centres on
                 sim, ka, kb = measure(*box, *shift)
                 if max(ka, kb) >= MIN_GLYPH_INK and sim < report_below:
                     members.append((sim, ka, kb))
