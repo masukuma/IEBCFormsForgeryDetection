@@ -89,3 +89,24 @@ def test_llm_draft_rejects_invented_numbers(monkeypatch):
     assert llm.draft("x", facts, fallback)[1] != "template"
     monkeypatch.setattr(llm, "chat", lambda *a, **k: "THAT 28 votes were moved, out of 345 cast.")
     assert llm.draft("x", facts, fallback) == (fallback, "template")
+
+
+def test_model_ladder_escalates_only_on_invalid_output(monkeypatch):
+    monkeypatch.setenv("OLLAMA_API_KEY", "test")
+    calls = []
+
+    def fake_chat(model, messages, fmt=None, timeout=300, task=""):
+        calls.append(model)
+        llm.USAGE.append({"model": model, "task": task})
+        if model == llm.VISION_LADDER[0]:
+            return json.dumps({"original": "060", "questioned": "", "legible": True})  # empty reading: invalid
+        return json.dumps({"original": "060", "questioned": "032", "legible": True})
+
+    monkeypatch.setattr(llm, "chat", fake_chat)
+    r = llm.read_figures(b"png")
+    assert calls == llm.VISION_LADDER[:2]
+    assert (r["original"], r["questioned"], r["by"]) == ("060", "032", llm.VISION_LADDER[1])
+
+    calls.clear()
+    monkeypatch.setattr(llm, "chat", lambda model, *a, **k: calls.append(model) or json.dumps({"original": "284", "questioned": "284", "legible": True}))
+    assert llm.read_figures(b"png")["by"] == llm.VISION_LADDER[0] and calls == llm.VISION_LADDER[:1]  # cheapest answer accepted

@@ -1,0 +1,31 @@
+"""Read the figures in every evidence image of a case run with the vision-model ladder."""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+from . import llm
+
+
+def read_all(results_path: Path, confirm: bool = False, existing: dict | None = None) -> dict:
+    """{case id: {"p75_change03": {"original": "060", "questioned": "032", "by": "gemma4:31b", ...}}}.
+
+    Entries already in ``existing`` (e.g. typed in by the examiner) are kept and not re-read.
+    """
+    results = json.loads(Path(results_path).read_text())
+    run_dir = Path(results_path).parent
+    out: dict = json.loads(json.dumps(existing or {}))
+    for case in results["cases"]:
+        for rep in case.get("exhibit_results", []):
+            ev = run_dir / rep["evidence_dir"]
+            for page in rep.get("pages", []):
+                for c in page.get("changes", []):
+                    if not c.get("in_table") or not c.get("evidence"):
+                        continue
+                    key = c["evidence"].rsplit(".", 1)[0]
+                    if key in out.get(case["id"], {}):
+                        continue
+                    r = llm.read_figures((ev / c["evidence"]).read_bytes(), confirm=confirm)
+                    out.setdefault(case["id"], {})[key] = r
+    out["_usage"] = llm.usage_summary()
+    return out

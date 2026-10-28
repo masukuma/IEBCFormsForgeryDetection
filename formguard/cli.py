@@ -97,11 +97,29 @@ def cmd_cases(a: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_readings(a: argparse.Namespace) -> int:
+    from . import llm
+    from .readings import read_all
+
+    if not llm.available():
+        print("OLLAMA_API_KEY is not set", file=sys.stderr)
+        return 2
+    existing = json.loads(Path(a.out).read_text()) if Path(a.out).exists() else None
+    out = read_all(Path(a.results), confirm=a.confirm, existing=existing)
+    Path(a.out).write_text(json.dumps(out, indent=2))
+    print(json.dumps(out["_usage"], indent=2), file=sys.stderr)
+    return 0
+
+
 def cmd_affidavit(a: argparse.Namespace) -> int:
     from .affidavit import write
 
     deponent = json.loads(Path(a.deponent).read_text()) if a.deponent else {}
     md, docx = write(Path(a.results), deponent, Path(a.out), Path(a.readings) if a.readings else None, use_llm=not a.no_llm)
+    from . import llm
+
+    if llm.USAGE:
+        print(json.dumps(llm.usage_summary(), indent=2), file=sys.stderr)
     print(f"{md}\n{docx}")
     return 0
 
@@ -150,6 +168,12 @@ def main(argv: list[str] | None = None) -> int:
     k.add_argument("--workers", type=int, default=os.cpu_count() or 1)
     common(k)
     k.set_defaults(fn=cmd_cases)
+
+    r = sub.add_parser("readings", help="read flagged figures with Ollama Cloud vision models (cheapest first)")
+    r.add_argument("results", help="results.json written by 'cases'")
+    r.add_argument("--out", required=True, help="readings JSON (existing entries are kept)")
+    r.add_argument("--confirm", action="store_true", help="also get an independent second reading from the next model up")
+    r.set_defaults(fn=cmd_readings)
 
     f = sub.add_parser("affidavit", help="draft an affidavit (DOCX + Markdown) from case results")
     f.add_argument("results", help="results.json written by 'cases'")

@@ -71,8 +71,8 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
     bg = prov.get("background", {})
     changes = []
     for c in _changes(rep):
-        key = f"p{c['page']}_change{int(re.search(r'(\d+)', c.get('evidence', 'x0')).group(1)) if c.get('evidence') else 0:02d}"
-        r = readings.get(key, {})
+        key = c["evidence"].rsplit(".", 1)[0] if c.get("evidence") else None
+        r = readings.get(key, {}) if key else {}
         changes.append(
             {
                 "evidence": c.get("evidence"),
