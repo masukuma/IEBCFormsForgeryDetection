@@ -1,0 +1,1795 @@
+{
+ "matter": {
+  "heading": [
+   "REPUBLIC OF KENYA",
+   "IN THE SUPREME COURT OF KENYA AT NAIROBI"
+  ],
+  "cause": "PRESIDENTIAL ELECTION PETITION NO. E005 OF 2022 (as consolidated with Petition Nos. E001, E002, E003, E004, E007 and E008 of 2022)",
+  "title": "AFFIDAVIT OF [DEPONENT] ON THE FORENSIC EXAMINATION OF THE FORMS 34A ANNEXED TO THE AFFIDAVIT OF ARNOLD OCHIENG OGINGA SWORN ON 19TH AUGUST 2022",
+  "questioned_affidavit": "the affidavit of Arnold Ochieng Oginga sworn on 19th August 2022 (annexures AOO2 to AOO5)"
+ },
+ "template": [
+  "ref/34A/1_34_A_030157078101201_Y3KK12CQFIA008T_20220810_052209.PDF",
+  "ref/34A/1_34_A_030157078203501_F230450M00201646_20220810_045001.PDF",
+  "ref/34A/1_34_A_030157078215301_Y3KK12CQDIA011U_20220810_034548.PDF",
+  "ref/34A/1_34_A_030157078305801_F230450M00213433_20220810_040329.PDF",
+  "ref/34A/1_34_A_030157078307301_Y3KK12CQKIA03DY_20220809_232130.PDF",
+  "ref/34A/1_34_A_030157078408301_Y3KK12CQIIA00H3_20220809_192526.PDF",
+  "ref/34A/1_34_A_030157078509201_F230450M00213426_20220809_215149.PDF",
+  "ref/34A/1_34_A_030157078610201_Y3KK12CQHIA02B8_20220810_065728.PDF",
+  "ref/34A/1_34_A_030157078611601_F230450M00200601_20220810_165742.PDF",
+  "ref/34A/1_34_A_030157078712501_Y3KK11CQKHA00QE_20220809_185744.PDF",
+  "ref/34A/1_34_A_030157078713901_F230450M00200509_20220809_193409.PDF",
+  "ref/34A/1_34_A_047274136600305_F230450M00211783_20220809_200341.PDF"
+ ],
+ "cases": [
+  {
+   "id": "C01",
+   "title": "Ngaina Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078100101",
+   "reference": "ref/34A/1_34_A_030157078100101_F230450M00200401_20220810_044040.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 88,
+      "Ruto": 2
+     },
+     "portal": {
+      "Raila": 88,
+      "Ruto": 7
+     },
+     "variance_stated": "+5"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 88 and William Ruto 2, and the portal form shows Raila Odinga 88 and William Ruto 7. The affidavit gives the increase for William Ruto as 5 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 47 (annexure page 46)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=47",
+     "retrieval": {
+      "inliers": 1380,
+      "runner_up_inliers": 281
+     }
+    },
+    {
+     "label": "PDF page 72 (annexure page 71)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=72",
+     "retrieval": {
+      "inliers": 772,
+      "runner_up_inliers": 211
+     },
+     "print_header": "printed 8/19/22, 12:06 PM; image file PHOTO-2022-08-12-22-37-56.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C02",
+   "title": "Sukut Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078100201",
+   "reference": "ref/34A/1_34_A_030157078100201_Y3KK12CQAIA00F8_20220810_015453.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 195,
+      "Ruto": 1
+     },
+     "portal": {
+      "Raila": 195,
+      "Ruto": 2
+     },
+     "variance_stated": "+1"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 195 and William Ruto 1, and the portal form shows Raila Odinga 195 and William Ruto 2. The affidavit gives the increase for William Ruto as 1 vote."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 48 (annexure page 47)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=48",
+     "retrieval": {
+      "inliers": 1528,
+      "runner_up_inliers": 319
+     }
+    },
+    {
+     "label": "PDF page 73 (annexure page 72)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=73",
+     "retrieval": {
+      "inliers": 887,
+      "runner_up_inliers": 264
+     },
+     "print_header": "printed 8/19/22, 12:07 PM; image file PHOTO-2022-08-12-22-37-56.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C03",
+   "title": "Ngeleyo Pre-School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078100301",
+   "reference": "ref/34A/1_34_A_030157078100301_F230450M00209447_20220809_183250.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 85,
+      "Ruto": 33
+     },
+     "portal": {
+      "Raila": 85,
+      "Ruto": 63
+     },
+     "variance_stated": "+30"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 85 and William Ruto 33, and the portal form shows Raila Odinga 85 and William Ruto 63. The affidavit gives the increase for William Ruto as 30 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 49 (annexure page 48)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=49",
+     "retrieval": {
+      "inliers": 1573,
+      "runner_up_inliers": 187
+     }
+    },
+    {
+     "label": "PDF page 74 (annexure page 73)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=74",
+     "retrieval": {
+      "inliers": 982,
+      "runner_up_inliers": 154
+     }
+    }
+   ]
+  },
+  {
+   "id": "C04",
+   "title": "Ngoron Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078100401",
+   "reference": "ref/34A/1_34_A_030157078100401_Y3KK12CQDIA0096_20220810_073636.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 284,
+      "Ruto": 32
+     },
+     "portal": {
+      "Raila": 284,
+      "Ruto": 60
+     },
+     "variance_stated": "+28"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 284 and William Ruto 32, and the portal form shows Raila Odinga 284 and William Ruto 60. The affidavit gives the increase for William Ruto as 28 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 50 (annexure page 49)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=50",
+     "retrieval": {
+      "inliers": 1839,
+      "runner_up_inliers": 295
+     }
+    },
+    {
+     "label": "PDF page 75 (annexure page 74)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=75",
+     "retrieval": {
+      "inliers": 1095,
+      "runner_up_inliers": 257
+     },
+     "print_header": "printed 8/19/22, 12:08 PM; image file PHOTO-2022-08-12-22-37-56.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C05",
+   "title": "Kapenguria Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078100501",
+   "reference": "ref/34A/1_34_A_030157078100501_F230450M00200633_20220809_195224.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 187,
+      "Ruto": 1
+     },
+     "portal": {
+      "Raila": 187,
+      "Ruto": 2
+     },
+     "variance_stated": "+1"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 187 and William Ruto 1, and the portal form shows Raila Odinga 187 and William Ruto 2. The affidavit gives the increase for William Ruto as 1 vote."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 51 (annexure page 50)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=51",
+     "retrieval": {
+      "inliers": 877,
+      "runner_up_inliers": 151
+     }
+    },
+    {
+     "label": "PDF page 76 (annexure page 75)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=76",
+     "retrieval": {
+      "inliers": 555,
+      "runner_up_inliers": 105
+     },
+     "print_header": "printed 8/19/22, 12:09 PM; image file PHOTO-2022-08-12-22-37-57.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C06",
+   "title": "Ptikii Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078100601",
+   "reference": "ref/34A/1_34_A_030157078100601_Y3KJ11BNHPZ0090_20220809_230231.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 299,
+      "Ruto": 7
+     },
+     "portal": {
+      "Raila": 299,
+      "Ruto": 20
+     },
+     "variance_stated": "+13"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 299 and William Ruto 7, and the portal form shows Raila Odinga 299 and William Ruto 20. The affidavit gives the increase for William Ruto as 13 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 52 (annexure page 51)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=52",
+     "retrieval": {
+      "inliers": 1739,
+      "runner_up_inliers": 181
+     }
+    },
+    {
+     "label": "PDF page 77 (annexure page 76)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=77",
+     "retrieval": {
+      "inliers": 995,
+      "runner_up_inliers": 182
+     },
+     "print_header": "printed 8/19/22, 12:10 PM; image file PHOTO-2022-08-12-22-37-57.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C07",
+   "title": "Oronto Kreeze Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078100701",
+   "reference": "ref/34A/1_34_A_030157078100701_F230450M00203615_20220809_235203.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 205,
+      "Ruto": 2
+     },
+     "portal": {
+      "Raila": 205,
+      "Ruto": 5
+     },
+     "variance_stated": "+3"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 205 and William Ruto 2, and the portal form shows Raila Odinga 205 and William Ruto 5. The affidavit gives the increase for William Ruto as 3 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 53 (annexure page 52)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=53",
+     "retrieval": {
+      "inliers": 915,
+      "runner_up_inliers": 227
+     }
+    },
+    {
+     "label": "PDF page 78 (annexure page 77)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=78",
+     "retrieval": {
+      "inliers": 458,
+      "runner_up_inliers": 171
+     },
+     "print_header": "printed 8/19/22, 12:10 PM; image file PHOTO-2022-08-12-22-37-57.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C08",
+   "title": "Embositit Pre-School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078100901",
+   "reference": "ref/34A/1_34_A_030157078100901_F230450M00202520_20220810_062534.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 101,
+      "Ruto": 1
+     },
+     "portal": {
+      "Raila": 101,
+      "Ruto": 2
+     },
+     "variance_stated": "+1"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 101 and William Ruto 1, and the portal form shows Raila Odinga 101 and William Ruto 2. The affidavit gives the increase for William Ruto as 1 vote."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 54 (annexure page 53)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=54",
+     "retrieval": {
+      "inliers": 1464,
+      "runner_up_inliers": 260
+     }
+    },
+    {
+     "label": "PDF page 79 (annexure page 78)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=79",
+     "retrieval": {
+      "inliers": 889,
+      "runner_up_inliers": 191
+     }
+    }
+   ]
+  },
+  {
+   "id": "C09",
+   "title": "Adomeyon Nursery School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078101001",
+   "reference": "ref/34A/1_34_A_030157078101001_Y3KK11CQKHA01J1_20220810_002139.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 155,
+      "Ruto": 6
+     },
+     "portal": {
+      "Raila": 155,
+      "Ruto": 26
+     },
+     "variance_stated": "+20"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 155 and William Ruto 6, and the portal form shows Raila Odinga 155 and William Ruto 26. The affidavit gives the increase for William Ruto as 20 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 55 (annexure page 54)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=55",
+     "retrieval": {
+      "inliers": 1644,
+      "runner_up_inliers": 291
+     }
+    },
+    {
+     "label": "PDF page 80 (annexure page 79)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=80",
+     "retrieval": {
+      "inliers": 901,
+      "runner_up_inliers": 198
+     },
+     "print_header": "printed 8/19/22, 12:11 PM; image file PHOTO-2022-08-12-22-37-58.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C10",
+   "title": "Rotii Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078100801",
+   "reference": "ref/34A/1_34_A_030157078100801_Y3KK12CQHIA01Y7_20220810_045951.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 48,
+      "Ruto": 0
+     },
+     "portal": {
+      "Raila": 48,
+      "Ruto": 1
+     },
+     "variance_stated": "+1"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 48 and William Ruto 0, and the portal form shows Raila Odinga 48 and William Ruto 1. The affidavit gives the increase for William Ruto as 1 vote."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 56 (annexure page 55)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=56",
+     "retrieval": {
+      "inliers": 1599,
+      "runner_up_inliers": 264
+     }
+    },
+    {
+     "label": "PDF page 81 (annexure page 80)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=81",
+     "retrieval": {
+      "inliers": 896,
+      "runner_up_inliers": 225
+     },
+     "print_header": "printed 8/19/22, 12:13 PM; image file PHOTO-2022-08-12-22-37-58.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C11",
+   "title": "Kimnyan Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078101101",
+   "reference": "ref/34A/1_34_A_030157078101101_F230450M00206799_20220809_203008.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 76,
+      "Ruto": 9
+     },
+     "portal": {
+      "Raila": 76,
+      "Ruto": 32
+     },
+     "variance_stated": "+23"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 76 and William Ruto 9, and the portal form shows Raila Odinga 76 and William Ruto 32. The affidavit gives the increase for William Ruto as 23 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 57 (annexure page 56)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=57",
+     "retrieval": {
+      "inliers": 1747,
+      "runner_up_inliers": 316
+     }
+    },
+    {
+     "label": "PDF page 82 (annexure page 81)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=82",
+     "retrieval": {
+      "inliers": 965,
+      "runner_up_inliers": 223
+     },
+     "print_header": "printed 8/19/22, 12:13 PM; image file PHOTO-2022-08-12-22-37-58.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C12",
+   "title": "Kong'Or Village Mobile polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078101301",
+   "reference": "ref/34A/1_34_A_030157078101301_F230450M00207630_20220810_092340.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 155,
+      "Ruto": 0
+     },
+     "portal": {
+      "Raila": 155,
+      "Ruto": 1
+     },
+     "variance_stated": "+1"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 155 and William Ruto 0, and the portal form shows Raila Odinga 155 and William Ruto 1. The affidavit gives the increase for William Ruto as 1 vote."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 58 (annexure page 57)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=58",
+     "retrieval": {
+      "inliers": 1715,
+      "runner_up_inliers": 377
+     }
+    },
+    {
+     "label": "PDF page 83 (annexure page 82)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=83",
+     "retrieval": {
+      "inliers": 1021,
+      "runner_up_inliers": 255
+     }
+    }
+   ]
+  },
+  {
+   "id": "C13",
+   "title": "Kamrio Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078101501",
+   "reference": "ref/34A/1_34_A_030157078101501_F230450M00212671_20220809_182516.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 263,
+      "Ruto": 2
+     },
+     "portal": {
+      "Raila": 263,
+      "Ruto": 7
+     },
+     "variance_stated": "+5"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 263 and William Ruto 2, and the portal form shows Raila Odinga 263 and William Ruto 7. The affidavit gives the increase for William Ruto as 5 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 59 (annexure page 58)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=59",
+     "retrieval": {
+      "inliers": 1797,
+      "runner_up_inliers": 233
+     }
+    },
+    {
+     "label": "PDF page 84 (annexure page 83)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=84",
+     "retrieval": {
+      "inliers": 970,
+      "runner_up_inliers": 166
+     },
+     "print_header": "printed 8/19/22, 12:14 PM; image file PHOTO-2022-08-12-22-37-59.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C14",
+   "title": "Kapau Pre-School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078101601",
+   "reference": "ref/34A/1_34_A_030157078101601_Y3KK10BBSGA0184_20220809_190930.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 82,
+      "Ruto": 1
+     },
+     "portal": {
+      "Raila": 82,
+      "Ruto": 6
+     },
+     "variance_stated": "+5"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 82 and William Ruto 1, and the portal form shows Raila Odinga 82 and William Ruto 6. The affidavit gives the increase for William Ruto as 5 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 60 (annexure page 59)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=60",
+     "retrieval": {
+      "inliers": 840,
+      "runner_up_inliers": 126
+     }
+    },
+    {
+     "label": "PDF page 85 (annexure page 84)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=85",
+     "retrieval": {
+      "inliers": 758,
+      "runner_up_inliers": 147
+     }
+    }
+   ]
+  },
+  {
+   "id": "C15",
+   "title": "Kapedo Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078101701",
+   "reference": "ref/34A/1_34_A_030157078101701_F230450M00200608_20220809_184337.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 39,
+      "Ruto": 1
+     },
+     "portal": {
+      "Raila": 39,
+      "Ruto": 4
+     },
+     "variance_stated": "+1 (para 17) / +3 (table)"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 39 and William Ruto 1, and the portal form shows Raila Odinga 39 and William Ruto 4. Paragraph 17 gives the increase for William Ruto as 1 vote and the table gives it as 3 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 61 (annexure page 60)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=61",
+     "retrieval": {
+      "inliers": 1145,
+      "runner_up_inliers": 167
+     }
+    },
+    {
+     "label": "PDF page 86 (annexure page 85)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=86",
+     "retrieval": {
+      "inliers": 809,
+      "runner_up_inliers": 117
+     }
+    }
+   ]
+  },
+  {
+   "id": "C16",
+   "title": "Chesawach Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078101801",
+   "reference": "ref/34A/1_34_A_030157078101801_Y3KK12CQDIA01LO_20220810_065858.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 127,
+      "Ruto": 6
+     },
+     "portal": {
+      "Raila": 127,
+      "Ruto": 18
+     },
+     "variance_stated": "+12"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 127 and William Ruto 6, and the portal form shows Raila Odinga 127 and William Ruto 18. The affidavit gives the increase for William Ruto as 12 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 62 (annexure page 61)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=62",
+     "retrieval": {
+      "inliers": 1822,
+      "runner_up_inliers": 421
+     }
+    },
+    {
+     "label": "PDF page 87 (annexure page 86)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=87",
+     "retrieval": {
+      "inliers": 1255,
+      "runner_up_inliers": 355
+     }
+    }
+   ]
+  },
+  {
+   "id": "C17",
+   "title": "Korelach Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078101901",
+   "reference": "ref/34A/1_34_A_030157078101901_F230450M00207956_20220809_194921.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 176,
+      "Ruto": 99
+     },
+     "portal": {
+      "Raila": 176,
+      "Ruto": 180
+     },
+     "variance_stated": "+1 (para 17) / +81 (table); 'has two figures on our agent form 34A'"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 176 and William Ruto 99, and the portal form shows Raila Odinga 176 and William Ruto 180. Paragraph 17 gives the increase for William Ruto as 1 vote and the table gives it as 81 votes. The table adds that the station \"has two figures on our agent form 34A\"."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 63 (annexure page 62)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=63",
+     "retrieval": {
+      "inliers": 1402,
+      "runner_up_inliers": 179
+     }
+    },
+    {
+     "label": "PDF page 88 (annexure page 87)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=88",
+     "retrieval": {
+      "inliers": 908,
+      "runner_up_inliers": 167
+     }
+    }
+   ]
+  },
+  {
+   "id": "C18",
+   "title": "Kamsino Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078102001",
+   "reference": "ref/34A/1_34_A_030157078102001_Y3KJ11BCAFA005G_20220809_215336.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 89,
+      "Ruto": 1
+     },
+     "portal": {
+      "Raila": 89,
+      "Ruto": 3
+     },
+     "variance_stated": "+81 (para 17) / +2 (table)"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 89 and William Ruto 1, and the portal form shows Raila Odinga 89 and William Ruto 3. Paragraph 17 gives the increase for William Ruto as 81 votes and the table gives it as 2 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 64 (annexure page 63)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=64",
+     "retrieval": {
+      "inliers": 1258,
+      "runner_up_inliers": 242
+     }
+    },
+    {
+     "label": "PDF page 89 (annexure page 88)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=89",
+     "retrieval": {
+      "inliers": 1091,
+      "runner_up_inliers": 220
+     }
+    }
+   ]
+  },
+  {
+   "id": "C19",
+   "title": "Chemayes Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078114301",
+   "reference": "ref/34A/1_34_A_030157078114301_F230450M00200749_20220809_190312.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 106,
+      "Ruto": 2
+     },
+     "portal": {
+      "Raila": 106,
+      "Ruto": 12
+     },
+     "variance_stated": "+10"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 106 and William Ruto 2, and the portal form shows Raila Odinga 106 and William Ruto 12. The affidavit gives the increase for William Ruto as 10 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 65 (annexure page 64)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=65",
+     "retrieval": {
+      "inliers": 839,
+      "runner_up_inliers": 183
+     }
+    },
+    {
+     "label": "PDF page 90 (annexure page 89)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=90",
+     "retrieval": {
+      "inliers": 310,
+      "runner_up_inliers": 144
+     }
+    }
+   ]
+  },
+  {
+   "id": "C20",
+   "title": "Takawya Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078114401",
+   "reference": "ref/34A/1_34_A_030157078114401_Y3KK12CQ9IA00W0_20220809_174853.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 26,
+      "Ruto": 3
+     },
+     "portal": {
+      "Raila": 26,
+      "Ruto": 8
+     },
+     "variance_stated": "+5"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 26 and William Ruto 3, and the portal form shows Raila Odinga 26 and William Ruto 8. The affidavit gives the increase for William Ruto as 5 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 66 (annexure page 65)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=66",
+     "retrieval": {
+      "inliers": 1827,
+      "runner_up_inliers": 355
+     }
+    },
+    {
+     "label": "PDF page 91 (annexure page 90)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=91",
+     "retrieval": {
+      "inliers": 1003,
+      "runner_up_inliers": 281
+     },
+     "print_header": "printed 8/19/22, 12:15 PM; image file PHOTO-2022-08-12-22-38-01.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C21",
+   "title": "Kangiruru Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078114501",
+   "reference": "ref/34A/1_34_A_030157078114501_F230450M00200742_20220810_043455.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 98,
+      "Ruto": 3
+     },
+     "portal": {
+      "Raila": 98,
+      "Ruto": 14
+     },
+     "variance_stated": "+11"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 98 and William Ruto 3, and the portal form shows Raila Odinga 98 and William Ruto 14. The affidavit gives the increase for William Ruto as 11 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 67 (annexure page 66)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=67",
+     "retrieval": {
+      "inliers": 1791,
+      "runner_up_inliers": 231
+     }
+    },
+    {
+     "label": "PDF page 92 (annexure page 91)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=92",
+     "retrieval": {
+      "inliers": 1362,
+      "runner_up_inliers": 187
+     }
+    }
+   ]
+  },
+  {
+   "id": "C22",
+   "title": "Domo Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078114601",
+   "reference": "ref/34A/1_34_A_030157078114601_Y3KK11CQKHA014M_20220809_171006.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 26,
+      "Ruto": 2
+     },
+     "portal": {
+      "Raila": 26,
+      "Ruto": 14
+     },
+     "variance_stated": "+12"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 26 and William Ruto 2, and the portal form shows Raila Odinga 26 and William Ruto 14. The affidavit gives the increase for William Ruto as 12 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 68 (annexure page 67)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=68",
+     "retrieval": {
+      "inliers": 841,
+      "runner_up_inliers": 84
+     }
+    },
+    {
+     "label": "PDF page 93 (annexure page 92)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=93",
+     "retrieval": {
+      "inliers": 1052,
+      "runner_up_inliers": 123
+     },
+     "print_header": "printed 8/19/22, 12:15 PM; image file PHOTO-2022-08-12-22-38-02.jpg"
+    }
+   ]
+  },
+  {
+   "id": "C23",
+   "title": "Chepkirial Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078114801",
+   "reference": "ref/34A/1_34_A_030157078114801_Y3KK12CQIIA00AN_20220810_052224.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 62,
+      "Ruto": 0
+     },
+     "portal": {
+      "Raila": 61,
+      "Ruto": 3
+     },
+     "variance_stated": "+2 (para 17) / +3 (table)"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 62 and William Ruto 0, and the portal form shows Raila Odinga 61 and William Ruto 3. Paragraph 17 gives the increase for William Ruto as 2 votes and the table gives it as 3 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 69 (annexure page 68)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=69",
+     "retrieval": {
+      "inliers": 1972,
+      "runner_up_inliers": 244
+     }
+    },
+    {
+     "label": "PDF page 94 (annexure page 93)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=94",
+     "retrieval": {
+      "inliers": 1317,
+      "runner_up_inliers": 193
+     }
+    }
+   ]
+  },
+  {
+   "id": "C24",
+   "title": "Koipasiran Village polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078202401",
+   "reference": "ref/34A/1_34_A_030157078202401_Y3KK12CQKIA02KZ_20220809_185810.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 68,
+      "Ruto": 34
+     },
+     "portal": {
+      "Raila": 68,
+      "Ruto": 66
+     },
+     "variance_stated": "+32 (para 17) / +34 (table)"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 68 and William Ruto 34, and the portal form shows Raila Odinga 68 and William Ruto 66. Paragraph 17 gives the increase for William Ruto as 32 votes and the table gives it as 34 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 70 (annexure page 69)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=70",
+     "retrieval": {
+      "inliers": 1735,
+      "runner_up_inliers": 369
+     }
+    },
+    {
+     "label": "PDF page 95 (annexure page 94)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=95",
+     "retrieval": {
+      "inliers": 1170,
+      "runner_up_inliers": 265
+     }
+    }
+   ]
+  },
+  {
+   "id": "C25",
+   "title": "Barbello Primary School polling station 1 of 1 (Tiaty Constituency, Baringo County)",
+   "station_code": "030157078202501",
+   "reference": "ref/34A/1_34_A_030157078202501_F230450M00213432_20220809_221218.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 381,
+      "Ruto": 20
+     },
+     "portal": {
+      "Raila": 381,
+      "Ruto": 69
+     },
+     "variance_stated": "+49"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 381 and William Ruto 20, and the portal form shows Raila Odinga 381 and William Ruto 69. The affidavit gives the increase for William Ruto as 49 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 71 (annexure page 70)",
+     "caption": "IEBC [word struck out] COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=71",
+     "retrieval": {
+      "inliers": 1398,
+      "runner_up_inliers": 186
+     }
+    },
+    {
+     "label": "PDF page 96 (annexure page 95)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=96",
+     "retrieval": {
+      "inliers": 760,
+      "runner_up_inliers": 131
+     }
+    }
+   ]
+  },
+  {
+   "id": "C26",
+   "title": "Kabete Vetlab Primary School polling station 1 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600101",
+   "reference": "ref/34A/1_34_A_047274136600101_Y3KK12CQHIA00CN_20220809_205715.PDF",
+   "claim": {
+    "sentence": "the affidavit of Arnold Ochieng Oginga annexes a page captioned \"IEBC PORTAL\" for this polling station, but neither paragraph 17 nor the table names it."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 97 (annexure page 96)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=97",
+     "retrieval": {
+      "inliers": 1757,
+      "runner_up_inliers": 282
+     }
+    }
+   ]
+  },
+  {
+   "id": "C27",
+   "title": "Kabete Vetlab Primary School polling station 2 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600102",
+   "reference": "ref/34A/1_34_A_047274136600102_Y3KK10BNIGA00BV_20220809_211434.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "where": "paragraph 17",
+    "text": "the votes of the 9th Respondent at this station increased by 100. The table gives no figures for this station."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 98 (annexure page 97)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=98",
+     "retrieval": {
+      "inliers": 1309,
+      "runner_up_inliers": 187
+     }
+    },
+    {
+     "label": "PDF page 112 (annexure page 111)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=112",
+     "retrieval": {
+      "inliers": 484,
+      "runner_up_inliers": 94
+     }
+    }
+   ]
+  },
+  {
+   "id": "C28",
+   "title": "Kabete Vetlab Primary School polling station 3 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600103",
+   "reference": "ref/34A/1_34_A_047274136600103_Y3KK10BB4HA00B7_20220809_202657.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "where": "paragraph 17",
+    "text": "the votes of the 9th Respondent at this station increased by 83. The table gives no figures for this station."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 99 (annexure page 98)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=99",
+     "retrieval": {
+      "inliers": 1355,
+      "runner_up_inliers": 211
+     }
+    },
+    {
+     "label": "PDF page 113 (annexure page 112)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=113",
+     "retrieval": {
+      "inliers": 663,
+      "runner_up_inliers": 132
+     }
+    }
+   ]
+  },
+  {
+   "id": "C29",
+   "title": "Kabete Vetlab Primary School polling station 4 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600104",
+   "reference": "ref/34A/1_34_A_047274136600104_F230450M00202146_20220809_211856.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "where": "paragraph 17",
+    "text": "the votes of the 9th Respondent at this station increased by 106. The table gives no figures for this station."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 100 (annexure page 99)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=100",
+     "retrieval": {
+      "inliers": 1293,
+      "runner_up_inliers": 225
+     }
+    }
+   ]
+  },
+  {
+   "id": "C30",
+   "title": "Kabete Vetlab Primary School polling station 5 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600105",
+   "reference": "ref/34A/1_34_A_047274136600105_Y3KK12CQKIA0286_20220809_201347.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 246,
+      "Ruto": 44
+     },
+     "portal": {
+      "Raila": 246,
+      "Ruto": 116
+     },
+     "variance_stated": "+72"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 246 and William Ruto 44, and the portal form shows Raila Odinga 246 and William Ruto 116. The affidavit gives the increase for William Ruto as 72 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 101 (annexure page 100)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=101",
+     "retrieval": {
+      "inliers": 1402,
+      "runner_up_inliers": 168
+     }
+    },
+    {
+     "label": "PDF page 114 (annexure page 113)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=114",
+     "retrieval": {
+      "inliers": 1208,
+      "runner_up_inliers": 135
+     }
+    }
+   ]
+  },
+  {
+   "id": "C31",
+   "title": "Kabete Vetlab Primary School polling station 6 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600106",
+   "reference": "ref/34A/1_34_A_047274136600106_Y3KK12CQKIA03RO_20220809_195951.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 225,
+      "Ruto": 40
+     },
+     "portal": {
+      "Raila": 225,
+      "Ruto": 140
+     },
+     "variance_stated": "+100"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 225 and William Ruto 40, and the portal form shows Raila Odinga 225 and William Ruto 140. The affidavit gives the increase for William Ruto as 100 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 102 (annexure page 101)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=102",
+     "retrieval": {
+      "inliers": 1380,
+      "runner_up_inliers": 182
+     }
+    },
+    {
+     "label": "PDF page 115 (annexure page 114)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=115",
+     "retrieval": {
+      "inliers": 1913,
+      "runner_up_inliers": 229
+     }
+    }
+   ]
+  },
+  {
+   "id": "C32",
+   "title": "Kabete Vetlab Primary School polling station 7 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600107",
+   "reference": "ref/34A/1_34_A_047274136600107_Y3KK12CQLIA01RL_20220809_201855.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 239,
+      "Ruto": 33
+     },
+     "portal": {
+      "Raila": 239,
+      "Ruto": 116
+     },
+     "variance_stated": "+83"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 239 and William Ruto 33, and the portal form shows Raila Odinga 239 and William Ruto 116. The affidavit gives the increase for William Ruto as 83 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 103 (annexure page 102)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=103",
+     "retrieval": {
+      "inliers": 1497,
+      "runner_up_inliers": 212
+     }
+    },
+    {
+     "label": "PDF page 116 (annexure page 115)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=116",
+     "retrieval": {
+      "inliers": 1302,
+      "runner_up_inliers": 211
+     }
+    }
+   ]
+  },
+  {
+   "id": "C33",
+   "title": "Kabete Vetlab Primary School polling station 8 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600108",
+   "reference": "ref/34A/1_34_A_047274136600108_F230450M00201866_20220809_195026.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 181,
+      "Ruto": 47
+     },
+     "portal": {
+      "Raila": 181,
+      "Ruto": 141
+     },
+     "variance_stated": "+94"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 181 and William Ruto 47, and the portal form shows Raila Odinga 181 and William Ruto 141. The affidavit gives the increase for William Ruto as 94 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 104 (annexure page 103)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=104",
+     "retrieval": {
+      "inliers": 1253,
+      "runner_up_inliers": 199
+     }
+    },
+    {
+     "label": "PDF page 117 (annexure page 116)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=117",
+     "retrieval": {
+      "inliers": 1036,
+      "runner_up_inliers": 186
+     }
+    }
+   ]
+  },
+  {
+   "id": "C34",
+   "title": "Kabete Vetlab Primary School polling station 9 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600109",
+   "reference": "ref/34A/1_34_A_047274136600109_Y3KK12CQIIA01I0_20220809_202514.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 233,
+      "Ruto": 44
+     },
+     "portal": {
+      "Raila": 233,
+      "Ruto": 120
+     },
+     "variance_stated": "+76"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 233 and William Ruto 44, and the portal form shows Raila Odinga 233 and William Ruto 120. The affidavit gives the increase for William Ruto as 76 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 105 (annexure page 104)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=105",
+     "retrieval": {
+      "inliers": 1458,
+      "runner_up_inliers": 313
+     }
+    },
+    {
+     "label": "PDF page 118 (annexure page 117)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=118",
+     "retrieval": {
+      "inliers": 1109,
+      "runner_up_inliers": 271
+     }
+    }
+   ]
+  },
+  {
+   "id": "C35",
+   "title": "Kabete Vetlab Primary School polling station 10 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600110",
+   "reference": "ref/34A/1_34_A_047274136600110_Y3KK12CQIIA01OB_20220809_203046.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 236,
+      "Ruto": 52
+     },
+     "portal": {
+      "Raila": 236,
+      "Ruto": 133
+     },
+     "variance_stated": "+81"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 236 and William Ruto 52, and the portal form shows Raila Odinga 236 and William Ruto 133. The affidavit gives the increase for William Ruto as 81 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 106 (annexure page 105)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=106",
+     "retrieval": {
+      "inliers": 1196,
+      "runner_up_inliers": 219
+     }
+    },
+    {
+     "label": "PDF page 119 (annexure page 118)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=119",
+     "retrieval": {
+      "inliers": 907,
+      "runner_up_inliers": 179
+     }
+    }
+   ]
+  },
+  {
+   "id": "C36",
+   "title": "Kabete Vetlab Primary School polling station 11 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600111",
+   "reference": "ref/34A/1_34_A_047274136600111_Y3KK10BNIGA005E_20220809_210047.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 205,
+      "Ruto": 64
+     },
+     "portal": {
+      "Raila": 205,
+      "Ruto": 144
+     },
+     "variance_stated": "+80"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 205 and William Ruto 64, and the portal form shows Raila Odinga 205 and William Ruto 144. The affidavit gives the increase for William Ruto as 80 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 107 (annexure page 106)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=107",
+     "retrieval": {
+      "inliers": 1585,
+      "runner_up_inliers": 216
+     }
+    },
+    {
+     "label": "PDF page 120 (annexure page 119)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=120",
+     "retrieval": {
+      "inliers": 1533,
+      "runner_up_inliers": 229
+     }
+    }
+   ]
+  },
+  {
+   "id": "C37",
+   "title": "Kabete Vetlab Primary School polling station 12 of 12 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600112",
+   "reference": "ref/34A/1_34_A_047274136600112_F230450M00203584_20220809_220235.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 235,
+      "Ruto": null
+     },
+     "portal": {
+      "Raila": 235,
+      "Ruto": 110
+     },
+     "variance_stated": "+66"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 235 and no figure for William Ruto, and the portal form shows Raila Odinga 235 and William Ruto 110. The affidavit gives the increase for William Ruto as 66 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 108 (annexure page 107)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=108",
+     "retrieval": {
+      "inliers": 1007,
+      "runner_up_inliers": 92
+     }
+    }
+   ]
+  },
+  {
+   "id": "C38",
+   "title": "St Martin's School Kibarage polling station 1 of 7 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600201",
+   "reference": "ref/34A/1_34_A_047274136600201_Y3KK12CQLIA016I_20220809_205638.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 233,
+      "Ruto": 51
+     },
+     "portal": {
+      "Raila": 233,
+      "Ruto": 121
+     },
+     "variance_stated": "+70"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 233 and William Ruto 51, and the portal form shows Raila Odinga 233 and William Ruto 121. The affidavit gives the increase for William Ruto as 70 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 109 (annexure page 108)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=109",
+     "retrieval": {
+      "inliers": 924,
+      "runner_up_inliers": 168
+     }
+    },
+    {
+     "label": "PDF page 121 (annexure page 120)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=121",
+     "retrieval": {
+      "inliers": 955,
+      "runner_up_inliers": 155
+     }
+    }
+   ]
+  },
+  {
+   "id": "C39",
+   "title": "St Martin's School Kibarage polling station 2 of 7 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600202",
+   "reference": "ref/34A/1_34_A_047274136600202_Y3KK12CQKIA01R7_20220809_213131.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 244,
+      "Ruto": 38
+     },
+     "portal": {
+      "Raila": 244,
+      "Ruto": 114
+     },
+     "variance_stated": "+76"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 244 and William Ruto 38, and the portal form shows Raila Odinga 244 and William Ruto 114. The affidavit gives the increase for William Ruto as 76 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 110 (annexure page 109)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=110",
+     "retrieval": {
+      "inliers": 1394,
+      "runner_up_inliers": 192
+     }
+    },
+    {
+     "label": "PDF page 122 (annexure page 121)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=122",
+     "retrieval": {
+      "inliers": 1548,
+      "runner_up_inliers": 230
+     }
+    }
+   ]
+  },
+  {
+   "id": "C40",
+   "title": "St Martin's School Kibarage polling station 3 of 7 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600203",
+   "reference": "ref/34A/1_34_A_047274136600203_Y3KK12BP2MA00O9_20220809_210730.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 239,
+      "Ruto": 50
+     },
+     "portal": {
+      "Raila": 239,
+      "Ruto": 120
+     },
+     "variance_stated": "+70"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 239 and William Ruto 50, and the portal form shows Raila Odinga 239 and William Ruto 120. The affidavit gives the increase for William Ruto as 70 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 111 (annexure page 110)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=111",
+     "retrieval": {
+      "inliers": 1048,
+      "runner_up_inliers": 203
+     }
+    },
+    {
+     "label": "PDF page 123 (annexure page 122)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=123",
+     "retrieval": {
+      "inliers": 1584,
+      "runner_up_inliers": 319
+     }
+    }
+   ]
+  },
+  {
+   "id": "C41",
+   "title": "St Martin's School Kibarage polling station 4 of 7 (Kitisuru Ward, Westlands, Nairobi)",
+   "station_code": "047274136600204",
+   "reference": "ref/34A/1_34_A_047274136600204_F230450M00212075_20220809_210029.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "figures": {
+     "agent": {
+      "Raila": 262,
+      "Ruto": null
+     },
+     "portal": {
+      "Raila": 262,
+      "Ruto": 112
+     },
+     "variance_stated": "+60"
+    },
+    "sentence": "the affidavit of Arnold Ochieng Oginga deals with this polling station at paragraph 17 and in the table at pages 8 to 13. According to the table, the agent's Form 34A shows Raila Odinga 262 and no figure for William Ruto, and the portal form shows Raila Odinga 262 and William Ruto 112. The affidavit gives the increase for William Ruto as 60 votes."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 124 (annexure page 123)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=124",
+     "retrieval": {
+      "inliers": 223,
+      "runner_up_inliers": 71,
+      "note": "below the automatic acceptance threshold; identified from the station name printed on the page"
+     }
+    }
+   ]
+  },
+  {
+   "id": "C42",
+   "title": "Kadongo Grounds - Mishomoroni polling station 2 of 9 (Mjambere Ward, Kisauni Constituency, Mombasa County)",
+   "station_code": "001003000900302",
+   "reference": "ref/34A_extra/1_34_A_001003000900302_Y3KK12CQ9IA02G2_20220809_203331.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "sentence": "the affidavit of Arnold Ochieng Oginga states at paragraph 21, and in annexure AOO5, that the Form 34A for this station has not been uploaded in the portal, though it has been captured in Form 34C. The affidavit names the station \"Kadondo Grounds - Mishomoroni Polling Station 2 of 9\"."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 46 (annexure page 45)",
+     "caption": "",
+     "source": "docs/ochieng_affidavit.pdf#page=46",
+     "retrieval": {
+      "inliers": 205,
+      "runner_up_inliers": 104
+     }
+    }
+   ],
+   "note": "Retrieval below the automatic acceptance level (205 vs 104 inliers); station name, code and figures on the page read the same as on this original."
+  },
+  {
+   "id": "C43",
+   "title": "Gichungo Primary polling station 2 of 2 (Kaimbaga Ward, Ol Kalou Constituency, Nyandarua County)",
+   "station_code": "018091045604202",
+   "reference": "ref/34A_extra/1_34_A_018091045604202_F230450M00200054_20220809_214212.PDF",
+   "claim": {
+    "sentence": "the affidavit of Arnold Ochieng Oginga annexes this page among the Forms 34A but does not name this polling station in its text."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 125 (annexure page 124)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=125",
+     "retrieval": {
+      "inliers": 1113,
+      "runner_up_inliers": 87
+     }
+    }
+   ]
+  },
+  {
+   "id": "C44",
+   "title": "Simba Primary polling station 1 of 1 (Kaimbaga Ward, Ol Kalou Constituency, Nyandarua County)",
+   "station_code": "018091045604701",
+   "reference": "ref/34A_extra/1_34_A_018091045604701_Y3KK12CQ9IA00QL_20220809_225117.PDF",
+   "claim": {
+    "sentence": "the affidavit of Arnold Ochieng Oginga annexes this page among the Forms 34A but does not name this polling station in its text."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 126 (annexure page 125)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=126",
+     "retrieval": {
+      "inliers": 804,
+      "runner_up_inliers": 209
+     }
+    }
+   ]
+  },
+  {
+   "id": "C45",
+   "title": "Ol Joro Orok Primary polling station 2 of 5 (Weru Ward, Ol Joro Orok Constituency, Nyandarua County)",
+   "station_code": "018092046002702",
+   "reference": "ref/34A_extra/1_34_A_018092046002702_Y3KK12CQIIA014J_20220809_200325.PDF",
+   "claim": {
+    "sentence": "the affidavit of Arnold Ochieng Oginga annexes this page among the Forms 34A but does not name this polling station in its text."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 127 (annexure page 126)",
+     "caption": "",
+     "source": "docs/ochieng_affidavit.pdf#page=127",
+     "retrieval": {
+      "inliers": 1812,
+      "runner_up_inliers": 382
+     }
+    }
+   ]
+  },
+  {
+   "id": "C46",
+   "title": "Lesirko Primary polling station 2 of 2 (Weru Ward, Ol Joro Orok Constituency, Nyandarua County)",
+   "station_code": "018092046002502",
+   "reference": "ref/34A_extra/1_34_A_018092046002502_Y3KK12BP2MA00UP_20220809_205516.PDF",
+   "claim": {
+    "sentence": "the affidavit of Arnold Ochieng Oginga annexes this page among the Forms 34A but does not name this polling station in its text."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 128 (annexure page 127)",
+     "caption": "",
+     "source": "docs/ochieng_affidavit.pdf#page=128",
+     "retrieval": {
+      "inliers": 1376,
+      "runner_up_inliers": 218
+     }
+    }
+   ]
+  },
+  {
+   "id": "C47",
+   "title": "Maragi Primary School polling station 1 of 4 (Mbiri Ward, Kiharu Constituency, Murang'a County)",
+   "station_code": "021106052404501",
+   "reference": "ref/34A_extra/1_34_A_021106052404501_Y3KK10BBSGA009L_20220809_194914.PDF",
+   "claim": {
+    "by": "Arnold Ochieng Oginga",
+    "sentence": "the affidavit of Arnold Ochieng Oginga states at paragraph 20, and in annexure AOO4, that neither the Form 34A for this station received from the Petitioner's agent nor the one posted on the portal states any results. It adds that the results in Form 34C cannot be verified from Form 34A."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 129 (annexure page 128)",
+     "caption": "AGENT COPY",
+     "source": "docs/ochieng_affidavit.pdf#page=129",
+     "retrieval": {
+      "inliers": 807,
+      "runner_up_inliers": 244
+     }
+    }
+   ]
+  },
+  {
+   "id": "C48",
+   "title": "Kagera Primary School polling station 1 of 2 (Kiamwangi Ward, Gatundu South Constituency, Kiambu County)",
+   "station_code": "022111055100301",
+   "reference": "ref/34A_extra/1_34_A_022111055100301_Y3KK12CQDIA0045_20220809_200625.PDF",
+   "claim": {
+    "sentence": "the affidavit of Arnold Ochieng Oginga annexes two pages for this polling station, captioned \"IEBC PORTAL\" and \"IEBC (INITIAL) PORTAL\", but does not name the station in its text."
+   },
+   "exhibits": [
+    {
+     "label": "PDF page 130 (annexure page 129)",
+     "caption": "IEBC PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=130",
+     "retrieval": {
+      "inliers": 746,
+      "runner_up_inliers": 177
+     }
+    },
+    {
+     "label": "PDF page 131 (annexure page 130)",
+     "caption": "IEBC (INITIAL) PORTAL",
+     "source": "docs/ochieng_affidavit.pdf#page=131",
+     "retrieval": {
+      "inliers": 597,
+      "runner_up_inliers": 149
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "kagera_mark": "[XX]-41",
+ "next": 249,
+ "by_caption": {
+  "IEBC PORTAL|False": 42,
+  "AGENT COPY|True": 38,
+  "IEBC [word struck out] COPY|False": 1,
+  "none|False": 3,
+  "AGENT COPY|False": 1,
+  "IEBC (INITIAL) PORTAL|True": 1
+ },
+ "prov": {
+  "same_capture": 10,
+  "other": 10,
+  "same_sheet": 19
+ },
+ "table_agree": 35
+}

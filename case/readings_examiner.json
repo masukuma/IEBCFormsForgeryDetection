@@ -1,0 +1,1264 @@
+{
+ "C01": {
+  "p47_change07": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p72_change03": {
+   "original": "097",
+   "questioned": "090",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "uncertain": "copy faint; reads 090 or 091"
+  },
+  "p72_change05": {
+   "original": "007",
+   "questioned": "002",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C02": {
+  "p73_change01": {
+   "original": "197",
+   "questioned": "196",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p73_change02": {
+   "original": "002",
+   "questioned": "001",
+   "field": "the votes of William Ruto"
+  },
+  "p73_change03": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C03": {
+  "p74_change01": {
+   "original": "063",
+   "questioned": "033",
+   "field": "the votes of William Ruto"
+  },
+  "p74_change02": {
+   "original": "148",
+   "questioned": "115",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p74_change03": {
+   "original": "stamp",
+   "questioned": "stamp",
+   "note": "presiding officer stamp and comment, same on both"
+  }
+ },
+ "C04": {
+  "p75_change01": {
+   "original": "345",
+   "questioned": "317",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p75_change02": {
+   "original": "345",
+   "questioned": "317",
+   "field": "the total number of valid votes cast"
+  },
+  "p75_change03": {
+   "original": "060",
+   "questioned": "032",
+   "field": "the votes of William Ruto"
+  },
+  "p75_change04": {
+   "original": "345",
+   "questioned": "317",
+   "field": "the total number of valid votes cast",
+   "same_as": "p75_change02"
+  }
+ },
+ "C05": {
+  "p51_change09": {
+   "original": "blank",
+   "questioned": "blank",
+   "note": "a line struck through blank rows, same on both"
+  },
+  "p51_change11": {
+   "original": "stamp and dates",
+   "questioned": "stamp and dates",
+   "note": "same on both"
+  },
+  "p76_change01": {
+   "original": "190",
+   "questioned": "189",
+   "field": "the total number of valid votes cast"
+  },
+  "p76_change02": {
+   "original": "190",
+   "questioned": "189",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p76_change03": {
+   "original": "002",
+   "questioned": "001",
+   "field": "the votes of William Ruto"
+  },
+  "p76_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C06": {
+  "p52_change02": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p77_change01": {
+   "original": "321",
+   "questioned": "308",
+   "field": "the total number of valid votes cast"
+  },
+  "p77_change02": {
+   "original": "020",
+   "questioned": "007",
+   "field": "the votes of William Ruto"
+  },
+  "p77_change03": {
+   "original": "321",
+   "questioned": "308",
+   "field": "the total number of valid votes cast in the polling station counts"
+  }
+ },
+ "C07": {
+  "p78_change01": {
+   "original": "210",
+   "questioned": "207",
+   "field": "the total number of valid votes cast"
+  },
+  "p78_change02": {
+   "original": "210",
+   "questioned": "207",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p78_change03": {
+   "original": "005",
+   "questioned": "002",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C08": {
+  "p79_change01": {
+   "original": "002",
+   "questioned": "001",
+   "field": "the votes of William Ruto"
+  },
+  "p79_change02": {
+   "original": "103",
+   "questioned": "102",
+   "field": "the total number of valid votes cast"
+  },
+  "p79_change03": {
+   "original": "103",
+   "questioned": "102",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p79_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change05": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change06": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change07": {
+   "original": "agent names",
+   "questioned": "agent names",
+   "note": "names of agents, same on both; copy blurred"
+  },
+  "p79_change08": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change09": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change10": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change11": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change12": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change13": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change14": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change15": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change16": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change17": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change18": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change19": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change20": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p79_change21": {
+   "original": "telephone numbers",
+   "questioned": "telephone numbers",
+   "note": "same on both; copy blurred"
+  }
+ },
+ "C09": {
+  "p80_change01": {
+   "original": "026",
+   "questioned": "006",
+   "field": "the votes of William Ruto"
+  },
+  "p80_change02": {
+   "original": "182",
+   "questioned": "162",
+   "field": "the total number of valid votes cast in the polling station counts"
+  }
+ },
+ "C10": {
+  "p81_change01": {
+   "original": "001",
+   "questioned": "000",
+   "field": "the votes of William Ruto"
+  },
+  "p81_change02": {
+   "original": "049",
+   "questioned": "048",
+   "field": "the total number of valid votes cast"
+  },
+  "p81_change03": {
+   "original": "049",
+   "questioned": "048",
+   "field": "the total number of valid votes cast in the polling station counts"
+  }
+ },
+ "C11": {
+  "p82_change01": {
+   "original": "108",
+   "questioned": "85",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p82_change02": {
+   "original": "108",
+   "questioned": "85",
+   "field": "the total number of valid votes cast"
+  },
+  "p82_change03": {
+   "original": "032",
+   "questioned": "009",
+   "field": "the votes of William Ruto"
+  },
+  "p82_change06": {
+   "original": "108",
+   "questioned": "85",
+   "field": "the total number of valid votes cast",
+   "same_as": "p82_change02"
+  }
+ },
+ "C12": {
+  "p83_change01": {
+   "original": "001",
+   "questioned": "000",
+   "field": "the votes of William Ruto"
+  },
+  "p83_change02": {
+   "original": "156",
+   "questioned": "155",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p83_change03": {
+   "original": "156",
+   "questioned": "155",
+   "field": "the total number of valid votes cast"
+  }
+ },
+ "C13": {
+  "p84_change01": {
+   "original": "271",
+   "questioned": "266",
+   "field": "the total number of valid votes cast"
+  },
+  "p84_change02": {
+   "original": "271",
+   "questioned": "266",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p84_change03": {
+   "original": "007",
+   "questioned": "002",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C14": {
+  "p85_change01": {
+   "original": "006",
+   "questioned": "001",
+   "field": "the votes of William Ruto"
+  },
+  "p85_change02": {
+   "original": "088",
+   "questioned": "083",
+   "field": "the total number of valid votes cast"
+  },
+  "p85_change03": {
+   "original": "comment",
+   "questioned": "comment",
+   "note": "handwritten comment, same on both"
+  },
+  "p85_change04": {
+   "original": "comment",
+   "questioned": "comment",
+   "note": "handwritten comment, same on both"
+  }
+ },
+ "C15": {
+  "p86_change01": {
+   "original": "blank",
+   "questioned": "blank",
+   "note": "a streak on the copy across blank ruled lines; no entry"
+  },
+  "p86_change02": {
+   "original": "043",
+   "questioned": "040",
+   "field": "the total number of valid votes cast"
+  },
+  "p86_change03": {
+   "original": "comment",
+   "questioned": "comment",
+   "note": "handwritten comment, same on both, streak on the copy"
+  },
+  "p86_change04": {
+   "original": "043",
+   "questioned": "040",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p86_change05": {
+   "original": "004",
+   "questioned": "001",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C16": {
+  "p87_change01": {
+   "original": "145",
+   "questioned": "133",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p87_change02": {
+   "original": "145",
+   "questioned": "133",
+   "field": "the total number of valid votes cast",
+   "same_as": "p87_change03"
+  },
+  "p87_change03": {
+   "original": "145",
+   "questioned": "133",
+   "field": "the total number of valid votes cast"
+  },
+  "p87_change05": {
+   "original": "018",
+   "questioned": "006",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C17": {
+  "p88_change01": {
+   "original": "180",
+   "questioned": "099",
+   "field": "the votes of William Ruto"
+  },
+  "p88_change02": {
+   "original": "367",
+   "questioned": "286",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "uncertain": "the original figure is written over; it reads 367 or 368"
+  },
+  "p88_change03": {
+   "original": "367",
+   "questioned": "286",
+   "field": "the total number of valid votes cast"
+  },
+  "p88_change06": {
+   "original": "367",
+   "questioned": "286",
+   "field": "the total number of valid votes cast",
+   "same_as": "p88_change03"
+  }
+ },
+ "C18": {
+  "p89_change01": {
+   "original": "092",
+   "questioned": "090",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p89_change02": {
+   "original": "003",
+   "questioned": "001",
+   "field": "the votes of William Ruto"
+  },
+  "p89_change03": {
+   "original": "092",
+   "questioned": "090",
+   "field": "the total number of valid votes cast"
+  }
+ },
+ "C19": {
+  "p90_change01": {
+   "original": "012",
+   "questioned": "002",
+   "field": "the votes of William Ruto"
+  },
+  "p90_change02": {
+   "original": "118",
+   "questioned": "108",
+   "field": "the total number of valid votes cast in the polling station counts"
+  }
+ },
+ "C20": {
+  "p91_change01": {
+   "original": "034",
+   "questioned": "029",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p91_change02": {
+   "original": "034",
+   "questioned": "029",
+   "field": "the total number of valid votes cast"
+  },
+  "p91_change03": {
+   "original": "008",
+   "questioned": "003",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C21": {
+  "p92_change01": {
+   "original": "112",
+   "questioned": "101",
+   "field": "the total number of valid votes cast"
+  },
+  "p92_change02": {
+   "original": "112",
+   "questioned": "101",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p92_change03": {
+   "original": "stamp",
+   "questioned": "stamp",
+   "note": "presiding officer stamp, same on both"
+  },
+  "p92_change04": {
+   "original": "014",
+   "questioned": "003",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C22": {
+  "p68_change08": {
+   "original": "header",
+   "questioned": "header",
+   "note": "printed header band, same on both"
+  },
+  "p68_change09": {
+   "original": "telephone numbers",
+   "questioned": "telephone numbers",
+   "note": "same on both; a dot on the copy"
+  },
+  "p68_change10": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p93_change01": {
+   "original": "040",
+   "questioned": "028",
+   "field": "the total number of valid votes cast"
+  },
+  "p93_change03": {
+   "original": "014",
+   "questioned": "002",
+   "field": "the votes of William Ruto"
+  },
+  "p93_change04": {
+   "original": "040",
+   "questioned": "028",
+   "field": "the total number of valid votes cast in the polling station counts"
+  }
+ },
+ "C23": {
+  "p69_change01": {
+   "original": "KANU",
+   "questioned": "KANU",
+   "note": "a small pen mark beside the entry on the copy"
+  },
+  "p94_change01": {
+   "original": "064",
+   "questioned": "061",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p94_change02": {
+   "original": "003",
+   "questioned": "000",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C24": {
+  "p95_change01": {
+   "original": "066",
+   "questioned": "034",
+   "field": "the votes of William Ruto"
+  },
+  "p95_change02": {
+   "original": "136",
+   "questioned": "104",
+   "field": "the total number of valid votes cast in the polling station counts"
+  }
+ },
+ "C25": {
+  "p96_change01": {
+   "original": "451",
+   "questioned": "402",
+   "field": "the total number of valid votes cast"
+  },
+  "p96_change02": {
+   "original": "069",
+   "questioned": "020",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C27": {
+  "p112_change01": {
+   "original": "359",
+   "questioned": "259",
+   "field": "the total number of valid votes cast"
+  },
+  "p112_change02": {
+   "original": "359",
+   "questioned": "259",
+   "field": "the total number of valid votes cast",
+   "same_as": "p112_change01"
+  },
+  "p112_change03": {
+   "original": "123",
+   "questioned": "023",
+   "field": "the votes of William Ruto"
+  },
+  "p112_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change05": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change06": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change07": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change08": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change09": {
+   "original": "agent names",
+   "questioned": "agent names",
+   "note": "names of agents, same on both"
+  },
+  "p112_change10": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change11": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change12": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change13": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change14": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change15": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p112_change16": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C28": {
+  "p113_change13": {
+   "original": "355",
+   "questioned": "272",
+   "field": "the total number of valid votes cast"
+  },
+  "p113_change15": {
+   "original": "118",
+   "questioned": "035",
+   "field": "the votes of William Ruto"
+  },
+  "p113_change33": {
+   "original": "355",
+   "questioned": "272",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p113_change35": {
+   "original": "QR code",
+   "questioned": "QR code",
+   "note": "QR code, partly covered by a dark mark on the copy"
+  },
+  "p113_change36": {
+   "original": "QR code",
+   "questioned": "QR code",
+   "note": "QR code, partly covered on the copy"
+  },
+  "p113_change37": {
+   "original": "edge",
+   "questioned": "edge",
+   "note": "edge of the sheet"
+  },
+  "p113_change38": {
+   "original": "stamp",
+   "questioned": "stamp",
+   "note": "presiding officer stamp, same on both"
+  }
+ },
+ "C30": {
+  "p114_change01": {
+   "original": "116",
+   "questioned": "044",
+   "field": "the votes of William Ruto"
+  },
+  "p114_change02": {
+   "original": "385",
+   "questioned": "313",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p114_change03": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p114_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C31": {
+  "p115_change01": {
+   "original": "368",
+   "questioned": "358",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p115_change02": {
+   "original": "140",
+   "questioned": "040",
+   "field": "the votes of William Ruto"
+  },
+  "p115_change03": {
+   "original": "140",
+   "questioned": "040",
+   "field": "the votes of William Ruto",
+   "same_as": "p115_change02"
+  },
+  "p115_change04": {
+   "original": "368",
+   "questioned": "358",
+   "field": "the total number of valid votes cast"
+  }
+ },
+ "C32": {
+  "p116_change01": {
+   "original": "116",
+   "questioned": "033",
+   "field": "the votes of William Ruto"
+  },
+  "p116_change02": {
+   "original": "360",
+   "questioned": "277",
+   "field": "the total number of valid votes cast"
+  },
+  "p116_change03": {
+   "original": "360",
+   "questioned": "277",
+   "field": "the total number of valid votes cast in the polling station counts"
+  }
+ },
+ "C33": {
+  "p117_change01": {
+   "original": "326",
+   "questioned": "232",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p117_change02": {
+   "original": "141",
+   "questioned": "047",
+   "field": "the votes of William Ruto"
+  },
+  "p117_change03": {
+   "original": "326",
+   "questioned": "232",
+   "field": "the total number of valid votes cast"
+  },
+  "p117_change04": {
+   "original": "141",
+   "questioned": "047",
+   "field": "the votes of William Ruto",
+   "same_as": "p117_change02"
+  }
+ },
+ "C34": {
+  "p118_change01": {
+   "original": "355",
+   "questioned": "279",
+   "field": "the total number of valid votes cast"
+  },
+  "p118_change02": {
+   "original": "355",
+   "questioned": "279",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p118_change03": {
+   "original": "120",
+   "questioned": "044",
+   "field": "the votes of William Ruto"
+  },
+  "p118_change05": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C35": {
+  "p119_change01": {
+   "original": "370",
+   "questioned": "289",
+   "field": "the total number of valid votes cast",
+   "uncertain": "the last digit on the copy reads 9 or 4"
+  },
+  "p119_change02": {
+   "original": "370",
+   "questioned": "289",
+   "field": "the total number of valid votes cast in the polling station counts",
+   "uncertain": "the last digit on the copy reads 9 or 4"
+  },
+  "p119_change03": {
+   "original": "133",
+   "questioned": "052",
+   "field": "the votes of William Ruto"
+  },
+  "p119_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C36": {
+  "p120_change01": {
+   "original": "354",
+   "questioned": "274",
+   "field": "the total number of valid votes cast",
+   "note": "the middle digit on the original is written over"
+  },
+  "p120_change02": {
+   "original": "144",
+   "questioned": "064",
+   "field": "the votes of William Ruto"
+  },
+  "p120_change03": {
+   "original": "354",
+   "questioned": "274",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p120_change04": {
+   "original": "354",
+   "questioned": "274",
+   "field": "the total number of valid votes cast",
+   "same_as": "p120_change01"
+  }
+ },
+ "C38": {
+  "p121_change01": {
+   "original": "357",
+   "questioned": "287",
+   "field": "the total number of valid votes cast"
+  },
+  "p121_change02": {
+   "original": "121",
+   "questioned": "051",
+   "field": "the votes of William Ruto"
+  },
+  "p121_change03": {
+   "original": "357",
+   "questioned": "287",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p121_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p121_change05": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C39": {
+  "p110_change01": {
+   "original": "stamp and dates",
+   "questioned": "stamp and dates",
+   "note": "same on both"
+  },
+  "p122_change01": {
+   "original": "360",
+   "questioned": "284",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p122_change02": {
+   "original": "360",
+   "questioned": "284",
+   "field": "the total number of valid votes cast"
+  },
+  "p122_change03": {
+   "original": "114",
+   "questioned": "038",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C40": {
+  "p111_change02": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p123_change01": {
+   "original": "363",
+   "questioned": "293",
+   "field": "the total number of valid votes cast"
+  },
+  "p123_change02": {
+   "original": "363",
+   "questioned": "293",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p123_change03": {
+   "original": "120",
+   "questioned": "050",
+   "field": "the votes of William Ruto"
+  }
+ },
+ "C41": {
+  "p124_change01": {
+   "original": "112",
+   "questioned": "052",
+   "field": "the votes of William Ruto"
+  },
+  "p124_change04": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change05": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change06": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change07": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change08": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change09": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change10": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change12": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change13": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change14": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change16": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change17": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change18": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change19": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change21": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change22": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change24": {
+   "original": "blank",
+   "questioned": "blank",
+   "note": "a line struck through blank rows, same on both"
+  },
+  "p124_change25": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change27": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change28": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change29": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change30": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change31": {
+   "original": "faded",
+   "questioned": "faded",
+   "note": "print or writing faded on the copy, same on both"
+  },
+  "p124_change35": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change36": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change38": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change40": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change42": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change44": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change45": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p124_change46": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C42": {
+  "p46_change01": {
+   "original": "ward, constituency and county names",
+   "questioned": "ward, constituency and county names",
+   "note": "same on both"
+  },
+  "p46_change11": {
+   "original": "printed label",
+   "questioned": "printed label",
+   "note": "same on both"
+  },
+  "p46_change14": {
+   "original": "station and ward names",
+   "questioned": "station and ward names",
+   "note": "same on both"
+  },
+  "p46_change18": {
+   "original": "station and ward names",
+   "questioned": "station and ward names",
+   "note": "same on both"
+  },
+  "p46_change25": {
+   "original": "printed labels",
+   "questioned": "printed labels",
+   "note": "same on both"
+  },
+  "p46_change28": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p46_change38": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C43": {
+  "p125_change39": {
+   "original": "header",
+   "questioned": "header",
+   "note": "printed header band, same on both"
+  },
+  "p125_change41": {
+   "original": "header",
+   "questioned": "header",
+   "note": "printed header band, same on both"
+  },
+  "p125_change43": {
+   "original": "header",
+   "questioned": "header",
+   "note": "printed header band, same on both"
+  },
+  "p125_change44": {
+   "original": "printed labels",
+   "questioned": "printed labels",
+   "note": "printed labels faded on the copy"
+  },
+  "p125_change46": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p125_change47": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ },
+ "C44": {
+  "p126_change01": {
+   "original": "blank",
+   "questioned": "blank",
+   "note": "a dot on the copy over blank ruled lines; no entry"
+  }
+ },
+ "C48": {
+  "p130_change01": {
+   "original": "(01)",
+   "questioned": "(01)",
+   "note": "a dot on the copy inside the entry"
+  },
+  "p130_change02": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p130_change03": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p130_change04": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change02": {
+   "original": "256",
+   "questioned": "176",
+   "field": "the total number of valid votes cast in the polling station counts"
+  },
+  "p131_change07": {
+   "original": "195",
+   "questioned": "115",
+   "field": "the votes of William Ruto"
+  },
+  "p131_change08": {
+   "original": "256",
+   "questioned": "176",
+   "field": "the total number of valid votes cast"
+  },
+  "p131_change09": {
+   "original": "declaration text",
+   "questioned": "declaration text",
+   "note": "same on both"
+  },
+  "p131_change10": {
+   "original": "declaration text",
+   "questioned": "declaration text",
+   "note": "same on both"
+  },
+  "p131_change16": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change18": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change19": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change20": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change22": {
+   "original": "agent names",
+   "questioned": "agent names",
+   "note": "same on both"
+  },
+  "p131_change23": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change24": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change25": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change28": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  },
+  "p131_change29": {
+   "original": "stamp and dates",
+   "questioned": "stamp and dates",
+   "note": "same on both"
+  },
+  "p131_change30": {
+   "original": "same",
+   "questioned": "same",
+   "note": "reads the same on both"
+  }
+ }
+}
