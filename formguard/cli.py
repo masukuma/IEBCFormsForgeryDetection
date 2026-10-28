@@ -111,7 +111,8 @@ def cmd_readings(a: argparse.Namespace) -> int:
         print("OLLAMA_API_KEY is not set", file=sys.stderr)
         return 2
     existing = json.loads(Path(a.out).read_text()) if Path(a.out).exists() else None
-    out = read_all(Path(a.results), confirm=a.confirm, existing=existing, save_to=Path(a.out))
+    only = json.loads(Path(a.only).read_text()) if a.only else None
+    out = read_all(Path(a.results), confirm=a.confirm, existing=existing, save_to=Path(a.out), only=only)
     Path(a.out).write_text(json.dumps(out, indent=2))
     print(json.dumps(out["_usage"], indent=2), file=sys.stderr)
     return 0
@@ -180,6 +181,7 @@ def main(argv: list[str] | None = None) -> int:
     r.add_argument("results", help="results.json written by 'cases'")
     r.add_argument("--out", required=True, help="readings JSON (existing entries are kept)")
     r.add_argument("--confirm", action="store_true", help="also get an independent second reading from the next model up")
+    r.add_argument("--only", help="JSON {case id: [evidence names]}: read only these figures")
     r.set_defaults(fn=cmd_readings)
 
     f = sub.add_parser("affidavit", help="draft an affidavit (DOCX + Markdown) from case results")

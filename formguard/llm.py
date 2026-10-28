@@ -114,14 +114,47 @@ READ_PROMPT = (
     "left (under the word 'original') and a QUESTIONED copy on the right (under 'submission'). "
     "Transcribe the handwritten numbers in each panel exactly as written, including leading zeros, "
     "top to bottom, comma-separated. Ignore printed words and ruled lines. Do not correct, infer or "
-    "complete anything. If any number is not clearly legible, set legible to false."
+    "complete anything. If any number in either panel is not clearly legible, set legible to false. "
+    'Reply with this JSON object and nothing else: {"original": "<left panel numbers>", '
+    '"questioned": "<right panel numbers>", "legible": true}'
 )
+# What some models return instead of the JSON asked for: the right panel under its label
+# ("submission"), or one "panel: numbers, legible: true" line per panel.
+_ALIASES = {"submission": "questioned", "copy": "questioned", "questioned_copy": "questioned", "left": "original", "right": "questioned"}
+_LINE = re.compile(r"^\s*(original|questioned|submission)\s*[:=]\s*([\d\s,]*\d)\s*(?:[,;]\s*legible\s*[:=]\s*(true|false))?\s*$", re.I)
+_LEGIBLE = re.compile(r"^\s*legible\s*[:=]\s*(true|false)\s*$", re.I)
 
 
 def _unfence(text: str) -> str:
     """Some models wrap JSON in a ```json fence even when a format is requested."""
     m = re.match(r"^\s*```(?:json)?\s*(.*?)\s*```\s*$", text, re.DOTALL)
     return m.group(1) if m else text
+
+
+def _parse_reading(text: str) -> dict:
+    """The model's answer as {"original", "questioned", "legible"}; raises ValueError if it is neither
+    the JSON asked for nor one plain "panel: numbers" line per panel."""
+    text = _unfence(text)
+    try:
+        r = json.loads(text)
+    except ValueError:
+        r, flags = {}, []
+        for line in text.splitlines():
+            if m := _LINE.match(line):
+                r[_ALIASES.get(m.group(1).lower(), m.group(1).lower())] = m.group(2)
+                if m.group(3):
+                    flags.append(m.group(3).lower() == "true")
+            elif m := _LEGIBLE.match(line):
+                flags.append(m.group(1).lower() == "true")
+            elif line.strip():
+                raise
+        if set(r) != {"original", "questioned"}:
+            raise
+        r["legible"] = bool(flags) and all(flags)
+        return r
+    if isinstance(r, dict):
+        r = {_ALIASES.get(k.lower(), k.lower()): v for k, v in r.items()}
+    return r
 
 
 def _valid_reading(r) -> bool:
@@ -136,7 +169,7 @@ def read_figures(tile_png: bytes, confirm: bool = False) -> dict | None:
     img = base64.b64encode(tile_png).decode()
 
     def call(model):
-        return json.loads(_unfence(chat(model, [{"role": "user", "content": READ_PROMPT, "images": [img]}], fmt=READ_SCHEMA, task="read")))
+        return _parse_reading(chat(model, [{"role": "user", "content": READ_PROMPT, "images": [img]}], fmt=READ_SCHEMA, task="read"))
 
     result, model, failures = _ladder(VISION_LADDER, "read", call, _valid_reading)
     if result is None:

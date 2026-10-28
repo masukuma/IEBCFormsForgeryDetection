@@ -99,8 +99,14 @@ blur means a different number in the same cell slips through. So pages are compa
    re-typed with the same value (Mbalambala: `189` moved from right-aligned to centred) is still
    caught, because its glyphs moved. OCR then marks it as "value unchanged".
 6. **Locate the results table** from its long horizontal rules, found at any slant with a Hough
-   transform (line intersections as a fallback). Changes to entries inside it are alterations;
-   changes elsewhere (headers, stamps, signatures) are reported for review.
+   transform (line intersections as a fallback). A rule must be a thin, solid line with paper on
+   both sides: a line of bold text, the curled edge of a booklet page and the edge of a printed band
+   are not rules. Changes to entries inside the table are alterations; changes elsewhere (headers,
+   stamps, signatures) are reported for review.
+7. **Two tiers.** A figure scoring below 0.5 differs. A figure scoring 0.5 to 0.65 *may* differ: a
+   3 made from an 8 scores about 0.57 against it, and so do some areas of clean photographed copies.
+   Such figures get evidence images too, and count as differing only when they read differently on
+   the two images.
 
 ### 2.2.1 Photographs of printouts
 Annexures to affidavits are photographs of printed copies, often printed again into the court
@@ -121,7 +127,14 @@ bundle. Three things on such copies look like changes but are not, and are handl
   on blank paper*, separately from changes to entries.
 
 Long straight strokes (cross-out lines through unused table space, broken rules) are treated like
-ruling. Calibration on six photographed pages of three polling stations (each original against
+ruling. An original stored upside down (one KIEMS upload in 48) is turned upright first, judged by
+how the other forms of its type register onto it, so that its evidence images read the right way up.
+
+**Capture provenance on printouts.** The background beyond the sheet is measured on the area the
+copy's image covers (not on the paper mask used for the entries, which excludes it). On photographs
+of printouts the test is one-sided: pages captioned "IEBC PORTAL", which are copies of the portal
+image by their own caption, scored from 0.07 to 0.60. A score of 0.5 or more shows a shared
+photograph; a lower score does not show a separate one. Calibration on six photographed pages of three polling stations (each original against
 a portal printout and an agent copy): every changed figure scored between −0.11 and 0.44, and every
 area of a clean copy 0.54 or more, against a threshold of 0.5.
 

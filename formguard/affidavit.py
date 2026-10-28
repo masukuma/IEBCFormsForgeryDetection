@@ -101,6 +101,8 @@ def exhibit_facts(case: dict, rep: dict, readings: dict) -> dict:
                 "read_by": r.get("by"),
                 "field": r.get("field"),
                 "clear": c.get("clear", True),
+                "model_agrees": r.get("model_agrees"),
+                "model_reading": (f"{r['model']['original']} on the original and {r['model']['questioned']} on the page" if r.get("model") else None),
             }
         )
     page = (rep.get("pages") or [{}])[0]
@@ -167,6 +169,27 @@ def _count(n: int, noun: str) -> str:
     return f"{word} {noun}" + ("" if n == 1 else "s")
 
 
+def _num(x: float) -> str:
+    """0.48, \u22120.13; never \u22120.00."""
+    s = f"{x:.2f}"
+    return "0.00" if s == "-0.00" else s.replace("-", "\u2212")
+
+
+def _claim(claim: dict) -> str | None:
+    """What the questioned affidavit says about a station, or how it presents the station's pages."""
+    if claim.get("sentence"):
+        return "THAT " + claim["sentence"]
+    if claim.get("text"):
+        return f"THAT the affidavit of {claim.get('by', '[DEPONENT]')} states at {claim.get('where', '[REFERENCE]')} that {claim['text']}"
+    return None
+
+
+def _field_order(d: dict) -> tuple:
+    """Candidates' votes before totals, so each station's figures are listed the same way."""
+    field = d.get("field") or ""
+    return (not field.startswith("the votes of"), field)
+
+
 def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
     cap = f", captioned \"{f['caption']}\"," if f["caption"] else ""
     text = f"THAT the page at {f['label']}{cap} shows this form."
@@ -177,39 +200,49 @@ def _exhibit_sentence(case: dict, f: dict, mark: str | None) -> str:
         f"{f['marks_reproduced_pct']:.0f}% of its {f['marks_compared']:,} marks in place."
     )
     if f["background_measurable"]:
-        text += f" The background beyond the edge of the sheet correlates with that of the original at {f['background_correlation']:.2f}."
-    if f.get("marks_added_elsewhere"):
-        text += " Marks added to the copy, such as its caption, page number and stamps, change none of its entries."
+        text += f" The background beyond the edge of the sheet correlates with that of the original at {_num(f['background_correlation'])}."
     q = f.get("glyph_similarity_median")
     if q is not None and q < 0.85:
         text += (
-            f" The page is degraded. The median similarity of its marks is {q:.2f}, below the 0.85 I require for a "
+            f" The page is degraded. The median similarity of its marks is {_num(q)}, below the 0.85 I require for a "
             f"complete comparison, so some differences may not be visible."
         )
     diffs = f["differences_in_results"]
     same = [d for d in diffs if d["original_reads"] and d["original_reads"] == d["questioned_reads"]]
-    changed = [d for d in diffs if d not in same]
+    changed = sorted(_differing(f), key=_field_order)
     if not changed:
         text += " Its entries agree with those of the original."
     else:
         shown = f", shown in annexure {mark}" if mark else ""
         text += f" It differs from the original in {_count(len(changed), 'figure')}{shown}."
         for d in changed:
+            sim = _num(d["similarity"])
             if d["original_reads"] and d["questioned_reads"]:
                 what = f"The figure for {d['field']}" if d.get("field") else "A figure"
-                text += f" {what} reads {d['original_reads']} on the original and {d['questioned_reads']} on the page."
-        sims = _and([f"{d['similarity']:.2f}".replace("-", "\u2212") for d in changed])
-        text += f" {'Its measured similarity is' if len(changed) == 1 else 'Their measured similarities are'} {sims}, against the threshold of 0.5."
+                text += f" {what} reads {d['original_reads']} on the original and {d['questioned_reads']} on the page, with a similarity of {sim}."
+            else:
+                text += f" A further figure differs, with a similarity of {sim}."
+            if not d.get("clear", True):
+                text += " That similarity is in the range where I rely on the reading."
+            if d.get("model_agrees") is False:
+                text += f" The second reader read it as {d['model_reading']}."
     if same:
-        text += (
-            f" In {_count(len(same), 'further place')} the similarity fell below the threshold, but the entry reads the "
-            f"same on both. I attribute {'this' if len(same) == 1 else 'these'} to the quality of the copy or to marks on it."
-        )
+        n = _count(len(same), "mark")
+        n = ("a further mark" if len(same) == 1 else f"a further {n}") if changed else n
+        text += f" {n[0].upper()}{n[1:]} scored below 0.65 but {'reads' if len(same) == 1 else 'read'} the same on both images."
     return text
 
 
+PROVENANCE_SHORT = {"same_capture": "made from the portal photograph", "same_sheet": "shows the same sheet"}  # summary table
+
+
+def _differing(f: dict) -> list[dict]:
+    """The differences of exhibit_facts that remain once read: a figure that reads the same on both is not one."""
+    return [d for d in f["differences_in_results"] if not (d["original_reads"] and d["original_reads"] == d["questioned_reads"])]
+
+
 def _opinion(case: dict, f: dict) -> str | None:
-    changed = [d for d in f["differences_in_results"] if not (d["original_reads"] and d["original_reads"] == d["questioned_reads"])]
+    changed = _differing(f)
     if not f["matched"] or not changed:
         return None
     if f["provenance_finding"] == "same_capture":
@@ -265,8 +298,9 @@ METHOD = [
     "I recorded the SHA-256 hash value of each original and validated its digital signature, which shows whether the file "
     "has changed since it was signed. The Forms 34A on the portal are signed when transmitted from the KIEMS kit, with a "
     "certificate issued by \"CA_APPS\" of Smartmatic International and the SHA-1 digest.",
-    "The figures I quote in my findings were read from the side-by-side images, and I state who read each of them. The "
-    "finding that a figure differs does not depend on how it is read.",
+    "The figures I quote in my findings were read from the side-by-side images twice: by me, and independently by a vision "
+    "language model run through Ollama Cloud. Where the two readings differ, I say so. The finding that a figure differs "
+    "does not depend on how it is read.",
 ]
 
 LIMITS = [
@@ -284,16 +318,18 @@ LIMITS = [
 
 def _plain_title(title: str) -> str:
     """'X polling station 1 of 1 (Tiaty Constituency, Baringo County)' -> 'X polling station 1 of 1, Tiaty Constituency, Baringo County'."""
+    title = re.sub(r"'([A-Z])(?=[a-z])", lambda m: "'" + m.group(1).lower(), title)  # Kong'Or -> Kong'or
     return re.sub(r"\s*\((.*)\)\s*$", r", \1", title)
 
 
-def annexure_marks(results: dict, prefix: str) -> dict[str, str]:
-    """One annexure per polling station whose pages differ from the original; the software is annexure 1."""
+def annexure_marks(results: dict, prefix: str, readings: dict | None = None) -> dict[str, str]:
+    """One annexure per polling station with a figure that differs from the original; the software is annexure 1."""
+    readings = readings or {}
     marks, k = {}, 1
     for c in results["cases"]:
         if "error" in c:
             continue
-        if any(_changes(rep) for rep in c["exhibit_results"]):
+        if any(_differing(exhibit_facts(c, rep, readings.get(c["id"], {}))) for rep in c["exhibit_results"]):
             k += 1
             marks[c["id"]] = f"{prefix}-{k}"
     return marks
@@ -304,7 +340,7 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
     readings = readings or {}
     prefix = deponent.get("initials", "[XX]")
     software = f"{prefix}-1"
-    marks = annexure_marks(results, prefix)
+    marks = annexure_marks(results, prefix, readings)
     d = Doc()
     for line in matter.get("heading", ["REPUBLIC OF KENYA", "IN THE SUPREME COURT OF KENYA AT NAIROBI"]):
         d.center(line, bold=True)
@@ -341,9 +377,9 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
     for c in cases:
         for rep in c["exhibit_results"]:
             f = exhibit_facts(c, rep, readings.get(c["id"], {}))
-            changed = [x for x in f["differences_in_results"] if not (x["original_reads"] and x["original_reads"] == x["questioned_reads"])]
+            changed = _differing(f)
             result = "not matched" if not f["matched"] else ("agrees with the original" if not changed else _count(len(changed), "figure") + " differ" + ("s" if len(changed) == 1 else ""))
-            made = {"same_capture": "from the portal photograph", "same_sheet": "from an image of the same sheet"}.get(f["provenance_finding"] or "", "") if changed else ""
+            made = PROVENANCE_SHORT.get(f["provenance_finding"] or "", "not determined") if changed else ""
             rows.append([_plain_title(c["title"]).split(",")[0], f["label"], f["caption"] or "none", result, made])
     d.para(f"THAT I examined the annexed pages for {len(cases)} polling stations. I summarise my findings in the following table and set them out station by station in the paragraphs after it.")
     d.table(["Polling station", "Annexed page", "Caption", "Result", "How the page was made"], rows)
@@ -351,9 +387,9 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
     d.heading("FINDINGS FOR EACH POLLING STATION")
     for c in cases:
         d.heading(_plain_title(c["title"]), level=2)
-        claim = c.get("claim") or {}
-        if claim.get("text"):
-            d.para(f"THAT {claim.get('by', 'the deponent')} states at {claim.get('where', '[REFERENCE]')} that {claim['text']}")
+        claim = _claim(c.get("claim") or {})
+        if claim:
+            d.para(claim)
         d.para(_that(_sig_sentence(c)))
         for rep in c["exhibit_results"]:
             f = exhibit_facts(c, rep, readings.get(c["id"], {}))
@@ -398,15 +434,16 @@ def build(results: dict, deponent: dict, readings: dict | None = None, use_llm: 
 # ---------------------------------------------------------------------------------------------
 # rendering
 
-def add_evidence(d: Doc, results: dict, run_dir: Path, prefix: str = "[XX]"):
-    marks = annexure_marks(results, prefix)
+def add_evidence(d: Doc, results: dict, run_dir: Path, prefix: str = "[XX]", readings: dict | None = None):
+    readings = readings or {}
+    marks = annexure_marks(results, prefix, readings)
     for c in results["cases"]:
         if c.get("id") not in marks:
             continue
         d.heading(f"Annexure {marks[c['id']]}: {_plain_title(c['title'])}", level=2)
         for rep in c["exhibit_results"]:
             ev = run_dir / rep["evidence_dir"]
-            for ch in _changes(rep):
+            for ch in sorted(_differing(exhibit_facts(c, rep, readings.get(c["id"], {}))), key=_field_order):
                 if ch.get("evidence"):
                     d.image(ev / ch["evidence"], f"{rep['exhibit']['label']}: original (left) and annexed page (right)", width_in=4.5)
 
@@ -508,7 +545,7 @@ def write(results_path: Path, deponent: dict, out_stem: Path, readings_path: Pat
     results = json.loads(Path(results_path).read_text())
     readings = json.loads(Path(readings_path).read_text()) if readings_path else {}
     d = build(results, deponent, readings, use_llm=use_llm)
-    add_evidence(d, results, Path(results_path).parent, deponent.get("initials", "[XX]"))
+    add_evidence(d, results, Path(results_path).parent, deponent.get("initials", "[XX]"), readings)
     md, docx = out_stem.with_suffix(".md"), out_stem.with_suffix(".docx")
     md.write_text(to_markdown(d))
     to_docx(d, docx)

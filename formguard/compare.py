@@ -446,8 +446,9 @@ def compare_pages(
     cover |= cv2.dilate(bold.astype(np.uint8), np.ones((4 * BOLD + 1, 4 * BOLD + 1), np.uint8)) > 0
     regions = []
     for group in groups.values():
-        if all(s[4] >= report_below for s in group):
-            continue
+        merged = any(s[3] > 1.6 * wh or s[2] > 3 * ww for s in group)  # figures that touch form one glyph
+        if all(s[4] >= report_below for s in group) and not merged:
+            continue  # a changed digit inside a merged glyph barely lowers its score: always window it
         x, y = min(s[0] for s in group), min(s[1] for s in group)
         w, h = max(s[0] + s[2] for s in group) - x, max(s[1] + s[3] for s in group) - y
         shift = local_shift(sa, sb, x, y, x + w, y + h)
@@ -457,6 +458,8 @@ def compare_pages(
                 box = (max(0, wx), max(0, wy), min(W, wx + ww), min(H, wy + wh))
                 if inside is not None and inside[box[1] : box[3], box[0] : box[2]].mean() < 0.99:
                     continue  # reaches beyond the comparable part of the page
+                if int(glyph[box[1] + SHIFT : box[3] - SHIFT, box[0] + SHIFT : box[2] - SHIFT].sum()) < MIN_GLYPH_INK:
+                    continue  # only ruling, or ink at the edge that a neighbouring window centres on
                 sim, ka, kb = measure(*box, *shift)
                 if max(ka, kb) >= MIN_GLYPH_INK and sim < report_below:
                     members.append((sim, ka, kb))
